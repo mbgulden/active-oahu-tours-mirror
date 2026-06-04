@@ -12,3 +12,7 @@
 # .html extension → clean URL (Cloudflare Pages handles this automatically, but explicit is safer)
 /contact-us.html /contact-us/ 301
 /activities.html /activities/ 301
+/trip-cancellation-insurance-terms-and-conditions /trip-cancellation-insurance-terms-and-conditions.html 200
+
+# 404 catch-all — serve 404.html for any unmatched route
+/* /404.html 404
