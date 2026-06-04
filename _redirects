@@ -1,3 +1,6 @@
+# Reviews pagination
+/reviews /reviews/ 301
+/reviews/page/1/ /reviews/ 301
 
 # Old/missing slug redirects
 /chinamans-hat-kayak-tour/* /activities/chinamans-hat-oahu-kayak-tours/:splat 301
