@@ -1,0 +1,14 @@
+# Active Oahu Tours — Cloudflare Pages Redirects
+# Format: source target status
+
+# Review detail pages → review listing
+/reviews/* /reviews/ 301
+
+# WordPress dynamic pages
+/job-edit/ /join-the-team/ 301
+/job-submit/ /join-the-team/ 301
+/category/kayaking-experiences/ /oahu-kayaking-and-beach-adventures/ 301
+
+# .html extension → clean URL (Cloudflare Pages handles this automatically, but explicit is safer)
+/contact-us.html /contact-us/ 301
+/activities.html /activities/ 301
