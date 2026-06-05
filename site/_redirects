@@ -14,5 +14,13 @@
 /activities.html /activities/ 301
 /trip-cancellation-insurance-terms-and-conditions /trip-cancellation-insurance-terms-and-conditions.html 200
 
-# 404 catch-all — serve 404.html for any unmatched route
+# Legacy WordPress slugs → new static paths
+/about/*            /about-active-oahu-tours/:301
+/about-us/*         /about-active-oahu-tours/:301
+/about-active-oahu/* /about-active-oahu-tours/:301
+/contact/*          /contact-us/:301
+/cancellation/*     /cancellation-policy/:301
+/privacy/*          /privacy-policy/:301
+
+# 404 catch-all — MUST BE LAST
 /* /404.html 404
