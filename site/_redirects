@@ -1,9 +1,6 @@
 # Active Oahu Tours — Cloudflare Pages Redirects
 # Format: source target status
 
-# Review detail pages → review listing
-/reviews/* /reviews/ 301
-
 # WordPress dynamic pages
 /job-edit/ /join-the-team/ 301
 /job-submit/ /join-the-team/ 301
@@ -15,12 +12,16 @@
 /trip-cancellation-insurance-terms-and-conditions /trip-cancellation-insurance-terms-and-conditions.html 200
 
 # Legacy WordPress slugs → new static paths
-/about/*            /about-active-oahu-tours/:301
-/about-us/*         /about-active-oahu-tours/:301
-/about-active-oahu/* /about-active-oahu-tours/:301
-/contact/*          /contact-us/:301
-/cancellation/*     /cancellation-policy/:301
-/privacy/*          /privacy-policy/:301
+/about/*            /about-active-oahu-tours/ 301
+/about-us/*         /about-active-oahu-tours/ 301
+/about-active-oahu/* /about-active-oahu-tours/ 301
+/contact/*          /contact-us/ 301
+/cancellation/*     /cancellation-policy/ 301
+/privacy/*          /privacy-policy/ 301
+
+# FareHarbor booking shortcuts
+/book               https://fareharbor.com/embeds/book/activeoahutours/ 301
+/reserve            https://fareharbor.com/embeds/book/activeoahutours/ 301
 
 # 404 catch-all — MUST BE LAST
 /* /404.html 404
