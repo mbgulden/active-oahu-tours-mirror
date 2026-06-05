@@ -296,31 +296,48 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown toggle - vanilla JS
+// Nav dropdown toggle - vanilla JS (Safari-compatible)
 document.addEventListener('DOMContentLoaded', function() {
-  // Hide all sub-menus on load (CSS override workaround)
-  document.querySelectorAll('.sub-menu').forEach(function(s) {
-    s.style.display = 'none';
-  });
-  document.querySelectorAll('.menu-item-has-children > a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
+  var subs = document.querySelectorAll('.sub-menu');
+  for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  
+  var links = document.querySelectorAll('.menu-item-has-children > a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function(e) {
       var li = this.parentElement;
-      var sub = li.querySelector(':scope > .sub-menu');
+      var children = li.children;
+      var sub = null;
+      for (var j = 0; j < children.length; j++) {
+        if (children[j].classList.contains('sub-menu')) { sub = children[j]; break; }
+      }
       if (sub) {
         e.preventDefault();
         var isVisible = sub.style.display !== 'none';
-        li.parentElement.querySelectorAll(':scope > .menu-item-has-children > .sub-menu').forEach(function(s) {
-          if (s !== sub) s.style.display = 'none';
-        });
+        var parent = li.parentElement;
+        var siblingLis = parent.children;
+        for (var k = 0; k < siblingLis.length; k++) {
+          var sibChildren = siblingLis[k].children;
+          for (var l = 0; l < sibChildren.length; l++) {
+            if (sibChildren[l] !== sub && sibChildren[l].classList.contains('sub-menu')) {
+              sibChildren[l].style.display = 'none';
+            }
+          }
+        }
         sub.style.display = isVisible ? 'none' : 'block';
       }
     });
-  });
+  }
+  
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('.menu-item-has-children')) {
-      document.querySelectorAll('.sub-menu').forEach(function(s) {
-        s.style.display = 'none';
-      });
+    var target = e.target;
+    var inMenu = false;
+    while (target) {
+      if (target.classList && target.classList.contains('menu-item-has-children')) { inMenu = true; break; }
+      target = target.parentElement;
+    }
+    if (!inMenu) {
+      var allSubs = document.querySelectorAll('.sub-menu');
+      for (var i = 0; i < allSubs.length; i++) { allSubs[i].style.display = 'none'; }
     }
   });
 });
