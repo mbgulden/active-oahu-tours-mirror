@@ -207,6 +207,34 @@ jQuery(document).ready(function($) {
 });
 </script>
 <style>.sub-menu{display:none}</style>
+<script>
+// Nav dropdown toggle - vanilla JS
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.menu-item-has-children > a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var li = this.parentElement;
+      var sub = li.querySelector(':scope > .sub-menu');
+      if (sub) {
+        e.preventDefault();
+        var isVisible = sub.style.display !== 'none';
+        // Close siblings
+        li.parentElement.querySelectorAll(':scope > .menu-item-has-children > .sub-menu').forEach(function(s) {
+          if (s !== sub) s.style.display = 'none';
+        });
+        sub.style.display = isVisible ? 'none' : 'block';
+      }
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.menu-item-has-children')) {
+      document.querySelectorAll('.sub-menu').forEach(function(s) {
+        s.style.display = 'none';
+      });
+    }
+  });
+});
+</script>
 </head>
 <body class="wp-singular rentals-template-default single single-rentals postid-1169 wp-theme-activeoahu">
   <div id="page" class="hfeed site">

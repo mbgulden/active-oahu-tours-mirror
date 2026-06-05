@@ -187,22 +187,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .sub-menu { display: none; }
 </style>
 <script>
-// Nav dropdown toggle - replaces missing Bootstrap/WP nav JS
-jQuery(document).ready(function($) {
-  // Sub-menu toggle on click for touch/mobile, hover for desktop
-  $('.menu-item-has-children > a').on('click', function(e) {
-    var $li = $(this).closest('.menu-item-has-children');
-    var $sub = $li.children('.sub-menu');
-    if ($sub.length) {
-      e.preventDefault();
-      $sub.toggle();
-      $li.siblings().children('.sub-menu').hide();
-    }
+// Nav dropdown toggle - vanilla JS
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.menu-item-has-children > a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var li = this.parentElement;
+      var sub = li.querySelector(':scope > .sub-menu');
+      if (sub) {
+        e.preventDefault();
+        var isVisible = sub.style.display !== 'none';
+        li.parentElement.querySelectorAll(':scope > .menu-item-has-children > .sub-menu').forEach(function(s) {
+          if (s !== sub) s.style.display = 'none';
+        });
+        sub.style.display = isVisible ? 'none' : 'block';
+      }
+    });
   });
-  // Close sub-menus when clicking outside
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest('.menu-item-has-children').length) {
-      $('.sub-menu').hide();
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.menu-item-has-children')) {
+      document.querySelectorAll('.sub-menu').forEach(function(s) {
+        s.style.display = 'none';
+      });
     }
   });
 });
