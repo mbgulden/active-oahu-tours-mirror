@@ -84,6 +84,25 @@
 <script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Article","headline":"Kaneohe Sandbar Tide Calendar — Best Times to Visit","description":"Plan your trip to Kaneohe Bay Sandbar with our tide calendar guide. Learn how tides affect sandbar exposure, the best times for wading, and tips for private recreational boaters.","author":{"@type":"Organization","name":"Active Oahu, LLC"},"publisher":{"@type":"Organization","name":"Active Oahu, LLC","logo":{"@type":"ImageObject","url":"\/wp-content\/uploads\/2019\/06\/Active-Oahu-Logo.jpg"}},"datePublished":"2026-06-01","dateModified":"2026-06-01","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/activeoahutours.com\/kaneohe-bay-sandbar-tide-guide\/"}}</script>
 <!-- build: 1780339711.2951758 -->
 <!-- fp:935be793:kaneohe-bay-sandbar-tide-guide/index.html -->
+<script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<style>.sub-menu{display:none}</style>
 </head>
 <body class="wp-singular page-template-default page wp-theme-activeoahu">
   <div id="page" class="hfeed site">

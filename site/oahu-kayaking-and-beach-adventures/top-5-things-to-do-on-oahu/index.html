@@ -182,6 +182,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 	<meta name="description" content="The top 5 must-do activities on Oahu: kayak to the Mokulua Islands, hike the Lanikai pillboxes, snorkel Sharks Cove, e-bike Kailua, and surf the North Shore." />
 	<meta property="og:image" content="/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg" />
+<script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<style>.sub-menu{display:none}</style>
 </head>
 <body class="wp-singular page-template-default page page-id-4299 page-child parent-pageid-2564 wp-theme-activeoahu">
   <div id="page" class="hfeed site">

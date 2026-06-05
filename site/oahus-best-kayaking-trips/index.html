@@ -147,7 +147,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-192x192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-180x180.png" />
 
-  </head>
+  <script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<style>.sub-menu{display:none}</style>
+</head>
 
   <body class="wp-singular page-template page-template-page-affiliate-lp page-template-page-affiliate-lp-php page page-id-3198 wp-theme-activeoahu">
     <div id="page" class="hfeed site">

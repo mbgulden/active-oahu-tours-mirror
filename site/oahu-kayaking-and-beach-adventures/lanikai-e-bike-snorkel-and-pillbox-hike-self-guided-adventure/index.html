@@ -262,6 +262,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
+<script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<style>.sub-menu{display:none}</style>
 </head>
 <body class="wp-singular page-template-default page page-id-4309 page-child parent-pageid-2564 wp-theme-activeoahu">
   <div id="page" class="hfeed site">

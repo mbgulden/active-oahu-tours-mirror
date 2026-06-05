@@ -186,6 +186,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type='application/ld+json'>{"@context": "https://schema.org", "@type": "ItemList", "name": "Oahu Kayak Tours & Activities", "description": "All guided and self-guided kayak tours from Active Oahu", "numberOfItems": 8, "itemListElement": [{"@type": "TouristTrip", "position": 1, "name": "Sharks Cove Snorkeling", "url": "https://activeoahutours.com/sharks-cove-snorkeling/"}, {"@type": "TouristTrip", "position": 2, "name": "Kailua Kayak \u2014 Mokulua Islands", "url": "https://activeoahutours.com/kayak-kailua/"}, {"@type": "TouristTrip", "position": 3, "name": "Chinaman's Hat (Mokoli\u02bbi) Kayak", "url": "https://activeoahutours.com/chinamans-hat/"}, {"@type": "TouristTrip", "position": 4, "name": "Kaneohe Sandbar Kayak", "url": "https://activeoahutours.com/kaneohe-sandbar/"}, {"@type": "TouristTrip", "position": 5, "name": "Self-Guided Tours Overview", "url": "https://activeoahutours.com/self-guided/"}, {"@type": "TouristTrip", "position": 6, "name": "Guided Tours Overview", "url": "https://activeoahutours.com/guided-tours/"}, {"@type": "TouristTrip", "position": 7, "name": "Mokoli\u02bbi Island Kayak", "url": "https://activeoahutours.com/mokolii/"}, {"@type": "TouristTrip", "position": 8, "name": "Kailua Kayak Tours & Rentals", "url": "https://activeoahutours.com/kailua-kayak/"}]}</script>
 <!-- build: 1780339711.2951758 -->
 <!-- fp:935be793:tours/index.html -->
+<script>
+jQuery(document).ready(function($) {
+  $('.menu-item-has-children > a').on('click', function(e) {
+    var $li = $(this).closest('.menu-item-has-children');
+    var $sub = $li.children('.sub-menu');
+    if ($sub.length) {
+      e.preventDefault();
+      $sub.toggle();
+      $li.siblings().children('.sub-menu').hide();
+    }
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.menu-item-has-children').length) {
+      $('.sub-menu').hide();
+    }
+  });
+});
+</script>
+<style>.sub-menu{display:none}</style>
 </head>
 <body class="home wp-singular page-template-default page page-id-2389 wp-theme-activeoahu">
   <div id="page" class="hfeed site">
