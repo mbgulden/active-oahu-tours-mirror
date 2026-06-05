@@ -205,73 +205,72 @@ jQuery(document).ready(function($) {
   });
 });
 </script>
-<style>.sub-menu{display:none}</style>
+<style>.sub-menu{display:none}
+.main-navigation ul{overflow:hidden;max-height:0;transition:max-height 0.35s ease-out}
+.main-navigation.toggled ul{max-height:2000px;transition:max-height 0.5s ease-in}
+@media screen and (min-width:37.5em){.main-navigation ul{max-height:none;overflow:visible}}</style>
 <script>
 // Nav dropdown + mobile menu toggle
-   191|document.addEventListener('DOMContentLoaded', function() {
-   192|  // --- Mobile menu toggle ---
-   193|  var toggleBtn = document.querySelector('.menu-toggle');
-   194|  var primaryMenu = document.getElementById('primary-menu');
-   195|  if (toggleBtn && primaryMenu) {
-   196|    toggleBtn.addEventListener('click', function(e) {
-   197|      e.preventDefault();
-   198|      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-   199|      toggleBtn.setAttribute('aria-expanded', expanded);
-   200|      if (primaryMenu.style.display === 'block') {
-   201|        primaryMenu.style.display = '';
-   202|      } else {
-   203|        primaryMenu.style.display = 'block';
-   204|      }
-   205|    });
-   206|  }
-   207|
-   208|  // --- Sub-menu show/hide ---
-   209|  var subs = document.querySelectorAll('.sub-menu');
-   210|  for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-   211|  
-   212|  function closeSiblings(li, keep) {
-   213|    var parent = li.parentNode;
-   214|    for (var i = 0; i < parent.children.length; i++) {
-   215|      var sib = parent.children[i];
-   216|      if (sib !== li) {
-   217|        var sibSub = sib.querySelector('.sub-menu');
-   218|        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-   219|      }
-   220|    }
-   221|  }
-   222|  
-   223|  var links = document.querySelectorAll('.menu-item-has-children > a');
-   224|  for (var i = 0; i < links.length; i++) {
-   225|    (function(link) {
-   226|      link.addEventListener('click', function(e) {
-   227|        var li = link.parentNode;
-   228|        var sub = null;
-   229|        for (var j = 0; j < li.children.length; j++) {
-   230|          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-   231|        }
-   232|        if (sub) {
-   233|          e.preventDefault();
-   234|          closeSiblings(li, sub);
-   235|          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-   236|        }
-   237|      });
-   238|    })(links[i]);
-   239|  }
-   240|  
-   241|  document.addEventListener('click', function(e) {
-   242|    var el = e.target;
-   243|    var inMenu = false;
-   244|    while (el) {
-   245|      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-   246|      el = el.parentNode;
-   247|    }
-   248|    if (!inMenu) {
-   249|      var all = document.querySelectorAll('.sub-menu');
-   250|      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-   251|    }
-   252|  });
-   253|});
-   254|
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Mobile menu toggle (WordPress _s theme pattern) ---
+  var navContainer = document.getElementById('site-navigation');
+  var toggleBtn = document.querySelector('.menu-toggle');
+  if (navContainer && toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      navContainer.classList.toggle('toggled');
+      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+      toggleBtn.setAttribute('aria-expanded', expanded);
+    });
+  }
+
+  // --- Sub-menu show/hide ---
+  var subs = document.querySelectorAll('.sub-menu');
+  for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  
+  function closeSiblings(li, keep) {
+    var parent = li.parentNode;
+    for (var i = 0; i < parent.children.length; i++) {
+      var sib = parent.children[i];
+      if (sib !== li) {
+        var sibSub = sib.querySelector('.sub-menu');
+        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
+      }
+    }
+  }
+  
+  var links = document.querySelectorAll('.menu-item-has-children > a');
+  for (var i = 0; i < links.length; i++) {
+    (function(link) {
+      link.addEventListener('click', function(e) {
+        var li = link.parentNode;
+        var sub = null;
+        for (var j = 0; j < li.children.length; j++) {
+          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
+        }
+        if (sub) {
+          e.preventDefault();
+          closeSiblings(li, sub);
+          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
+        }
+      });
+    })(links[i]);
+  }
+  
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    var inMenu = false;
+    while (el) {
+      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
+      el = el.parentNode;
+    }
+    if (!inMenu) {
+      var all = document.querySelectorAll('.sub-menu');
+      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
+    }
+  });
+});
+
 </script>
 </head>
 <body class="wp-singular page-template-default page page-id-4286 page-child parent-pageid-2564 wp-theme-activeoahu">
