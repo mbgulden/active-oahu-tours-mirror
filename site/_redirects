@@ -1,27 +1,51 @@
-# Active Oahu Tours — Cloudflare Pages Redirects
-# Format: source target status
-
-# WordPress dynamic pages
-/job-edit/ /join-the-team/ 301
-/job-submit/ /join-the-team/ 301
-/category/kayaking-experiences/ /oahu-kayaking-and-beach-adventures/ 301
-
-# .html extension → clean URL (Cloudflare Pages handles this automatically, but explicit is safer)
-/contact-us.html /contact-us/ 301
-/activities.html /activities/ 301
-/trip-cancellation-insurance-terms-and-conditions /trip-cancellation-insurance-terms-and-conditions.html 200
-
-# Legacy WordPress slugs → new static paths
-/about/*            /about-active-oahu-tours/ 301
-/about-us/*         /about-active-oahu-tours/ 301
-/about-active-oahu/* /about-active-oahu-tours/ 301
-/contact/*          /contact-us/ 301
-/cancellation/*     /cancellation-policy/ 301
-/privacy/*          /privacy-policy/ 301
-
-# FareHarbor booking shortcuts
-/book               https://fareharbor.com/embeds/book/activeoahutours/ 301
-/reserve            https://fareharbor.com/embeds/book/activeoahutours/ 301
-
-# 404 catch-all — MUST BE LAST
-/* /404.html 404
+/reviews/3-person-kayak-rental-alyssa/ /reviews/ 301
+/reviews/3-person-kayak-rental-mikemayoros1/ /reviews/ 301
+/reviews/3-person-kayak-rental-remy/ /reviews/ 301
+/reviews/chinamans-hat-review/ /reviews/ 301
+/reviews/chinamans-hat-review-2/ /reviews/ 301
+/reviews/chinamans-hat-review-3/ /reviews/ 301
+/reviews/destination-yoga/ /reviews/ 301
+/reviews/destination-yoga-2/ /reviews/ 301
+/reviews/destination-yoga-3/ /reviews/ 301
+/reviews/e-bike-snorkel-review-1/ /reviews/ 301
+/reviews/e-bike-snorkel-review-2/ /reviews/ 301
+/reviews/haleiwa-paddleboarding/ /reviews/ 301
+/reviews/haleiwa-paddleboarding-2/ /reviews/ 301
+/reviews/haleiwa-paddleboarding-3/ /reviews/ 301
+/reviews/kayak-rental-mokolii-alyssa-m/ /reviews/ 301
+/reviews/kayak-rental-mokolii-kasie-c/ /reviews/ 301
+/reviews/kayak-rental-mokolii-mindy-s/ /reviews/ 301
+/reviews/kayak-rental-review-google-ashley/ /reviews/ 301
+/reviews/kayak-rental-review-google-c-bland/ /reviews/ 301
+/reviews/kayak-rental-review-google-jessica/ /reviews/ 301
+/reviews/kayak-rental-review-mokolii-brit-h/ /reviews/ 301
+/reviews/kayak-rental-review-reef-google-jessica/ /reviews/ 301
+/reviews/kayak-rental-review-thata-portugal/ /reviews/ 301
+/reviews/kayak-rental-review-tripadvisor-bri/ /reviews/ 301
+/reviews/kayak-rental-trip-advisor-mokolii-haley-s/ /reviews/ 301
+/reviews/kayak-rental-trip-advisor-mokolii-nancy-b/ /reviews/ 301
+/reviews/kayak-rental-tripadvisor-sandbar-n9295pbmayas/ /reviews/ 301
+/reviews/popoia-island-review/ /reviews/ 301
+/reviews/rainforest-hike/ /reviews/ 301
+/reviews/rainforest-hike-2/ /reviews/ 301
+/reviews/rainforest-hike-3/ /reviews/ 301
+/reviews/rainforest-kayak-tour/ /reviews/ 301
+/reviews/rainforest-kayak-tour-2/ /reviews/ 301
+/reviews/rainforest-kayak-tour-3/ /reviews/ 301
+/reviews/rental-deliveries/ /reviews/ 301
+/reviews/rental-deliveries-2/ /reviews/ 301
+/reviews/rental-deliveries-3/ /reviews/ 301
+/reviews/single-kayak-rental-anna/ /reviews/ 301
+/reviews/single-kayak-rental-connector61619698780/ /reviews/ 301
+/reviews/single-kayak-rental-robin/ /reviews/ 301
+/reviews/snorkel-tour/ /reviews/ 301
+/reviews/snorkel-tour-2/ /reviews/ 301
+/reviews/snorkel-tour-3/ /reviews/ 301
+/reviews/submit-tripadvisor-review/ /reviews/ 301
+/reviews/sup-tour/ /reviews/ 301
+/reviews/sup-tour-2/ /reviews/ 301
+/reviews/sup-tour-3/ /reviews/ 301
+/reviews/surf-lesson/ /reviews/ 301
+/reviews/surf-lesson-2/ /reviews/ 301
+/reviews/surf-lesson-3/ /reviews/ 301
+/author/* /about-active-oahu/ 301
