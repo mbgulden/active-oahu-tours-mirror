@@ -51,9 +51,5 @@
 /author/* /about-active-oahu/ 301
 /activities/oahu-snorkel-tour/ /guides/sharks-cove-snorkeling-guide/ 301
 
-# WordPress dynamic URL redirects
-/wp-content/* /404.html 404
-/?p=* / 301
-
 # 404 catch-all — MUST BE LAST
 /* /404.html 404

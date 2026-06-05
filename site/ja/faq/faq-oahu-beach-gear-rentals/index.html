@@ -232,7 +232,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="aot-logo">
 <span class="site-title">
 <a data-instant="" href="../../author/mbgulden/index.html" rel="home">
-<img alt="Active Oahu Tours, Oahu Hawaii Activities" height="65" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232"/>
+<img loading="lazy" alt="Active Oahu Tours, Oahu Hawaii Activities" height="65" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232"/>
 </a>
 </span>
 </div>
@@ -433,7 +433,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </main>
 <aside class="sidebar col col-sm-4">
 <div class="sidebar-activities sidebar-item">
-<img alt="Oahu Tours and Activities" height="325" src="/wp-content/uploads/2016/11/Oahu-Kayak-Tours_5-650x325.jpg" width="650"/>
+<img loading="lazy" alt="Oahu Tours and Activities" height="325" src="/wp-content/uploads/2016/11/Oahu-Kayak-Tours_5-650x325.jpg" width="650"/>
 <a data-instant="" href="../../../activities.html">
 <h2>オアフ島のツアーとアクティビティ</h2>
 </a>
@@ -442,7 +442,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a data-instant="" href="../../../activities.html">Check out our Tours <span class="glyphicon glyphicon-arrow-right"></span></a>
 </div>
 <div class="sidebar-rentals sidebar-item">
-<img alt="Oahu Beach Gear Rentals" height="325" src="/wp-content/uploads/2018/11/DSC5451_2000_2000_1x2-650x325.jpg" width="650"/>
+<img loading="lazy" alt="Oahu Beach Gear Rentals" height="325" src="/wp-content/uploads/2018/11/DSC5451_2000_2000_1x2-650x325.jpg" width="650"/>
 <a data-instant="" href="../../../rentals/index.html">
 <h2>レンタル</h2>
 </a>
@@ -450,7 +450,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a data-instant="" href="../../../rentals/index.html">Beach gear rentals <span class="glyphicon glyphicon-arrow-right"></span></a>
 </div>
 <div class="sidebar-about sidebar-item">
-<img alt="About Active Oahu Tours" height="325" src="/wp-content/uploads/2016/11/Guides-together.jpg" width="650"/>
+<img loading="lazy" alt="About Active Oahu Tours" height="325" src="/wp-content/uploads/2016/11/Guides-together.jpg" width="650"/>
 <a data-instant="" href="../../../about-active-oahu-tours/index.html">
 <h2>アクティブ オアフについて</h2>
 </a>
@@ -809,7 +809,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div><!-- #page -->
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 </script>
-<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
+<link rel="dns-prefetch" href="https://fareharbor.com" />
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1007,7 +1009,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img />")
+            $("<img loading="lazy" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

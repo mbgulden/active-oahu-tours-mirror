@@ -210,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="aot-logo">
 <span class="site-title">
 <a data-instant="" href="../../../index.html" rel="home">
-<img alt="Active Oahu Tours, Oahu Hawaii Activities" height="65" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232"/>
+<img loading="lazy" alt="Active Oahu Tours, Oahu Hawaii Activities" height="65" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232"/>
 </a>
 </span>
 </div>
@@ -386,7 +386,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </section>
 <div class="site-content" id="content">
-<img alt="Kaneohe Bay Kayaking and Snorkeling Experience" src="/wp-content/uploads/2022/04/Hero-Image-2.jpg" style="width: 100%; max-width: 2000px; margin: 0 auto; display: block;"/>
+<img loading="lazy" alt="Kaneohe Bay Kayaking and Snorkeling Experience" src="/wp-content/uploads/2022/04/Hero-Image-2.jpg" style="width: 100%; max-width: 2000px; margin: 0 auto; display: block;"/>
 <style>
   @media (min-width:900px) {
     .site-content .container {
@@ -1893,7 +1893,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/activeoahu/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
+<link rel="dns-prefetch" href="https://fareharbor.com" />
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -2091,7 +2093,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img />")
+            $("<img loading="lazy" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

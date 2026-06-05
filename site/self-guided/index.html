@@ -219,7 +219,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="aot-logo">
               <span class="site-title">
                 <a href="/" rel="home" data-instant>
-                  <img alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
+                  <img loading="lazy" alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
                 </a>
               </span>
             </div>
@@ -443,7 +443,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     
           <div class="col col-xs-4">
             <a href="/activities/" data-instant>
-              <div class="featured-three"><img alt="Guided Kayak Tours" class="hover-opacity" src="/wp-content/uploads/2019/06/Self-guided-Tours.png" width="200" height="115">
+              <div class="featured-three"><img loading="lazy" alt="Guided Kayak Tours" class="hover-opacity" src="/wp-content/uploads/2019/06/Self-guided-Tours.png" width="200" height="115">
               </div>
             </a>
             <a href="/activities/" data-instant>
@@ -457,7 +457,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           <div class="col col-xs-4">
             <a href="/rentals/index.html" data-instant>
-              <div class="featured-three"><img alt="Beach Gear Rentals" class="hover-opacity" src="/wp-content/uploads/2019/06/Rentals-2.png" width="200" height="115">
+              <div class="featured-three"><img loading="lazy" alt="Beach Gear Rentals" class="hover-opacity" src="/wp-content/uploads/2019/06/Rentals-2.png" width="200" height="115">
               </div>
             </a>
             <a href="/rentals/index.html" data-instant>
@@ -471,7 +471,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           <div class="col col-xs-4">
             <a href="/rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
-              <div class="featured-three"><img alt="Need Kayaks Today? " class="hover-opacity" src="/wp-content/uploads/2022/04/Rentals-3.png" width="200" height="115">
+              <div class="featured-three"><img loading="lazy" alt="Need Kayaks Today? " class="hover-opacity" src="/wp-content/uploads/2022/04/Rentals-3.png" width="200" height="115">
               </div>
             </a>
             <a href="/rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
@@ -1268,7 +1268,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 </script>
-<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
+<link rel="dns-prefetch" href="https://fareharbor.com" />
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1467,7 +1469,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img />")
+            $("<img loading="lazy" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

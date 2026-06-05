@@ -206,7 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="aot-logo">
               <span class="site-title">
                 <a href="../../../ja/author/mbgulden/index.html" rel="home" data-instant>
-                  <img alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
+                  <img loading="lazy" alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
                 </a>
               </span>
             </div>
@@ -389,7 +389,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div id="content" class="site-content">
 
-<img style="width: 100%; max-width: 2000px; margin: 0 auto; display: block;" src="/wp-content/uploads/2022/04/Hero-Image-2.jpg" alt="Kaneohe Bay Kayaking and Snorkeling Experience" />
+<img loading="lazy" style="width: 100%; max-width: 2000px; margin: 0 auto; display: block;" src="/wp-content/uploads/2022/04/Hero-Image-2.jpg" alt="Kaneohe Bay Kayaking and Snorkeling Experience" />
 
 <style>
   @media (min-width:900px) {
@@ -2473,7 +2473,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 </script>
-<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
+<link rel="dns-prefetch" href="https://fareharbor.com" />
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -2672,7 +2674,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img />")
+            $("<img loading="lazy" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
