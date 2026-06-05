@@ -445,65 +445,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <section id="main" class="col col-sm-8" role="main">
 
 			<section class="error-404 not-found">
-          <iframe src="/wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html" style="border:none; width: 315px; margin: 15px auto;
+          <iframe src="/wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers" style="border:none; width: 315px; margin: 15px auto;
     display: block;" height="210" scrolling="no"></iframe>  
         
 					<h1>This page left on an adventure...</h1>
 
 				<div class="page-content">
-					<p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
-
-					<form role="search" method="get" class="search-form" action="https://www.google.com/search" target="_blank">
-				<label>
-					<span class="screen-reader-text">Search for:</span>
-					<input type="search" class="search-field" placeholder="Search activeoahutours.com &hellip;" value="" name="q" />
-				</label>
-				<input type="hidden" name="as_sitesearch" value="activeoahutours.com" />
-				<input type="submit" class="search-submit" value="Search" />
-			</form>
-					
-					
-					<div class="widget widget_archive"><h2 class="widgettitle">Archives</h2><p>Try looking in the monthly archives. 🙂</p>		<label class="screen-reader-text" for="archives-dropdown--1">Archives</label>
-		<select id="archives-dropdown--1" name="archive-dropdown">
-			
-			<option value="">Select Month</option>
-			
-		</select>
-
-			<script type="text/javascript">
-/* <![CDATA[ */
-
-( ( dropdownId ) => {
-	const dropdown = document.getElementById( dropdownId );
-	function onSelectChange() {
-		setTimeout( () => {
-			if ( 'escape' === dropdown.dataset.lastkey ) {
-				return;
-			}
-			if ( dropdown.value ) {
-				document.location.href = dropdown.value;
-			}
-		}, 250 );
-	}
-	function onKeyUp( event ) {
-		if ( 'Escape' === event.key ) {
-			dropdown.dataset.lastkey = 'escape';
-		} else {
-			delete dropdown.dataset.lastkey;
-		}
-	}
-	function onClick() {
-		delete dropdown.dataset.lastkey;
-	}
-	dropdown.addEventListener( 'keyup', onKeyUp );
-	dropdown.addEventListener( 'click', onClick );
-	dropdown.addEventListener( 'change', onSelectChange );
-})( "archives-dropdown--1" );
-
-//# sourceURL=WP_Widget_Archives%3A%3Awidget
-/* ]]> */
-</script>
-</div>
+					<p>It looks like nothing was found at this location. Maybe try one of the links below?</p>
 					
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
