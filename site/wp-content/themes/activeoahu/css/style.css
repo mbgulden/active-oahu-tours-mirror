@@ -4,11 +4,11 @@
 /* Mobile nav: fix hamburger toggle showing ALL items in stacked vertical layout */
 @media(max-width:767px){
 .main-navigation ul{display:none}
-.main-navigation.toggled ul,.main-navigation.toggled .sub-menu{display:block!important}
+.main-navigation.toggled ul,.main-navigation.toggled .sub-menu{display:block!important}.main-navigation.toggled{background-color:#006699!important}
 .main-navigation li{float:none!important;width:100%}
 .main-navigation.toggled .sub-menu{position:static!important;left:auto!important;box-shadow:none}
 .main-navigation.toggled a{display:block;padding:10px 15px;color:#fdf5e3;font-size:0.95em}
 .main-navigation.toggled .menu-item-has-children>a{font-weight:700;border-bottom:1px solid rgba(255,255,255,0.1)}
-.main-navigation.toggled .sub-menu a{padding-left:30px;font-size:0.9em;opacity:0.9}
-.main-navigation.toggled .sub-menu .sub-menu a{padding-left:45px;font-size:0.85em;opacity:0.8}
+.main-navigation.toggled .sub-menu a{padding-left:30px;font-size:0.9em;opacity:1;color:#fdf5e3!important;background-color:transparent!important}.main-navigation.toggled .sub-menu a:hover,.main-navigation.toggled .sub-menu a:active,.main-navigation.toggled .sub-menu a:focus{background-color:rgba(255,255,255,0.12)!important;color:#fff!important}
+.main-navigation.toggled .sub-menu .sub-menu a{padding-left:45px;font-size:0.85em;opacity:1;color:#fdf5e3!important;background-color:transparent!important}
 /*KF2*/

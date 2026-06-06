@@ -230,9 +230,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Sub-menu show/hide ---
+// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
+  var isDesktop = window.innerWidth > 767;
   var subs = document.querySelectorAll('.sub-menu');
-  for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  if (isDesktop) {
+    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  }
   
   function closeSiblings(li, keep) {
     var parent = li.parentNode;
@@ -249,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < links.length; i++) {
     (function(link) {
       link.addEventListener('click', function(e) {
+        if (!isDesktop) return; // Let CSS handle mobile
         var li = link.parentNode;
         var sub = null;
         for (var j = 0; j < li.children.length; j++) {
@@ -264,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   document.addEventListener('click', function(e) {
+    if (!isDesktop) return; // Let CSS handle mobile
     var el = e.target;
     var inMenu = false;
     while (el) {
@@ -277,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-</script>
+</script></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "Store Your Bags, Explore Kailua: Bounce Luggage Storage Service Available at Active Oahu &ndash; Active Oahu", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/", "description": "Store your bags at Active Oahu&#x27;s Kailua shop with Bounce luggage storage. Explore Kailua hands-free before or after your kayak or e-bike adventure."}</script>
