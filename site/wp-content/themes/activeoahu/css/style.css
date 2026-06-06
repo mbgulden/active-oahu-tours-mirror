@@ -237,7 +237,7 @@
     color: var(--color-white) !important;
     font-family: var(--font-display) !important;
     font-size: 16px !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
     letter-spacing: 0.06em !important;
     padding: 14px 20px !important;
     border: none !important;
@@ -245,6 +245,9 @@
     cursor: pointer !important;
     text-align: left !important;
     box-sizing: border-box !important;
+  }
+  .menu-toggle::before {
+    content: none !important;
   }
   
   .menu-toggle:hover,
