@@ -161,37 +161,113 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })();
   </script>
 <!-- build: 1780339711.2951758 -->
-<!-- fp:935be793:ja/join-the-team/index.html -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Join the Team – Active Oahu",
-  "url": "https://activeoahutours.com/ja/join-the-team/"
+<!-- fp:935be793:_templates/head.html -->
+<style>
+/* ── Navigation Styles ── */
+.sub-menu { display: none; }
+
+/* Mobile breakpoint: 1024px (tablets get hamburger) */
+@media (max-width: 1023px) {
+  /* Hide promo banner on mobile */
+  .site-banner-announcement { display: none !important; }
+
+  /* Mobile menu toggle button */
+  .menu-toggle {
+    display: block !important;
+    background: #006699;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+  }
+  .menu-toggle::after {
+    content: " ☰";
+    float: right;
+    font-size: 18px;
+  }
+
+  /* Mobile expanded menu */
+  .main-navigation.toggled .menu {
+    display: block !important;
+  }
+  .main-navigation .menu {
+    display: none;
+    background: #006699;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .main-navigation .menu li {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .main-navigation .menu a {
+    display: block;
+    color: #FDF5E3 !important;
+    padding: 14px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    min-height: 48px;
+    line-height: 20px;
+  }
+  .main-navigation .menu a:hover,
+  .main-navigation .menu a:focus {
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* Sub-menu indentation */
+  .main-navigation .sub-menu {
+    background: rgba(0,0,0,0.15);
+    padding-left: 0;
+  }
+  .main-navigation .sub-menu a {
+    padding-left: 35px;
+    font-size: 14px;
+  }
+  .main-navigation .sub-menu .sub-menu a {
+    padding-left: 50px;
+    font-size: 13px;
+  }
+
+  /* Mobile header: logo left, no clutter */
+  #branding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+  #branding .aot-logo img {
+    width: 160px;
+    height: auto;
+  }
+  /* Hide phone, book button, language switcher from header on mobile */
+  #branding .social-header {
+    display: none;
+  }
+  #branding .lang-switcher {
+    display: none;
+  }
+  /* Show language switcher inside mobile nav */
+  .mobile-lang-switcher {
+    display: block !important;
+  }
 }
-</script>
-	<meta name="description" content="アクティブオアフ島のチームに参加しませんか。カヤックガイド、配達ドライバー、カスタマーサービス募集中。" />
-	<meta property="og:description" content="アクティブオアフ島のチームに参加しませんか。カヤックガイド、配達ドライバー、カスタマーサービス募集中。" />
-	<meta property="og:image" content="/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg" />
-<script>
-jQuery(document).ready(function($) {
-  $('.menu-item-has-children > a').on('click', function(e) {
-    var $li = $(this).closest('.menu-item-has-children');
-    var $sub = $li.children('.sub-menu');
-    if ($sub.length) {
-      e.preventDefault();
-      $sub.toggle();
-      $li.siblings().children('.sub-menu').hide();
-    }
-  });
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest('.menu-item-has-children').length) {
-      $('.sub-menu').hide();
-    }
-  });
-});
-</script>
-<style>.sub-menu{display:none}</style>
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .menu-toggle { display: none !important; }
+  .main-navigation .menu { display: flex !important; }
+  .main-navigation .sub-menu { display: none; }
+}
+
+/* Japanese font fix — prevent tofu boxes */
+.lang-switcher, .weglot-flags, [href*="/ja/"] {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Yu Gothic", "MS PGothic", sans-serif;
+}
+</style>
 <script>
 // Nav dropdown + mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -207,8 +283,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
+  // --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
+  var isDesktop = window.innerWidth > 1023;
   var subs = document.querySelectorAll('.sub-menu');
   if (isDesktop) {
     for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
@@ -259,9 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-</script></script>
-<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+</script>
 </head>
 <body class="wp-singular page-template-default page page-id-1377 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -408,56 +482,58 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
-<nav class="main-navigation" data-instant="" id="site-navigation" role="navigation">
-<button aria-controls="primary-menu" aria-expanded="false" class="menu-toggle">Main Menu</button>
-<div class="menu-menu-1-container"><ul class="menu" id="primary-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75" id="menu-item-75"><a href="../activities/index.html">アクティビティとツアー</a>
+
+            <nav id="site-navigation" class="main-navigation" role="navigation" data-instant>
+              <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
+              <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75"><a href="activities.html">Activities &#038; Tours</a>
 <ul class="sub-menu">
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484" id="menu-item-4484"><a href="../activities/index.html">すべてのツアー</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482" id="menu-item-4482"><a href="../activities/index#Chinaman's%20Hat%20Kayak%20&amp;%20Hike">セルフガイドツアー</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483" id="menu-item-4483"><a href="../activities/index#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">ガイド付きツアー</a></li>
+	<li id="menu-item-4484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484"><a href="activities.html">All Tours</a></li>
+	<li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="activities#Chinaman&#039;s%20Hat%20Kayak%20&#038;%20Hike">Self Guided Tours</a></li>
+	<li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="activities#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">Guided Tours</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-144" id="menu-item-144"><a href="../oahu-equipment-rentals/index.html">レンタル</a>
+<li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-144"><a href="rentals/index.html">Rentals</a>
 <ul class="sub-menu">
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470" id="menu-item-4470"><a href="../oahu-equipment-rentals/index.html">すべてのレンタル</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-rentals menu-item-has-children menu-item-1375" id="menu-item-1375"><a href="../rentals/oahu-tandem-kayak-rentals/index.html">カヤックレンタル</a>
-<ul class="sub-menu">
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2857" id="menu-item-2857"><a href="../rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html">モコリ カヤック レンタル</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3036" id="menu-item-3036"><a href="../rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html">カイルア カヤック レンタル</a></li>
+	<li id="menu-item-4470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="rentals/index.html">All Rentals</a></li>
+	<li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-rentals menu-item-has-children menu-item-1375"><a href="rentals/oahu-tandem-kayak-rentals/index.html">Kayak Rentals</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2857" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2857"><a href="rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html">Mokolii Kayak Rentals</a></li>
+		<li id="menu-item-3036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3036"><a href="rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html">Kailua Kayak Rentals</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2676"><a href="multi-day-kayak-and-beach-gear-rentals/index.html">Multi-Day Rentals</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html">Rental Partners</a></li>
+	</ul>
+</li>
+	<li id="menu-item-3256" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3256"><a href="rentals/kailua-beach-bike-rentals/index.html">Electric Bike Rentals</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2676" id="menu-item-2676"><a href="../multi-day-kayak-and-beach-gear-rentals/index.html">複数日レンタル</a>
+<li id="menu-item-4473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4473"><a href="oahu-kayaking-and-beach-adventures/index.html">Adventure Guide</a>
 <ul class="sub-menu">
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678" id="menu-item-2678"><a href="../multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html">レンタルパートナー</a></li>
+	<li id="menu-item-4480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4480"><a href="oahu-kayaking-and-beach-adventures/index.html">All Adventure Guides</a></li>
+	<li id="menu-item-4477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4477"><a href="oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html">Get Your Kayak Rental for Chinaman&#8217;s Hat</a></li>
+	<li id="menu-item-4478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4478"><a href="oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html">Lanikai Beach Guide</a></li>
+	<li id="menu-item-4476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4476"><a href="oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html">Kailua Beach Guide</a></li>
+	<li id="menu-item-4475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4475"><a href="oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html">How to Transport Kayaks</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3256" id="menu-item-3256"><a href="../rentals/kailua-beach-bike-rentals/index.html">電動自転車レンタル</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4473" id="menu-item-4473"><a href="../oahu-kayaking-and-beach-adventures/index.html">冒険ガイド</a>
+<li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-17"><a href="contact-us.html">Contact Us</a>
 <ul class="sub-menu">
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4480" id="menu-item-4480"><a href="../oahu-kayaking-and-beach-adventures/index.html">すべての冒険ガイド</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4477" id="menu-item-4477"><a href="../oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html">チャイナマンズ ハットのカヤック レンタルを入手</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4478" id="menu-item-4478"><a href="../oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html">ラニカイ ビーチ ガイド</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4476" id="menu-item-4476"><a href="../oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html">カイルア ビーチ ガイド</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4475" id="menu-item-4475"><a href="../oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html">カヤックの輸送方法</a></li>
+	<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-76"><a href="about-active-oahu-tours/index.html">About</a>
+	<ul class="sub-menu">
+		<li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="kailua-oahu-storefront/index.html">Our Kailua Storefront</a></li>
+		<li id="menu-item-2421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2421"><a href="about-active-oahu-tours/awards/index.html">Awards</a></li>
+		<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="guides/index.html">Guides</a></li>
+		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="reviews/index.html">Reviews</a></li>
+	</ul>
+</li>
+	<li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="active-oahu-photo-gallery/index.html">Gallery</a></li>
+	<li id="menu-item-697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-697"><a href="faq/index.html">FAQ</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-17" id="menu-item-17"><a href="../contact-us/index.html">お問い合わせ</a>
-<ul class="sub-menu">
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-76" id="menu-item-76"><a href="../about-active-oahu-tours/index.html">について</a>
-<ul class="sub-menu">
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080" id="menu-item-3080"><a href="../kailua-oahu-storefront/index.html">カイルアのストアフロント</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2421" id="menu-item-2421"><a href="../about-active-oahu-tours/awards/index.html">受賞歴</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101" id="menu-item-101"><a href="../guides/index.html">ガイド</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470" id="menu-item-470"><a href="../reviews/index.html">レビュー</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225" id="menu-item-225"><a href="../active-oahu-photo-gallery/index.html">ギャラリー</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-697" id="menu-item-697"><a href="../faq/index.html">FAQ</a></li>
-</ul>
-</li>
-</ul></div> </nav>
+</ul></div>            <div class="mobile-lang-switcher" style="display:none;padding:10px 20px;background:#004d73;font-size:14px;"><a href="/" style="color:#FDF5E3;text-decoration:none;">English</a> <span style="color:rgba(255,255,255,0.4);">|</span> <a href="/ja/" style="color:#FDF5E3;text-decoration:none;font-family:'Hiragino Sans','Noto Sans CJK JP',sans-serif;">日本語</a></div>
+            </nav>
 </section><!-- navbar -->
 <div class="breadcrumb-container">
 <div class="container">
