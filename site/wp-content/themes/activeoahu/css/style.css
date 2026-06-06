@@ -54,6 +54,7 @@
   box-shadow: var(--shadow-sm) !important;
   padding: 0 !important;
   margin-bottom: 20px !important;
+  margin-top: 8px !important;
 }
 
 #navbar-scroll {
@@ -309,8 +310,10 @@
     margin-left: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
-    display: block !important;
     left: auto !important;
+  }
+  .main-navigation.toggled ul ul {
+    display: block !important;
   }
   
   .main-navigation ul ul a {
