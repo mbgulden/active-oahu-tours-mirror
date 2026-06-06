@@ -11,5 +11,5 @@
 .main-navigation.toggled .menu-item-has-children>a{font-weight:700;border-bottom:1px solid rgba(255,255,255,0.1)}
 .main-navigation.toggled .sub-menu a{padding-left:30px;font-size:0.9em;opacity:1;color:#fdf5e3!important;background-color:#006699!important}
 .main-navigation.toggled .sub-menu a:hover,.main-navigation.toggled .sub-menu a:active,.main-navigation.toggled .sub-menu a:focus{background-color:rgba(255,255,255,0.15)!important;color:#fff!important}
-.main-navigation.toggled .sub-menu .sub-menu a{padding-left:45px;font-size:0.85em;opacity:1;color:#fdf5e3!important;background-color:transparent!important}
+.main-navigation.toggled .sub-menu .sub-menu a{padding-left:45px;font-size:0.85em;opacity:1;color:#fdf5e3!important;background-color:#006699!important}
 }
