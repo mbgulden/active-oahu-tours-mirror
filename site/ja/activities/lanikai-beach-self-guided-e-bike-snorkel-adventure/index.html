@@ -265,6 +265,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media (min-width: 1024px) {
   .menu-toggle { display: none !important; }
   .main-navigation .menu { display: flex !important; }
+}
+
+/* Mobile header: logo left, phone right */
+@media (max-width: 1023px) {
+  #branding { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 8px 12px !important; height: auto !important; }
+  #branding .aot-logo { margin: 0 !important; float: none !important; max-width: 160px !important; }
+  #branding .aot-logo img { width: 150px !important; height: auto !important; }
+  #branding .social-header { display: flex !important; flex-flow: column !important; align-items: flex-end !important; float: none !important; padding: 0 !important; width: auto !important; }
+  #branding .social-header-h3 { font-size: 16px !important; margin: 0 !important; text-align: right !important; }
+  #branding .social-header-h3::before { content: none !important; }
+  #branding .social-links { float: none !important; margin-top: 4px !important; }
+  #branding .social-links .btn { padding: 6px 14px !important; font-size: 13px !important; }
+  #branding .lang-switcher { display: none !important; }
+}
   .main-navigation .sub-menu { display: none; }
 }
 
