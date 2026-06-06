@@ -161,15 +161,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 /* Japanese font fix — prevent tofu boxes */
-.lang-switcher, .weglot-flags, [href*="/ja/"], .mobile-lang-switcher a {
+.lang-switcher, .weglot-flags, [href*="/ja/"] {
   font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Yu Gothic", "MS PGothic", sans-serif;
-}
-
-/* Show language switcher inside mobile nav at tablet/mobile widths */
-@media (max-width: 1023px) {
-  .mobile-lang-switcher { display: block !important; }
-  #branding .social-header { display: none; }
-  #branding .lang-switcher { display: none; }
 }
 </style>
 <script>
