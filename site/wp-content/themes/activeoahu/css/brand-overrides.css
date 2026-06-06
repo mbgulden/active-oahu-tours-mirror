@@ -1,0 +1,316 @@
+/* ==========================================================================
+   ACTIVE OAHU TOURS DESIGN SYSTEM & BRAND STYLE GUIDE (GRO-751)
+   ========================================================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary-blue: #0285B1;   /* Sky Reef Blue - HSL(195, 98%, 35%) */
+  --color-secondary-blue: #006699; /* Deep Ocean Blue - HSL(200, 100%, 30%) */
+  --color-accent-orange: #FF6600;  /* Sunset Coral Orange - HSL(14, 100%, 50%) */
+  --color-accent-yellow: #FAA532;  /* Gold Coast Yellow - HSL(34, 96%, 59%) */
+  --color-cream: #FDF5E3;          /* Sandy Beige Neutral - HSL(41, 78%, 94%) */
+  --color-bg-gray: #F8F8F8;        /* Off-white background - HSL(0, 0%, 97%) */
+  --color-text-dark: #333333;      /* Charcoal body text - HSL(0, 0%, 20%) */
+  --color-text-muted: #586E75;     /* Slate muted text */
+  --color-white: #FFFFFF;
+  
+  /* Brand Typography */
+  --font-headings: "Aleo", serif;
+  --font-display: "Open Sans Condensed", sans-serif;
+  --font-body: "Lato", sans-serif;
+  
+  /* Layout Spacing Grid */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* UI Radii */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  /* UI Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   1. Navigation Container & Wrapper Override
+   -------------------------------------------------------------------------- */
+.navbar {
+  background: var(--color-secondary-blue) !important;
+  background-color: var(--color-secondary-blue) !important;
+  border-radius: var(--border-radius-sm) !important;
+  border: none !important;
+  box-shadow: var(--shadow-sm) !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+#navbar-scroll {
+  border: none !important;
+}
+
+.main-navigation {
+  font-family: var(--font-display) !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-size: 15px !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 1100px !important;
+}
+
+.main-navigation ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* Desktop horizontal floating items */
+.main-navigation li {
+  position: relative !important;
+  float: left !important;
+  transition: background-color var(--transition-fast) !important;
+}
+
+.main-navigation a {
+  color: var(--color-cream) !important;
+  padding: 12px 20px !important;
+  line-height: 24px !important;
+  font-size: 15px !important;
+  display: block !important;
+  text-decoration: none !important;
+  transition: color var(--transition-fast), background-color var(--transition-fast) !important;
+}
+
+/* Hover and active states for top level items */
+.main-navigation a:hover,
+.main-navigation a:focus,
+.main-navigation li:hover > a {
+  color: var(--color-white) !important;
+  background-color: var(--color-primary-blue) !important;
+  text-decoration: none !important;
+}
+
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a {
+  color: var(--color-white) !important;
+  background-color: var(--color-primary-blue) !important;
+  box-shadow: inset 0 -4px 0 var(--color-accent-orange) !important; /* Coral stripe active indicator */
+}
+
+/* --------------------------------------------------------------------------
+   2. Dropdown Menus (Sub Menus)
+   -------------------------------------------------------------------------- */
+.main-navigation ul ul {
+  background-color: var(--color-white) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-top: 4px solid var(--color-accent-orange) !important; /* Accent Top Border */
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm) !important;
+  padding: var(--spacing-sm) 0 !important;
+  margin-top: 0 !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: -999em !important;
+  z-index: 99999 !important;
+  transition: opacity var(--transition-fast) !important;
+  opacity: 0;
+  display: block !important;
+  visibility: hidden;
+}
+
+/* Show dropdowns on hover */
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Position nested third-level menus */
+.main-navigation ul ul ul {
+  left: -999em !important;
+  top: 0 !important;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+  left: 100% !important;
+}
+
+/* Styling links inside dropdown */
+.main-navigation ul ul a {
+  color: var(--color-text-dark) !important;
+  font-size: 14px !important;
+  text-transform: none !important; /* Standard case in dropdown for accessibility */
+  letter-spacing: normal !important;
+  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  min-width: 220px !important;
+  width: auto !important;
+  max-width: 320px !important;
+  border-bottom: 1px solid #EAEAEA !important;
+  background-color: var(--color-white) !important;
+  box-shadow: none !important;
+}
+
+.main-navigation ul ul li:last-child > a {
+  border-bottom: none !important;
+}
+
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a:focus,
+.main-navigation ul ul li:hover > a {
+  color: var(--color-white) !important;
+  background-color: var(--color-primary-blue) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header CTA Button & Language Switcher
+   -------------------------------------------------------------------------- */
+.social-header .btn-primary {
+  background-color: var(--color-accent-orange) !important;
+  border-color: var(--color-accent-orange) !important;
+  color: var(--color-white) !important;
+  font-family: var(--font-display) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-weight: bold !important;
+  padding: 10px 22px !important;
+  border-radius: var(--border-radius-sm) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast) !important;
+  border: none !important;
+  display: inline-block !important;
+  margin-top: 15px !important;
+}
+
+.social-header .btn-primary:hover,
+.social-header .btn-primary:focus {
+  background-color: #E25600 !important; /* Darker orange hover state for better contrast and feedback */
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--color-white) !important;
+}
+
+.social-header .btn-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.lang-switcher {
+  font-family: var(--font-body) !important;
+  font-weight: bold !important;
+}
+
+.lang-switcher a {
+  color: var(--color-secondary-blue) !important;
+  transition: color var(--transition-fast) !important;
+}
+
+.lang-switcher a:hover,
+.lang-switcher a:focus {
+  color: var(--color-primary-blue) !important;
+  text-decoration: underline !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Mobile Responsiveness (< 550px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .menu-toggle {
+    display: block !important;
+    width: 100% !important;
+    background-color: var(--color-primary-blue) !important;
+    color: var(--color-white) !important;
+    font-family: var(--font-display) !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    padding: 14px 20px !important;
+    border: none !important;
+    border-radius: var(--border-radius-sm) !important;
+    cursor: pointer !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+  
+  .menu-toggle:hover,
+  .menu-toggle:focus {
+    background-color: var(--color-secondary-blue) !important;
+    color: var(--color-white) !important;
+  }
+  
+  .main-navigation ul {
+    display: none !important;
+  }
+  
+  /* Vertical block alignment when toggled on mobile */
+  .main-navigation.toggled .menu-menu-1-container > ul {
+    display: block !important;
+    background-color: var(--color-secondary-blue) !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+  }
+  
+  .main-navigation li {
+    float: none !important;
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  
+  .main-navigation a {
+    padding: 14px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: transparent !important;
+  }
+  
+  .main-navigation .current_page_item > a,
+  .main-navigation .current-menu-item > a,
+  .main-navigation .current_page_ancestor > a {
+    box-shadow: inset 4px 0 0 var(--color-accent-orange) !important; /* Left vertical stripe for mobile */
+  }
+  
+  /* Inline expanded sub-menus for mobile */
+  .main-navigation ul ul {
+    position: static !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .main-navigation ul ul a {
+    color: var(--color-cream) !important;
+    background-color: transparent !important;
+    padding-left: 35px !important; /* Indent sub items on mobile */
+    border-bottom: none !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .main-navigation ul ul a:hover,
+  .main-navigation ul ul a:focus {
+    color: var(--color-white) !important;
+    background-color: rgba(255,255,255,0.1) !important;
+  }
+}
