@@ -62,10 +62,10 @@
 
 .main-navigation {
   font-family: var(--font-display) !important;
-  font-weight: bold !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.04em !important;
+  font-size: 14px !important;
   border: none !important;
   box-shadow: none !important;
   max-width: 1100px !important;
@@ -86,9 +86,9 @@
 
 .main-navigation a {
   color: var(--color-cream) !important;
-  padding: 12px 20px !important;
-  line-height: 24px !important;
-  font-size: 15px !important;
+  padding: 10px 18px !important;
+  line-height: 22px !important;
+  font-size: 14px !important;
   display: block !important;
   text-decoration: none !important;
   transition: color var(--transition-fast), background-color var(--transition-fast) !important;
@@ -259,9 +259,14 @@
   .main-navigation ul {
     display: none !important;
   }
+  .main-navigation .menu {
+    display: none !important;
+    flex-direction: column !important;
+  }
   
   /* Vertical block alignment when toggled on mobile */
-  .main-navigation.toggled .menu-menu-1-container > ul {
+  .main-navigation.toggled .menu-menu-1-container > ul,
+  .main-navigation.toggled .menu {
     display: block !important;
     background-color: var(--color-secondary-blue) !important;
     width: 100% !important;
@@ -272,8 +277,12 @@
   
   .main-navigation li {
     float: none !important;
+    display: block !important;
     width: 100% !important;
-    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+  }
+  .main-navigation li:last-child {
+    border-bottom: none !important;
   }
   
   .main-navigation a {
@@ -286,14 +295,14 @@
   .main-navigation .current_page_item > a,
   .main-navigation .current-menu-item > a,
   .main-navigation .current_page_ancestor > a {
-    box-shadow: inset 4px 0 0 var(--color-accent-orange) !important; /* Left vertical stripe for mobile */
+    box-shadow: inset 4px 0 0 var(--color-accent-orange) !important;
   }
   
   /* Inline expanded sub-menus for mobile */
   .main-navigation ul ul {
     position: static !important;
     box-shadow: none !important;
-    background-color: rgba(0, 0, 0, 0.15) !important;
+    background-color: rgba(0, 0, 0, 0.18) !important;
     border-top: none !important;
     border-radius: 0 !important;
     padding: 0 !important;
@@ -301,16 +310,25 @@
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
+    left: auto !important;
   }
   
   .main-navigation ul ul a {
     color: var(--color-cream) !important;
     background-color: transparent !important;
-    padding-left: 35px !important; /* Indent sub items on mobile */
-    border-bottom: none !important;
+    padding-left: 35px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
     font-size: 14px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+  .main-navigation ul ul li:last-child > a {
+    border-bottom: none !important;
+  }
+  
+  .main-navigation ul ul ul a {
+    padding-left: 50px !important;
+    font-size: 13px !important;
   }
   
   .main-navigation ul ul a:hover,
