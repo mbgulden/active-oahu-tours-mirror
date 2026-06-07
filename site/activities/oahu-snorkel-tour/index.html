@@ -59,15 +59,6 @@ jQuery(document).ready(function($) {
 document.addEventListener('DOMContentLoaded', function() {
   // --- Mobile menu toggle (WordPress _s theme pattern) ---
   var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
 
 // --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
   var isDesktop = window.innerWidth > 767;
