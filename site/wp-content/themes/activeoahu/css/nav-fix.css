@@ -27,6 +27,7 @@
   width: auto !important;
 }
 
+/* Header right side — phone + book button + language switcher */
 .social-header {
   float: none !important;
   padding: 0 !important;
@@ -34,6 +35,19 @@
   flex-direction: column !important;
   align-items: flex-end !important;
   gap: 2px !important;
+  margin-left: auto !important;
+}
+
+/* Only the first social-header (phone + button) gets the column layout */
+.social-header:first-of-type {
+  flex-direction: column !important;
+}
+
+/* Language switcher: inline row */
+#branding > .social-header:last-of-type {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0 !important;
 }
 
 .social-header-h3 {
@@ -61,10 +75,19 @@
   display: inline-block !important;
 }
 
-/* Language switcher row */
+/* Language switcher — override inline styles */
 .social-header .lang-switcher {
   font-size: 12px !important;
   margin: 2px 0 0 0 !important;
+  display: inline !important;
+  vertical-align: baseline !important;
+  line-height: 1.2 !important;
+}
+
+.social-header .lang-switcher a {
+  color: #006699 !important;
+  text-decoration: none !important;
+  padding: 0 4px !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -90,7 +113,7 @@
   list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
 }
 
 .main-navigation .menu > li {
