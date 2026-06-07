@@ -176,14 +176,7 @@
   display: block !important;
 }
 
-/* Hide original hamburger pseudo-element from style.css (we add our own) */
-.menu-toggle::before,
-.menu-toggle:before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Hide mobile toggle on desktop */
+/* Only hide mobile toggle on desktop — on mobile, nav-fix.css ::before overrides the original style.css */
 .menu-toggle {
   display: none !important;
 }
