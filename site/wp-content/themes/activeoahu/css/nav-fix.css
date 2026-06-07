@@ -1,7 +1,7 @@
 /* ==========================================================================
    NAV FIX — Loaded AFTER style.css so cascade always wins
    Fixes desktop nav height + mobile menu layout
-   v=9
+   v=11
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -84,7 +84,8 @@ body #branding .aot-logo img {
   display: block !important;
   vertical-align: baseline !important;
   line-height: 1.4 !important;
-  white-space: normal !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
 }
 
 .social-header .lang-switcher a {
