@@ -1,6 +1,7 @@
 /* ==========================================================================
    NAV FIX — Loaded AFTER style.css so cascade always wins
    Fixes desktop nav height + mobile menu layout
+   v=5
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -16,15 +17,17 @@
   flex-wrap: wrap !important;
 }
 
-.aot-logo {
+body #branding .aot-logo {
   float: none !important;
   margin: 0 !important;
-  max-width: 180px !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
-.aot-logo img {
+body #branding .aot-logo img {
   max-height: 52px !important;
   width: auto !important;
+  max-width: none !important;
 }
 
 /* Header right side — phone + book button + language switcher */
@@ -204,6 +207,11 @@
   display: none !important;
 }
 
+.menu-toggle:before {
+  content: none !important;
+  display: none !important;
+}
+
 /* --------------------------------------------------------------------------
    3. MOBILE NAV (< 1024px) — single column, clean dividers
    -------------------------------------------------------------------------- */
@@ -231,6 +239,7 @@
   .menu-toggle::before {
     content: "☰  " !important;
     font-size: 18px !important;
+    display: inline-block !important;
   }
 
   .menu-toggle:hover,
@@ -318,12 +327,15 @@
     padding: 8px 12px !important;
   }
 
-  .aot-logo {
-    max-width: 160px !important;
+  body #branding .aot-logo {
+    max-width: none !important;
+    width: auto !important;
   }
 
-  .aot-logo img {
+  body #branding .aot-logo img {
     max-height: 45px !important;
+    width: auto !important;
+    max-width: none !important;
   }
 
   .social-header-h3 {
@@ -344,12 +356,15 @@
     padding: 6px 10px !important;
   }
 
-  .aot-logo {
-    max-width: 120px !important;
+  body #branding .aot-logo {
+    max-width: none !important;
+    width: auto !important;
   }
 
-  .aot-logo img {
+  body #branding .aot-logo img {
     max-height: 30px !important;
+    width: auto !important;
+    max-width: none !important;
   }
 
   .social-header-h3 {
