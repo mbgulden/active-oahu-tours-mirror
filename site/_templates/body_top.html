@@ -1,6 +1,6 @@
-<body class="home">
+<body class="home wp-singular page-template-default page page-id-2389 wp-theme-activeoahu">
   <div id="page" class="hfeed site">
-    <a class="skip-link screen-reader-text" href="ja/author/mbgulden/index#content">Skip to content</a>
+    <a class="skip-link screen-reader-text" href="ja/author/mbgulden/index.html#content">Skip to content</a>
 
     <!-- Banner HTML -->
     <div class="wrapper-white site-banner-announcement">
@@ -30,7 +30,7 @@
           <section id="branding">
             <div class="aot-logo">
               <span class="site-title">
-                <a href="/" rel="home" data-instant>
+                <a href="ja/author/mbgulden/index.html" rel="home" data-instant>
                   <img alt="Active Oahu Tours, Oahu Hawaii Activities" src="wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
                 </a>
               </span>
@@ -40,7 +40,111 @@
             <div class="social-header">
               <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
               <div class="social-links"> <a href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" class="pull-right btn btn-small btn-primary"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a> </div>
-              <!--Weglot 5.5--><span class="lang-switcher" style="font-size:14px;color:#006699;margin:0;vertical-align:middle;display:inline-block;line-height:1;"><a href="/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a></span>
+            </div>
+            <style>
+              .site-banner-announcement {
+                position: sticky;
+                top: 0;
+                z-index: 99999;
+                padding: 12px;
+                border-bottom: lightgrey 1px solid;
+                margin-bottom: 5px;
+                opacity: 0; /* Hidden by default */
+                visibility: hidden; /* Prevent interaction */
+              }
+              .site-banner-announcement h4{
+                font-size: 13px;
+              }
+              .site-banner-announcement p{
+                font-size: 10px;
+              }
+              @media (max-width: 400px) {
+                .site-banner-announcement {
+                  padding: 10px;
+                  margin-bottom: 0;
+                }
+                .site-banner-announcement h4{
+                  font-size: 12px;
+                }
+                .site-banner-announcement p{
+                  font-size: 9px;
+                }
+              }
+              /* Close button styling */
+              .site-banner-announcement .closeTrigger {
+                position: absolute;
+                right: -12px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+
+              .site-banner-announcement .closeTrigger svg * {
+                stroke: #544D45; /* Match your original color */
+              }
+
+              /* Hide banner if closed */
+              html.anncmnt_hide .site-banner-announcement {
+                display: none !important;
+              }
+
+              /* Animations */
+              @keyframes fadeIn {
+                from {
+                  opacity: 0;
+                  visibility: hidden;
+                }
+                to {
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
+
+              @keyframes fadeOut {
+                from {
+                  opacity: 1;
+                  visibility: visible;
+                }
+                to {
+                  opacity: 0;
+                  visibility: hidden;
+                }
+              }
+
+              .site-banner-announcement.fade-in {
+                animation: fadeIn 0.25s ease forwards;
+              }
+
+              .site-banner-announcement.fade-out {
+                animation: fadeOut 0.25s ease forwards;
+              }
+              .weglot-flags.flag-0.ja>a:before, .weglot-flags.flag-0.ja>span:before {
+                  background-image: url(https://cdn.weglot.com/flags/rectangle_mat/jp.svg);
+                  background-position: unset!important;
+                  width: 28px!important;
+                  height: 22px !important;
+                  border: 1px solid #ddd;
+              }
+              label.wgcurrent.wg-li.weglot-lang.weglot-language.weglot-flags {
+                  padding: 10px;
+              }
+              aside.country-selector.weglot-inline.weglot-shortcode {
+                  padding: 10px;
+              }
+              .weglot-flags.flag-0.en>a:before, .weglot-flags.flag-0.en>span:before {
+                  background-image: url(https://cdn.jsdelivr.net/gh/weglot/languages@1.56.0/images/4x3/us.svg);
+                  background-position: unset!important;
+                  width: 26px!important;
+                  height: 19px!important;
+              }
+            </style>
+            <div class="social-header">
+              <!--Weglot 5.5--><span class="lang-switcher" style="font-size:14px;color:#fff;margin-left:15px;vertical-align:middle;"><a href="/" style="color:#fff;text-decoration:none;">English</a> <span style="color:rgba(255,255,255,0.5);">|</span> <a href="/ja/" style="color:#fff;text-decoration:none;">日本語</a></span>
             </div>
           </section><!-- branding -->
 
@@ -51,8 +155,8 @@
               <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75"><a href="activities.html">Activities &#038; Tours</a>
 <ul class="sub-menu">
 	<li id="menu-item-4484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484"><a href="activities.html">All Tours</a></li>
-	<li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="activities#Chinaman&#039;s%20Hat%20Kayak%20&#038;%20Hike">Self Guided Tours</a></li>
-	<li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="activities#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">Guided Tours</a></li>
+	<li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="activities.html#Chinaman&#039;s%20Hat%20Kayak%20&#038;%20Hike">Self Guided Tours</a></li>
+	<li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">Guided Tours</a></li>
 </ul>
 </li>
 <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-144"><a href="rentals/index.html">Rentals</a>
