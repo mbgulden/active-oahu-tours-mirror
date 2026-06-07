@@ -101,7 +101,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <link rel='stylesheet' id='kadence-blocks-advancedbtn-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css' type='text/css' media='all' />
 <link rel='stylesheet' id='kadence-blocks-advancedgallery-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedgallery.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-style-css' href='/wp-content/themes/activeoahu/css/style.css?v=7' type='text/css' media='all' />
-<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=5' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=6' type='text/css' media='all' />
 <style id='kadence-blocks-global-variables-inline-css' type='text/css'>
 :root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}:root {--global-palette1: #3182CE;--global-palette2: #2B6CB0;--global-palette3: #1A202C;--global-palette4: #2D3748;--global-palette5: #4A5568;--global-palette6: #718096;--global-palette7: #EDF2F7;--global-palette8: #F7FAFC;--global-palette9: #ffffff;--global-palette-btn-bg: #006699;--global-palette-btn: #ffffff;--global-palette-btn-bg-hover: #004d73;--global-palette-btn-hover: #ffffff;}
 /*# sourceURL=kadence-blocks-global-variables-inline-css */
@@ -185,125 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })();
   </script>
 <!-- build: 1780339711.2951758 -->
-<!-- fp:935be793:_templates/head.html -->
-<style>
-/* ── Navigation Styles ── */
-.sub-menu { display: none; }
 
-/* Mobile breakpoint: 1024px (tablets get hamburger) */
-@media (max-width: 1023px) {
-  /* Hide promo banner on mobile */
-  .site-banner-announcement { display: none !important; }
-
-  /* Mobile menu toggle button */
-  .menu-toggle {
-    display: block !important;
-    background: #006699;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 15px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    border-radius: 0;
-  }
-  .menu-toggle::after {
-    content: " ☰";
-    float: right;
-    font-size: 18px;
-  }
-
-  /* Mobile expanded menu */
-  .main-navigation.toggled .menu {
-    display: block !important;
-  }
-  .main-navigation .menu {
-    display: none;
-    background: #006699;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .main-navigation .menu li {
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-  }
-  .main-navigation .menu a {
-    display: block;
-    color: #FDF5E3 !important;
-    padding: 14px 20px;
-    font-size: 15px;
-    text-decoration: none;
-    min-height: 48px;
-    line-height: 20px;
-  }
-  .main-navigation .menu a:hover,
-  .main-navigation .menu a:focus {
-    background: rgba(255,255,255,0.1);
-  }
-
-  /* Sub-menu indentation */
-  .main-navigation .sub-menu {
-    background: rgba(0,0,0,0.15);
-    padding-left: 0;
-  }
-  .main-navigation .sub-menu a {
-    padding-left: 35px;
-    font-size: 14px;
-  }
-  .main-navigation .sub-menu .sub-menu a {
-    padding-left: 50px;
-    font-size: 13px;
-  }
-
-  /* Mobile header: logo left, no clutter */
-  #branding {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-  }
-  #branding .aot-logo img {
-    width: 160px;
-    height: auto;
-  }
-  /* Hide phone, book button, language switcher from header on mobile */
-  #branding .social-header {
-    display: none;
-  }
-  #branding .lang-switcher {
-    display: none;
-  }
-  /* Show language switcher inside mobile nav */
-  
-}
-
-/* Desktop: 1024px+ */
-@media (min-width: 1024px) {
-  .menu-toggle { display: none !important; }
-  .main-navigation .menu { display: flex !important; }
-}
-
-/* Mobile header: logo left, phone right */
-@media (max-width: 1023px) {
-  #branding { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 8px 12px !important; height: auto !important; }
-  #branding .aot-logo { margin: 0 !important; float: none !important; max-width: 160px !important; }
-  #branding .aot-logo img { width: 150px !important; height: auto !important; }
-  #branding .social-header { display: flex !important; flex-flow: column !important; align-items: flex-end !important; float: none !important; padding: 0 !important; width: auto !important; }
-  #branding .social-header-h3 { font-size: 16px !important; margin: 0 !important; text-align: right !important; }
-  #branding .social-header-h3::before { content: none !important; }
-  #branding .social-links { float: none !important; margin-top: 4px !important; }
-  #branding .social-links .btn { padding: 6px 14px !important; font-size: 13px !important; }
-  #branding .lang-switcher { display: none !important; }
-}
-  .main-navigation .sub-menu { display: none; }
-}
-
-/* Japanese font fix — prevent tofu boxes */
-.lang-switcher, .weglot-flags, [href*="/ja/"] {
-  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Yu Gothic", "MS PGothic", sans-serif;
-}
-</style>
 <script>
 // Nav dropdown + mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
