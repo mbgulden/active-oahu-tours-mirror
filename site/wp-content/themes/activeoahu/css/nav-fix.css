@@ -1,7 +1,7 @@
 /* ==========================================================================
    NAV FIX — Loaded AFTER style.css so cascade always wins
    Fixes desktop nav height + mobile menu layout
-   v=7
+   v=9
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -32,35 +32,23 @@ body #branding .aot-logo img {
   max-width: none !important;
 }
 
-/* Header right side — phone + book button + language switcher */
+/* Header right side — SINGLE social-header column: phone, button, lang-switcher */
 .social-header {
   float: none !important;
   padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-end !important;
-  gap: 2px !important;
-  margin-left: 0 !important;
-}
-
-/* Only the first social-header (phone + button) gets the column layout & margin-left to push right */
-.social-header:first-of-type {
-  flex-direction: column !important;
+  gap: 4px !important;
   margin-left: auto !important;
-}
-
-/* Language switcher: inline row next to the first social-header on desktop */
-#branding > .social-header:last-of-type {
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 0 !important;
-  margin-left: 15px !important;
+  width: auto !important;
 }
 
 .social-header-h3 {
   font-size: 18px !important;
   margin: 0 !important;
   text-align: right !important;
+  line-height: 1.2 !important;
 }
 
 .social-header-h3::before {
@@ -74,7 +62,14 @@ body #branding .aot-logo img {
   font-weight: normal !important;
 }
 
-/* Book Online button */
+/* Phone number ORANGE */
+.social-header .feature,
+.social-header-h3 .feature,
+#branding .feature {
+  color: #ff7f00 !important;
+}
+
+/* Book Online button — its own row */
 .social-header .btn-primary {
   padding: 6px 14px !important;
   font-size: 13px !important;
@@ -82,20 +77,30 @@ body #branding .aot-logo img {
   display: inline-block !important;
 }
 
-/* Language switcher — override inline styles */
+/* Language switcher — its own row, both languages visible */
 .social-header .lang-switcher {
-  font-size: 12px !important;
+  font-size: 13px !important;
   margin: 2px 0 0 0 !important;
-  display: inline-block !important;
+  display: block !important;
   vertical-align: baseline !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
 }
 
 .social-header .lang-switcher a {
   color: #006699 !important;
   text-decoration: none !important;
-  padding: 0 4px !important;
+  padding: 0 6px !important;
+  display: inline !important;
+}
+
+.social-header .lang-switcher a:hover {
+  text-decoration: underline !important;
+}
+
+.social-header .lang-switcher span {
+  color: #ccc !important;
+  padding: 0 2px !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -327,24 +332,20 @@ body #branding .aot-logo img {
     font-size: 10px !important;
   }
 
-  /* Mobile header: compact single row with grid layout */
+  /* Mobile header: compact single row — logo left, social column right */
   #branding {
-    display: grid !important;
-    grid-template-columns: auto 1fr !important;
-    grid-template-areas:
-      "logo social1"
-      "logo social2" !important;
-    align-items: center !important;
-    column-gap: 10px !important;
-    row-gap: 4px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
     padding: 8px 12px !important;
+    height: auto !important;
   }
 
   body #branding .aot-logo {
-    grid-area: logo !important;
     max-width: none !important;
     width: auto !important;
     margin: 0 !important;
+    flex-shrink: 0 !important;
   }
 
   body #branding .aot-logo img {
@@ -353,16 +354,9 @@ body #branding .aot-logo img {
     max-width: none !important;
   }
 
-  #branding .social-header:first-of-type {
-    grid-area: social1 !important;
+  .social-header {
     margin-left: auto !important;
     align-items: flex-end !important;
-  }
-
-  #branding .social-header:last-of-type {
-    grid-area: social2 !important;
-    margin-left: auto !important;
-    align-items: center !important;
   }
 
   .social-header-h3 {
