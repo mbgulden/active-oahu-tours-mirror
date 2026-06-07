@@ -23,7 +23,7 @@
 }
 
 .aot-logo img {
-  max-height: 40px !important;
+  max-height: 52px !important;
   width: auto !important;
 }
 
@@ -176,6 +176,13 @@
   display: block !important;
 }
 
+/* Hide original hamburger pseudo-element from style.css (we add our own) */
+.menu-toggle::before,
+.menu-toggle:before {
+  content: none !important;
+  display: none !important;
+}
+
 /* Hide mobile toggle on desktop */
 .menu-toggle {
   display: none !important;
@@ -296,11 +303,11 @@
   }
 
   .aot-logo {
-    max-width: 150px !important;
+    max-width: 160px !important;
   }
 
   .aot-logo img {
-    max-height: 35px !important;
+    max-height: 45px !important;
   }
 
   .social-header-h3 {
