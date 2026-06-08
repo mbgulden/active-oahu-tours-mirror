@@ -45,8 +45,34 @@
     .lang-switcher a { color: #0096A5; text-decoration: none; }
     .lang-switcher .sep { color: #999; margin: 0 4px; }
   </style>
+  <style>
+    .site-banner-announcement { position: sticky; top: 0; z-index: 99999; padding: 12px; border-bottom: lightgrey 1px solid; margin-bottom: 5px; display: none; }
+    .site-banner-announcement.visible { display: block; }
+    .site-banner-announcement h4 { font-size: 13px; }
+    .site-banner-announcement p { font-size: 10px; }
+    @media (max-width: 400px) { .site-banner-announcement { padding: 10px; margin-bottom: 0; } .site-banner-announcement h4 { font-size: 12px; } .site-banner-announcement p { font-size: 9px; } }
+    .site-banner-announcement .closeTrigger { position: absolute; right: -12px; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+    .lang-switcher { font-size: 13px; white-space: nowrap; }
+    .lang-switcher a { color: #0096A5; text-decoration: none; }
+    .lang-switcher .sep { color: #999; margin: 0 4px; }
+    /* Flywheel mobile nav styles */
+    @media (max-width: 549px) {
+      .main-navigation ul { display: none; }
+      .main-navigation.toggled ul { display: block; }
+      .main-navigation ul ul { position: static; margin-left: 15px; box-shadow: none !important; }
+      .nav-menu li { border-bottom: 1px solid #069; }
+      .nav-menu .sub-menu .menu-item a:hover { background: #0173ac; color: #fff; box-shadow: inset 3px 0 0 #069; }
+    }
+  </style>
 </head>
 <body class="page-template-default page wp-theme-activeoahu">
+<div class="site-banner-announcement" id="ab">
+      <div style="position:relative;max-width:1100px;margin:0 auto;padding:0 20px;text-align:center">
+        <h4 style="color:#069"><strong>Deal:</strong> 15% Off Groups of 4 or More</h4>
+        <p style="margin-bottom:0">Use coupon code <strong>15OFFGROUPS</strong> at checkout.</p>
+        <div class="closeTrigger" id="bc"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M9.6.4L.6 9.4" stroke="#544D45"/><path d="M.6.4L9.6 9.4" stroke="#544D45"/></svg></div>
+      </div>
+    </div>
 <div class="site-banner-announcement" id="ab">
       <div style="position:relative;max-width:1100px;margin:0 auto;padding:0 20px;text-align:center">
         <h4 style="color:#069"><strong>Deal:</strong> 15% Off Groups of 4 or More</h4>
@@ -74,6 +100,7 @@
                 </a>
               </span>
             </div>
+
             <div class="social-header">
               <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
               <div class="social-links">
@@ -81,60 +108,69 @@
                   <strong><span class="glyphicon glyphicon-calendar"></span> Book Online</strong>
                 </a>
               </div>
+            </div>
+            <div class="social-header" style="clear:right;float:right;padding-top:0">
               <div class="lang-switcher"><a href="/">English</a> <span class="sep">|</span> <a href="/ja/">日本語</a></div>
             </div>
           </section>
 
-          <nav id="site-navigation" class="main-navigation" role="navigation" data-instant>
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
-            <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75"><a href="/activities.html">Activities &#038; Tours</a>
+          <section class="navbar" id="navbar-scroll">
+            <nav id="site-navigation" class="main-navigation" role="navigation" data-instant>
+              <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
+              <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75"><a href="/activities.html">Activities &#038; Tours</a>
 <ul class="sub-menu">
-	<li id="menu-item-4484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484"><a href="/activities.html">All Tours</a></li>
-	<li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="/activities.html#Chinaman's%20Hat%20Kayak%20&amp;%20Hike">Self Guided Tours</a></li>
-	<li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">Guided Tours</a></li>
+  <li id="menu-item-4484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484"><a href="/activities.html">All Tours</a></li>
+  <li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="/activities.html#Chinaman's%20Hat%20Kayak%20&amp;%20Hike">Self Guided Tours</a></li>
+  <li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure">Guided Tours</a></li>
 </ul>
 </li>
 <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-144"><a href="/rentals/">Rentals</a>
 <ul class="sub-menu">
-	<li id="menu-item-4470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="/rentals/">All Rentals</a></li>
-	<li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-rentals menu-item-has-children menu-item-1375"><a href="/rentals/oahu-tandem-kayak-rentals/">Kayak Rentals</a>
-	<ul class="sub-menu">
-		<li id="menu-item-2857" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2857"><a href="/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/">Mokolii Kayak Rentals</a></li>
-		<li id="menu-item-3036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3036"><a href="/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/">Kailua Kayak Rentals</a></li>
-	</ul>
+  <li id="menu-item-4470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="/rentals/">All Rentals</a></li>
+  <li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-rentals menu-item-has-children menu-item-1375"><a href="/rentals/oahu-tandem-kayak-rentals/">Kayak Rentals</a>
+  <ul class="sub-menu">
+    <li id="menu-item-2857" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2857"><a href="/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/">Mokolii Kayak Rentals</a></li>
+    <li id="menu-item-3036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3036"><a href="/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/">Kailua Kayak Rentals</a></li>
+  </ul>
 </li>
-	<li id="menu-item-2676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2676"><a href="/multi-day-kayak-and-beach-gear-rentals/">Multi-Day Rentals</a>
-	<ul class="sub-menu">
-		<li id="menu-item-2678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/">Rental Partners</a></li>
-	</ul>
+  <li id="menu-item-2676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2676"><a href="/multi-day-kayak-and-beach-gear-rentals/">Multi-Day Rentals</a>
+  <ul class="sub-menu">
+    <li id="menu-item-2678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/">Rental Partners</a></li>
+  </ul>
 </li>
-	<li id="menu-item-3256" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3256"><a href="/rentals/kailua-beach-bike-rentals/">Electric Bike Rentals</a></li>
+  <li id="menu-item-3256" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3256"><a href="/rentals/kailua-beach-bike-rentals/">Electric Bike Rentals</a></li>
 </ul>
 </li>
 <li id="menu-item-4473" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-4473"><a href="/oahu-kayaking-and-beach-adventures/">Adventure Guide</a>
 <ul class="sub-menu">
-	<li id="menu-item-4480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4480"><a href="/oahu-kayaking-and-beach-adventures/">All Adventure Guides</a></li>
-	<li id="menu-item-4477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4477"><a href="/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/">Get Your Kayak Rental for Chinaman&#8217;s Hat</a></li>
-	<li id="menu-item-4478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4478"><a href="/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/">Lanikai Beach Guide</a></li>
-	<li id="menu-item-4476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4476"><a href="/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/">Kailua Beach Guide</a></li>
-	<li id="menu-item-4475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4475"><a href="/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/">How to Transport Kayaks</a></li>
+  <li id="menu-item-4480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4480"><a href="/oahu-kayaking-and-beach-adventures/">All Adventure Guides</a></li>
+  <li id="menu-item-4477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4477"><a href="/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/">Get Your Kayak Rental for Chinaman&#8217;s Hat</a></li>
+  <li id="menu-item-4478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4478"><a href="/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/">Lanikai Beach Guide</a></li>
+  <li id="menu-item-4476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4476"><a href="/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/">Kailua Beach Guide</a></li>
+  <li id="menu-item-4475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4475"><a href="/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/">How to Transport Kayaks</a></li>
 </ul>
 </li>
 <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-17"><a href="/contact-us.html">Contact Us</a>
 <ul class="sub-menu">
-	<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-76"><a href="/about-active-oahu-tours/">About</a>
-	<ul class="sub-menu">
-		<li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="/kailua-oahu-storefront/">Our Kailua Storefront</a></li>
-		<li id="menu-item-3081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3081"><a href="/about-active-oahu-tours/awards/">Awards</a></li>
-		<li id="menu-item-3082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3082"><a href="/guides/">Guides</a></li>
-		<li id="menu-item-3083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3083"><a href="/reviews/">Reviews</a></li>
-	</ul>
+  <li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-76"><a href="/about-active-oahu-tours/">About</a>
+  <ul class="sub-menu">
+    <li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="/kailua-oahu-storefront/">Our Kailua Storefront</a></li>
+    <li id="menu-item-3081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3081"><a href="/about-active-oahu-tours/awards/">Awards</a></li>
+    <li id="menu-item-3082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3082"><a href="/guides/">Guides</a></li>
+    <li id="menu-item-3083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3083"><a href="/reviews/">Reviews</a></li>
+  </ul>
 </li>
-	<li id="menu-item-3084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3084"><a href="/active-oahu-photo-gallery/">Gallery</a></li>
-	<li id="menu-item-3085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3085"><a href="/faq/">FAQ</a></li>
+  <li id="menu-item-3084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3084"><a href="/active-oahu-photo-gallery/">Gallery</a></li>
+  <li id="menu-item-3085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3085"><a href="/faq/">FAQ</a></li>
 </ul>
 </li>
-</ul></div>          </nav>
+</ul></div>
+            </nav>
+          </section>
+
+          <div class="breadcrumb-container">
+            <div class="container"><div class="breadcrumb"><p id="breadcrumbs"><span><span class="breadcrumb_last">Home</span></span></p></div></div>
+          </div>
         </header>
       </div>
     </section>
@@ -392,5 +428,67 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
       }
     })();
   </script>
+<script>
+/* navigation.js - WordPress standard mobile menu toggle */
+(function() {
+  var container, button, menu, links, i, len;
+  container = document.getElementById('site-navigation');
+  if (!container) return;
+  button = container.getElementsByTagName('button')[0];
+  if ('undefined' === typeof button) return;
+  menu = container.getElementsByTagName('ul')[0];
+  if ('undefined' === typeof menu) {
+    button.style.display = 'none';
+    return;
+  }
+  menu.setAttribute('aria-expanded', 'false');
+  if (-1 === menu.className.indexOf('nav-menu')) {
+    menu.className += ' nav-menu';
+  }
+  button.onclick = function() {
+    if (-1 !== container.className.indexOf('toggled')) {
+      container.className = container.className.replace(' toggled', '');
+      button.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-expanded', 'false');
+    } else {
+      container.className += ' toggled';
+      button.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-expanded', 'true');
+    }
+  };
+  // Sub-menu parent links
+  links = menu.getElementsByTagName('a');
+  for (i = 0, len = links.length; i < len; i++) {
+    links[i].addEventListener('focus', toggleFocus, true);
+    links[i].addEventListener('blur', toggleFocus, true);
+  }
+  function toggleFocus() {
+    var self = this;
+    while (-1 === self.className.indexOf('menu-item')) {
+      if ('li' === self.tagName.toLowerCase()) {
+        if (-1 !== self.className.indexOf('focus')) {
+          self.className = self.className.replace(' focus', '');
+        } else {
+          self.className += ' focus';
+        }
+      }
+      self = self.parentElement;
+    }
+  }
+})();
+</script>
+<script>
+(function() {
+  var banner = document.getElementById('ab');
+  var closeBtn = document.getElementById('bc');
+  if (banner && closeBtn) {
+    if (!localStorage.getItem('banner-dismissed')) banner.classList.add('visible');
+    closeBtn.addEventListener('click', function() {
+      banner.classList.remove('visible');
+      localStorage.setItem('banner-dismissed', '1');
+    });
+  }
+})();
+</script>
 </body>
 </html>
