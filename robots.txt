@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://active-oahu-tours-mirror.pages.dev/sitemap.xml
+
+# Disallow wp-includes leftovers
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-json/
+Disallow: /wp-admin/
