@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a5276"/>
+      <stop offset="100%" stop-color="#2e86c1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background ocean -->
+  <rect width="800" height="600" fill="url(#ocean)"/>
+
+  <!-- Oahu island shape (simplified) -->
+  <g transform="translate(400,300) scale(1.8)">
+    <path d="M-60,-40 C-70,-30 -65,-15 -50,-5 C-40,0 -35,5 -30,0 C-25,-5 -20,0 -15,5 C-10,10 0,15 10,10 C20,5 30,0 35,10 C40,20 50,30 55,20 C60,10 65,0 60,-10 C55,-20 50,-30 45,-25 C40,-20 30,-30 20,-35 C10,-40 0,-45 -10,-50 C-20,-55 -30,-55 -40,-50 C-50,-48 -55,-45 -60,-40Z" fill="#2d5016" stroke="#1a3a0a" stroke-width="2"/>
+
+    <!-- Honolulu marker -->
+    <circle cx="-35" cy="5" r="3" fill="#ff6b35"/>
+    <text x="-35" y="12" text-anchor="middle" fill="#fff" font-size="4" font-family="sans-serif">Honolulu</text>
+
+    <!-- Mountain range -->
+    <path d="M-45,-35 C-40,-45 -30,-48 -20,-42 C-15,-38 -10,-40 -5,-35" fill="none" stroke="#1a3a0a" stroke-width="1.5"/>
+
+    <!-- Kailua / Lanikai area -->
+    <circle cx="10" cy="-5" r="2.5" fill="#00ff88" filter="url(#glow)"/>
+    <text x="20" y="-5" fill="#00ff88" font-size="3.5" font-family="sans-serif" font-weight="bold">Kailua/Lanikai ★</text>
+
+    <!-- Kaneohe Bay / Sandbar -->
+    <circle cx="5" cy="-15" r="2.5" fill="#00ff88" filter="url(#glow)"/>
+    <text x="15" y="-15" fill="#00ff88" font-size="3.5" font-family="sans-serif" font-weight="bold">Kaneohe Sandbar</text>
+
+    <!-- North Shore -->
+    <circle cx="-15" cy="-35" r="2.5" fill="#ffcc00"/>
+    <text x="-5" y="-35" fill="#ffcc00" font-size="3.5" font-family="sans-serif">North Shore</text>
+    <text x="-5" y="-32" fill="#ff6666" font-size="3" font-family="sans-serif">⚠ Winter swells</text>
+
+    <!-- West side -->
+    <circle cx="-50" cy="-20" r="2" fill="#ff6666"/>
+    <text x="-42" y="-20" fill="#ff6666" font-size="3" font-family="sans-serif">Makaha ⚠ Expert only</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20,480)">
+    <rect width="250" height="110" rx="8" fill="rgba(0,0,0,0.6)"/>
+    <text x="15" y="20" fill="#fff" font-size="13" font-family="sans-serif" font-weight="bold">Safety Zones</text>
+    <circle cx="20" cy="40" r="6" fill="#00ff88"/>
+    <text x="35" y="44" fill="#00ff88" font-size="11" font-family="sans-serif">★ Beginner-Friendly (Kailua, Lanikai, Sandbar)</text>
+    <circle cx="20" cy="60" r="6" fill="#ffcc00"/>
+    <text x="35" y="64" fill="#ffcc00" font-size="11" font-family="sans-serif">Intermediate (North Shore summer)</text>
+    <circle cx="20" cy="80" r="6" fill="#ff6666"/>
+    <text x="35" y="84" fill="#ff6666" font-size="11" font-family="sans-serif">⚠ Expert / Hazardous (winter swells)</text>
+  </g>
+
+  <!-- Tide info panel -->
+  <g transform="translate(550,20)">
+    <rect width="230" height="100" rx="8" fill="rgba(0,0,0,0.6)"/>
+    <text x="15" y="20" fill="#fff" font-size="13" font-family="sans-serif" font-weight="bold">Tide Guide</text>
+    <text x="15" y="40" fill="#ddd" font-size="11" font-family="sans-serif">High Tide: Best for Sandbar (3-5 ft depth)</text>
+    <text x="15" y="58" fill="#ddd" font-size="11" font-family="sans-serif">Low Tide: Best for reef snorkeling</text>
+    <text x="15" y="76" fill="#ddd" font-size="11" font-family="sans-serif">Check tides: tidesandcurrents.noaa.gov</text>
+    <text x="15" y="94" fill="#ddd" font-size="11" font-family="sans-serif">Trade winds: 15-25 mph (AM calmest)</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="570" text-anchor="middle" fill="#fff" font-size="16" font-family="sans-serif" font-weight="bold">Oahu Kayak Safety &amp; Launch Map — Active Oahu Tours</text>
+  <text x="400" y="590" text-anchor="middle" fill="#aaa" font-size="11" font-family="sans-serif">Download, share, and link freely. Updated June 2026.</text>
+</svg>
