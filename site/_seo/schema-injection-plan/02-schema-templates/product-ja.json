@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "[レンタル商品名（日本語）]",
+  "description": "[レンタル商品の簡単な説明（日本語）]",
+  "image": "https://activeoahutours.com/wp-content/uploads/2023/06/[product-image].jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "45.00",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/ja/rentals/[rental-slug]/"
+  }
+}

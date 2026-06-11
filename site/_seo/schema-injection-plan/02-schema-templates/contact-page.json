@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Active Oahu Tours",
+  "description": "Get in touch with our team for tour bookings, rentals, and customer support on Oahu.",
+  "url": "https://activeoahutours.com/contact-us/",
+  "about": {
+    "@type": "TravelAgency",
+    "name": "Active Oahu Tours",
+    "url": "https://activeoahutours.com/"
+  }
+}

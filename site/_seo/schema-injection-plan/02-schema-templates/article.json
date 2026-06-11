@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[Guide Headline/Title]",
+  "description": "[Guide Summary/Description]",
+  "image": "https://activeoahutours.com/wp-content/uploads/2023/[guide-banner].jpg",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "author": {
+    "@type": "Person",
+    "name": "Active Oahu Staff",
+    "url": "https://activeoahutours.com/author/mbgulden/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Active Oahu Tours",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://activeoahutours.com/wp-content/uploads/2022/logo.png"
+    }
+  }
+}

@@ -224,7 +224,37 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Active Oahu Photo Gallery",
   "description": "Browse our gallery of Oahu tour photos including kayaking, snorkeling, beach adventures, and scenic views from Active Oahu Tours.",
   "url": "https://activeoahutours.com/active-oahu-photo-gallery/"
-}</script></head>
+}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gallery",
+  "description": "Our Oahu Photo gallery. Windward Oahu and high-quality images of our kayaks and beach rental gear that we conveniently deliver to your address or beach.",
+  "url": "https://activeoahutours.com/active-oahu-photo-gallery/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gallery",
+  "description": "Our Oahu Photo gallery. Windward Oahu and high-quality images of our kayaks and beach rental gear that we conveniently deliver to your address or beach.",
+  "url": "https://activeoahutours.com/active-oahu-photo-gallery/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gallery",
+  "description": "Our Oahu Photo gallery. Windward Oahu and high-quality images of our kayaks and beach rental gear that we conveniently deliver to your address or beach.",
+  "url": "https://activeoahutours.com/active-oahu-photo-gallery/"
+}
+</script>
+</head>
 <body class="wp-singular page-template page-template-page-gallery page-template-page-gallery-php page page-id-223 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
 <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
@@ -366,6 +396,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->

@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "@id": "https://activeoahutours.com/#travelagency",
+      "name": "アクティブ・オアフ・ツアーズ (Active Oahu Tours)",
+      "url": "https://activeoahutours.com/ja/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://activeoahutours.com/wp-content/uploads/2022/logo.png",
+        "caption": "Active Oahu Tours Logo"
+      },
+      "image": "https://activeoahutours.com/wp-content/uploads/2023/06/Electric-Bikes-on-Kailua-Beach.jpg",
+      "description": "アクティブ・オアフ・ツアーズは、カイルアとウィンドワード・オアフで、プレミアムなセルフガイド＆ガイド付きカヤックツアー、Eバイクのレンタル、シュノーケリング・アドベンチャーを提供しています。",
+      "telephone": "+1-808-498-1234",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "134B Hamakua Drive",
+        "addressLocality": "Kailua",
+        "addressRegion": "HI",
+        "postalCode": "96734",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.3985,
+        "longitude": -157.7423
+      },
+      "sameAs": [
+        "https://www.facebook.com/activeoahutours/",
+        "https://www.instagram.com/activeoahu/",
+        "https://www.tripadvisor.com/Attraction_Review-g60607-d4817441-Reviews-Active_Oahu_Tours-Kailua_Oahu_Hawaii.html"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://activeoahutours.com/#localbusiness",
+      "name": "アクティブ・オアフ・ツアーズ",
+      "url": "https://activeoahutours.com/ja/",
+      "telephone": "+1-808-498-1234",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "134B Hamakua Drive",
+        "addressLocality": "Kailua",
+        "addressRegion": "HI",
+        "postalCode": "96734",
+        "addressCountry": "US"
+      }
+    }
+  ]
+}

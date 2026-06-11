@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "[Rental Product Name]",
+  "description": "[Rental Product Description]",
+  "image": "https://activeoahutours.com/wp-content/uploads/2023/06/[product-image].jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "45.00",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/rentals/[rental-slug]/"
+  }
+}

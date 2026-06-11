@@ -384,6 +384,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   width: 26px!important;
                   height: 19px!important;
               }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
+              }
             </style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
@@ -458,6 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="row">
 <div class="col col-sm-12 col-md-6">
 <p>Make your Kailua beach adventure one to remember. Rent a kayak and paddle to the Mokulua islands in Kailua and experience both an ocean kayaking and hiking adventure. Ocean kayak over the sheltered waters of Kailua Bay and take in the crystal clear waters and spectacular coral reefs. Transport the equipment easily from the meeting place to Kailua Beach on your vehicle using our provided pads and straps. Tandem Kayaks fit one or two people and include life vests, seat backs, and paddles. Book now to experience kayaking to the Mokulua Islands and Popoia Island. Permits are limited, so reserve your kayaks in advance!</p>
+<p>👀 Prefer a guided experience? <a href="/activities/kailua-kayak-twin-islands-guided-tour/">Book a guided tour of the Twin Islands</a> with an expert guide who will lead the way and share local knowledge.</p>
 <div class="single-icons">
 <div class="icon-item">
 <div class="review-stars">

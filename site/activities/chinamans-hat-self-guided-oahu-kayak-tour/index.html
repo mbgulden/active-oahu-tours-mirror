@@ -241,6 +241,56 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Chinaman’s Hat Self-Guided Kayak Tour",
+  "description": "Chinaman's Hat self-guided kayak tour near Kualoa Park, Oahu. Paddle to Mokoliʻi Island, hike to the summit, and enjoy panoramic views of Kāneʻohe Bay with Active Oahu gear.",
+  "url": "https://activeoahutours.com/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
+  "tourOperator": {
+    "@type": "TravelAgency",
+    "name": "Active Oahu Tours",
+    "url": "https://activeoahutours.com"
+  },
+  "touristType": [
+    "Adventure Travelers",
+    "Families",
+    "Couples"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/book/"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Best Tide Window for Mokoliʻi / Chinaman's Hat",
+  "description": "The channel to Mokoliʻi can develop strong currents on outgoing tides. Check the '/chinamans-hat-tide-guide/'Chinaman's Hat Tide Guide before booking.",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Mokoliʻi / Chinaman's Hat",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oahu",
+      "addressRegion": "HI"
+    }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Mokoliʻi / Chinaman's Hat Kayak Launch"
+  }
+}
+</script>
 </head>
 <body class="wp-singular activities-template-default single single-activities postid-1312 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -383,6 +433,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->
@@ -829,6 +926,13 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 </div>
 <div class="col col-xxs-8">
 <div class="listing-book-button">
+
+<!-- Tide Information -->
+<div class="tide-info-callout" style="background: #e8f4f8; border-left: 4px solid #006699; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95em;">
+  <strong>🌊 Tide Info:</strong> The channel to Mokoliʻi can develop strong currents on outgoing tides. Check the <a href='/chinamans-hat-tide-guide/'>Chinaman's Hat Tide Guide</a> before booking.
+  <br><small>📍 Mokoliʻi / Chinaman's Hat | Best: Incoming to High Tide</small>
+</div>
+
 <a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1038571" onclick="FH.open({'shortname':'activeoahutours','view':'items','fallback':'simple','flow':'1038571'}); return false;" target="_blank">
 <div class="btn btn-primary">
 <strong>

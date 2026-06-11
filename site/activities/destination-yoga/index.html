@@ -240,6 +240,32 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Destination Yoga, Private Yoga Practice near Laie Courtyard Marriott, HI", "url": "https://activeoahutours.com/activities/destination-yoga/", "description": "Join us for a private yoga practice on a secluded beach or mountain retreat. Destination yoga is great for all levels. Practice is near North Shore Oahu"}</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Destination Yoga",
+  "description": "Join us for a private yoga practice on a secluded beach or mountain retreat. Destination yoga is great for all levels. Practice is near North Shore Oahu",
+  "url": "https://activeoahutours.com/activities/destination-yoga/",
+  "tourOperator": {
+    "@type": "TravelAgency",
+    "name": "Active Oahu Tours",
+    "url": "https://activeoahutours.com"
+  },
+  "touristType": [
+    "Adventure Travelers",
+    "Families",
+    "Couples"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/book/"
+  }
+}
+</script>
 </head>
 <body class="wp-singular activities-template-default single single-activities postid-321 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -382,6 +408,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->

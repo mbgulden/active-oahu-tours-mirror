@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the cancellation policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full refund if cancelled at least 24 hours in advance of scheduled tour or rental start time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you deliver beach gear?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we deliver kayaks, stand-up paddle boards, and beach gear packages directly to your vacation rental or launch point on Windward Oahu."
+      }
+    }
+  ]
+}

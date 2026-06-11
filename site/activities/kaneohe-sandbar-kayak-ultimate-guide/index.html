@@ -203,6 +203,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Best Tide Window for Kāneʻohe Sandbar",
+  "description": "Plan around the tides! See the '/kaneohe-sandbar-tide-guide/'Kāneʻohe Sandbar Tide Calendar for best sandbar exposure times.",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Kāneʻohe Sandbar",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oahu",
+      "addressRegion": "HI"
+    }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Kāneʻohe Sandbar Kayak Launch"
+  }
+}
+</script>
 </head>
 <body>
 <div class="hfeed site" id="page">
@@ -241,7 +265,14 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="social-header">
 <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
-<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+<div class="social-links"> 
+<!-- Tide Information -->
+<div class="tide-info-callout" style="background: #e8f4f8; border-left: 4px solid #006699; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95em;">
+  <strong>🌊 Tide Info:</strong> Plan around the tides! See the <a href='/kaneohe-sandbar-tide-guide/'>Kāneʻohe Sandbar Tide Calendar</a> for best sandbar exposure times.
+  <br><small>📍 Kāneʻohe Sandbar | Best: Low to Mid Tide</small>
+</div>
+
+<a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
 <a href="/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a>
 </div>
 </div>
@@ -345,6 +376,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->

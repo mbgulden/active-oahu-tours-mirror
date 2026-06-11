@@ -13,13 +13,13 @@
 </script>
 <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
 <!-- This site is optimized with the Yoast SEO Premium plugin v3.8 - https://yoast.com/wordpress/plugins/seo/ -->
-<meta content="オアフ島ノース ショアでビーチ チェアをレンタルしてリラックスしましょう。オアフ島の北部とオアフ島にビーチチェアのレンタルを配達します。オアフ島東部。ハワイ州ライエ近郊ポリネシア カルチャー センター" name="description"/>
+<meta content="オアフ島ノースショアでビーチチェアをレンタル。オアフ島北部・東部のライエ、PCC、ハウウラ周辺のビーチへ配送。リクライニングバックパックビーチチェアで快適なビーチタイムをお楽しみください。" name="description"/>
 <meta content="noodp" name="robots"/>
 <link href="https://activeoahutours.com/ja/rentals/oahu-beach-chair-rentals/" rel="canonical"/><link href="https://activeoahutours.com/rentals/oahu-beach-chair-rentals/" hreflang="en" rel="alternate"/><link href="https://activeoahutours.com/ja/rentals/oahu-beach-chair-rentals/" hreflang="ja" rel="alternate"/>
 <meta content="ja" property="og:locale"/>
 <meta content="article" property="og:type"/>
 <meta content="オアフ ビーチ チェア レンタル、ノース ショア オアフ、ライエ近く、PCC、ハウウラ、ハワイ" property="og:title"/>
-<meta content="オアフ島ノース ショアでビーチ チェアをレンタルしてリラックスしましょう。オアフ島の北部とオアフ島にビーチチェアのレンタルを配達します。オアフ島東部。ハワイ州ライエ近郊ポリネシア カルチャー センター" property="og:description"/>
+<meta content="オアフ島ノースショアでビーチチェアをレンタル。オアフ島北部・東部のライエ、PCC、ハウウラ周辺のビーチへ配送。リクライニングバックパックビーチチェアで快適なビーチタイムをお楽しみください。" property="og:description"/>
 <meta content="https://activeoahutours.com/ja/rentals/oahu-beach-chair-rentals/" property="og:url"/>
 <meta content="Active Oahu" property="og:site_name"/>
 <meta content="https://www.facebook.com/activeoahutours/" property="article:publisher"/>
@@ -27,7 +27,7 @@
 <meta content="2000" property="og:image:width"/>
 <meta content="800" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="オアフ島ノース ショアでビーチ チェアをレンタルしてリラックスしましょう。オアフ島の北部とオアフ島にビーチチェアのレンタルを配達します。オアフ島東部。ハワイ州ライエ近郊ポリネシア カルチャー センター" name="twitter:description"/>
+<meta content="オアフ島ノースショアでビーチチェアをレンタル。オアフ島北部・東部のライエ、PCC、ハウウラ周辺のビーチへ配送。リクライニングバックパックビーチチェアで快適なビーチタイムをお楽しみください。" name="twitter:description"/>
 <meta content="Oahu Beach Chair Rentals, North Shore Oahu Near Laie, PCC, Hauula, HI" name="twitter:title"/>
 <meta content="@activeoahutours" name="twitter:site"/>
 <meta content="/wp-content/uploads/2018/11/DSC5212_Wide_2000_1x2.5.jpg" name="twitter:image"/>
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "オアフ ビーチ チェア レンタル、ノース ショア オアフ、ライエ近く、PCC、ハウウラ、ハワイ",
-  "description": "オアフ島ノース ショアでビーチ チェアをレンタルしてリラックスしましょう。オアフ島の北部とオアフ島にビーチチェアのレンタルを配達します。オアフ島東部。ハワイ州ライエ近郊ポリネシア カルチャー センター",
+  "description": "オアフ島ノースショアでビーチチェアをレンタル。オアフ島北部・東部のライエ、PCC、ハウウラ周辺のビーチへ配送。リクライニングバックパックビーチチェアで快適なビーチタイムをお楽しみください。",
   "url": "https://activeoahutours.com/ja/rentals/oahu-beach-chair-rentals/",
   "brand": {
     "@type": "Brand",
@@ -385,6 +385,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   width: 26px!important;
                   height: 19px!important;
               }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
+              }
             </style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
@@ -458,6 +505,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="row">
 <div class="col col-sm-12 col-md-6">
 <p>オアフ島でビーチチェアのレンタルが必要ですが、運搬や管理はしたくないですか?ビーチチェアのレンタルを別荘や個人の住所に直接お届けします。リクライニング バックパック ビーチ チェアを予約して、ビーチで丸 1 日をお楽しみください。カイルアのラニ カイやカウェラ ベイ、サンセット ビーチ、パイプライン、ライエのパウンダーズ ビーチなどのビーチで景色をお楽しみください。オアフ島にはビーチ チェアのレンタルに最適な素晴らしいビーチがたくさんあります。ご提案が必要な場合は、予約フォームに記入するか、メールまたはお電話でご連絡ください。</p>
+<h3>ビーチチェアレンタルにおすすめのビーチ</h3>
+<p>ビーチチェアを最大限に活用できるおすすめのビーチをご紹介します：<br/>
+<strong>・カイルアビーチ（Kailua Beach）</strong> — オアフ島でも有数の美しい白砂のビーチ。駐車場も広く、波も穏やかなので、一日中チェアに座ってのんびり過ごすのに最適です。<br/>
+<strong>・ラニカイビーチ（Lanikai Beach）</strong> — ターコイズブルーの海と真っ白な砂が魅力の絶景ビーチ。ただし駐車場が限られているので、早めの到着がおすすめです。小さなビーチなので、チェアとパラソルのセットがあれば快適に過ごせます。<br/>
+<strong>・ワイキキビーチ（Waikiki Beach）</strong> — ホノルルの中心部に位置し、ホテルやレストランが充実。ビーチチェアに座ってダイヤモンドヘッドの景色を眺めながら、ゆったりとした時間をお過ごしください。</p>
+<h3>配達オプション</h3>
+<p>当店では<strong>無料配達サービス</strong>を提供しています。カイルア市内およびウィンドワード側の北はライエ、南はワイマナロまでの別荘や個人の住所に配達可能です。ご予約時に配達先住所とご希望の時間をお知らせください。午前8時から午後5時までの間でお届けします。配達エリア外にお泊まりのお客様は、カイルアの店頭でも受け取りが可能ですのでお気軽にお問い合わせください。</p>
+<p>カイルアやノースショア周辺でおすすめのレストラン情報は<a href="https://activeoahutours.com/guides/eating-your-way-windward-to-north-shore/" target="_blank">こちらのウィンドワード・フードガイド（英語）</a>をご覧ください。</p>
 <div class="single-icons">
 <div class="icon-item">
 <div class="review-stars">

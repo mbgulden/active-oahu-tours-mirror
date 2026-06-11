@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": "https://activeoahutours.com/activities/#itemlist",
+      "name": "Oahu Activities Hub",
+      "description": "List of top tours and experiences on Oahu",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://activeoahutours.com/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
+          "name": "Chinaman's Hat Kayak Tour"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://activeoahutours.com/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/",
+          "name": "Mokulua Islands Kayak Tour"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://activeoahutours.com/activities/kaneohe-sandbar-kayak-rentals/",
+          "name": "Kaneohe Sandbar Kayaking"
+        }
+      ]
+    },
+    {
+      "@type": "TouristAttraction",
+      "@id": "https://activeoahutours.com/activities/#attraction",
+      "name": "Kailua Beach & Windward Oahu Waterways",
+      "description": "Top snorkeling, kayaking, and paddleboarding destination on Oahu.",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.4014,
+        "longitude": -157.7266
+      }
+    }
+  ]
+}

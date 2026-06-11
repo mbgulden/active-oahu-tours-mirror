@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[ガイド記事タイトル（日本語）]",
+  "description": "[ガイド記事の要約（日本語）]",
+  "image": "https://activeoahutours.com/wp-content/uploads/2023/[guide-banner].jpg",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "author": {
+    "@type": "Person",
+    "name": "Active Oahu Staff",
+    "url": "https://activeoahutours.com/author/mbgulden/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "アクティブ・オアフ・ツアーズ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://activeoahutours.com/wp-content/uploads/2022/logo.png"
+    }
+  }
+}

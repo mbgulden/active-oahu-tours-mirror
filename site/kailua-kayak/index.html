@@ -15,12 +15,12 @@
 <!-- This site is optimized with the Yoast SEO Premium plugin v3.8 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta content="Kayak Kailua Bay to the Mokulua Islands, Popoia Island, or along Oahu’s most beautiful coastline. Self-guided and guided tours from Active Oahu." name="description"/>
 <meta content="noodp" name="robots"/>
-<link href="https://activeoahutours.com/kailua-kayak/" rel="canonical"/><link href="https://activeoahutours.com/kailua-kayak/" hreflang="en" rel="alternate"/>
+<link href="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/" rel="canonical"/><link href="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/" hreflang="en" rel="alternate"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="website" property="og:type"/>
 <meta content="Kailua Kayak Tours &amp; Rentals — Paddle Oahu’s Best Bay | Active Oahu" property="og:title"/>
 <meta content="Kayak Kailua Bay to the Mokulua Islands, Popoia Island, or along Oahu’s most beautiful coastline. Self-guided and guided tours from Active Oahu." property="og:description"/>
-<meta content="https://activeoahutours.com/kailua-kayak/" property="og:url"/>
+<meta content="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/" property="og:url"/>
 <meta content="Active Oahu" property="og:site_name"/>
 <meta content="https://activeoahutours.com/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -320,6 +320,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->

@@ -393,6 +393,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   width: 26px!important;
                   height: 19px!important;
               }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
+              }
             </style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
@@ -629,6 +676,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>海の状況は急速に変化する可能性があり、カヤックは危険を伴う可能性があります。とはいえ、これは通常または理想的な条件下での海でのオアフ島カヤック ツアーの中で最も安全なものの 1 つです。このツアーは 12 歳以上のお子様に参加することをお勧めしますが、特に条件が良い場合は、それより小さなお子様もツアーに参加できます。島の風上にあるため、ほとんど常に風が吹き、時には非常に風が強いこともあります。夏の間 (5 月末から 9 月初旬) は天候が穏やかで予測しやすく、初心者や経験の浅いカヤッカーにとってもこのエリアはアクセスしやすくなっています。</p>
 <p>嵐や強風が発生した場合は、分かり次第お知らせし、ツアーの再スケジュールまたは全額返金を行うことができます。</p>
 <p>お気軽にチェックしてください<a href="../../cancellation-policy/index.html">キャンセルポリシー</a>詳細については。</p>
+<h3>潮汐とタイミングのアドバイス</h3>
+<p>モコリイ島へのカヤックは<strong>干潮時</strong>に paddling するのがベストです。干潮時は海面が穏やかで、サンゴ礁の上を浅くパドルできるため、波の影響を受けにくくなります。現地到着前に<a href="https://www.tide-forecast.com/locations/Kualoa-Regional-Park-Hawaii/tides/latest" target="_blank">カネオヘ湾の tide 予報</a>をチェックし、干潮の前後2時間以内に出発することをおすすめします。満潮時は水流が強くなることがあるので注意が必要です。</p>
+<h3>持ち物リスト</h3>
+<p>以下のものをご持参いただくと、より快適に体験をお楽しみいただけます：<br/>
+・<strong>水（十分な量）</strong>— ハワイの日差しの下ではこまめな水分補給が欠かせません<br/>
+・<strong>日焼け止め</strong>（リーフセーフ推奨）<br/>
+・<strong>リーフシューズ</strong>またはウォーターシューズ — 島でのハイキングには必須です。岩場が多く、足元が不安定な箇所もあります<br/>
+・軽食とタオル</p>
+<h3>カイルアからクアロア牧場までの絶景ドライブ</h3>
+<p>当店はカイルアにあります。カイルアからクアロア・リージョナル・パークまでのドライブ（約30分）は、それ自体がオアフ島でも有数の絶景ルートです。カイルアの町を出発すると、左手にコオラウ山脈の緑豊かな山並み、右手にカネオヘ湾のターコイズブルーの海が広がります。特にクアロア・ランチの手前では、映画『ジュラシック・パーク』でおなじみの断崖絶壁の景色が目の前に現れます。ドライブ中は写真撮影のため、安全な場所に停車して景色をお楽しみください。</p>
 </section>
 <div class="single-book-cta">
 <h2>チャイナマンズ ハットのガイドなしカヤック ツアーを予約する</h2>

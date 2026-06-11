@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "お問い合わせ - アクティブ・オアフ・ツアーズ",
+  "description": "オアフ島でのツアー予約、レンタル、カスタマーサポートにつきましては、お気軽にお問い合わせください。",
+  "url": "https://activeoahutours.com/ja/contact-us/",
+  "about": {
+    "@type": "TravelAgency",
+    "name": "アクティブ・オアフ・ツアーズ",
+    "url": "https://activeoahutours.com/ja/"
+  }
+}

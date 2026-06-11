@@ -241,6 +241,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Sharks Cove Self-Guided Snorkel",
+  "description": "Snorkel at Sharks Cove on Oahu's North Shore — a world-class marine sanctuary at Pupukea Beach Park. Self-guided tour with premium gear, reef maps, and seasonal conditions guide.",
+  "url": "https://activeoahutours.com/activities/sharks-cove-self-guided-snorkel/",
+  "tourOperator": {
+    "@type": "TravelAgency",
+    "name": "Active Oahu Tours",
+    "url": "https://activeoahutours.com"
+  },
+  "touristType": [
+    "Adventure Travelers",
+    "Families",
+    "Couples"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/book/"
+  }
+}
+</script>
 </head>
 <body class="wp-singular activities-template-default single single-activities postid-2399 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -383,6 +409,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->
@@ -1651,6 +1724,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
     });
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477d0efa692804',t:'MTc4MDI0NjM0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<p>Also check out our <a href="../../guides/electric-beach/">Electric Beach guide for West Oahu snorkeling</a> — another great spot for turtle sightings and warm-water snorkeling.</p>
+<p>Also check out our <a href="../../guides/electric-beach/">Electric Beach guide for West Oʻahu snorkeling</a> — another great spot for turtle sightings and warm-water snorkeling.</p>
+<p>👀 Have questions? See our <a href="../../paa-answers/">Frequently asked questions about Oʻahu snorkeling</a> for quick answers on gear, conditions, and best spots.</p>
 </body>
 </html>

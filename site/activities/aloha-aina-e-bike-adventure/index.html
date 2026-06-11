@@ -241,6 +241,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Aloha ‘Aina E-Bike Adventure",
+  "description": "Explore Oahu's windward coast on our Aloha Aina E-Bike Adventure. Ride through Kailua's scenic backroads, beaches, and hidden lookouts with premium electric bikes from Active Oahu.",
+  "url": "https://activeoahutours.com/activities/aloha-aina-e-bike-adventure/",
+  "tourOperator": {
+    "@type": "TravelAgency",
+    "name": "Active Oahu Tours",
+    "url": "https://activeoahutours.com"
+  },
+  "touristType": [
+    "Adventure Travelers",
+    "Families",
+    "Couples"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://activeoahutours.com/book/"
+  }
+}
+</script>
 </head>
 <body class="wp-singular activities-template-default single single-activities postid-4411 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -383,6 +409,53 @@ document.addEventListener('DOMContentLoaded', function() {
                   background-position: unset!important;
                   width: 26px!important;
                   height: 19px!important;
+              }
+              /* MOBILE HEADER: logo + phone + CTA on single line */
+              @media (max-width: 768px) {
+                #branding {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: space-between !important;
+                  flex-wrap: nowrap !important;
+                  padding: 5px 10px !important;
+                }
+                #branding .aot-logo {
+                  flex: 0 0 auto !important;
+                  margin-right: 5px !important;
+                }
+                #branding .aot-logo img {
+                  width: 100px !important;
+                  height: auto !important;
+                }
+                #branding .social-header {
+                  display: flex !important;
+                  align-items: center !important;
+                  gap: 6px !important;
+                  flex: 1 1 auto !important;
+                  justify-content: flex-end !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 12px !important;
+                  margin: 0 !important;
+                  white-space: nowrap !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 11px !important;
+                  padding: 4px 8px !important;
+                  white-space: nowrap !important;
+                }
+              }
+              @media (max-width: 400px) {
+                #branding .aot-logo img {
+                  width: 75px !important;
+                }
+                #branding .social-header h3 {
+                  font-size: 10px !important;
+                }
+                #branding .social-header .btn {
+                  font-size: 10px !important;
+                  padding: 3px 6px !important;
+                }
               }
             </style>
 </section><!-- branding -->

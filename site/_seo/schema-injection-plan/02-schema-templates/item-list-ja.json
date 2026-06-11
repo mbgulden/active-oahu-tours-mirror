@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": "https://activeoahutours.com/activities/#itemlist",
+      "name": "オアフ・アクティビティ・ハブ",
+      "description": "オアフ島のトップツアー＆体験一覧",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://activeoahutours.com/ja/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
+          "name": "チャイナマンズハット・カヤックツアー"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://activeoahutours.com/ja/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/",
+          "name": "モクルア島カヤックツアー"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://activeoahutours.com/ja/activities/kaneohe-sandbar-kayak-rentals/",
+          "name": "カネオヘサンドバー・カヤックレンタル"
+        }
+      ]
+    },
+    {
+      "@type": "TouristAttraction",
+      "@id": "https://activeoahutours.com/activities/#attraction",
+      "name": "カイルアビーチ ＆ ウィンドワードオアフ水路",
+      "description": "オアフ島でのシュノーケリング、カヤック、パドルボードのトップデスティネーション。",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.4014,
+        "longitude": -157.7266
+      }
+    }
+  ]
+}

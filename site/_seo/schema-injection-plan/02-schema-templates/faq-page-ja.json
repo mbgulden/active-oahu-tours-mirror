@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "キャンセルポリシーはどのような内容ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ツアーまたはレンタル開始予定時刻の24時間前までにキャンセルされた場合は、全額返金いたします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ビーチギアの配達は行っていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。カヤック、スタンドアップパドルボード、ビーチギアのパッケージを、ウィンドワード・オアフのバケーションレンタルや発着ポイントへ直接配達いたします。"
+      }
+    }
+  ]
+}
