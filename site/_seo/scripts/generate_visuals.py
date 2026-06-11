@@ -70,7 +70,7 @@ def generate_workflow_chart():
         y = 3.5 - row * 2.5
         
         # Drawing bounding box
-        rect = plt.Rectangle((x, y), 2.8, 1.8, facecolor='#f4f7f6', edgecolor='#1f77b4', linewidth=2, boxstyle="round,pad=0.2")
+        rect = plt.Rectangle((x, y), 2.8, 1.8, facecolor='#f4f7f6', edgecolor='#1f77b4', linewidth=2)
         ax.add_patch(rect)
         
         # Text inside
