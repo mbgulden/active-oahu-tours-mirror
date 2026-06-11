@@ -49,8 +49,11 @@
 /reviews/surf-lesson-2/ /reviews/ 301
 /reviews/surf-lesson-3/ /reviews/ 301
 /author/* /about-active-oahu/ 301
-/activities/oahu-snorkel-tour/ /guides/sharks-cove-snorkeling-guide/ 301
+/activities/oahu-snorkel-tour/ /sharks-cove-snorkeling-guide/ 301
 /kaneohe-bay-sandbar-tide-guide/ /kaneohe-sandbar-tide-guide/ 301
+/kailua-kayak/ /rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/ 301
+/kayak-kailua/ /rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/ 301
+/ja/kayak-kailua/ /ja/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/ 301
 
 # 404 catch-all — MUST BE LAST
 /* /404.html 404
