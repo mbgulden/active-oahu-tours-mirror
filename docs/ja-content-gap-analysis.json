@@ -1,0 +1,810 @@
+{
+  "generated": "2026-06-11",
+  "method": "character-count (Japanese word-count is misleading)",
+  "summary": {
+    "total_ja_pages": 85,
+    "thin_under_50pct_char": 6,
+    "moderate_50to80_char": 71,
+    "healthy_over_80_char": 8,
+    "empty_stubs_under_200_chars": 8,
+    "detected_404_class": 2
+  },
+  "empty_stubs": [
+    {
+      "ja_path": "kayak-kailua/index.html",
+      "ja_chars": 164,
+      "en_chars": 6775,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "sharks-cove-snorkeling/index.html",
+      "ja_chars": 164,
+      "en_chars": 6871,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "job-dashboard/index.html",
+      "ja_chars": 10,
+      "en_chars": 110,
+      "ratio": 9.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "guides/index.html",
+      "ja_chars": 183,
+      "en_chars": 417,
+      "ratio": 43.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "become-a-partner/index.html",
+      "ja_chars": 74,
+      "en_chars": 117,
+      "ratio": 63.2,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "cancellation-policy/index.html",
+      "ja_chars": 188,
+      "en_chars": 256,
+      "ratio": 73.4,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "join-the-team/index.html",
+      "ja_chars": 100,
+      "en_chars": 117,
+      "ratio": 85.5,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html",
+      "ja_chars": 74,
+      "en_chars": 117,
+      "ratio": 63.2,
+      "ja_is_404": false,
+      "priority": 4
+    }
+  ],
+  "thin_pages": [
+    {
+      "ja_path": "kayak-kailua/index.html",
+      "ja_chars": 164,
+      "en_chars": 6775,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "sharks-cove-snorkeling/index.html",
+      "ja_chars": 164,
+      "en_chars": 6871,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "job-dashboard/index.html",
+      "ja_chars": 10,
+      "en_chars": 110,
+      "ratio": 9.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "faq/index.html",
+      "ja_chars": 1850,
+      "en_chars": 14319,
+      "ratio": 12.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/index.html",
+      "ja_chars": 3591,
+      "en_chars": 11238,
+      "ratio": 32.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "guides/index.html",
+      "ja_chars": 183,
+      "en_chars": 417,
+      "ratio": 43.9,
+      "ja_is_404": false,
+      "priority": 4
+    }
+  ],
+  "all_pages": [
+    {
+      "ja_path": "kayak-kailua/index.html",
+      "ja_chars": 164,
+      "en_chars": 6775,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "sharks-cove-snorkeling/index.html",
+      "ja_chars": 164,
+      "en_chars": 6871,
+      "ratio": 2.4,
+      "ja_is_404": true,
+      "priority": 4
+    },
+    {
+      "ja_path": "job-dashboard/index.html",
+      "ja_chars": 10,
+      "en_chars": 110,
+      "ratio": 9.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "faq/index.html",
+      "ja_chars": 1850,
+      "en_chars": 14319,
+      "ratio": 12.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/index.html",
+      "ja_chars": 3591,
+      "en_chars": 11238,
+      "ratio": 32.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "guides/index.html",
+      "ja_chars": 183,
+      "en_chars": 417,
+      "ratio": 43.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "become-a-partner/index.html",
+      "ja_chars": 74,
+      "en_chars": 117,
+      "ratio": 63.2,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "index.html",
+      "ja_chars": 4697,
+      "en_chars": 7011,
+      "ratio": 67.0,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "privacy-policy/index.html",
+      "ja_chars": 3903,
+      "en_chars": 5565,
+      "ratio": 70.1,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "cancellation-policy/index.html",
+      "ja_chars": 188,
+      "en_chars": 256,
+      "ratio": 73.4,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "join-the-team/index.html",
+      "ja_chars": 100,
+      "en_chars": 117,
+      "ratio": 85.5,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "contact-us/index.html",
+      "ja_chars": 900,
+      "en_chars": 857,
+      "ratio": 105.0,
+      "ja_is_404": false,
+      "priority": 8
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html",
+      "ja_chars": 2207,
+      "en_chars": 4276,
+      "ratio": 51.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/aloha-aina-e-bike-adventure/index.html",
+      "ja_chars": 2060,
+      "en_chars": 3969,
+      "ratio": 51.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/kailua-e-bike-kau-kau-guided-adventure/index.html",
+      "ja_chars": 2362,
+      "en_chars": 4471,
+      "ratio": 52.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/index.html",
+      "ja_chars": 2177,
+      "en_chars": 4044,
+      "ratio": 53.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/index.html",
+      "ja_chars": 4255,
+      "en_chars": 7779,
+      "ratio": 54.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html",
+      "ja_chars": 3961,
+      "en_chars": 7241,
+      "ratio": 54.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html",
+      "ja_chars": 3742,
+      "en_chars": 6830,
+      "ratio": 54.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/east-oahu-self-guided-kayaking-experience/index.html",
+      "ja_chars": 4328,
+      "en_chars": 7861,
+      "ratio": 55.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/kailua-kayak-twin-islands-guided-tour/index.html",
+      "ja_chars": 3375,
+      "en_chars": 6103,
+      "ratio": 55.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html",
+      "ja_chars": 4227,
+      "en_chars": 7588,
+      "ratio": 55.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/kailua-bay-mokulua-island-self-guided-kayak-tour/index.html",
+      "ja_chars": 1900,
+      "en_chars": 3392,
+      "ratio": 56.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/kahana-rainforest-river-oahu-kayak-tour/index.html",
+      "ja_chars": 4628,
+      "en_chars": 8192,
+      "ratio": 56.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/index.html",
+      "ja_chars": 3606,
+      "en_chars": 6286,
+      "ratio": 57.4,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/west-oahu-guided-snorkel-tour/index.html",
+      "ja_chars": 2829,
+      "en_chars": 4911,
+      "ratio": 57.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/haleiwa-paddleboarding/index.html",
+      "ja_chars": 2390,
+      "en_chars": 4129,
+      "ratio": 57.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/lanikai-e-bike-and-snorkel-self-guided-tour/index.html",
+      "ja_chars": 2212,
+      "en_chars": 3821,
+      "ratio": 57.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+      "ja_chars": 3360,
+      "en_chars": 5795,
+      "ratio": 58.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/index.html",
+      "ja_chars": 9187,
+      "en_chars": 15787,
+      "ratio": 58.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/lanikai-pillbox-hike-adventure-guide/index.html",
+      "ja_chars": 1612,
+      "en_chars": 2763,
+      "ratio": 58.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/index.html",
+      "ja_chars": 3253,
+      "en_chars": 5569,
+      "ratio": 58.4,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/page/2/index.html",
+      "ja_chars": 9260,
+      "en_chars": 15694,
+      "ratio": 59.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/page/3/index.html",
+      "ja_chars": 9260,
+      "en_chars": 15694,
+      "ratio": 59.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "active-oahu-photo-gallery/index.html",
+      "ja_chars": 241,
+      "en_chars": 408,
+      "ratio": 59.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/index.html",
+      "ja_chars": 913,
+      "en_chars": 1543,
+      "ratio": 59.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "about-active-oahu-tours/awards/index.html",
+      "ja_chars": 720,
+      "en_chars": 1201,
+      "ratio": 60.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "multi-day-kayak-and-beach-gear-rentals/index.html",
+      "ja_chars": 3085,
+      "en_chars": 5131,
+      "ratio": 60.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html",
+      "ja_chars": 797,
+      "en_chars": 1321,
+      "ratio": 60.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html",
+      "ja_chars": 1578,
+      "en_chars": 2564,
+      "ratio": 61.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html",
+      "ja_chars": 1578,
+      "en_chars": 2564,
+      "ratio": 61.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/kailua-beach-bike-rentals/index.html",
+      "ja_chars": 743,
+      "en_chars": 1204,
+      "ratio": 61.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/oahu-surf-lessons/index.html",
+      "ja_chars": 2659,
+      "en_chars": 4279,
+      "ratio": 62.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html",
+      "ja_chars": 378,
+      "en_chars": 608,
+      "ratio": 62.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/sharks-cove-self-guided-snorkel/index.html",
+      "ja_chars": 4801,
+      "en_chars": 7611,
+      "ratio": 63.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html",
+      "ja_chars": 74,
+      "en_chars": 117,
+      "ratio": 63.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-beginner-surf-board-rentals/index.html",
+      "ja_chars": 2552,
+      "en_chars": 4001,
+      "ratio": 63.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/kayak-sup-trolley/index.html",
+      "ja_chars": 2957,
+      "en_chars": 4621,
+      "ratio": 64.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "activities/rainforest-oahu-stand-up-paddle-boarding/index.html",
+      "ja_chars": 3901,
+      "en_chars": 6063,
+      "ratio": 64.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-beach-umbrella-rentals/index.html",
+      "ja_chars": 2779,
+      "en_chars": 4308,
+      "ratio": 64.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html",
+      "ja_chars": 4256,
+      "en_chars": 6577,
+      "ratio": 64.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/kalama-beach-bodyboarding-adventure/index.html",
+      "ja_chars": 1873,
+      "en_chars": 2867,
+      "ratio": 65.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-stand-up-paddle-board-rentals-sup-hire/index.html",
+      "ja_chars": 3344,
+      "en_chars": 5091,
+      "ratio": 65.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/kahana-river-kayak-adventure/index.html",
+      "ja_chars": 2523,
+      "en_chars": 3827,
+      "ratio": 65.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-snorkel-mask-and-fin-rentals/index.html",
+      "ja_chars": 2733,
+      "en_chars": 4149,
+      "ratio": 65.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "trip-cancellation-insurance-terms-and-conditions/index.html",
+      "ja_chars": 786,
+      "en_chars": 1191,
+      "ratio": 66.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/page/2/index.html",
+      "ja_chars": 3591,
+      "en_chars": 5427,
+      "ratio": 66.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/page/3/index.html",
+      "ja_chars": 3591,
+      "en_chars": 5427,
+      "ratio": 66.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/page/4/index.html",
+      "ja_chars": 3591,
+      "en_chars": 5427,
+      "ratio": 66.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "reviews/page/5/index.html",
+      "ja_chars": 3591,
+      "en_chars": 5427,
+      "ratio": 66.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-life-vest-rentals/index.html",
+      "ja_chars": 2838,
+      "en_chars": 4260,
+      "ratio": 66.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-boogie-board-rentals/index.html",
+      "ja_chars": 2870,
+      "en_chars": 4295,
+      "ratio": 66.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-cooler-rentals/index.html",
+      "ja_chars": 2511,
+      "en_chars": 3730,
+      "ratio": 67.3,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/lanikai-e-bike-snorkel-and-pillbox-hike-self-guided-adventure/index.html",
+      "ja_chars": 2323,
+      "en_chars": 3422,
+      "ratio": 67.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "author/mbgulden/index.html",
+      "ja_chars": 4696,
+      "en_chars": 6891,
+      "ratio": 68.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-beach-chair-rentals/index.html",
+      "ja_chars": 2976,
+      "en_chars": 4364,
+      "ratio": 68.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html",
+      "ja_chars": 6981,
+      "en_chars": 10128,
+      "ratio": 68.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-kayak-anchor-rentals/index.html",
+      "ja_chars": 2572,
+      "en_chars": 3724,
+      "ratio": 69.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-tandem-kayak-rentals/index.html",
+      "ja_chars": 6391,
+      "en_chars": 9200,
+      "ratio": 69.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/index.html",
+      "ja_chars": 946,
+      "en_chars": 1341,
+      "ratio": 70.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html",
+      "ja_chars": 4288,
+      "en_chars": 6064,
+      "ratio": 70.7,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "rentals/oahu-dry-bag-rentals/index.html",
+      "ja_chars": 2556,
+      "en_chars": 3581,
+      "ratio": 71.4,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/chinamans-hat-kayak-rentals/index.html",
+      "ja_chars": 4173,
+      "en_chars": 5802,
+      "ratio": 71.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "faq-oahu-beach-gear-rentals/index.html",
+      "ja_chars": 1647,
+      "en_chars": 2238,
+      "ratio": 73.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/index.html",
+      "ja_chars": 4716,
+      "en_chars": 6319,
+      "ratio": 74.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/page/2/index.html",
+      "ja_chars": 4716,
+      "en_chars": 6319,
+      "ratio": 74.6,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html",
+      "ja_chars": 6116,
+      "en_chars": 8108,
+      "ratio": 75.4,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+      "ja_chars": 1568,
+      "en_chars": 2066,
+      "ratio": 75.9,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/mokulua-islands-self-guided-kayak-adventure/index.html",
+      "ja_chars": 3225,
+      "en_chars": 4182,
+      "ratio": 77.1,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "kailua-oahu-storefront/index.html",
+      "ja_chars": 772,
+      "en_chars": 955,
+      "ratio": 80.8,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html",
+      "ja_chars": 3523,
+      "en_chars": 4322,
+      "ratio": 81.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "faq/faq-oahu-beach-gear-rentals/index.html",
+      "ja_chars": 1992,
+      "en_chars": 2238,
+      "ratio": 89.0,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "faq/faq-chinamans-hat-kayak-hike/index.html",
+      "ja_chars": 3459,
+      "en_chars": 3753,
+      "ratio": 92.2,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "oahu-equipment-rentals/kayak-rental-delivery-locations/index.html",
+      "ja_chars": 2577,
+      "en_chars": 2590,
+      "ratio": 99.5,
+      "ja_is_404": false,
+      "priority": 4
+    },
+    {
+      "ja_path": "about-active-oahu-tours/index.html",
+      "ja_chars": 1479,
+      "en_chars": 1479,
+      "ratio": 100.0,
+      "ja_is_404": false,
+      "priority": 4
+    }
+  ]
+}
