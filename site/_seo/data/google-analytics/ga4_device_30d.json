@@ -1,0 +1,57 @@
+{
+  "dimensionHeaders": [
+    {
+      "name": "deviceCategory"
+    }
+  ],
+  "metricHeaders": [
+    {
+      "name": "sessions",
+      "type": "TYPE_INTEGER"
+    }
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {
+          "value": "mobile"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1986"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "desktop"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1780"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "tablet"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        }
+      ]
+    }
+  ],
+  "rowCount": 3,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "Pacific/Honolulu"
+  },
+  "kind": "analyticsData#runReport"
+}

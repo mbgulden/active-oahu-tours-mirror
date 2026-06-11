@@ -1,0 +1,47 @@
+[
+  {
+    "domain": "hawaiibeachtime.com",
+    "commonKeywordCount": 332,
+    "traffic": 1702,
+    "organic": 592,
+    "backlinks": 1509,
+    "domainAuthority": 24,
+    "gapKeywordCount": 311
+  },
+  {
+    "domain": "kailuabeachadventures.com",
+    "commonKeywordCount": 591,
+    "traffic": 154950,
+    "organic": 2416,
+    "backlinks": 2225,
+    "domainAuthority": 32,
+    "gapKeywordCount": 1427
+  },
+  {
+    "domain": "tripadvisor.com",
+    "commonKeywordCount": 1069,
+    "traffic": 590920898,
+    "organic": 59162155,
+    "backlinks": 375588429,
+    "domainAuthority": 93,
+    "gapKeywordCount": 19159352
+  },
+  {
+    "domain": "surfnsea.com",
+    "commonKeywordCount": 185,
+    "traffic": 7459,
+    "organic": 1419,
+    "backlinks": 10405,
+    "domainAuthority": 36,
+    "gapKeywordCount": 1593
+  },
+  {
+    "domain": "hawaiiactivities.com",
+    "commonKeywordCount": 612,
+    "traffic": 99462,
+    "organic": 52459,
+    "backlinks": 360269,
+    "domainAuthority": 48,
+    "gapKeywordCount": 41550
+  }
+]

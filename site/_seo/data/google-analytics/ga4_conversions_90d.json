@@ -1,0 +1,339 @@
+{
+  "dimensionHeaders": [
+    {
+      "name": "eventName"
+    },
+    {
+      "name": "pagePath"
+    }
+  ],
+  "metricHeaders": [
+    {
+      "name": "conversions",
+      "type": "TYPE_FLOAT"
+    }
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/embeds/book/activeoahutours/cart/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "88"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/oahu-equipment-rentals/chinamans-hat-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/active-oahu-tours/chinamans-hat-kayak-rentals"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/rentals/oahu-beach-chair-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/chinamans-hat-oahu-kayak-tours/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/rainforest-oahu-stand-up-paddle-boarding/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/activities/sharks-cove-self-guided-snorkel/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/availability/1632003466/book/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/embeds/book/activeoahutours/items/491544/availability/1610795456/book/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/embeds/book/activeoahutours/items/491544/availability/1610795900/book/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/embeds/book/activeoahutours/pending/bookings/fe012b29-e8fe-4b30-a0d3-147231d5466c/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/ja/rentals/oahu-beach-chair-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/oahu-equipment-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "purchase"
+        },
+        {
+          "value": "/rentals/oahu-beach-umbrella-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rowCount": 21,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "Pacific/Honolulu"
+  },
+  "kind": "analyticsData#runReport"
+}

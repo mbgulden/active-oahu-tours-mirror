@@ -1,0 +1,774 @@
+{
+  "dimensionHeaders": [
+    {
+      "name": "pagePath"
+    },
+    {
+      "name": "pageTitle"
+    }
+  ],
+  "metricHeaders": [
+    {
+      "name": "sessions",
+      "type": "TYPE_INTEGER"
+    }
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {
+          "value": "/"
+        },
+        {
+          "value": "Oahu Kayak Rentals in Kailua, Kayak to Mokulua Islands & Chinamans Hat"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "846"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/sharks-cove-self-guided-snorkel/"
+        },
+        {
+          "value": "Snorkel at Sharks Cove on North Shore Oahu at Pupukea Beach Park"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "405"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/chinamans-hat-kayak-rentals/"
+        },
+        {
+          "value": "Chinaman's Hat Kayak Rentals, Kualoa Regional Park & Kualoa Ranch, HI"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "251"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/"
+        },
+        {
+          "value": "Oahu Kayak Tours & Adventures, Kayak in Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "201"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/"
+        },
+        {
+          "value": "Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "188"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/"
+        },
+        {
+          "value": "Oahu, Hawaii's Kaneohe Sandbar Kayak Experience - About Kaneohe Bay"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "181"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/"
+        },
+        {
+          "value": "Oahu Kayak Rentals, SUP & Beach Gear Delivery Near Kailua"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "170"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/"
+        },
+        {
+          "value": "Kayak Rentals in Kailua, Kayak Chinaman's Hat, Mokulua Island & Kahana"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "145"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/"
+        },
+        {
+          "value": "Kailua Kayak Rentals, Kayak to the Mokulua Islands & Popoia (Flat Island)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "101"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kahana-rainforest-river-oahu-kayak-tour/"
+        },
+        {
+          "value": "Oahu Kayak Tour, Kahana Rainforest River Kayaking, Near Laie, HI & PCC"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "90"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/05/"
+        },
+        {
+          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "90"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/05/"
+        },
+        {
+          "value": "Chinaman's Hat Kayak Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "77"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/"
+        },
+        {
+          "value": "Kaneohe Sandbar Self-Guided Kayak Adventure \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "71"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-chair-rentals/"
+        },
+        {
+          "value": "Oahu Beach Chair Rentals, North Shore Oahu Near Laie, PCC, Hauula, HI"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "71"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/"
+        },
+        {
+          "value": "Chinaman's Hat Self-Guided Kayak Tour Near Kualoa Park, Oahu Hawaii"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "69"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-stand-up-paddle-board-rentals-sup-hire/"
+        },
+        {
+          "value": "Oahu Stand Up Paddle Board Rentals. Pick up at our shop in Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "65"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/"
+        },
+        {
+          "value": "FareHarbor"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "64"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/kailua-beach-bike-rentals/"
+        },
+        {
+          "value": "Kailua Electric Bike Rentals, Cruise to Kailua Beach & Kailua Town in Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "64"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/cart/"
+        },
+        {
+          "value": "Cart | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "60"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/"
+        },
+        {
+          "value": "Mokolii Kayak Rentals, Kayak & Hike Chinamans Hat in Oahu Near Kualoa"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "59"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/"
+        },
+        {
+          "value": "How to Transport Kayaks and SUPs From Our Shop In Kailua to the Beach \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "58"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/chinamans-hat-oahu-kayak-tours/"
+        },
+        {
+          "value": "Mokolii Self-Guided Kayak and Hike on Oahu Near Kualoa Ranch"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "54"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/"
+        },
+        {
+          "value": "Kailua Self-guided Kayak Tour - Kayak to Flat Island & the Mokulua Islands"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "51"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-snorkel-mask-and-fin-rentals/"
+        },
+        {
+          "value": "Oahu Snorkel Mask and Fin Rentals, North Shore Oahu Near Laie Hawaii"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/popoia-island-and-kailua-bay-guided-kayak-tour/"
+        },
+        {
+          "value": "Kailua Bay Kayak Tour, Popoia Island (Flat Island) Oahu, Hawaii"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "46"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/06/"
+        },
+        {
+          "value": "Chinaman's Hat Kayak Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "45"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-umbrella-rentals/"
+        },
+        {
+          "value": "Oahu Beach Umbrella Rentals, North Shore Oahu Near Laie, HI & PCC"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "44"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kailua-kayak-twin-islands-guided-tour/"
+        },
+        {
+          "value": "Na Mokulua, Twin Islands Guided Kayak Tour in Kailua near Lanikai, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/06/"
+        },
+        {
+          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "41"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-life-vest-rentals/"
+        },
+        {
+          "value": "Oahu Life Vest Rentals, North Shore Oahu, Hauula, PCC, Laie Marriott"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/"
+        },
+        {
+          "value": "Ultimate Guide to Lanikai Beach \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/"
+        },
+        {
+          "value": "FareHarbor"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/"
+        },
+        {
+          "value": "Discover Oahu's Best Snorkel Spot at Electric Beach \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400783/calendar/2026/05/"
+        },
+        {
+          "value": "Sharks Cove Self-Guided Snorkel | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "34"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/04/"
+        },
+        {
+          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/kailua-oahu-storefront/"
+        },
+        {
+          "value": "Kayak and Beach Gear Rentals Near Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/multi-day-kayak-and-beach-gear-rentals/"
+        },
+        {
+          "value": "Multi-Day Kayak and Beach Gear Rentals \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/cart/"
+        },
+        {
+          "value": "Confirmation"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities"
+        },
+        {
+          "value": "Oahu Kayak Tours & Adventures, Kayak in Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "31"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/cruiser-oahu-beach-equipment-rental-package/"
+        },
+        {
+          "value": "Oahu Beach Equipment Rental Packge on North Oahu Near Laie, Hawaii"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "31"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400755/calendar/2026/05/"
+        },
+        {
+          "value": "Kaneohe Bay Sandbar Self-Guided Kayak Experience | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "30"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/"
+        },
+        {
+          "value": "Oahu Kayak Rentals, SUP & Beach Gear Delivery Near Kailua"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "30"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/kuilima-estates-at-turtle-bay/"
+        },
+        {
+          "value": "Kuilima Estates At Turtle Bay \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "29"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/"
+        },
+        {
+          "value": "Guided Mokulua Islands Kayak Tour and E-Bike Adventure in Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/115595/calendar/2026/05/"
+        },
+        {
+          "value": "Chinaman's Hat Self-Guided Kayak Tour | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/"
+        },
+        {
+          "value": "FareHarbor"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/"
+        },
+        {
+          "value": "Ultimate Guide for Kailua Beach Park, Experience Windward Oahu\u2019s Safest and Most Adventurous Beach \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/east-oahu-self-guided-kayaking-experience/"
+        },
+        {
+          "value": "East Oahu Self-Guided Kayaking, Kayak Rental & Snorkel Set Included"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kahana-river-kayak-adventure/"
+        },
+        {
+          "value": "Kahana River Kayak Adventure \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/"
+        },
+        {
+          "value": "Oahu Kayaking and Beach Experiences - Kaneohe Sandbar and More"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "25"
+        }
+      ]
+    }
+  ],
+  "rowCount": 1809,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "Pacific/Honolulu"
+  },
+  "kind": "analyticsData#runReport"
+}

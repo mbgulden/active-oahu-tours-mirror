@@ -1,0 +1,42 @@
+{
+  "activeoahutours.com": {
+    "domainAuthority": 26,
+    "backlinks": 1374,
+    "refDomains": 451,
+    "refDomainsGovEdu": 0,
+    "follow": 0,
+    "noFollow": 611
+  },
+  "kailuabeachadventures.com": {
+    "domainAuthority": 32,
+    "backlinks": 2225,
+    "refDomains": 689,
+    "refDomainsGovEdu": 0,
+    "follow": 0,
+    "noFollow": 945
+  },
+  "surfnsea.com": {
+    "domainAuthority": 36,
+    "backlinks": 10405,
+    "refDomains": 1175,
+    "refDomainsGovEdu": 0,
+    "follow": 0,
+    "noFollow": 1446
+  },
+  "hawaiibeachtime.com": {
+    "domainAuthority": 24,
+    "backlinks": 1509,
+    "refDomains": 534,
+    "refDomainsGovEdu": 0,
+    "follow": 0,
+    "noFollow": 498
+  },
+  "hawaiiactivities.com": {
+    "domainAuthority": 48,
+    "backlinks": 360269,
+    "refDomains": 3526,
+    "refDomainsGovEdu": 0,
+    "follow": 0,
+    "noFollow": 91099
+  }
+}
