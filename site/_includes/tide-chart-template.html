@@ -1,0 +1,1248 @@
+<!-- Interactive Tide Chart Widget -->
+<div class="tide-widget-container" 
+     id="tide-chart-widget"
+     data-location-name="{{LOCATION_NAME}}"
+     data-station-id="{{STATION_ID}}"
+     data-safety-tips-low="{{SAFETY_TIPS_LOW}}"
+     data-safety-tips-high="{{SAFETY_TIPS_HIGH}}">
+     
+    <!-- Custom Style Section -->
+    <style>
+        .tide-widget-container {
+            background: linear-gradient(135deg, #0a1128 0%, #020617 100%);
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+            color: #f8fafc;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            margin: 30px auto;
+            max-width: 900px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .tide-widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+            padding-bottom: 16px;
+        }
+
+        .tide-widget-title-area h3 {
+            margin: 0 0 4px 0 !important;
+            font-family: 'Open Sans Condensed', sans-serif !important;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: #f8fafc !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tide-widget-station-info {
+            font-size: 13px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .tide-status-badge {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: #06b6d4;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .tide-widget-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .meta-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 140px;
+        }
+
+        .meta-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin: 0 0 2px 0;
+        }
+
+        .meta-val {
+            font-size: 15px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin: 0;
+        }
+
+        /* Hero display showing active slider details */
+        .tide-hero-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .hero-metric-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(30, 41, 59, 0.4);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-metric-card.active-metric {
+            background: rgba(6, 182, 212, 0.05);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+        }
+
+        .hero-metric-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-metric-val {
+            font-size: 32px;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .hero-metric-sub {
+            font-size: 12px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* SVG Chart Styles */
+        .tide-chart-wrapper {
+            position: relative;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            min-height: 220px;
+        }
+
+        .tide-chart-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .chart-grid-line {
+            stroke: rgba(51, 65, 85, 0.3);
+            stroke-width: 1;
+            stroke-dasharray: 4 4;
+        }
+
+        .chart-axis-label {
+            font-size: 10px;
+            fill: #64748b;
+            font-family: inherit;
+        }
+
+        .tide-curve-line {
+            fill: none;
+            stroke: #06b6d4;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.5));
+        }
+
+        .tide-curve-fill {
+            fill: url(#tide-gradient);
+            opacity: 0.15;
+        }
+
+        .sun-marker-line {
+            stroke: rgba(245, 158, 11, 0.4);
+            stroke-width: 1.5;
+            stroke-dasharray: 3 3;
+        }
+
+        .sun-marker-icon {
+            fill: #f59e0b;
+            filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+        }
+
+        .tide-extremum-marker {
+            stroke: #020617;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: r 0.2s ease;
+        }
+
+        .tide-extremum-marker.high-tide {
+            fill: #10b981;
+            filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.8));
+        }
+
+        .tide-extremum-marker.low-tide {
+            fill: #ef4444;
+            filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.8));
+        }
+
+        .chart-active-time-line {
+            stroke: #e2e8f0;
+            stroke-width: 1.5;
+        }
+
+        .chart-active-dot {
+            fill: #ffffff;
+            stroke: #06b6d4;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.8));
+        }
+
+        /* Controls Styles */
+        .tide-chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .play-button {
+            background: #06b6d4;
+            border: none;
+            color: #020617;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+            flex-shrink: 0;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            background: #22d3ee;
+            box-shadow: 0 4px 16px rgba(34, 211, 238, 0.4);
+        }
+
+        .play-button:active {
+            transform: scale(0.95);
+        }
+
+        .slider-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 280px;
+        }
+
+        .tide-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 9999px;
+            background: #1e293b;
+            outline: none;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .tide-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid #06b6d4;
+            box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+            transition: transform 0.1s ease;
+        }
+
+        .tide-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .tide-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid #06b6d4;
+            box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .tide-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .unit-toggle {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            border-radius: 8px;
+            padding: 2px;
+            display: flex;
+            gap: 2px;
+            height: 38px;
+            box-sizing: border-box;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn.active-unit {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        /* Safety advice panel */
+        .tide-safety-panel {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .safety-icon-wrapper {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .safety-text h5 {
+            margin: 0 0 6px 0 !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            color: #f1f5f9 !important;
+        }
+
+        .safety-text p {
+            margin: 0;
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* Details list of high/low tides */
+        .tide-table-container h4 {
+            margin: 0 0 12px 0 !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            color: #f1f5f9 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tide-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .tide-table-row {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(30, 41, 59, 0.4);
+            border-radius: 10px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+
+        .tide-table-type {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tide-table-type.high {
+            color: #10b981;
+        }
+
+        .tide-table-type.low {
+            color: #ef4444;
+        }
+
+        .tide-table-time {
+            font-size: 14px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 2px;
+        }
+
+        .tide-table-height {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* Loading / Error overlay */
+        .tide-widget-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #020617;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: 16px;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(6, 182, 212, 0.1);
+            border-top-color: #06b6d4;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .tide-widget-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tide-widget-meta {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .meta-card {
+                flex-grow: 1;
+            }
+            .hero-metric-val {
+                font-size: 26px;
+            }
+        }
+    </style>
+
+    <!-- Loading Overlay -->
+    <div class="tide-widget-overlay" id="tide-loading-overlay">
+        <div class="spinner"></div>
+        <div style="color: #94a3b8; font-size: 14px;">Loading Tide predictions...</div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="tide-widget-header">
+        <div class="tide-widget-title-area">
+            <h3 id="widget-title">Kaneohe Bay Tides</h3>
+            <p class="tide-widget-station-info" id="widget-station-info">NOAA Station: Moku O Loe (1612480)</p>
+            <div class="tide-status-badge" id="widget-status-badge">Live NOAA Data</div>
+        </div>
+        
+        <div class="tide-widget-meta">
+            <!-- Moon Phase -->
+            <div class="meta-card">
+                <div id="moon-phase-icon">
+                    <!-- Dynamic SVG Moon -->
+                </div>
+                <div>
+                    <p class="meta-label">Moon Phase</p>
+                    <p class="meta-val" id="moon-phase-name">Waxing Gibbous</p>
+                </div>
+            </div>
+            
+            <!-- Sunrise / Sunset -->
+            <div class="meta-card">
+                <div style="color: #f59e0b; font-size: 24px; display: flex; align-items: center;">
+                    ☀️
+                </div>
+                <div>
+                    <p class="meta-label">Sunrise / Sunset</p>
+                    <p class="meta-val" id="sun-times">6:12 AM / 6:48 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Metrics Panel (updates interactively with slider) -->
+    <div class="tide-hero-display">
+        <div class="hero-metric-card active-metric">
+            <h4>Selected Time</h4>
+            <div class="hero-metric-val" id="hero-time">12:00 PM</div>
+            <div class="hero-metric-sub" id="hero-time-sub">HST</div>
+        </div>
+        <div class="hero-metric-card active-metric">
+            <h4>Tide Height</h4>
+            <div class="hero-metric-val" id="hero-height">+1.24 ft</div>
+            <div class="hero-metric-sub" id="hero-height-sub">Mean Lower Low Water (MLLW)</div>
+        </div>
+        <div class="hero-metric-card active-metric">
+            <h4>Tide Trend</h4>
+            <div class="hero-metric-val" id="hero-trend">Falling</div>
+            <div class="hero-metric-sub" id="hero-trend-sub">Next tide: Low at 6:12 PM</div>
+        </div>
+    </div>
+
+    <!-- SVG Tide Chart Area -->
+    <div class="tide-chart-wrapper">
+        <svg class="tide-chart-svg" viewBox="0 0 800 240" id="tide-svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <!-- Area fill gradient -->
+                <linearGradient id="tide-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0"/>
+                </linearGradient>
+                <!-- Glow filter for nodes -->
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+            
+            <!-- Background grid & axes (rendered by JS) -->
+            <g id="svg-grid"></g>
+            <g id="svg-shading"></g>
+            <g id="svg-axes"></g>
+            
+            <!-- Tide curve path -->
+            <path id="tide-fill-path" class="tide-curve-fill" d="" />
+            <path id="tide-curve-path" class="tide-curve-line" d="" />
+            
+            <!-- Sunrise / Sunset vertical markers -->
+            <g id="svg-sun-markers"></g>
+            
+            <!-- High/Low tide markers -->
+            <g id="svg-tide-markers"></g>
+            
+            <!-- Slider interactive elements -->
+            <g id="svg-interactive">
+                <line id="interactive-line" class="chart-active-time-line" x1="0" y1="0" x2="0" y2="210" />
+                <circle id="interactive-dot" class="chart-active-dot" cx="0" cy="0" r="6" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="tide-chart-controls">
+        <button class="play-button" id="play-btn" aria-label="Play/Pause tide simulation">▶</button>
+        
+        <div class="slider-container">
+            <span style="font-size: 12px; color: #64748b; font-weight: bold;">12 AM</span>
+            <input type="range" class="tide-slider" id="time-slider" min="0" max="1439" value="720">
+            <span style="font-size: 12px; color: #64748b; font-weight: bold;">12 AM</span>
+        </div>
+        
+        <div class="unit-toggle">
+            <button class="toggle-btn active-unit" id="unit-ft">FT</button>
+            <button class="toggle-btn" id="unit-m">M</button>
+        </div>
+    </div>
+
+    <!-- Safety / Advice Section -->
+    <div class="tide-safety-panel">
+        <div class="safety-icon-wrapper" id="safety-icon">
+            ⚠️
+        </div>
+        <div class="safety-text">
+            <h5 id="safety-title">Tidal Safety Advisory</h5>
+            <p id="safety-desc">Plan your paddle timing using the interactive slider. Safe landing conditions can be tide-sensitive.</p>
+        </div>
+    </div>
+
+    <!-- Tide Tables Listing -->
+    <div class="tide-table-container">
+        <h4>Today's Tidal Extremes (High / Low)</h4>
+        <div class="tide-table" id="tide-table-extremes">
+            <!-- Populated dynamically by JS -->
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // DOM Elements
+    const widget = document.getElementById('tide-chart-widget');
+    if (!widget) return;
+    
+    const locationName = widget.getAttribute('data-location-name') || 'Kaneohe Bay';
+    const stationId = widget.getAttribute('data-station-id') || '1612480';
+    const safetyTipsLow = widget.getAttribute('data-safety-tips-low') || 'Reef flats may be exposed. Walk kayaks or stay in channels to avoid coral damage.';
+    const safetyTipsHigh = widget.getAttribute('data-safety-tips-high') || 'Deeper water, higher shorebreak possible. Launch and land carefully.';
+    
+    const loadingOverlay = document.getElementById('tide-loading-overlay');
+    const widgetTitle = document.getElementById('widget-title');
+    const stationInfo = document.getElementById('widget-station-info');
+    const statusBadge = document.getElementById('widget-status-badge');
+    
+    const heroTime = document.getElementById('hero-time');
+    const heroHeight = document.getElementById('hero-height');
+    const heroTrend = document.getElementById('hero-trend');
+    const heroTrendSub = document.getElementById('hero-trend-sub');
+    
+    const timeSlider = document.getElementById('time-slider');
+    const playBtn = document.getElementById('play-btn');
+    const unitFt = document.getElementById('unit-ft');
+    const unitM = document.getElementById('unit-m');
+    
+    const safetyIcon = document.getElementById('safety-icon');
+    const safetyTitle = document.getElementById('safety-title');
+    const safetyDesc = document.getElementById('safety-desc');
+    const extremesTable = document.getElementById('tide-table-extremes');
+    
+    const moonIconContainer = document.getElementById('moon-phase-icon');
+    const moonPhaseName = document.getElementById('moon-phase-name');
+    const sunTimesText = document.getElementById('sun-times');
+    
+    // SVG Elements
+    const svg = document.getElementById('tide-svg');
+    const svgGrid = document.getElementById('svg-grid');
+    const svgShading = document.getElementById('svg-shading');
+    const svgAxes = document.getElementById('svg-axes');
+    const svgCurvePath = document.getElementById('tide-curve-path');
+    const svgFillPath = document.getElementById('tide-fill-path');
+    const svgSunMarkers = document.getElementById('svg-sun-markers');
+    const svgTideMarkers = document.getElementById('svg-tide-markers');
+    const interactiveLine = document.getElementById('interactive-line');
+    const interactiveDot = document.getElementById('interactive-dot');
+
+    // State
+    let tidePredictions = []; // Array of 240 objects { t, v } (t: 'YYYY-MM-DD HH:MM', v: number in feet)
+    let extremumPredictions = []; // Array of extremum objects { t, v, type: 'H'|'L' }
+    let isMetric = false;
+    let isPlaying = false;
+    let playInterval = null;
+    let sunriseMinutes = 372; // default 6:12 AM
+    let sunsetMinutes = 1128; // default 6:48 PM
+    
+    // SVG Dimensions
+    const svgWidth = 800;
+    const svgHeight = 240;
+    const paddingLeft = 45;
+    const paddingRight = 15;
+    const paddingTop = 25;
+    const paddingBottom = 25;
+    const chartWidth = svgWidth - paddingLeft - paddingRight;
+    const chartHeight = svgHeight - paddingTop - paddingBottom;
+    
+    // Main Initializer
+    async function init() {
+        widgetTitle.textContent = `${locationName} Tide Chart`;
+        stationInfo.textContent = `NOAA Station: ${stationId}`;
+        
+        const today = new Date();
+        initMoonPhase(today);
+        await initSunTimes(today);
+        await fetchTideData(today);
+        
+        // Setup slider starting position to current actual local time
+        const now = new Date();
+        const currentMins = now.getHours() * 60 + now.getMinutes();
+        timeSlider.value = currentMins;
+        
+        // Listeners
+        timeSlider.addEventListener('input', () => {
+            updateActiveTime(parseInt(timeSlider.value));
+            if (isPlaying) pause();
+        });
+        
+        playBtn.addEventListener('click', togglePlay);
+        unitFt.addEventListener('click', () => { setUnit(false); });
+        unitM.addEventListener('click', () => { setUnit(true); });
+        
+        // Redraw on window resize to ensure responsiveness
+        window.addEventListener('resize', drawChart);
+        
+        // Hide loading
+        loadingOverlay.classList.add('hidden');
+    }
+    
+    // Moon Phase Calculator
+    function initMoonPhase(date) {
+        // Known new moon on Jan 6, 2000
+        const knownNewMoon = new Date(2000, 0, 6, 18, 14, 0);
+        const diffMs = date - knownNewMoon;
+        const diffDays = diffMs / (1000 * 60 * 60 * 24);
+        const synodicMonth = 29.530588853;
+        const phase = (diffDays / synodicMonth) % 1;
+        
+        let phaseName = "";
+        let iconHtml = "";
+        
+        // Phase names & dynamic SVG path
+        if (phase < 0.03 || phase >= 0.97) {
+            phaseName = "New Moon";
+        } else if (phase >= 0.03 && phase < 0.22) {
+            phaseName = "Waxing Crescent";
+        } else if (phase >= 0.22 && phase < 0.28) {
+            phaseName = "First Quarter";
+        } else if (phase >= 0.28 && phase < 0.47) {
+            phaseName = "Waxing Gibbous";
+        } else if (phase >= 0.47 && phase < 0.53) {
+            phaseName = "Full Moon";
+        } else if (phase >= 0.53 && phase < 0.72) {
+            phaseName = "Waning Gibbous";
+        } else if (phase >= 0.72 && phase < 0.78) {
+            phaseName = "Third Quarter";
+        } else {
+            phaseName = "Waning Crescent";
+        }
+        
+        // Generate SVG Moon icon
+        let d = "";
+        if (phase < 0.5) {
+            // Waxing: right side lit
+            let termRx = Math.abs(15 - 30 * (phase / 0.5));
+            let termSweep = phase < 0.25 ? 0 : 1;
+            d = `M 15 1 A 14 14 0 0 1 15 29 A ${termRx} 14 0 0 ${termSweep} 15 1`;
+        } else {
+            // Waning: left side lit
+            let termRx = Math.abs(15 - 30 * ((phase - 0.5) / 0.5));
+            let termSweep = phase < 0.75 ? 1 : 0;
+            d = `M 15 29 A 14 14 0 0 1 15 1 A ${termRx} 14 0 0 ${termSweep} 15 29`;
+        }
+        
+        const fillClr = "#fef08a";
+        const illumPct = Math.round(100 * (1 - Math.abs(2 * phase - 1)));
+        
+        iconHtml = `<svg width="30" height="30" viewBox="0 0 30 30" style="filter: drop-shadow(0 0 4px rgba(254, 240, 138, 0.4));">
+            <circle cx="15" cy="15" r="14" fill="#0f172a" stroke="rgba(30, 41, 59, 0.8)"/>
+            <path d="${d}" fill="${fillClr}"/>
+        </svg>`;
+        
+        moonIconContainer.innerHTML = iconHtml;
+        moonPhaseName.innerHTML = `${phaseName}<br><span style="font-size: 11px; font-weight: normal; color: #64748b;">${illumPct}% Illuminated</span>`;
+    }
+    
+    // Fetch Sunrise/Sunset
+    async function initSunTimes(date) {
+        // Default values for Hawaii
+        let sunriseStr = "6:12 AM";
+        let sunsetStr = "6:48 PM";
+        
+        try {
+            // Call Sunrise-Sunset API for Oahu coordinates (using Kaneohe Bay approx: 21.43, -157.8)
+            const resp = await fetch('https://api.sunrise-sunset.org/json?lat=21.428&lng=-157.798&formatted=0');
+            const data = await resp.json();
+            
+            if (data.status === "OK") {
+                const riseDate = new Date(data.results.sunrise);
+                const setDate = new Date(data.results.sunset);
+                
+                // Convert to HST (UTC-10)
+                // In vanilla JS, if local system isn't HST, format manually
+                const formatterOptions = { timeZone: 'Pacific/Honolulu', hour: '2-digit', minute: '2-digit', hour12: true };
+                const riseFmt = riseDate.toLocaleTimeString('en-US', formatterOptions);
+                const setFmt = setDate.toLocaleTimeString('en-US', formatterOptions);
+                
+                sunriseMinutes = riseDate.getUTCHours() * 60 + riseDate.getUTCMinutes() - 600; // Shift by UTC-10
+                if (sunriseMinutes < 0) sunriseMinutes += 1440;
+                
+                sunsetMinutes = setDate.getUTCHours() * 60 + setDate.getUTCMinutes() - 600;
+                if (sunsetMinutes < 0) sunsetMinutes += 1440;
+                
+                sunriseStr = riseFmt;
+                sunsetStr = setFmt;
+            }
+        } catch (e) {
+            console.warn("Could not retrieve solar times from API, using Hawaiian averages: ", e);
+        }
+        
+        sunTimesText.textContent = `${sunriseStr} / ${sunsetStr}`;
+    }
+    
+    // Fetch NOAA Predictions
+    async function fetchTideData(date) {
+        const dateStr = date.toISOString().split('T')[0].replace(/-/g, ''); // YYYYMMDD
+        
+        // 1. Fetch Continuous Predictions (every 6 mins)
+        let primaryUrl = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=today&station=${stationId}&product=predictions&datum=MLLW&time_zone=lst_ldt&units=english&format=json`;
+        
+        // 2. Fetch High/Low Extremums
+        let hiloUrl = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=today&station=${stationId}&product=predictions&datum=MLLW&time_zone=lst_ldt&units=english&interval=hilo&format=json`;
+        
+        try {
+            // Query both APIs concurrently
+            const [respCont, respHilo] = await Promise.all([
+                fetch(primaryUrl),
+                fetch(hiloUrl)
+            ]);
+            
+            const contData = await respCont.json();
+            const hiloData = await respHilo.json();
+            
+            if (contData.predictions && contData.predictions.length > 0) {
+                tidePredictions = contData.predictions.map(p => ({
+                    t: p.t,
+                    v: parseFloat(p.v)
+                }));
+                statusBadge.textContent = "Live NOAA Data";
+                statusBadge.style.color = "#06b6d4";
+                statusBadge.style.borderColor = "rgba(6, 182, 212, 0.3)";
+                statusBadge.style.background = "rgba(6, 182, 212, 0.1)";
+            } else {
+                throw new Error("NOAA returned empty predictions");
+            }
+            
+            if (hiloData.predictions && hiloData.predictions.length > 0) {
+                extremumPredictions = hiloData.predictions.map(p => ({
+                    t: p.t,
+                    v: parseFloat(p.v),
+                    type: p.type // 'H' or 'L'
+                }));
+            } else {
+                extractExtremumsFromContinuous();
+            }
+            
+        } catch (error) {
+            console.warn("NOAA API failed or offline. Activating local astronomical tide simulator model...", error);
+            activateSimulatedTides(date);
+        }
+        
+        // Render
+        drawChart();
+        populateExtremesTable();
+        updateActiveTime(parseInt(timeSlider.value));
+    }
+    
+    // Local Simulator Fallback
+    function activateSimulatedTides(date) {
+        // Calculate day of the year
+        const startOfYear = new Date(date.getFullYear(), 0, 1);
+        const dayOfYear = Math.floor((date - startOfYear) / (24 * 60 * 60 * 1000));
+        
+        // Tides advance by ~50 minutes (0.8333 hours) each day
+        const shiftHours = (dayOfYear * 0.8333) % 24;
+        
+        tidePredictions = [];
+        for (let min = 0; min < 1440; min += 6) {
+            const t = min / 60; // hours since midnight
+            const tShifted = t - shiftHours;
+            
+            // Principal lunar semi-diurnal M2 (period 12.42h, amplitude 0.85ft)
+            const m2 = 0.85 * Math.cos(2 * Math.PI * (tShifted - 3.5) / 12.42);
+            // Principal solar diurnal K1 (period 24h, amplitude 0.25ft)
+            const k1 = 0.25 * Math.cos(2 * Math.PI * (tShifted - 6) / 24);
+            
+            // Baseline sea height offset (average tide ~0.65 ft above MLLW in Kaneohe)
+            const val = 0.65 + m2 + k1;
+            
+            const h = Math.floor(min / 60);
+            const m = min % 60;
+            const timeStr = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+            tidePredictions.push({
+                t: `SIM ${timeStr}`,
+                v: val
+            });
+        }
+        
+        statusBadge.textContent = "Offline/Simulated Data";
+        statusBadge.style.color = "#fb923c";
+        statusBadge.style.borderColor = "rgba(251, 146, 60, 0.3)";
+        statusBadge.style.background = "rgba(251, 146, 60, 0.1)";
+        
+        extractExtremumsFromContinuous();
+    }
+    
+    // Scan continuous data to find local peaks & troughs
+    function extractExtremumsFromContinuous() {
+        extremumPredictions = [];
+        
+        for (let i = 1; i < tidePredictions.length - 1; i++) {
+            const prev = tidePredictions[i-1].v;
+            const curr = tidePredictions[i].v;
+            const next = tidePredictions[i+1].v;
+            
+            if (curr > prev && curr > next) {
+                extremumPredictions.push({
+                    t: tidePredictions[i].t,
+                    v: curr,
+                    type: 'H'
+                });
+            } else if (curr < prev && curr < next) {
+                extremumPredictions.push({
+                    t: tidePredictions[i].t,
+                    v: curr,
+                    type: 'L'
+                });
+            }
+        }
+        
+        // Edge check (first or last can sometimes be extremum, but simple scan is usually sufficient)
+        // Sort extremums chronologically
+        extremumPredictions.sort((a, b) => {
+            const timeA = a.t.split(' ').pop();
+            const timeB = b.t.split(' ').pop();
+            return timeA.localeCompare(timeB);
+        });
+    }
+
+    // Convert Tide height to display string (ft or m)
+    function formatHeight(val) {
+        if (isMetric) {
+            const mVal = val * 0.3048;
+            return `${mVal >= 0 ? '+' : ''}${mVal.toFixed(2)} m`;
+        } else {
+            return `${val >= 0 ? '+' : ''}${val.toFixed(2)} ft`;
+        }
+    }
+    
+    function setUnit(metric) {
+        isMetric = metric;
+        if (isMetric) {
+            unitM.classList.add('active-unit');
+            unitFt.classList.remove('active-unit');
+        } else {
+            unitFt.classList.add('active-unit');
+            unitM.classList.remove('active-unit');
+        }
+        
+        // Redraw
+        drawChart();
+        populateExtremesTable();
+        updateActiveTime(parseInt(timeSlider.value));
+    }
+    
+    // Draw SVG Chart
+    function drawChart() {
+        if (tidePredictions.length === 0) return;
+        
+        // Determine Min and Max in data
+        const heights = tidePredictions.map(p => p.v);
+        let minHeight = Math.min(...heights);
+        let maxHeight = Math.max(...heights);
+        
+        // Add padding to vertical limits (always keep range at least 2.5 ft)
+        const diff = maxHeight - minHeight;
+        if (diff < 2.5) {
+            const mid = (maxHeight + minHeight) / 2;
+            minHeight = mid - 1.25;
+            maxHeight = mid + 1.25;
+        } else {
+            minHeight -= 0.3;
+            maxHeight += 0.3;
+        }
+        
+        // Map function: Time to X coord
+        function timeToX(minuteIndex) {
+            // minuteIndex ranges 0 to 1439
+            return paddingLeft + (minuteIndex / 1439) * chartWidth;
+        }
+        
+        // Map function: Height to Y coord
+        function heightToY(val) {
+            // val ranges minHeight to maxHeight
+            // y goes from paddingTop (max height) to paddingTop + chartHeight (min height)
+            const pct = (val - minHeight) / (maxHeight - minHeight);
+            return paddingTop + chartHeight - (pct * chartHeight);
+        }
+        
+        // 1. Draw Grid and Axes
+        let gridHtml = "";
+        
+        // Horizontal Gridlines (every 0.5 or 1.0 ft)
+        const step = 0.5;
+        const startVal = Math.ceil(minHeight / step) * step;
+        for (let h = startVal; h <= maxHeight; h += step) {
+            if (Math.abs(h) < 0.01) h = 0.0; // avoid floating point strings
+            const y = heightToY(h);
+            
+            // Grid line
+            gridHtml += `<line class="chart-grid-line" x1="${paddingLeft}" y1="${y}" x2="${svgWidth - paddingRight}" y2="${y}" />`;
+            // Label
+            gridHtml += `<text class="chart-axis-label" x="${paddingLeft - 8}" y="${y + 3}" text-anchor="end">${h.toFixed(1)}${isMetric ? 'm':''}</text>`;
+        }
+        
+        // Vertical Gridlines (every 3 hours)
+        for (let hr = 0; hr <= 24; hr += 3) {
+            const min = hr * 60;
+            const x = timeToX(Math.min(min, 1439));
+            
+            // Grid line
+            gridHtml += `<line class="chart-grid-line" x1="${x}" y1="${paddingTop}" x2="${x}" y2="${paddingTop + chartHeight}" />`;
+            
+            // Hour Label (e.g. 12 AM, 6 AM, 12 PM, 6 PM)
+            let lbl = "";
+            if (hr === 0 || hr === 24) lbl = "12am";
+            else if (hr === 12) lbl = "12pm";
+            else if (hr < 12) lbl = `${hr}am`;
+            else lbl = `${hr - 12}pm`;
+            
+            gridHtml += `<text class="chart-axis-label" x="${x}" y="${paddingTop + chartHeight + 15}" text-anchor="middle">${lbl}</text>`;
+        }
+        svgGrid.innerHTML = gridHtml;
+        
+        // 2. Draw Sunrise/Sunset Markers
+        let sunHtml = "";
+        // Sunrise
+        const xRise = timeToX(sunriseMinutes);
+        sunHtml += `<line class="sun-marker-line" x1="${xRise}" y1="${paddingTop}" x2="${xRise}" y2="${paddingTop + chartHeight}" />`;
+        sunHtml += `<circle class="sun-marker-icon" cx="${xRise}" cy="${paddingTop}" r="4" />`;
+        // Sunset
+        const xSet = timeToX(sunsetMinutes);
+        sunHtml += `<line class="sun-marker-line" x1="${xSet}" y1="${paddingTop}" x2="${xSet}" y2="${paddingTop + chartHeight}" />`;
+        sunHtml += `<circle class="sun-marker-icon" cx="${xSet}" cy="${paddingTop}" r="4" />`;
+        svgSunMarkers.innerHTML = sunHtml;
+        
+        // 3. Build SVG Curve Points
+        let curvePoints = [];
+        for (let i = 0; i < tidePredictions.length; i++) {
+            // 6-minute increments: index * 6
+            const min = i * 6;
+            const x = timeToX(min);
+            const y = heightToY(tidePredictions[i].v);
+            curvePoints.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+        }
+        
+        // Set curve path
+        const dCurve = `M ${curvePoints.join(' L ')}`;
+        svgCurvePath.setAttribute('d', dCurve);
+        
+        // Set fill path (connect ends down to the bottom grid axis)
+        const xStart = timeToX(0);
+        const xEnd = timeToX(1439);
+        const yBottom = paddingTop + chartHeight;
+        const dFill = `${dCurve} L ${xEnd.toFixed(1)},${yBottom.toFixed(1)} L ${xStart.toFixed(1)},${yBottom.toFixed(1)} Z`;
+        svgFillPath.setAttribute('d', dFill);
+        
+        // 4. Draw Extremum Markers
+        let markersHtml = "";
+        extremumPredictions.forEach(m => {
+            const timeStr = m.t.split(' ').pop(); // 'HH:MM'
+            const [hr, min] = timeStr.split(':').map(Number);
+            const totalMins = hr * 60 + min;
+            
+            const x = timeToX(totalMins);
+            const y = heightToY(m.v);
+            
+            const isHigh = m.type === 'H';
+            const cls = isHigh ? 'high-tide' : 'low-tide';
+            
+            // Circular dot
+            markersHtml += `<circle class="tide-extremum-marker ${cls}" cx="${x}" cy="${y}" r="5" />`;
+            // Subtle offset text labeling height on chart
+            markersHtml += `<text class="chart-axis-label" x="${x}" y="${isHigh ? y - 10 : y + 15}" text-anchor="middle" fill="${isHigh ? '#34d399' : '#f87171'}" font-weight="bold">${isHigh ? 'High':'Low'}</text>`;
+        });
+        svgTideMarkers.innerHTML = markersHtml;
+    }
+    
+    // Update Active Display (triggered by slider or play interval)
+    function updateActiveTime(totalMinutes) {
+        if (tidePredictions.length === 0) return;
+        
+        // Convert slider minutes to prediction index (1440 minutes / 6 minute interval = 240 index range)
+        const predictionIndex = Math.min(Math.floor(totalMinutes / 6), tidePredictions.length - 1);
+        const activePred = tidePredictions[predictionIndex];
+        
+        // Format time string
+        const hrs = Math.floor(totalMinutes / 60);
+        const mins = totalMinutes % 60;
+        const ampm = hrs >= 12 ? 'PM' : 'AM';
+        const displayHr = hrs % 12 === 0 ? 12 : hrs % 12;
+        const timeStr = `${displayHr}:${mins.toString().padStart(2, '0')} ${ampm}`;
+        
+        // Update display text
+        heroTime.textContent = timeStr;
+        heroHeight.textContent = formatHeight(activePred.v);
+        
+        // Calculate Trend (compare with a future point or find next extreme)
+        let trend = "Steady";
+        let nextExtremeStr = "";
+        
+        // Find next extreme in the future relative to slider time
+        const nextExtreme = extremumPredictions.find(e => {
+            const eTime = e.t.split(' ').pop();
+            const [eHr, eMin] = eTime.split(':').map(Number);
+            return (eHr * 60 + eMin) > totalMinutes;
+        }) || extremumPredictions[0]; // fallback loop to first of next day
+        
+        if (nextExtreme) {
+            const nextTimeStr = nextExtreme.t.split(' ').pop();
+            const [nextHr, nextMin] = nextTimeStr.split(':').map(Number);
+            const nextAmPm = nextHr >= 12 ? 'PM' : 'AM';
+            const nextDispHr = nextHr % 12 === 0 ? 12 : nextHr % 12;
+            const nextFmtTime = `${nextDispHr}:${nextMin.toString().padStart(2, '0')} ${nextAmPm}`;
+            
+            trend = nextExtreme.type === 'H' ? 'Rising' : 'Falling';
+            nextExtremeStr = `Next: ${nextExtreme.type === 'H' ? 'High' : 'Low'} tide at ${nextFmtTime}`;
+        }
+        
+        heroTrend.textContent = trend;
+        heroTrend.style.color = trend === 'Rising' ? '#10b981' : '#ef4444';
+        heroTrendSub.textContent = nextExtremeStr;
+        
+        // Update Safety Advice dynamically based on height
+        // Hawaii tidal range is ~0.3m (~1ft). High tides can exceed +1.5 ft, Low tides can fall below 0.0 ft.
+        if (activePred.v < 0.3) {
+            safetyIcon.textContent = "⚠️";
+            safetyIcon.style.color = "#ef4444";
+            safetyIcon.style.background = "rgba(239, 68, 68, 0.1)";
+            safetyIcon.style.borderColor = "rgba(239, 68, 68, 0.2)";
+            safetyTitle.textContent = "Reef Flats Alert (Low Tide)";
+            safetyDesc.textContent = safetyTipsLow;
+        } else if (activePred.v > 1.4) {
+            safetyIcon.textContent = "🌊";
+            safetyIcon.style.color = "#3b82f6";
+            safetyIcon.style.background = "rgba(59, 130, 246, 0.1)";
+            safetyIcon.style.borderColor = "rgba(59, 130, 246, 0.2)";
+            safetyTitle.textContent = "High Tide Warning";
+            safetyDesc.textContent = safetyTipsHigh;
+        } else {
+            safetyIcon.textContent = "✅";
+            safetyIcon.style.color = "#10b981";
+            safetyIcon.style.background = "rgba(16, 185, 129, 0.1)";
+            safetyIcon.style.borderColor = "rgba(16, 185, 129, 0.2)";
+            safetyTitle.textContent = "Optimal Paddle Window";
+            safetyDesc.textContent = "Standard water depth. Keep an eye on local wind and swell conditions.";
+        }
+        
+        // Move SVG Indicator line & dot
+        function timeToX(minuteIndex) {
+            return paddingLeft + (minuteIndex / 1439) * chartWidth;
+        }
+        
+        function heightToY(val) {
+            const heights = tidePredictions.map(p => p.v);
+            let minHeight = Math.min(...heights);
+            let maxHeight = Math.max(...heights);
+            const diff = maxHeight - minHeight;
+            if (diff < 2.5) {
+                const mid = (maxHeight + minHeight) / 2;
+                minHeight = mid - 1.25;
+                maxHeight = mid + 1.25;
+            } else {
+                minHeight -= 0.3;
+                maxHeight += 0.3;
+            }
+            const pct = (val - minHeight) / (maxHeight - minHeight);
+            return paddingTop + chartHeight - (pct * chartHeight);
+        }
+        
+        const dotX = timeToX(totalMinutes);
+        const dotY = heightToY(activePred.v);
+        
+        interactiveLine.setAttribute('x1', dotX);
+        interactiveLine.setAttribute('x2', dotX);
+        interactiveDot.setAttribute('cx', dotX);
+        interactiveDot.setAttribute('cy', dotY);
+    }
+    
+    // Playback Animation
+    function togglePlay() {
+        if (isPlaying) {
+            pause();
+        } else {
+            play();
+        }
+    }
+    
+    function play() {
+        isPlaying = true;
+        playBtn.textContent = "⏸";
+        playInterval = setInterval(() => {
+            let val = parseInt(timeSlider.value) + 12; // move 12 minutes per frame (~120x speed)
+            if (val >= 1440) val = 0;
+            timeSlider.value = val;
+            updateActiveTime(val);
+        }, 80);
+    }
+    
+    function pause() {
+        isPlaying = false;
+        playBtn.textContent = "▶";
+        clearInterval(playInterval);
+    }
+    
+    // Populate bottom Extremes list table
+    function populateExtremesTable() {
+        let tableHtml = "";
+        
+        extremumPredictions.forEach(m => {
+            const isHigh = m.type === 'H';
+            const typeLabel = isHigh ? 'High' : 'Low';
+            const typeClass = isHigh ? 'high' : 'low';
+            
+            // Format time
+            const timeStr = m.t.split(' ').pop();
+            const [hr, min] = timeStr.split(':').map(Number);
+            const ampm = hr >= 12 ? 'PM' : 'AM';
+            const dispHr = hr % 12 === 0 ? 12 : hr % 12;
+            const fmtTime = `${dispHr}:${min.toString().padStart(2, '0')} ${ampm}`;
+            
+            tableHtml += `
+                <div class="tide-table-row">
+                    <div class="tide-table-type ${typeClass}">${typeLabel}</div>
+                    <div class="tide-table-time">${fmtTime}</div>
+                    <div class="tide-table-height">${formatHeight(m.v)}</div>
+                </div>
+            `;
+        });
+        
+        extremesTable.innerHTML = tableHtml;
+    }
+    
+    // Trigger initialization on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
