@@ -1298,6 +1298,86 @@ document.addEventListener('DOMContentLoaded', function() {
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 </script>
 <!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+<!-- FareHarbor Loading Overlay (GRO-1301) -->
+<style>
+  .fh-loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100001;
+    justify-content: center;
+    align-items: center;
+  }
+  .fh-loading-overlay.active { display: flex; }
+  .fh-loading-spinner {
+    width: 50px; height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #cc5500;
+    border-radius: 50%;
+    animation: fh-spin 0.8s linear infinite;
+  }
+  @keyframes fh-spin { to { transform: rotate(360deg); } }
+  .fh-loading-text {
+    color: #fff; margin-top: 15px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 18px; text-align: center;
+  }
+</style>
+<div id="fh-loading-overlay" class="fh-loading-overlay">
+  <div style="text-align:center;">
+    <div class="fh-loading-spinner"></div>
+    <div class="fh-loading-text">Loading booking calendar...</div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var overlay = document.getElementById("fh-loading-overlay");
+    if (!overlay) return;
+    // Intercept all FareHarbor booking links
+    document.addEventListener("click", function(e) {
+      var target = e.target.closest ? e.target.closest("a[onclick*='FH.open']") : null;
+      if (!target) return;
+      overlay.classList.add("active");
+      // Hide overlay after 8s max (in case FH fails to load)
+      setTimeout(function() { overlay.classList.remove("active"); }, 8000);
+    });
+    // Hide overlay when FH iframe appears (polling method)
+    var checkFH = setInterval(function() {
+      if (document.querySelector(".fareharbor-lightframe, .fh-lightframe, iframe[src*='fareharbor']")) {
+        overlay.classList.remove("active");
+        clearInterval(checkFH);
+      }
+    }, 500);
+    // Also hide if FH is not available
+    if (typeof FH === "undefined") {
+      setTimeout(function() { overlay.classList.remove("active"); }, 1000);
+    }
+  });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const banner = document.querySelector(".site-banner-announcement");
+      const closeTrigger = document.querySelector(".closeTrigger");
+      const body = document.body;
+      const STORAGE_KEY = "bannerClosedTimestamp";
+
+      if (closeTrigger && banner) {
+        closeTrigger.addEventListener("click", function (event) {
+          event.preventDefault();
+          banner.classList.remove("fade-in");
+          banner.classList.add("fade-out");
+
+          setTimeout(function () {
+            banner.style.display = "none";
+            banner.classList.remove("fade-out");
+            body.classList.add("anncmnt_hide");
+            localStorage.setItem(STORAGE_KEY, Date.now().toString());
+          }, 250);
+        });
+      }
+    });
+  </script>
 <!-- Sticky Mobile CTA (GRO-1302) -->
 <style>
   .mobile-sticky-cta {
