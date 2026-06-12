@@ -1,0 +1,87 @@
+# ============================================================
+# PRISMATIC ENGINE — Lane Governance Configuration
+# ============================================================
+# Generated: 2026-06-12
+# Repo: active-oahu-static
+# 
+# Defines which agent lanes can write to which directories.
+# Enforced by the Git pre-push hook (GRO-1315) and swarm.js
+# file locking CLI (GRO-1314).
+# ============================================================
+
+version: "1.0.0"
+staging_governor: fred
+
+# ── Agent Lanes ────────────────────────────────────────
+lanes:
+  fred:
+    role: Orchestrator & Staging Governor
+    write:
+      - "*"  # Fred owns everything — review gate
+    read_only: []
+    branch_prefix: feature/
+    commit_prefix: "[Fred]"
+
+  kai:
+    role: Hawaii Tourism & Content Specialist
+    write:
+      - site/
+      - _seo/
+    read_only:
+      - scripts/
+    branch_prefix: kai/
+    commit_prefix: "[Kai]"
+
+  ned:
+    role: Code Execution & Infrastructure
+    write:
+      - scripts/
+      - prismatic/
+      - plugins/
+    read_only:
+      - site/
+      - _seo/
+    branch_prefix: ned/
+    commit_prefix: "[Ned]"
+
+  agy:
+    role: SEO Auditor & Researcher
+    write:
+      - _seo/
+      - designs/
+    read_only:
+      - site/
+      - scripts/
+    branch_prefix: agy/
+    commit_prefix: "[AGY]"
+
+  jules:
+    role: PR Auditor & Documentation
+    write:
+      - docs/
+      - README.md
+    read_only:
+      - site/
+      - _seo/
+    branch_prefix: jules/
+    commit_prefix: "[Jules]"
+
+# ── Branch Protection ──────────────────────────────────
+branches:
+  protected:
+    - main
+  staging: deploy-fresh
+  production: main
+
+# ── File Locking ───────────────────────────────────────
+locking:
+  lockfile: .antigravity/swarm_locks.json
+  heartbeat_interval: 60
+  stale_ttl: 300
+  cli: .antigravity/swarm.js
+
+# ── Commit Convention ──────────────────────────────────
+commits:
+  require_prefix: true
+  require_issue_ref: true
+  format: "[Agent] description (#ISSUE)"
