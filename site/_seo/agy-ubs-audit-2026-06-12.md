@@ -38,10 +38,10 @@ Based on data from the Ubersuggest competitors tool and domain overviews, here i
 | Domain | Domain Authority (DA) | Monthly Search Traffic | Organic Keyword Count | Backlinks | Ref Domains | Primary Niche |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | **activeoahutours.com** (Us) | **26** | **3,988** | **1,345** | **1,374** | **451** | Multi-location tours/rentals |
-| `kailuabeachadventures.com` | 32 | 154,950 | 2,416 | 2,225 | — | Kailua/Lanikai kayaking |
-| `hawaiiactivities.com` | 48 | 99,462 | 52,459 | 360,269 | — | Hawaii Activities OTA |
-| `surfnsea.com` | 36 | 7,459 | 1,419 | 10,405 | — | North Shore surf/tours |
-| `hawaiibeachtime.com` | 24 | 1,702 | 592 | 1,509 | — | Beach gear rentals/delivery |
+| `kailuabeachadventures.com` | 32 | 154,950 | 2,416 | 2,225 | **689** | Kailua/Lanikai kayaking |
+| `hawaiiactivities.com` | 48 | 99,462 | 52,459 | 360,269 | **3,526** | Hawaii Activities OTA |
+| `surfnsea.com` | 36 | 7,459 | 1,419 | 10,405 | **1,175** | North Shore surf/tours |
+| `hawaiibeachtime.com` | 24 | 1,702 | 592 | 1,509 | **534** | Beach gear rentals/delivery |
 
 *Note: Kailua Beach Adventures (KBA) commands over 38x our traffic due to dominating high-volume Lanikai Beach search terms.*
 
