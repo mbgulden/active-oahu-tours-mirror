@@ -5,7 +5,7 @@ import re
 import sys
 from collections import defaultdict, Counter
 
-SITE_ROOT = "/home/ubuntu/work/active-oahu-tours-mirror/site"
+SITE_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 
 def get_all_html_files():
     """Recursively find all .html files."""
@@ -206,7 +206,7 @@ def main():
             print(f"    - {f}")
     
     # Phase 6: write detailed report
-    report_path = "/home/ubuntu/work/active-oahu-tours-mirror/site_audit_report.md"
+    report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site_audit_report.md")
     with open(report_path, 'w') as rpt:
         rpt.write(f"# Active Oahu Tours Mirror - Site Audit Report\n\n")
         rpt.write(f"**Total HTML pages:** {len(files)}\n\n")

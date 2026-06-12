@@ -4,7 +4,7 @@ import re
 import os
 import sys
 
-BASE = "/home/ubuntu/work/active-oahu-tours-mirror/site"
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 
 pages = [
     "ja/rentals/oahu-tandem-kayak-rentals/index.html",
