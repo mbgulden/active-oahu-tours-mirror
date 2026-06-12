@@ -2,8 +2,8 @@
 
 **Date:** 2026-06-12  
 **Auditor:** Antigravity (agent:fred)  
-**Deliverable Path:** `/home/ubuntu/work/active-oahu-static/site/_seo/agy-ubs-audit-2026-06-12.md`  
-**Image Asset:** [keyword_gap_concept_2026-06-12.png](file:///home/ubuntu/work/active-oahu-static/site/_seo/images/keyword_gap_concept_2026-06-12.png)  
+**Deliverable Path:** `/home/ubuntu/work/active-oahu-static-1171/site/_seo/agy-ubs-audit-2026-06-12.md`  
+**Image Asset:** [keyword_gap_concept_2026-06-12.png](file:///home/ubuntu/work/active-oahu-static-1171/site/_seo/images/keyword_gap_concept_2026-06-12.png)  
 
 ---
 
@@ -13,7 +13,7 @@ This audit validates Active Oahu Tours' existing SEO baseline recommendations us
 
 While the site shows solid technical fundamentals, there are massive gaps in search market share when compared to **Kailua Beach Adventures (KBA)**. By analyzing competitive positions and keyword search volumes, we have validated key strategic directions—confirming that the proposed **Kawela Bay** transactional expansion has high potential, and that addressing the **orphan snorkeling page** is a top P0 priority because it is already driving organic traffic.
 
-![SEO Keyword Gap Analysis Map](file:///home/ubuntu/work/active-oahu-static/site/_seo/images/keyword_gap_concept_2026-06-12.png)
+![SEO Keyword Gap Analysis Map](file:///home/ubuntu/work/active-oahu-static-1171/site/_seo/images/keyword_gap_concept_2026-06-12.png)
 
 ---
 

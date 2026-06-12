@@ -1,6 +1,6 @@
 import json
 
-with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/serp_analyses.json") as f:
+with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/serp_analyses.json") as f:
     serp_data = json.load(f)
 
 for kw, data in serp_data.items():

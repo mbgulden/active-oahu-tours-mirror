@@ -10,7 +10,7 @@ URL = "https://ubersuggest-mcp.neilpatelapi.com/mcp"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 
 # Ensure directories exist
-os.makedirs("/home/ubuntu/work/active-oahu-static/site/_seo/raw", exist_ok=True)
+os.makedirs("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw", exist_ok=True)
 
 async def call_tool_safe(tool, args):
     print(f"Calling tool: {tool} with args: {args}")
@@ -48,7 +48,7 @@ async def run_phase1_and_2_and_3():
         overviews[dom] = res
         await asyncio.sleep(1)
     
-    with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/domain_overviews.json", "w") as f:
+    with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/domain_overviews.json", "w") as f:
         json.dump(overviews, f, indent=2)
     print("Saved domain overviews.")
 
@@ -59,7 +59,7 @@ async def run_phase1_and_2_and_3():
         keywords[dom] = res
         await asyncio.sleep(1)
         
-    with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/domain_keywords.json", "w") as f:
+    with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/domain_keywords.json", "w") as f:
         json.dump(keywords, f, indent=2)
     print("Saved domain keywords.")
 
@@ -71,7 +71,7 @@ async def run_phase1_and_2_and_3():
         top_pages[dom] = res
         await asyncio.sleep(1)
         
-    with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/top_pages.json", "w") as f:
+    with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/top_pages.json", "w") as f:
         json.dump(top_pages, f, indent=2)
     print("Saved top pages.")
 

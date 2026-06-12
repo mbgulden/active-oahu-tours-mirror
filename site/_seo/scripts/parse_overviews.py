@@ -1,6 +1,6 @@
 import json
 
-with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/domain_overviews.json") as f:
+with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/domain_overviews.json") as f:
     data = json.load(f)
 
 print("Domains in overviews file:")

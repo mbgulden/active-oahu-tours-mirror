@@ -10,7 +10,7 @@ URL = "https://ubersuggest-mcp.neilpatelapi.com/mcp"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 
 # Ensure directories exist
-os.makedirs("/home/ubuntu/work/active-oahu-static/site/_seo/raw", exist_ok=True)
+os.makedirs("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw", exist_ok=True)
 
 async def call_tool_safe(tool, args):
     print(f"Calling tool: {tool} with args: {args}")
@@ -52,7 +52,7 @@ async def main():
         serp_data[kw] = res
         await asyncio.sleep(1.5)
         
-    with open("/home/ubuntu/work/active-oahu-static/site/_seo/raw/serp_analyses.json", "w") as f:
+    with open("/home/ubuntu/work/active-oahu-static-1171/site/_seo/raw/serp_analyses.json", "w") as f:
         json.dump(serp_data, f, indent=2)
     print("Saved SERP analyses.")
 
