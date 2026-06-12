@@ -64,6 +64,7 @@ Below is the complete registry of all files created during this task:
 * `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/pull_data.py`
 * `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/parse_data_summary.py`
 * `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/analyze_ctas.py`
+* `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/get_top_20.py`
 * `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/summarize_cta_inventory.py`
 * `/home/ubuntu/work/active-oahu-static/site/_seo/scripts/test_gsc_appearances.py`
 * `/home/ubuntu/.hermes/profiles/orchestrator/home/.gemini/antigravity-cli/scratch/post_plan_gro1233.py`
