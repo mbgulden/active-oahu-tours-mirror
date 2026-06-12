@@ -753,7 +753,58 @@ Beware of all hikes in Hawaii. The rocks are known to give away and make climbin
 </script>
 <!-- FareHarbor plugin activated --><link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+<!-- Sticky Mobile CTA (GRO-1302) -->
+<style>
+  .mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: #fff;
+    border-top: 2px solid #cc5500;
+    padding: 10px 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+  .mobile-sticky-cta .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    .mobile-sticky-cta.visible { display: block; }
+    body.has-sticky-cta { padding-bottom: 70px; }
+  }
+</style>
+<div id="mobile-sticky-cta" class="mobile-sticky-cta">
+  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
+    <strong>Book Now</strong>
+  </a>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sticky = document.getElementById("mobile-sticky-cta");
+    if (!sticky) return;
+    var body = document.body;
+    // Show sticky CTA when user scrolls past 500px (past header/book buttons)
+    var showAt = 500;
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > showAt) {
+        sticky.classList.add("visible");
+        body.classList.add("has-sticky-cta");
+      } else {
+        sticky.classList.remove("visible");
+        body.classList.remove("has-sticky-cta");
+      }
+    });
+  });
+</script>
+<!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
