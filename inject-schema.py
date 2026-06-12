@@ -233,16 +233,51 @@ def page_schema(path, rel_path):
         "url": page_url
     }
 
+EXCLUDE_EN_FILES = {
+    "404.html",
+    "author/mbgulden/index.html",
+    "job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "job-dashboard/index.html",
+    "contact-us.html",
+    "trip-cancellation-insurance-terms-and-conditions.html",
+    "activities.html",
+    "activities/page/2/index.html",
+    "activities/page/3/index.html",
+    "oahu-equipment-rentals/page/2/index.html",
+    "reviews/index.html",
+    "reviews/page/2/index.html",
+    "reviews/page/3/index.html",
+    "reviews/page/4/index.html",
+    "reviews/page/5/index.html",
+    "about-active-oahu/index.html",
+    "kailua-kayak/index.html",
+    "kaneohe-sandbar/index.html",
+    "kayak-kailua/index.html"
+}
+
+EXCLUDE_JA_FILES = {
+    "ja/404.html",
+    "ja/author/mbgulden/index.html",
+    "ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "ja/job-dashboard/index.html",
+    "ja/activities/page/2/index.html",
+    "ja/activities/page/3/index.html"
+}
+
 def main():
     html_files = list(SITE_DIR.rglob("*.html"))
     # Skip templates and internal theme files
-    html_files = [f for f in html_files if '_templates' not in str(f) and 'wp-content/themes' not in str(f) and 'wp-includes' not in str(f)]
+    html_files = [f for f in html_files if '_templates' not in str(f) and 'wp-content/themes' not in str(f) and 'wp-includes' not in str(f) and '_seo' not in str(f)]
     
     injected = 0
     skipped = 0
     
     for path in sorted(html_files):
         rel = path.relative_to(SITE_DIR)
+        rel_str = str(rel)
+        if rel_str in EXCLUDE_EN_FILES or rel_str in EXCLUDE_JA_FILES:
+            continue
+            
         html = path.read_text()
         
         if has_schema(html):

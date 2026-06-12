@@ -30,6 +30,37 @@ NON_EXISTENT_FILES = {
     "tides/waimanalo.html"
 }
 
+EXCLUDE_EN_FILES = {
+    "404.html",
+    "author/mbgulden/index.html",
+    "job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "job-dashboard/index.html",
+    "contact-us.html",
+    "trip-cancellation-insurance-terms-and-conditions.html",
+    "activities.html",
+    "activities/page/2/index.html",
+    "activities/page/3/index.html",
+    "oahu-equipment-rentals/page/2/index.html",
+    "reviews/index.html",
+    "reviews/page/2/index.html",
+    "reviews/page/3/index.html",
+    "reviews/page/4/index.html",
+    "reviews/page/5/index.html",
+    "about-active-oahu/index.html",
+    "kailua-kayak/index.html",
+    "kaneohe-sandbar/index.html",
+    "kayak-kailua/index.html"
+}
+
+EXCLUDE_JA_FILES = {
+    "ja/404.html",
+    "ja/author/mbgulden/index.html",
+    "ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "ja/job-dashboard/index.html",
+    "ja/activities/page/2/index.html",
+    "ja/activities/page/3/index.html"
+}
+
 ADD_FILES = {
     "Tour": [
         "activities/kawela-bay-self-guided-kayak-tour/index.html",
@@ -52,7 +83,7 @@ CATEGORIES = [
     ("Blog/Guide", "Blog/Guide Pages", "Article"),
     ("Contact", "Contact Pages", "ContactPage"),
     ("FAQ", "FAQ Pages", "FAQPage"),
-    ("Homepage", "Homepage Pages", "TravelAgency + LocalBusiness + Travel"),
+    ("Homepage", "Homepage Pages", "Travel"),
     ("Location/Hub", "Location/Hub Pages", "ItemList + TouristAttraction"),
     ("Other", "Other Pages", "WebPage"),
     ("Rental", "Rental Pages", "Product"),
@@ -88,14 +119,16 @@ def parse_classification_file():
             m = re.match(r'^-\s+`([^`]+)`', line_str)
             if m:
                 file_path = m.group(1)
-                if file_path not in NON_EXISTENT_FILES:
+                if (file_path not in NON_EXISTENT_FILES and 
+                    file_path not in EXCLUDE_EN_FILES and 
+                    file_path not in EXCLUDE_JA_FILES):
                     if current_category and current_locale:
                         data[current_category][current_locale].append(file_path)
                         
     # Add new files
     for cat, files in ADD_FILES.items():
         for f in files:
-            if f not in data[cat]["EN"]:
+            if f not in EXCLUDE_EN_FILES and f not in data[cat]["EN"]:
                 data[cat]["EN"].append(f)
                 
     # Sort everything
@@ -160,31 +193,43 @@ def update_priority(data):
             page_type_map[f] = cat
             schema_map[f] = schema
             
-    # Include 404.html to EN files
-    if "404.html" not in all_en_files:
-        all_en_files.append("404.html")
-    page_type_map["404.html"] = "Other"
-    schema_map["404.html"] = "WebPage"
-    
-    all_en_files = set(all_en_files)
+    all_en_files_set = set(all_en_files)
     all_ja_files = sorted(list(set(all_ja_files)))
     
-    # Read existing P0 and P1 from priority-order.md
-    p0_pattern = r'\|\s*\d+\s*\|\s*`([^`]+)`'
-    p0_matches = re.findall(p0_pattern, content)
+    # Extract existing order of EN pages from priority-order.md
+    # (P0, then P1, then P2) to preserve traffic rank
+    ordered_en_from_md = []
     
-    p0_files = p0_matches[:20]
-    p1_files = p0_matches[20:50]
+    # Match all code-ticked paths in the file
+    all_matches = re.findall(r'`([^`]+\.html)`', content)
+    for m in all_matches:
+        if m in all_en_files_set and m not in ordered_en_from_md:
+            ordered_en_from_md.append(m)
+            
+    # Add any remaining EN files that weren't in the markdown yet
+    for f in sorted(all_en_files):
+        if f not in ordered_en_from_md:
+            ordered_en_from_md.append(f)
+            
+    # Rebuild P0 and P1 lists
+    p0_files = ordered_en_from_md[:20]
+    p1_files = ordered_en_from_md[20:50]
+    p2_files = sorted(ordered_en_from_md[50:])
     
-    # Ensure they exist in our current EN files list
-    p0_files = [f for f in p0_files if f in all_en_files]
-    p1_files = [f for f in p1_files if f in all_en_files]
-    
-    # P2 files are the remaining EN files
-    p2_files = sorted(list(all_en_files - set(p0_files) - set(p1_files)))
-    
-    # Rebuild tables
-    def build_table(files):
+    # Build tables
+    def build_p0_p1_table(files, start_rank=1):
+        table = [
+            "| Rank | Relative Path | Page Type | Primary Schema Type |",
+            "| :--- | :--- | :--- | :--- |"
+        ]
+        for idx, f in enumerate(files):
+            rank = start_rank + idx
+            pt = page_type_map.get(f, "Other")
+            st = schema_map.get(f, "WebPage")
+            table.append(f"| {rank} | `{f}` | {pt} | `{st}` |")
+        return "\n".join(table)
+        
+    def build_p2_p3_table(files):
         table = [
             "| Relative Path | Page Type | Primary Schema Type |",
             "| :--- | :--- | :--- |"
@@ -195,31 +240,64 @@ def update_priority(data):
             table.append(f"| `{f}` | {pt} | `{st}` |")
         return "\n".join(table)
         
-    p2_table_str = build_table(p2_files)
-    p3_table_str = build_table(all_ja_files)
+    p0_table_str = build_p0_p1_table(p0_files, start_rank=1)
+    p1_table_str = build_p0_p1_table(p1_files, start_rank=21)
+    p2_table_str = build_p2_p3_table(p2_files)
+    p3_table_str = build_p2_p3_table(all_ja_files)
     
-    # Replace sections in file
-    sections = re.split(r'(##\s+)', content)
+    out = []
+    out.append("# Schema Injection Priority Order")
+    out.append("")
+    out.append("This document details the rank-order injection schedule based on a traffic x schema gap calculation.")
+    out.append("")
+    out.append(f"* **P0: Top-20 High-Value Pages (Highest organic ROI)**")
+    out.append(f"* **P1: Mid-Traffic Core Pages (Pages 21-50)**")
+    out.append(f"* **P2: Remaining English Pages ({len(p2_files)} pages)**")
+    out.append(f"* **P3: Japanese Locale Pages (All {len(all_ja_files)} JA pages)**")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## P0: Top-20 High-Traffic Pages (Highest ROI)")
+    out.append("")
+    out.append("These 20 pages drive over 75% of organic traffic and direct bookings for AOT. Injecting high-quality schema here offers immediate rich result opportunities.")
+    out.append("")
+    out.append(p0_table_str)
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append("## P1: Mid-Traffic Core Pages (Pages 21-50)")
+    out.append("")
+    out.append("These pages cover secondary tours, popular equipment rentals, and high-impression blogs.")
+    out.append("")
+    out.append(p1_table_str)
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append(f"## P2: Remaining English Pages ({len(p2_files)} pages)")
+    out.append("")
+    out.append("These pages cover supporting blog posts, pagination pages, policy terms, and minor utilities.")
+    out.append("")
+    out.append("<details>")
+    out.append("<summary>Click to expand P2 page list</summary>")
+    out.append("")
+    out.append(p2_table_str)
+    out.append("")
+    out.append("</details>")
+    out.append("")
+    out.append("---")
+    out.append("")
+    out.append(f"## P3: Japanese Locale Pages (All {len(all_ja_files)} JA pages)")
+    out.append("")
+    out.append("Japanese language versions of all core and supporting pages.")
+    out.append("")
+    out.append("<details>")
+    out.append("<summary>Click to expand P3 page list</summary>")
+    out.append("")
+    out.append(p3_table_str)
+    out.append("")
+    out.append("</details>")
     
-    for i in range(1, len(sections), 2):
-        header_marker = sections[i]
-        sec_body = sections[i+1]
-        sec_title = sec_body.split('\n')[0]
-        
-        if "P2:" in sec_title:
-            new_title = f"P2: Remaining English Pages ({len(p2_files)} pages)\n"
-            intro = "\nThese pages cover supporting blog posts, pagination pages, policy terms, and minor utilities.\n\n<details>\n<summary>Click to expand P2 page list</summary>\n\n"
-            outro = "\n</details>\n"
-            sec_body = new_title + intro + p2_table_str + outro
-        elif "P3:" in sec_title:
-            new_title = f"P3: Japanese Locale Pages (All {len(all_ja_files)} JA pages)\n"
-            intro = "\nJapanese language versions of all core and supporting pages.\n\n<details>\n<summary>Click to expand P3 page list</summary>\n\n"
-            outro = "\n</details>\n"
-            sec_body = new_title + intro + p3_table_str + outro
-            
-        sections[i+1] = sec_body
-        
-    PRIORITY_PATH.write_text("".join(sections))
+    PRIORITY_PATH.write_text("\n".join(out))
     print("Rewritten 03-priority-order.md successfully!")
 
 def main():

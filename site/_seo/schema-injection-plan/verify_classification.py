@@ -47,6 +47,37 @@ def parse_md_classifications(file_path):
                     
     return classifications
 
+EXCLUDE_EN_FILES = {
+    "404.html",
+    "author/mbgulden/index.html",
+    "job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "job-dashboard/index.html",
+    "contact-us.html",
+    "trip-cancellation-insurance-terms-and-conditions.html",
+    "activities.html",
+    "activities/page/2/index.html",
+    "activities/page/3/index.html",
+    "oahu-equipment-rentals/page/2/index.html",
+    "reviews/index.html",
+    "reviews/page/2/index.html",
+    "reviews/page/3/index.html",
+    "reviews/page/4/index.html",
+    "reviews/page/5/index.html",
+    "about-active-oahu/index.html",
+    "kailua-kayak/index.html",
+    "kaneohe-sandbar/index.html",
+    "kayak-kailua/index.html"
+}
+
+EXCLUDE_JA_FILES = {
+    "ja/404.html",
+    "ja/author/mbgulden/index.html",
+    "ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html",
+    "ja/job-dashboard/index.html",
+    "ja/activities/page/2/index.html",
+    "ja/activities/page/3/index.html"
+}
+
 def scan_site_files(site_dir):
     html_files = []
     for root, dirs, files in os.walk(site_dir):
@@ -57,7 +88,9 @@ def scan_site_files(site_dir):
             if f.endswith(".html"):
                 p = Path(root) / f
                 rel = p.relative_to(site_dir)
-                html_files.append(str(rel))
+                rel_str = str(rel)
+                if rel_str not in EXCLUDE_EN_FILES and rel_str not in EXCLUDE_JA_FILES:
+                    html_files.append(rel_str)
     return sorted(html_files)
 
 def main():

@@ -4,11 +4,10 @@ This document details the rank-order injection schedule based on a traffic x sch
 
 * **P0: Top-20 High-Value Pages (Highest organic ROI)**
 * **P1: Mid-Traffic Core Pages (Pages 21-50)**
-* **P2: Remaining English Pages (118 pages)**
-* **P3: Japanese Locale Pages (All 89 JA pages)**
+* **P2: Remaining English Pages (99 pages)**
+* **P3: Japanese Locale Pages (All 83 JA pages)**
 
 ---
-
 
 ## P0: Top-20 High-Traffic Pages (Highest ROI)
 
@@ -16,29 +15,28 @@ These 20 pages drive over 75% of organic traffic and direct bookings for AOT. In
 
 | Rank | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- | :--- |
-| 1 | `index.html` | Homepage | `TravelAgency + LocalBusiness + Travel` |
+| 1 | `index.html` | Homepage | `Travel` |
 | 2 | `chinamans-hat/index.html` | Other | `WebPage` |
-| 3 | `kaneohe-sandbar/index.html` | Other | `WebPage` |
-| 4 | `kayak-rentals/index.html` | Rental | `Product` |
-| 5 | `rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 6 | `activities/chinamans-hat-kayak-complete-self-guided-tour-guide/index.html` | Tour | `TouristTrip` |
-| 7 | `activities/kaneohe-sandbar-kayak-ultimate-guide/index.html` | Tour | `TouristTrip` |
-| 8 | `guides/kailua-beach-park/index.html` | Blog/Guide | `Article` |
-| 9 | `guides/lanikai-beach/index.html` | Blog/Guide | `Article` |
-| 10 | `sharks-cove-snorkeling/index.html` | Other | `WebPage` |
-| 11 | `activities/sharks-cove-self-guided-snorkel/index.html` | Tour | `TouristTrip` |
-| 12 | `kayak-kailua/index.html` | Other | `WebPage` |
-| 13 | `guided-tours/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 14 | `self-guided/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 15 | `activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html` | Tour | `TouristTrip` |
-| 16 | `activities/kailua-bay-mokulua-island-self-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
-| 17 | `oahu-equipment-rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 18 | `oahu-equipment-rentals/chinamans-hat-kayak-rentals/index.html` | Rental | `Product` |
-| 19 | `multi-day-kayak-and-beach-gear-rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 20 | `contact-us.html` | Contact | `ContactPage` |
+| 3 | `kayak-rentals/index.html` | Rental | `Product` |
+| 4 | `rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 5 | `activities/chinamans-hat-kayak-complete-self-guided-tour-guide/index.html` | Tour | `TouristTrip` |
+| 6 | `activities/kaneohe-sandbar-kayak-ultimate-guide/index.html` | Tour | `TouristTrip` |
+| 7 | `guides/kailua-beach-park/index.html` | Blog/Guide | `Article` |
+| 8 | `guides/lanikai-beach/index.html` | Blog/Guide | `Article` |
+| 9 | `sharks-cove-snorkeling/index.html` | Other | `WebPage` |
+| 10 | `activities/sharks-cove-self-guided-snorkel/index.html` | Tour | `TouristTrip` |
+| 11 | `guided-tours/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 12 | `self-guided/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 13 | `activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html` | Tour | `TouristTrip` |
+| 14 | `activities/kailua-bay-mokulua-island-self-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
+| 15 | `oahu-equipment-rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 16 | `oahu-equipment-rentals/chinamans-hat-kayak-rentals/index.html` | Rental | `Product` |
+| 17 | `multi-day-kayak-and-beach-gear-rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 18 | `about-active-oahu-tours/index.html` | Other | `WebPage` |
+| 19 | `faq/index.html` | FAQ | `FAQPage` |
+| 20 | `faq/faq-chinamans-hat-kayak-hike/index.html` | FAQ | `FAQPage` |
 
 ---
-
 
 ## P1: Mid-Traffic Core Pages (Pages 21-50)
 
@@ -46,41 +44,40 @@ These pages cover secondary tours, popular equipment rentals, and high-impressio
 
 | Rank | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- | :--- |
-| 21 | `about-active-oahu/index.html` | Other | `WebPage` |
-| 22 | `about-active-oahu-tours/index.html` | Other | `WebPage` |
-| 23 | `faq/index.html` | FAQ | `FAQPage` |
-| 24 | `faq/faq-chinamans-hat-kayak-hike/index.html` | FAQ | `FAQPage` |
-| 25 | `faq/faq-oahu-beach-gear-rentals/index.html` | FAQ | `FAQPage` |
-| 26 | `guides/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 27 | `guides/sea-turtles-oahu/index.html` | Blog/Guide | `Article` |
-| 28 | `guides/ocean-kayaking-beginners-oahu/index.html` | Blog/Guide | `Article` |
-| 29 | `activities/kailua-kayak-twin-islands-guided-tour/index.html` | Tour | `TouristTrip` |
-| 30 | `activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
-| 31 | `activities/kahana-rainforest-river-oahu-kayak-tour/index.html` | Tour | `TouristTrip` |
-| 32 | `activities/kailua-e-bike-kau-kau-guided-adventure/index.html` | Tour | `TouristTrip` |
-| 33 | `activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html` | Tour | `TouristTrip` |
-| 34 | `rentals/oahu-beach-chair-rentals/index.html` | Rental | `Product` |
-| 35 | `rentals/oahu-beach-umbrella-rentals/index.html` | Rental | `Product` |
-| 36 | `rentals/oahu-stand-up-paddle-board-rentals-sup-hire/index.html` | Rental | `Product` |
-| 37 | `rentals/oahu-tandem-kayak-rentals/index.html` | Rental | `Product` |
-| 38 | `oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html` | Rental | `Product` |
-| 39 | `oahu-equipment-rentals/kayak-rental-delivery-locations/index.html` | Rental | `Product` |
-| 40 | `oahu-kayaking-and-beach-adventures/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 41 | `oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html` | Blog/Guide | `Article` |
-| 42 | `oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html` | Blog/Guide | `Article` |
-| 43 | `oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html` | Blog/Guide | `Article` |
-| 44 | `oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/index.html` | Blog/Guide | `Article` |
-| 45 | `oahu-kayaking-and-beach-adventures/mokulua-islands-self-guided-kayak-adventure/index.html` | Blog/Guide | `Article` |
-| 46 | `oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/index.html` | Blog/Guide | `Article` |
-| 47 | `tours/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| 48 | `what-to-bring/index.html` | Other | `WebPage` |
-| 49 | `why-choose-active-oahu/index.html` | Other | `WebPage` |
-| 50 | `reviews/index.html` | Other | `WebPage` |
+| 21 | `faq/faq-oahu-beach-gear-rentals/index.html` | FAQ | `FAQPage` |
+| 22 | `guides/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 23 | `guides/sea-turtles-oahu/index.html` | Blog/Guide | `Article` |
+| 24 | `guides/ocean-kayaking-beginners-oahu/index.html` | Blog/Guide | `Article` |
+| 25 | `activities/kailua-kayak-twin-islands-guided-tour/index.html` | Tour | `TouristTrip` |
+| 26 | `activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
+| 27 | `activities/kahana-rainforest-river-oahu-kayak-tour/index.html` | Tour | `TouristTrip` |
+| 28 | `activities/kailua-e-bike-kau-kau-guided-adventure/index.html` | Tour | `TouristTrip` |
+| 29 | `activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html` | Tour | `TouristTrip` |
+| 30 | `rentals/oahu-beach-chair-rentals/index.html` | Rental | `Product` |
+| 31 | `rentals/oahu-beach-umbrella-rentals/index.html` | Rental | `Product` |
+| 32 | `rentals/oahu-stand-up-paddle-board-rentals-sup-hire/index.html` | Rental | `Product` |
+| 33 | `rentals/oahu-tandem-kayak-rentals/index.html` | Rental | `Product` |
+| 34 | `oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html` | Rental | `Product` |
+| 35 | `oahu-equipment-rentals/kayak-rental-delivery-locations/index.html` | Rental | `Product` |
+| 36 | `oahu-kayaking-and-beach-adventures/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 37 | `oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html` | Blog/Guide | `Article` |
+| 38 | `oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html` | Blog/Guide | `Article` |
+| 39 | `oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html` | Blog/Guide | `Article` |
+| 40 | `oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/index.html` | Blog/Guide | `Article` |
+| 41 | `oahu-kayaking-and-beach-adventures/mokulua-islands-self-guided-kayak-adventure/index.html` | Blog/Guide | `Article` |
+| 42 | `oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/index.html` | Blog/Guide | `Article` |
+| 43 | `tours/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 44 | `what-to-bring/index.html` | Other | `WebPage` |
+| 45 | `why-choose-active-oahu/index.html` | Other | `WebPage` |
+| 46 | `about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
+| 47 | `about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html` | Other | `WebPage` |
+| 48 | `about-active-oahu-tours/awards/index.html` | Location/Hub | `ItemList + TouristAttraction` |
+| 49 | `active-aloha-ambassador/index.html` | Other | `WebPage` |
+| 50 | `active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
 
 ---
 
-
-## P2: Remaining English Pages (118 pages)
+## P2: Remaining English Pages (99 pages)
 
 These pages cover supporting blog posts, pagination pages, policy terms, and minor utilities.
 
@@ -89,14 +86,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 
 | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- |
-| `404.html` | Other | `WebPage` |
-| `about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
-| `about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html` | Other | `WebPage` |
-| `about-active-oahu-tours/awards/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| `active-aloha-ambassador/index.html` | Other | `WebPage` |
-| `active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
 | `active-oahu-photo-gallery/index.html` | Other | `WebPage` |
-| `activities.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `activities/aloha-aina-e-bike-adventure/index.html` | Tour | `TouristTrip` |
 | `activities/chinamans-hat-kayak-rentals/index.html` | Rental | `Product` |
 | `activities/chinamans-hat-oahu-kayak-tours/index.html` | Tour | `TouristTrip` |
@@ -111,14 +101,11 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `activities/lanikai-beach-self-guided-snorkel/index.html` | Tour | `TouristTrip` |
 | `activities/oahu-snorkel-tour/index.html` | Tour | `TouristTrip` |
 | `activities/oahu-surf-lessons/index.html` | Tour | `TouristTrip` |
-| `activities/page/2/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| `activities/page/3/index.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `activities/rainforest-guided-hike/index.html` | Tour | `TouristTrip` |
 | `activities/rainforest-oahu-kayak-tour.html` | Tour | `TouristTrip` |
 | `activities/rainforest-oahu-stand-up-paddle-boarding/index.html` | Tour | `TouristTrip` |
 | `activities/west-oahu-guided-snorkel-tour/index.html` | Tour | `TouristTrip` |
 | `ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/index.html` | Other | `WebPage` |
-| `author/mbgulden/index.html` | Other | `WebPage` |
 | `beach-gear-rentals/index.html` | Rental | `Product` |
 | `become-a-partner/index.html` | Other | `WebPage` |
 | `cancellation-policy/index.html` | Other | `WebPage` |
@@ -132,11 +119,8 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `guides/electric-beach/index.html` | Blog/Guide | `Article` |
 | `guides/oahu-kayak-safety-tide-guide/index.html` | Blog/Guide | `Article` |
 | `guides/waimanalo-beach/index.html` | Blog/Guide | `Article` |
-| `job-dashboard/index.html` | Other | `WebPage` |
-| `job/hiring-kayak-delivery-driver-jobs-in-laie/index.html` | Other | `WebPage` |
 | `join-the-team/index.html` | Other | `WebPage` |
 | `kailua-ebike-route/index.html` | Other | `WebPage` |
-| `kailua-kayak/index.html` | Other | `WebPage` |
 | `kailua-oahu-storefront/index.html` | Other | `WebPage` |
 | `kailua-town-history/index.html` | Other | `WebPage` |
 | `kaneohe-bay-sandbar-kayak/index.html` | Tour | `TouristTrip` |
@@ -153,7 +137,6 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `multi-day-rentals/index.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/index.html` | Rental | `Product` |
 | `oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html` | Rental | `Product` |
-| `oahu-equipment-rentals/page/2/index.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `oahu-equipment-rentals/standard-meeting-location-info/index.html` | Rental | `Product` |
 | `oahu-hawaii-kayaking-guide/index.html` | Blog/Guide | `Article` |
 | `oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html` | Blog/Guide | `Article` |
@@ -198,17 +181,16 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html` | Rental | `Product` |
 | `rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html` | Rental | `Product` |
 | `rentals/snorkel-gear-rentals/index.html` | Rental | `Product` |
-| `reviews/page/2/index.html` | Other | `WebPage` |
-| `reviews/page/3/index.html` | Other | `WebPage` |
-| `reviews/page/4/index.html` | Other | `WebPage` |
-| `reviews/page/5/index.html` | Other | `WebPage` |
 | `sharks-cove-snorkeling-guide/index.html` | Blog/Guide | `Article` |
 | `sharks-cove-vs-lanikai-snorkeling/index.html` | Blog/Guide | `Article` |
 | `stand-up-paddleboard-rental/index.html` | Rental | `Product` |
-| `trip-cancellation-insurance-terms-and-conditions.html` | Other | `WebPage` |
 | `trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
+
 </details>
-## P3: Japanese Locale Pages (All 89 JA pages)
+
+---
+
+## P3: Japanese Locale Pages (All 83 JA pages)
 
 Japanese language versions of all core and supporting pages.
 
@@ -217,7 +199,6 @@ Japanese language versions of all core and supporting pages.
 
 | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- |
-| `ja/404.html` | Other | `WebPage` |
 | `ja/about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
 | `ja/about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html` | Other | `WebPage` |
 | `ja/about-active-oahu-tours/awards/index.html` | Location/Hub | `ItemList + TouristAttraction` |
@@ -237,14 +218,11 @@ Japanese language versions of all core and supporting pages.
 | `ja/activities/kailua-kayak-twin-islands-guided-tour/index.html` | Tour | `TouristTrip` |
 | `ja/activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html` | Tour | `TouristTrip` |
 | `ja/activities/oahu-surf-lessons/index.html` | Tour | `TouristTrip` |
-| `ja/activities/page/2/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| `ja/activities/page/3/index.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
 | `ja/activities/rainforest-oahu-stand-up-paddle-boarding/index.html` | Tour | `TouristTrip` |
 | `ja/activities/sharks-cove-self-guided-snorkel/index.html` | Tour | `TouristTrip` |
 | `ja/activities/west-oahu-guided-snorkel-tour/index.html` | Tour | `TouristTrip` |
 | `ja/ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/index.html` | Other | `WebPage` |
-| `ja/author/mbgulden/index.html` | Other | `WebPage` |
 | `ja/become-a-partner/index.html` | Other | `WebPage` |
 | `ja/cancellation-policy/index.html` | Other | `WebPage` |
 | `ja/chinamans-hat-kayak-tour/index.html` | Other | `WebPage` |
@@ -254,9 +232,7 @@ Japanese language versions of all core and supporting pages.
 | `ja/faq/faq-oahu-beach-gear-rentals/index.html` | FAQ | `FAQPage` |
 | `ja/faq/index.html` | FAQ | `FAQPage` |
 | `ja/guides/index.html` | Location/Hub | `ItemList + TouristAttraction` |
-| `ja/index.html` | Homepage | `TravelAgency + LocalBusiness + Travel` |
-| `ja/job-dashboard/index.html` | Other | `WebPage` |
-| `ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html` | Other | `WebPage` |
+| `ja/index.html` | Homepage | `Travel` |
 | `ja/join-the-team/index.html` | Other | `WebPage` |
 | `ja/kailua-oahu-storefront/index.html` | Other | `WebPage` |
 | `ja/kaneohe-bay-sandbar-kayak/index.html` | Other | `WebPage` |
@@ -306,4 +282,5 @@ Japanese language versions of all core and supporting pages.
 | `ja/sharks-cove-snorkeling/index.html` | Other | `WebPage` |
 | `ja/stand-up-paddleboard-rental/index.html` | Other | `WebPage` |
 | `ja/trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
+
 </details>

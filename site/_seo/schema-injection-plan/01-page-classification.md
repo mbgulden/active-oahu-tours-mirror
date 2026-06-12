@@ -8,16 +8,16 @@ This document contains the schema classification for every page on the Active Oa
 | :--- | :--- | :--- | :--- |
 | Blog/Guide | EN | Article | 46 |
 | Blog/Guide | JA | Article | 11 |
-| Contact | EN | ContactPage | 2 |
+| Contact | EN | ContactPage | 1 |
 | Contact | JA | ContactPage | 1 |
 | FAQ | EN | FAQPage | 5 |
 | FAQ | JA | FAQPage | 4 |
-| Homepage | EN | TravelAgency + LocalBusiness + Travel | 1 |
-| Homepage | JA | TravelAgency + LocalBusiness + Travel | 1 |
-| Location/Hub | EN | ItemList + TouristAttraction | 15 |
-| Location/Hub | JA | ItemList + TouristAttraction | 9 |
-| Other | EN | WebPage | 40 |
-| Other | JA | WebPage | 26 |
+| Homepage | EN | Travel | 1 |
+| Homepage | JA | Travel | 1 |
+| Location/Hub | EN | ItemList + TouristAttraction | 11 |
+| Location/Hub | JA | ItemList + TouristAttraction | 7 |
+| Other | EN | WebPage | 26 |
+| Other | JA | WebPage | 22 |
 | Rental | EN | Product | 32 |
 | Rental | JA | Product | 21 |
 | Tour | EN | TouristTrip | 27 |
@@ -91,7 +91,6 @@ This document contains the schema classification for every page on the Active Oa
 ### Contact Pages (Schema: `ContactPage`)
 
 #### English Pages (EN)
-- `contact-us.html`
 - `contact-us/index.html`
 
 #### Japanese Pages (JA)
@@ -112,7 +111,7 @@ This document contains the schema classification for every page on the Active Oa
 - `ja/faq/faq-oahu-beach-gear-rentals/index.html`
 - `ja/faq/index.html`
 
-### Homepage Pages (Schema: `TravelAgency + LocalBusiness + Travel`)
+### Homepage Pages (Schema: `Travel`)
 
 #### English Pages (EN)
 - `index.html`
@@ -124,16 +123,12 @@ This document contains the schema classification for every page on the Active Oa
 
 #### English Pages (EN)
 - `about-active-oahu-tours/awards/index.html`
-- `activities.html`
 - `activities/index.html`
-- `activities/page/2/index.html`
-- `activities/page/3/index.html`
 - `guided-tours/index.html`
 - `guides/index.html`
 - `multi-day-kayak-and-beach-gear-rentals/index.html`
 - `multi-day-rentals/index.html`
 - `oahu-equipment-rentals/index.html`
-- `oahu-equipment-rentals/page/2/index.html`
 - `oahu-kayaking-and-beach-adventures/index.html`
 - `rentals/index.html`
 - `self-guided/index.html`
@@ -142,8 +137,6 @@ This document contains the schema classification for every page on the Active Oa
 #### Japanese Pages (JA)
 - `ja/about-active-oahu-tours/awards/index.html`
 - `ja/activities/index.html`
-- `ja/activities/page/2/index.html`
-- `ja/activities/page/3/index.html`
 - `ja/guides/index.html`
 - `ja/multi-day-kayak-and-beach-gear-rentals/index.html`
 - `ja/oahu-equipment-rentals/index.html`
@@ -153,28 +146,20 @@ This document contains the schema classification for every page on the Active Oa
 ### Other Pages (Schema: `WebPage`)
 
 #### English Pages (EN)
-- `404.html`
 - `about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html`
 - `about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html`
 - `about-active-oahu-tours/index.html`
-- `about-active-oahu/index.html`
 - `active-aloha-ambassador/index.html`
 - `active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html`
 - `active-oahu-photo-gallery/index.html`
 - `ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/index.html`
-- `author/mbgulden/index.html`
 - `become-a-partner/index.html`
 - `cancellation-policy/index.html`
 - `chinamans-hat/index.html`
-- `job-dashboard/index.html`
-- `job/hiring-kayak-delivery-driver-jobs-in-laie/index.html`
 - `join-the-team/index.html`
 - `kailua-ebike-route/index.html`
-- `kailua-kayak/index.html`
 - `kailua-oahu-storefront/index.html`
 - `kailua-town-history/index.html`
-- `kaneohe-sandbar/index.html`
-- `kayak-kailua/index.html`
 - `laie-bay-goat-island-kayaking/index.html`
 - `living-aloha-respectful-travel/index.html`
 - `mokolii/index.html`
@@ -183,31 +168,21 @@ This document contains the schema classification for every page on the Active Oa
 - `oahu-tour-packages/index.html`
 - `oahus-best-kayaking-trips/index.html`
 - `privacy-policy/index.html`
-- `reviews/index.html`
-- `reviews/page/2/index.html`
-- `reviews/page/3/index.html`
-- `reviews/page/4/index.html`
-- `reviews/page/5/index.html`
 - `sharks-cove-snorkeling/index.html`
-- `trip-cancellation-insurance-terms-and-conditions.html`
 - `trip-cancellation-insurance-terms-and-conditions/index.html`
 - `what-to-bring/index.html`
 - `why-choose-active-oahu/index.html`
 
 #### Japanese Pages (JA)
-- `ja/404.html`
 - `ja/about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html`
 - `ja/about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html`
 - `ja/about-active-oahu-tours/index.html`
 - `ja/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html`
 - `ja/active-oahu-photo-gallery/index.html`
 - `ja/ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/index.html`
-- `ja/author/mbgulden/index.html`
 - `ja/become-a-partner/index.html`
 - `ja/cancellation-policy/index.html`
 - `ja/chinamans-hat-kayak-tour/index.html`
-- `ja/job-dashboard/index.html`
-- `ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html`
 - `ja/join-the-team/index.html`
 - `ja/kailua-oahu-storefront/index.html`
 - `ja/kaneohe-bay-sandbar-kayak/index.html`
