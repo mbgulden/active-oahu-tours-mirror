@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -214,13 +213,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
-<script type="application/ld+json">{
+
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Oahu Activities & Tours",
-  "description": "Browse all Oahu kayak tours, snorkeling adventures, e-bike tours, and beach gear rentals available from Active Oahu Tours.",
-  "url": "https://activeoahutours.com/activities/"
-}</script></head>
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://activeoahutours.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Oahu Kayaking Activities and Tours",
+      "item": "https://activeoahutours.com/activities/"
+    }
+  ]
+}
+</script>
+</head>
 <body class="archive post-type-archive post-type-archive-activities wp-theme-activeoahu">
 <div class="hfeed site" id="page">
 <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
@@ -1999,7 +2013,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Keep up-to-date with our social media, or just contact us directly</p>
 <h4><a href="tel:+18084981894">(808)498-1894</a></h4>
 <p><a href="https://activeoahutours.com/cdn-cgi/l/email-protection#c7b3a2a6aa87a6a4b3aeb1a2a8a6afb2b3a8b2b5b4e9a4a8aa"><span class="__cf_email__" data-cfemail="0c78696d614c6d6f78657a69636d64797863797e7f226f6361">[email protected]</span></a></p>
-<p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
+<p></p><address>134B Hamakua Dr., Kailua, HI, 96734</address>
 <!--<a target="_blank" href="https://twitter.com/activeoahutours">Twitter</a>&nbsp;&nbsp;&nbsp;-->
 <a href="https://www.facebook.com/activeoahutours/" target="_blank">Facebook</a>   
           <a href="https://www.yelp.com/biz/active-oahu-tours-kailua" target="_blank">Yelp</a>   
