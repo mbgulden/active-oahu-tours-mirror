@@ -1,0 +1,56 @@
+# Implementation Plan: GRO-1233 — AGY — CRO + SEO Integration Plan
+
+**Date:** 2026-06-12  
+**Status:** Completed  
+**Objective:** Audit CTAs, traffic-to-conversion funnel, schema opportunities, booking flow, and mobile experience to convert existing SEO traffic.
+
+---
+
+## 1. Scope of Work
+
+This project integrates SEO visibility with conversion rate optimization (CRO) to maximize revenue from existing traffic (~4K monthly sessions) without requiring an increase in traffic volume. The analysis is based on fresh, live GA4 and Google Search Console data retrieved on 2026-06-12.
+
+### Core Objectives:
+1. **Funnel Mapping**: Match top landing pages (organic traffic) with user behavior (bounce rates, time-on-page) and conversion rates to identify leaks.
+2. **CTA Placement & Copy**: Inventory on-page elements, check visibility, alignment with user intent, and placement.
+3. **Schema CTR Impact**: Evaluate organic search appearance clicks/impressions and quantify expected click-through rate (CTR) lifts from adding structured schema markup.
+4. **Booking Flow Friction**: Audit the third-party booking flow (FareHarbor) to pinpoint drop-offs, speed issues, and mobile form UX problems.
+5. **Mobile vs. Desktop**: Analyze device-level performance and design gaps to streamline mobile bookings (52.6% traffic share).
+
+---
+
+## 2. Deliverables Catalog
+
+All deliverables are saved in the project repository at `/home/ubuntu/work/active-oahu-static/site/_seo/`:
+
+### Raw Data (Google APIs)
+* **GA4 Pageviews**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/google-analytics/ga4_pageviews_30d.json`
+* **GA4 Traffic Source**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/google-analytics/ga4_traffic-source_30d.json`
+* **GA4 Conversions**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/google-analytics/ga4_conversions_90d.json`
+* **GA4 Behavior**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/google-analytics/ga4_user-behavior_30d.json`
+* **GA4 Device**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/google-analytics/ga4_device_30d.json`
+* **GSC Top Queries**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/search-console/gsc_top-queries_6mo.json`
+* **GSC Top Pages**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/search-console/gsc_top-pages_6mo.json`
+* **GSC CTR Analysis**: `/home/ubuntu/work/active-oahu-static/site/_seo/data/search-console/gsc_ctr-analysis_6mo.json`
+
+### Reports (`reports/05-cro-seo/`)
+1. **Implementation Plan**: `plan.md` (This file)
+2. **Traffic Funnel Analysis**: `funnel-analysis.md`
+3. **CTA Audit**: `cta-audit.md`
+4. **Schema CTR Analysis**: `schema-ctr.md`
+5. **Booking Flow Friction**: `booking-flow-audit.md`
+6. **Mobile Experience Report**: `mobile-report.md`
+7. **Executive Summary**: `summary.md`
+8. **Walkthrough / Log**: `walkthrough.md`
+
+### Visual Assets
+* **CTA Mockup**: `/home/ubuntu/work/active-oahu-static/site/_seo/images/optimized_cta_mockup.png`
+
+---
+
+## 3. Methodology
+
+1. **Authentication**: Authenticate using GCP OAuth consumer secrets stored in `~/.config/mcp-gdrive/` to refresh access tokens.
+2. **Retrieval**: Run Python REST scripts (`pull_data.py`) querying GA4 property `289642224` and GSC domain `sc-domain:activeoahutours.com`.
+3. **Automation/Auditing**: Execute parsing scripts (`parse_data_summary.py` and `analyze_ctas.py`) to systematically audit all 163 HTML pages.
+4. **Mockup Iteration**: Use image generation to render a state-of-the-art UI showing proper CTA layout, review snippets, pricing hierarchy, and brand-building trust badges.
