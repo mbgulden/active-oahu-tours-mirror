@@ -75,3 +75,16 @@ All identified design gaps, placeholder values, unlocalized English blocks on Ja
 | `site/ja/kayak-kailua/index.html` | Replaced 404 page template with redirect stub to `/ja/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/`. |
 | `site/ja/chinamans-hat-kayak-tour/index.html` | Replaced 404 page template with redirect stub to `/ja/activities/chinamans-hat-self-guided-oahu-kayak-tour/`. |
 | `site/ja/sharks-cove-snorkeling/index.html` | Replaced 404 page template with redirect stub to `/ja/activities/sharks-cove-self-guided-snorkel/`. |
+
+---
+
+## 4. Re-Audit (2026-06-12)
+
+A subsequent re-audit was conducted to verify the completeness of all SUP rentals page corrections and Japanese content translations. 
+* Checked the integration of all corrected FareHarbor item IDs (Single-day: `368417`, Multi-day: `371689`) to ensure seamless booking flows.
+* Verified that the translated Japanese content sections display without any remaining English placeholders or text mismatches.
+* Confirmed that all Japanese redirect stubs successfully redirect to their correct canonical targets without rendering 404 templates.
+* Ran automated checks (`check_links.py` and `site_audit.py`) to confirm no broken links or schema validation errors exist on the modified pages.
+
+All updates have been synchronized to both repositories and pushed to the origin `audit/agy-GRO-1251` branch.
+
