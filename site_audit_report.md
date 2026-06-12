@@ -1,14 +1,14 @@
 # Active Oahu Tours Mirror - Site Audit Report
 
-**Total HTML pages:** 253
+**Total HTML pages:** 258
 
 ## Category Breakdown
 
 - **ja/ (Japanese)**: 89
-- **activities/**: 29
+- **activities/**: 30
 - **oahu-kayaking-and-beach-adventures/**: 28
-- **rentals/**: 18
-- **guides/**: 8
+- **rentals/**: 19
+- **guides/**: 10
 - **oahu-equipment-rentals/**: 8
 - **about-***: 5
 - **reviews/**: 5
@@ -49,6 +49,7 @@
 - **other (living-aloha-respectful-travel/)**: 1
 - **other (mokolii/)**: 1
 - **other (multi-activity-adventure-packages/)**: 1
+- **other (oahu-kayak-safety-tide-index-map/)**: 1
 - **other (oahu-launch-guide/)**: 1
 - **other (oahu-tour-packages/)**: 1
 - **other (oahus-best-kayaking-trips/)**: 1
@@ -65,7 +66,7 @@
 - **other (why-choose-active-oahu/)**: 1
 - **other (wp-content/)**: 1
 
-## Orphan Pages (61)
+## Orphan Pages (58)
 
 Pages with no other pages linking TO them (excluding homepage).
 
@@ -73,7 +74,6 @@ Pages with no other pages linking TO them (excluding homepage).
 - active-aloha-ambassador/index.html
 - activities/chinamans-hat-oahu-kayak-tours/index.html
 - activities/destination-yoga/index.html
-- activities/kaneohe-sandbar-kayak-rentals/index.html
 - activities/lanikai-beach-self-guided-snorkel/index.html
 - activities/oahu-snorkel-tour/index.html
 - activities/rainforest-guided-hike/index.html
@@ -99,8 +99,6 @@ Pages with no other pages linking TO them (excluding homepage).
 - ja/stand-up-paddleboard-rental/index.html
 - kailua-ebike-route/index.html
 - kailua-town-history/index.html
-- kaneohe-bay-sandbar-kayak/index.html
-- laie-bay-goat-island-kayaking/index.html
 - living-aloha-respectful-travel/index.html
 - multi-activity-adventure-packages/index.html
 - multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html
@@ -112,7 +110,6 @@ Pages with no other pages linking TO them (excluding homepage).
 - oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html
 - oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/index.html
 - oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/index.html
-- oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/index.html
 - oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/index.html
@@ -127,20 +124,18 @@ Pages with no other pages linking TO them (excluding homepage).
 - oahus-best-kayaking-trips/index.html
 - rentals/cruiser-oahu-beach-equipment-rental-package/index.html
 - rentals/explorer-oahu-kayak-rental-package/index.html
+- rentals/snorkel-gear-rentals/index.html
 - stand-up-paddleboard-rental/index.html
 - trip-cancellation-insurance-terms-and-conditions/index.html
 - wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html
 
 ## Schema Markup
 
-- Pages **with** schema markup: 249
-- Pages **without** schema markup: 4
+- Pages **with** schema markup: 257
+- Pages **without** schema markup: 1
 
 ### Pages Missing Schema Markup
 
-- chinamans-hat-kayak-tour/index.html
-- kaneohe-bay-sandbar-kayak/index.html
-- stand-up-paddleboard-rental/index.html
 - wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html
 
 ## Complete Page Listing
@@ -172,6 +167,7 @@ Pages with no other pages linking TO them (excluding homepage).
 - activities/kailua-kayak-twin-islands-guided-tour/index.html
 - activities/kaneohe-sandbar-kayak-rentals/index.html
 - activities/kaneohe-sandbar-kayak-ultimate-guide/index.html
+- activities/kawela-bay-self-guided-kayak-tour/index.html
 - activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html
 - activities/lanikai-beach-self-guided-snorkel/index.html
 - activities/oahu-snorkel-tour/index.html
@@ -201,10 +197,12 @@ Pages with no other pages linking TO them (excluding homepage).
 - faq/index.html
 - guided-tours/index.html
 - guides/chinamans-hat-tide-guide/index.html
+- guides/eating-your-way-windward-to-north-shore/index.html
 - guides/electric-beach/index.html
 - guides/index.html
 - guides/kailua-beach-park/index.html
 - guides/lanikai-beach/index.html
+- guides/oahu-kayak-safety-tide-guide/index.html
 - guides/ocean-kayaking-beginners-oahu/index.html
 - guides/sea-turtles-oahu/index.html
 - guides/waimanalo-beach/index.html
@@ -331,6 +329,7 @@ Pages with no other pages linking TO them (excluding homepage).
 - oahu-equipment-rentals/standard-meeting-location-info/index.html
 - oahu-hawaii-kayaking-guide/index.html
 - oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html
+- oahu-kayak-safety-tide-index-map/index.html
 - oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html
 - oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html
@@ -382,6 +381,7 @@ Pages with no other pages linking TO them (excluding homepage).
 - rentals/oahu-tandem-kayak-rentals/index.html
 - rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html
 - rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html
+- rentals/snorkel-gear-rentals/index.html
 - reviews/index.html
 - reviews/page/2/index.html
 - reviews/page/3/index.html
