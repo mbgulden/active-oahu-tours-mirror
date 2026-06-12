@@ -32,16 +32,26 @@ The table below maps the top landing pages by organic sessions, detailing user e
 
 | # | Landing Page Path | 30D Sessions | Bounce Rate | Avg. Duration | 90D Purchases | Conv. Rate (Est.) | Status & Issues |
 |---|---|---|---|---|---|---|---|
-| 1 | `/` (Homepage) | 859 | 45.6% | 118.9s | 7 | 0.27% | 🔴 **Critical Leak**: Generic header booking links; lack of direct product CTAs. |
-| 2 | `/activities/sharks-cove-self-guided-snorkel/` | 405 | 42.5% | 131.5s | 0 | 0.00% | 🚨 **Severe Friction**: Kailua storefront gear pickup required for North Shore activity. |
-| 3 | `/oahu-equipment-rentals/chinamans-hat-kayak-rentals/` | 251 | 39.0% | 122.2s | 8 | 1.06% | 🟢 **Healthy**: Direct product match, clear local pickup instructions. |
-| 4 | `/activities/` (Tours Hub) | 201 | 10.4% | 139.8s | 1 | 0.16% | 🟡 **Weak**: High engagement but low booking initiation. |
+| 1 | `/` | 873 | 45.7% | 118.6s | 7 | 0.27% | 🔴 **Critical Leak**: Generic header booking links; lack of direct product CTAs. |
+| 2 | `/activities/sharks-cove-self-guided-snorkel/` | 411 | 42.6% | 131.9s | 1 | 0.08% | 🚨 **Severe Friction**: Kailua storefront gear pickup required for North Shore activity. |
+| 3 | `/oahu-equipment-rentals/chinamans-hat-kayak-rentals/` | 254 | 38.6% | 121.8s | 8 | 1.05% | 🟢 **Healthy**: Direct product match, clear local pickup instructions. |
+| 4 | `/activities/` | 203 | 10.8% | 138.6s | 1 | 0.16% | 🟡 **Weak**: High engagement but low booking initiation. |
 | 5 | `/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/` | 181 | 23.2% | 156.2s | 5 | 0.92% | 🟢 **Healthy**: High engagement, good intent conversion. |
-| 6 | `/oahu-equipment-rentals/` | 170 | 19.4% | 107.9s | 1 | 0.19% | 🟡 **Weak**: Broad listing page, users drop off without selecting a specific product. |
-| 7 | `/rentals/oahu-tandem-kayak-rentals/` | 145 | 17.9% | 122.8s | 8 | 1.83% | 🟢 **Top Performer**: Strong commercial intent, direct booking alignment. |
-| 8 | `/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/` | 101 | 37.6% | 123.1s | 3 | 0.99% | 🟢 **Healthy**: Kailua local rentals. |
-| 9 | `/activities/kahana-rainforest-river-oahu-kayak-tour/` | 90 | 40.0% | 119.8s | 0 | 0.00% | 🔴 **Friction**: Underperforming river kayak tour page; weak CTA hierarchy. |
-| 10 | `/rentals/oahu-beach-chair-rentals/` | 71 | 32.4% | 67.6s | 5 | 2.34% | 🟢 **Excellent**: Micro-rental page converting well relative to traffic. |
+| 6 | `/oahu-equipment-rentals/` | 171 | 19.3% | 107.5s | 1 | 0.19% | 🟡 **Weak**: Broad listing page, users drop off without selecting a specific product. |
+| 7 | `/rentals/oahu-tandem-kayak-rentals/` | 146 | 17.8% | 122.1s | 8 | 1.83% | 🟢 **Top Performer**: Strong commercial intent, direct booking alignment. |
+| 8 | `/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/` | 103 | 36.9% | 121.4s | 3 | 0.97% | 🟢 **Healthy**: Kailua local rentals. |
+| 9 | `/activities/kahana-rainforest-river-oahu-kayak-tour/` | 91 | 39.6% | 118.7s | 0 | 0.00% | 🔴 **Friction**: Underperforming river kayak tour page; weak CTA hierarchy. |
+| 10 | `/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/` | 72 | 16.7% | 102.8s | 0 | 0.00% | 🟡 **Weak**: Informational content, missing direct rental path. |
+| 11 | `/activities/chinamans-hat-self-guided-oahu-kayak-tour/` | 71 | 25.4% | 127.6s | 0 | 0.00% | 🟡 **Weak**: Tour explanation page, needs simplified booking CTA. |
+| 12 | `/rentals/oahu-beach-chair-rentals/` | 71 | 32.4% | 67.6s | 5 | 2.35% | 🟢 **Excellent**: Micro-rental page converting well relative to traffic. |
+| 13 | `/rentals/oahu-stand-up-paddle-board-rentals-sup-hire/` | 65 | 43.1% | 60.8s | 0 | 0.00% | 🔴 **Friction**: Needs bottom-sticky booking bar for mobile viewports. |
+| 14 | `/rentals/kailua-beach-bike-rentals/` | 64 | 23.4% | 105.5s | 0 | 0.00% | 🟡 **Weak**: Electric bike page, weak visual CTA and pricing layout. |
+| 15 | `/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/` | 61 | 29.5% | 112.1s | 0 | 0.00% | 🟡 **Weak**: Duplicate intent with Chinaman's Hat rentals; needs consolidation. |
+| 16 | `/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/` | 58 | 48.3% | 129.6s | 0 | 0.00% | 🟡 **Weak**: Informational guide page, high bounce, no conversions. |
+| 17 | `/activities/chinamans-hat-oahu-kayak-tours/` | 54 | 48.1% | 138.2s | 1 | 0.62% | 🟢 **Healthy**: Converts well relative to traffic volume. |
+| 18 | `/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/` | 54 | 20.4% | 138.9s | 3 | 1.85% | 🟢 **Healthy**: High duration, good local search conversion. |
+| 19 | `/rentals/oahu-snorkel-mask-and-fin-rentals/` | 48 | 29.2% | 90.3s | 0 | 0.00% | 🔴 **Friction**: Requires Kailua shop pickup for North Shore snorkeling. |
+| 20 | `/activities/popoia-island-and-kailua-bay-guided-kayak-tour/` | 47 | 29.8% | 129.5s | 0 | 0.00% | 🟡 **Weak**: High-value guided tour, but booking CTA is buried below reviews. |
 
 ---
 
