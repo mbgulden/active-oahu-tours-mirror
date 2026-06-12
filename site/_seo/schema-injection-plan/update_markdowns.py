@@ -2,8 +2,9 @@
 import re
 from pathlib import Path
 
-CLASSIFICATION_PATH = Path("/home/ubuntu/work/active-oahu-static/site/_seo/schema-injection-plan/01-page-classification.md")
-PRIORITY_PATH = Path("/home/ubuntu/work/active-oahu-static/site/_seo/schema-injection-plan/03-priority-order.md")
+CLASSIFICATION_PATH = Path(__file__).resolve().parent / "01-page-classification.md"
+PRIORITY_PATH = Path(__file__).resolve().parent / "03-priority-order.md"
+
 
 NON_EXISTENT_FILES = {
     "_includes/tide-chart-template.html",

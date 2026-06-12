@@ -207,8 +207,8 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `stand-up-paddleboard-rental/index.html` | Rental | `Product` |
 | `trip-cancellation-insurance-terms-and-conditions.html` | Other | `WebPage` |
 | `trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
-
-## P3: Japanese Locale Pages (All 89 pages)
+</details>
+## P3: Japanese Locale Pages (All 89 JA pages)
 
 Japanese language versions of all core and supporting pages.
 

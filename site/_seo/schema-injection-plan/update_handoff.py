@@ -2,8 +2,9 @@
 from pathlib import Path
 
 def main():
-    handoff_path = Path("/home/ubuntu/work/active-oahu-static/site/_seo/schema-injection-plan/05-kai-handoff.md")
-    script_path = Path("/home/ubuntu/work/active-oahu-static/site/_seo/schema-injection-plan/inject-schema.py")
+    current_dir = Path(__file__).resolve().parent
+    handoff_path = current_dir / "05-kai-handoff.md"
+    script_path = current_dir / "inject-schema.py"
 
     if not handoff_path.exists() or not script_path.exists():
         print("Required files do not exist.")

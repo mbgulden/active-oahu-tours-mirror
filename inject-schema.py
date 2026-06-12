@@ -4,7 +4,15 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import re, json
 
-SITE_DIR = Path("/home/ubuntu/work/active-oahu-static/site")
+# Try to find the site directory relative to this script
+current_dir = Path(__file__).resolve().parent
+if (current_dir / "site").exists():
+    SITE_DIR = current_dir / "site"
+elif current_dir.name == "schema-injection-plan" and current_dir.parent.name == "_seo" and current_dir.parent.parent.name == "site":
+    SITE_DIR = current_dir.parent.parent
+else:
+    SITE_DIR = Path("/home/ubuntu/work/active-oahu-static-1212/site")
+
 
 # Base business info
 BUSINESS = {
@@ -143,6 +151,7 @@ def page_schema(path, rel_path):
     # Rental pages
     if 'rental' in rel_str.lower() or 'equipment' in rel_str.lower():
         soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
+        name = get_page_title(soup, rel_path)
         desc_tag = soup.find('meta', attrs={'name': 'description'})
         desc = desc_tag.get('content', '').strip() if desc_tag else ''
         return {
