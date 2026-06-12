@@ -1,12 +1,12 @@
 # Page Type Classification Plan
 
-This document contains the schema classification for every page on the Active Oahu Tours (AOT) website, covering English (EN) and Japanese (JA) locales. 
+This document contains the schema classification for every page on the Active Oahu Tours (AOT) website, covering English (EN) and Japanese (JA) locales.
 
 ## Summary Counts
 
 | Page Type | Locale | Schema Type | Page Count |
 | :--- | :--- | :--- | :--- |
-| Blog/Guide | EN | Article | 45 |
+| Blog/Guide | EN | Article | 46 |
 | Blog/Guide | JA | Article | 11 |
 | Contact | EN | ContactPage | 2 |
 | Contact | JA | ContactPage | 1 |
@@ -16,11 +16,11 @@ This document contains the schema classification for every page on the Active Oa
 | Homepage | JA | TravelAgency + LocalBusiness + Travel | 1 |
 | Location/Hub | EN | ItemList + TouristAttraction | 15 |
 | Location/Hub | JA | ItemList + TouristAttraction | 9 |
-| Other | EN | WebPage | 60 |
+| Other | EN | WebPage | 40 |
 | Other | JA | WebPage | 26 |
-| Rental | EN | Product | 30 |
+| Rental | EN | Product | 32 |
 | Rental | JA | Product | 21 |
-| Tour | EN | TouristTrip | 24 |
+| Tour | EN | TouristTrip | 27 |
 | Tour | JA | TouristTrip | 16 |
 
 ## Detailed Page Mapping
@@ -34,6 +34,7 @@ This document contains the schema classification for every page on the Active Oa
 - `guides/electric-beach/index.html`
 - `guides/kailua-beach-park/index.html`
 - `guides/lanikai-beach/index.html`
+- `guides/oahu-kayak-safety-tide-guide/index.html`
 - `guides/ocean-kayaking-beginners-oahu/index.html`
 - `guides/sea-turtles-oahu/index.html`
 - `guides/waimanalo-beach/index.html`
@@ -153,10 +154,6 @@ This document contains the schema classification for every page on the Active Oa
 
 #### English Pages (EN)
 - `404.html`
-- `_includes/tide-chart-template.html`
-- `_templates/body_bottom.html`
-- `_templates/body_top.html`
-- `_templates/head.html`
 - `about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html`
 - `about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html`
 - `about-active-oahu-tours/index.html`
@@ -182,6 +179,7 @@ This document contains the schema classification for every page on the Active Oa
 - `living-aloha-respectful-travel/index.html`
 - `mokolii/index.html`
 - `multi-activity-adventure-packages/index.html`
+- `oahu-kayak-safety-tide-index-map/index.html`
 - `oahu-tour-packages/index.html`
 - `oahus-best-kayaking-trips/index.html`
 - `privacy-policy/index.html`
@@ -191,23 +189,6 @@ This document contains the schema classification for every page on the Active Oa
 - `reviews/page/4/index.html`
 - `reviews/page/5/index.html`
 - `sharks-cove-snorkeling/index.html`
-- `tides/hauula.html`
-- `tides/kaaawa.html`
-- `tides/kahana.html`
-- `tides/kahuku.html`
-- `tides/kailua.html`
-- `tides/kaneohe-bay.html`
-- `tides/kaneohe.html`
-- `tides/kualoa.html`
-- `tides/laie.html`
-- `tides/lanikai.html`
-- `tides/mokolii.html`
-- `tides/mokulua-islands.html`
-- `tides/punaluu.html`
-- `tides/turtle-bay.html`
-- `tides/waihole.html`
-- `tides/waikane.html`
-- `tides/waimanalo.html`
 - `trip-cancellation-insurance-terms-and-conditions.html`
 - `trip-cancellation-insurance-terms-and-conditions/index.html`
 - `what-to-bring/index.html`
@@ -274,6 +255,8 @@ This document contains the schema classification for every page on the Active Oa
 - `rentals/oahu-tandem-kayak-rentals/index.html`
 - `rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html`
 - `rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html`
+- `rentals/snorkel-gear-rentals/index.html`
+- `stand-up-paddleboard-rental/index.html`
 
 #### Japanese Pages (JA)
 - `ja/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html`
@@ -315,6 +298,7 @@ This document contains the schema classification for every page on the Active Oa
 - `activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/index.html`
 - `activities/kailua-kayak-twin-islands-guided-tour/index.html`
 - `activities/kaneohe-sandbar-kayak-ultimate-guide/index.html`
+- `activities/kawela-bay-self-guided-kayak-tour/index.html`
 - `activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html`
 - `activities/lanikai-beach-self-guided-snorkel/index.html`
 - `activities/oahu-snorkel-tour/index.html`
@@ -325,6 +309,8 @@ This document contains the schema classification for every page on the Active Oa
 - `activities/rainforest-oahu-stand-up-paddle-boarding/index.html`
 - `activities/sharks-cove-self-guided-snorkel/index.html`
 - `activities/west-oahu-guided-snorkel-tour/index.html`
+- `chinamans-hat-kayak-tour/index.html`
+- `kaneohe-bay-sandbar-kayak/index.html`
 
 #### Japanese Pages (JA)
 - `ja/activities/aloha-aina-e-bike-adventure/index.html`

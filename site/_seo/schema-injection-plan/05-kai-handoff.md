@@ -93,6 +93,18 @@ def inject_schema(html, schema_dict):
         html = html.replace('<body', schema_block + '<body', 1)
     return html
 
+def get_page_title(soup, rel_path):
+    """Get the page title from H1, or <title>, or fallback to stem name."""
+    h1 = soup.find('h1')
+    if h1:
+        return h1.get_text(strip=True)
+    if soup.title:
+        title_text = soup.title.get_text(strip=True)
+        title_text = re.sub(r'へのリダイレクト$', '', title_text)
+        title_text = re.sub(r'\s*–\s*Active Oahu.*$', '', title_text)
+        return title_text
+    return rel_path.stem.replace('-', ' ').title()
+
 def page_schema(path, rel_path):
     """Determine schema type based on URL path and content."""
     url_path = '/' + str(rel_path).replace('/index.html', '').replace('.html', '')
@@ -147,8 +159,7 @@ def page_schema(path, rel_path):
     # Tour/activity pages
     if ('activities/' in rel_str or 'tour' in rel_str.lower() or 'kayak' in rel_str.lower()) and '/page/' not in rel_str and 'about' not in rel_str.lower() and 'rental' not in rel_str.lower() and 'equipment' not in rel_str.lower() and 'guide' not in rel_str.lower():
         soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
-        h1 = soup.find('h1')
-        name = h1.get_text(strip=True) if h1 else rel_path.stem.replace('-', ' ').title()
+        name = get_page_title(soup, rel_path)
         desc_tag = soup.find('meta', attrs={'name': 'description'})
         desc = desc_tag.get('content', '') if desc_tag else ''
         return {
@@ -174,8 +185,7 @@ def page_schema(path, rel_path):
     # Rental pages
     if 'rental' in rel_str.lower() or 'equipment' in rel_str.lower():
         soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
-        h1 = soup.find('h1')
-        name = h1.get_text(strip=True) if h1 else rel_path.stem.replace('-', ' ').title()
+        name = get_page_title(soup, rel_path)
         return {
             "@context": "https://schema.org",
             "@type": "Product",
@@ -225,8 +235,7 @@ def page_schema(path, rel_path):
     # Blog/article pages
     if any(kw in rel_str for kw in ['blog', 'post', 'guide', 'ariyoshi']):
         soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
-        h1 = soup.find('h1')
-        title = h1.get_text(strip=True) if h1 else rel_path.stem.replace('-', ' ').title()
+        title = get_page_title(soup, rel_path)
         desc_tag = soup.find('meta', attrs={'name': 'description'})
         desc = desc_tag.get('content', '') if desc_tag else ''
         return {
@@ -245,8 +254,7 @@ def page_schema(path, rel_path):
     
     # Fallback basic WebPage schema
     soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
-    h1 = soup.find('h1')
-    title = h1.get_text(strip=True) if h1 else rel_path.stem.replace('-', ' ').title()
+    title = get_page_title(soup, rel_path)
     desc_tag = soup.find('meta', attrs={'name': 'description'})
     desc = desc_tag.get('content', '') if desc_tag else ''
     return {
@@ -284,7 +292,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 ```
 
 If you have any questions or need custom modifications, please reach out to Fred or review the checklist in `04-validation-checklist.md`.

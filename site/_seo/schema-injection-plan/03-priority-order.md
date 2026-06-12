@@ -77,7 +77,7 @@ These pages cover secondary tours, popular equipment rentals, and high-impressio
 
 ---
 
-## P2: Remaining English Pages (131 pages)
+## P2: Remaining English Pages (118 pages)
 
 These pages cover supporting blog posts, pagination pages, policy terms, and minor utilities.
 
@@ -86,10 +86,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 
 | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- |
-| `_includes/tide-chart-template.html` | Other | `WebPage` |
-| `_templates/body_bottom.html` | Other | `WebPage` |
-| `_templates/body_top.html` | Other | `WebPage` |
-| `_templates/head.html` | Other | `WebPage` |
+| `404.html` | Other | `WebPage` |
 | `about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html` | Other | `WebPage` |
 | `about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html` | Other | `WebPage` |
 | `about-active-oahu-tours/awards/index.html` | Location/Hub | `ItemList + TouristAttraction` |
@@ -107,6 +104,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `activities/index.html` | Location/Hub | `ItemList + TouristAttraction` |
 | `activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/index.html` | Tour | `TouristTrip` |
 | `activities/kaneohe-sandbar-kayak-rentals/index.html` | Rental | `Product` |
+| `activities/kawela-bay-self-guided-kayak-tour/index.html` | Tour | `TouristTrip` |
 | `activities/lanikai-beach-self-guided-snorkel/index.html` | Tour | `TouristTrip` |
 | `activities/oahu-snorkel-tour/index.html` | Tour | `TouristTrip` |
 | `activities/oahu-surf-lessons/index.html` | Tour | `TouristTrip` |
@@ -121,6 +119,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `beach-gear-rentals/index.html` | Rental | `Product` |
 | `become-a-partner/index.html` | Other | `WebPage` |
 | `cancellation-policy/index.html` | Other | `WebPage` |
+| `chinamans-hat-kayak-tour/index.html` | Tour | `TouristTrip` |
 | `chinamans-hat-tide-guide/index.html` | Blog/Guide | `Article` |
 | `contact-us/index.html` | Contact | `ContactPage` |
 | `electric-bike-rentals/index.html` | Rental | `Product` |
@@ -128,6 +127,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `guides/chinamans-hat-tide-guide/index.html` | Blog/Guide | `Article` |
 | `guides/eating-your-way-windward-to-north-shore/index.html` | Blog/Guide | `Article` |
 | `guides/electric-beach/index.html` | Blog/Guide | `Article` |
+| `guides/oahu-kayak-safety-tide-guide/index.html` | Blog/Guide | `Article` |
 | `guides/waimanalo-beach/index.html` | Blog/Guide | `Article` |
 | `job-dashboard/index.html` | Other | `WebPage` |
 | `job/hiring-kayak-delivery-driver-jobs-in-laie/index.html` | Other | `WebPage` |
@@ -136,6 +136,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `kailua-kayak/index.html` | Other | `WebPage` |
 | `kailua-oahu-storefront/index.html` | Other | `WebPage` |
 | `kailua-town-history/index.html` | Other | `WebPage` |
+| `kaneohe-bay-sandbar-kayak/index.html` | Tour | `TouristTrip` |
 | `kaneohe-sandbar-tide-guide/index.html` | Blog/Guide | `Article` |
 | `kayak-safety-guide/index.html` | Blog/Guide | `Article` |
 | `kualoa-bay-guide/index.html` | Blog/Guide | `Article` |
@@ -153,6 +154,7 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `oahu-equipment-rentals/standard-meeting-location-info/index.html` | Rental | `Product` |
 | `oahu-hawaii-kayaking-guide/index.html` | Blog/Guide | `Article` |
 | `oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html` | Blog/Guide | `Article` |
+| `oahu-kayak-safety-tide-index-map/index.html` | Other | `WebPage` |
 | `oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/index.html` | Blog/Guide | `Article` |
 | `oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html` | Blog/Guide | `Article` |
 | `oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/index.html` | Blog/Guide | `Article` |
@@ -192,42 +194,23 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `rentals/oahu-snorkel-mask-and-fin-rentals/index.html` | Rental | `Product` |
 | `rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html` | Rental | `Product` |
 | `rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html` | Rental | `Product` |
+| `rentals/snorkel-gear-rentals/index.html` | Rental | `Product` |
 | `reviews/page/2/index.html` | Other | `WebPage` |
 | `reviews/page/3/index.html` | Other | `WebPage` |
 | `reviews/page/4/index.html` | Other | `WebPage` |
 | `reviews/page/5/index.html` | Other | `WebPage` |
 | `sharks-cove-snorkeling-guide/index.html` | Blog/Guide | `Article` |
 | `sharks-cove-vs-lanikai-snorkeling/index.html` | Blog/Guide | `Article` |
-| `tides/hauula.html` | Other | `WebPage` |
-| `tides/kaaawa.html` | Other | `WebPage` |
-| `tides/kahana.html` | Other | `WebPage` |
-| `tides/kahuku.html` | Other | `WebPage` |
-| `tides/kailua.html` | Other | `WebPage` |
-| `tides/kaneohe-bay.html` | Other | `WebPage` |
-| `tides/kaneohe.html` | Other | `WebPage` |
-| `tides/kualoa.html` | Other | `WebPage` |
-| `tides/laie.html` | Other | `WebPage` |
-| `tides/lanikai.html` | Other | `WebPage` |
-| `tides/mokolii.html` | Other | `WebPage` |
-| `tides/mokulua-islands.html` | Other | `WebPage` |
-| `tides/punaluu.html` | Other | `WebPage` |
-| `tides/turtle-bay.html` | Other | `WebPage` |
-| `tides/waihole.html` | Other | `WebPage` |
-| `tides/waikane.html` | Other | `WebPage` |
-| `tides/waimanalo.html` | Other | `WebPage` |
+| `stand-up-paddleboard-rental/index.html` | Rental | `Product` |
 | `trip-cancellation-insurance-terms-and-conditions.html` | Other | `WebPage` |
 | `trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
-
 </details>
+## P3: Japanese Locale Pages (All 89 JA pages)
 
----
-
-## P3: Japanese Locale Pages (All 83 JA pages)
-
-These pages represent the complete localized mirroring of AOT in Japanese, targeting users under the `ja-JP` locale.
+Japanese language versions of all core and supporting pages.
 
 <details>
-<summary>Click to expand P3 Japanese page list</summary>
+<summary>Click to expand P3 page list</summary>
 
 | Relative Path | Page Type | Primary Schema Type |
 | :--- | :--- | :--- |
@@ -320,5 +303,4 @@ These pages represent the complete localized mirroring of AOT in Japanese, targe
 | `ja/sharks-cove-snorkeling/index.html` | Other | `WebPage` |
 | `ja/stand-up-paddleboard-rental/index.html` | Other | `WebPage` |
 | `ja/trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
-
 </details>
