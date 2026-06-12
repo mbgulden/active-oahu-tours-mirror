@@ -104,3 +104,12 @@ The following changes have been implemented:
 | `site/ja/activities/kahana-rainforest-river-oahu-kayak-tour/index.html` | Corrected schema phone, translated and added "History of Kahana Valley" block. |
 | `site/guides/oahu-kayak-safety-tide-guide/index.html` | Completely redesigned and integrated with site layout/styling, header, footer, image, and fixed links. |
 | `site/guides/index.html` | Added link to Oʻahu Kayak Safety & Tide Guide to resolve orphan page status. |
+
+---
+
+## 4. Re-Audit (2026-06-12)
+
+A subsequent re-audit was conducted to verify the completeness of all diacritical mark corrections. Any remaining plain Hawaiian spellings (e.g. `Oahu`, `Mokolii`, `Koolau`, `Kaneohe`, `Laie`, `Waimanalo`, `Kamaina`, `Ahupuaa`) and straight apostrophe mismatches in user-facing content blocks, metadata titles, and descriptions across the P1 pages were successfully updated to their correct diacritical representation (using the correct ʻokina `ʻ` and macrons/kahakō).
+
+All updates have been synchronized to both repositories and pushed to the origin `audit/agy-GRO-1246` branch.
+
