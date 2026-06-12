@@ -526,6 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </header><!-- header -->
 </div>
 </section>
+<main>
 <div class="site-content" id="content">
 <div class="entry-content">
 <div class="kb-row-layout-wrap kb-row-layout-id2389_6ed5ef-6d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"><div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
@@ -1027,8 +1028,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 </div>
 <p>Have questions? Our <a href="../paa-answers/">Oahu Travel &amp; Adventure FAQ</a> has expert answers to your top questions about kayaking, snorkeling, and exploring the island.</p>
-</div><!-- #content -->
-<section class="container-fluid">
+</div><!-- .entry-content -->
+</div><!-- .site-content -->
+</main>
 <footer>
 <div class="container">
 <div class="row">
@@ -1568,7 +1570,7 @@ document.addEventListener('DOMContentLoaded', function() {
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

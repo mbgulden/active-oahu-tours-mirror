@@ -473,6 +473,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </header><!-- header -->
 </div>
 </section>
+<main>
 <div class="site-content" id="content">
 <img alt="Kaneohe Bay Kayaking and Snorkeling Experience" loading="lazy" src="/wp-content/uploads/2022/04/Hero-Image-2.jpg" style="width: 100%; max-width: 2000px; margin: 0 auto; display: block;"/>
 <style>
@@ -1992,6 +1993,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Browse our full range of Oahu adventures including our <a href="../../activities/oahu-snorkel-tour/">snorkel tours</a>, kayak rentals, and guided experiences.</p>
 </div><!-- #content -->
 <section class="container-fluid">
+</main>
 <footer>
 <div class="container">
 <div class="row">
@@ -2531,7 +2533,7 @@ document.addEventListener('DOMContentLoaded', function() {
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

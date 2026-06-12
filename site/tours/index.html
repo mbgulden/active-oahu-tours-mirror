@@ -491,6 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </header><!-- header -->
 </div>
 </section>
+<main>
 <div class="site-content" id="content">
 <div class="entry-content">
 <h1>Oahu Kayak Tours &amp; Activities</h1>
@@ -914,6 +915,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <!-- #content -->
 <section class="container-fluid">
+</main>
 <footer>
 <div class="container">
 <div class="row">
@@ -1453,7 +1455,7 @@ document.addEventListener('DOMContentLoaded', function() {
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

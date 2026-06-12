@@ -431,6 +431,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </header><!-- header -->
 </div>
 </section>
+<main>
 <div class="site-content" id="content">
 <div class="site-content" id="content">
 <div class="entry-content">
@@ -853,6 +854,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div><!-- #content -->
 <section class="container-fluid">
+</main>
 <footer>
 <div class="container">
 <div class="row">
@@ -1390,7 +1392,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

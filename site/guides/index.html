@@ -505,6 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </header><!-- header -->
 </div>
 </section>
+<main>
 <div class="site-content" id="content">
 <section class="container">
 <div class="row">
@@ -563,6 +564,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 <p>Visit our <a href="../../paa-answers/">Oahu Travel &amp; Adventure FAQ</a> for quick answers to common questions about kayaking, snorkeling, and exploring Oahu.</p>
 </div><!-- #content -->
 <section class="container-fluid">
+</main>
 <footer>
 <div class="container">
 <div class="row">
@@ -1102,7 +1104,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);

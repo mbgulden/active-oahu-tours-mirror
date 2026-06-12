@@ -1149,7 +1149,7 @@ var kb_splide = {"i18n":{"prev":"Previous slide","next":"Next slide","first":"Go
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
