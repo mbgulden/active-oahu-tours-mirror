@@ -89,9 +89,7 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
 <script id="google_gtagjs-js-after" type="text/javascript">
 /* <![CDATA[ */
 window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-gtag("set","linker",{"domains":["activeoahutours.com"]});
 gtag("js", new Date());
-gtag("set", "developer_id.dZTNiMT", true);
 gtag("config", "G-PRRRLMBR8Z");
 //# sourceURL=google_gtagjs-js-after
 /* ]]> */
@@ -832,7 +830,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h3>Follow our Oahu Adventures</h3>
 <p>Keep up-to-date with our social media, or just contact us directly</p>
 <h4><a href="tel:+18084981894" aria-label="Call us">(808)498-1894</a></h4>
-<p><a href="https://activeoahutours.com/cdn-cgi/l/email-protection#275342464a674644534e514248464f5253485255540944484a"><span class="__cf_email__" data-cfemail="126677737f527371667b64777d737a67667d6760613c717d7f">[email protected]</span></a></p>
+<p><a href="mailto:info@activeoahutours.com#275342464a674644534e514248464f5253485255540944484a"><span class="__cf_email__" data-cfemail="126677737f527371667b64777d737a67667d6760613c717d7f">[email protected]</span></a></p>
 <p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
 <!--<a target="_blank" href="https://twitter.com/activeoahutours" aria-label="Follow us on Twitter">Twitter</a>&nbsp;&nbsp;&nbsp;-->
 <a href="https://www.facebook.com/activeoahutours/" target="_blank" aria-label="Follow us on Facebook">Facebook</a>   
@@ -1162,9 +1160,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </footer>
 </section><!-- container -->
 </div><!-- #page -->
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
-</script>
-<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+
+<!-- FareHarbor plugin activated --><script>
+(function() {
+  var loaded = false;
+  function loadFH() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  document.addEventListener('click', function(e) {
+    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
+      loadFH();
+    }
+  });
+  setTimeout(loadFH, 5000);
+})();
+</script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1575,5 +1590,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </script>
 <!-- magnific popoup -->
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477b73aca3c0a6',t:'MTc4MDI0NjI3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

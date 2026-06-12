@@ -512,6 +512,24 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+<script>
+(function() {
+  var loaded = false;
+  function loadFH() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  document.addEventListener('click', function(e) {
+    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
+      loadFH();
+    }
+  });
+  setTimeout(loadFH, 5000);
+})();
+</script>
 </body>
 </html>

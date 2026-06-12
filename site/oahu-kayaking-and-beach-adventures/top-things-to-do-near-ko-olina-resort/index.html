@@ -86,9 +86,7 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
 <script id="google_gtagjs-js-after" type="text/javascript">
 /* <![CDATA[ */
 window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-gtag("set","linker",{"domains":["activeoahutours.com"]});
 gtag("js", new Date());
-gtag("set", "developer_id.dZTNiMT", true);
 gtag("config", "G-PRRRLMBR8Z");
 //# sourceURL=google_gtagjs-js-after
 /* ]]> */
@@ -915,12 +913,30 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 </footer>
 </section><!-- container -->
 </div><!-- #page -->
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
+<script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/activeoahu/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <!-- FareHarbor plugin activated --><link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
+<script>
+(function() {
+  var loaded = false;
+  function loadFH() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  document.addEventListener('click', function(e) {
+    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
+      loadFH();
+    }
+  });
+  setTimeout(loadFH, 5000);
+})();
+</script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1346,5 +1362,5 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
       });
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a067c792eae130a4',t:'MTc4MDU4NDkzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
