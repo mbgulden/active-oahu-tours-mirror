@@ -197,9 +197,9 @@ def update_label(label_ids):
         return None
 
 if __name__ == "__main__":
-    print("Posting Implementation Plan...")
-    post_comment(implementation_plan_body)
-    time.sleep(1)
+    # print("Posting Implementation Plan...")
+    # post_comment(implementation_plan_body)
+    # time.sleep(1)
     
     print("Posting Summary Response...")
     post_comment(summary_body)
