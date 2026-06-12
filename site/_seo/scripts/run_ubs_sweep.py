@@ -37,10 +37,9 @@ async def run_phase1_and_2_and_3():
     domains = [
         "activeoahutours.com",
         "kailuabeachadventures.com",
-        "surfnsea.com",
-        "hawaiibeachtime.com",
-        "hawaiiactivities.com"
+        "hawaiibeachtime.com"
     ]
+
     
     # 1. Domain Overviews
     overviews = {}
