@@ -1,6 +1,6 @@
 # Call-to-Action (CTA) Audit
 
-**Date:** 2026-06-11  
+**Date:** 2026-06-12  
 **Source Data:** Automated CTA scan of 163 pages in `active-oahu-static/site`  
 
 ---

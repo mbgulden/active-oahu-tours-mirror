@@ -1,6 +1,6 @@
 # Traffic-to-Conversion Funnel Analysis
 
-**Date:** 2026-06-11  
+**Date:** 2026-06-12  
 **Source Data:** GA4 (30-day and 90-day pulls for Property `289642224`)  
 
 ---

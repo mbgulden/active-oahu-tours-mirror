@@ -1,0 +1,2133 @@
+{
+  "dimensionHeaders": [
+    {
+      "name": "pagePath"
+    }
+  ],
+  "metricHeaders": [
+    {
+      "name": "sessions",
+      "type": "TYPE_INTEGER"
+    },
+    {
+      "name": "bounceRate",
+      "type": "TYPE_FLOAT"
+    },
+    {
+      "name": "averageSessionDuration",
+      "type": "TYPE_SECONDS"
+    },
+    {
+      "name": "conversions",
+      "type": "TYPE_FLOAT"
+    }
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {
+          "value": "/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "873"
+        },
+        {
+          "value": "0.45704467353951889"
+        },
+        {
+          "value": "118.60354990950744"
+        },
+        {
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/sharks-cove-self-guided-snorkel/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "411"
+        },
+        {
+          "value": "0.42579075425790752"
+        },
+        {
+          "value": "131.90370636253041"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/chinamans-hat-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "254"
+        },
+        {
+          "value": "0.38582677165354329"
+        },
+        {
+          "value": "121.77698705118111"
+        },
+        {
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "247"
+        },
+        {
+          "value": "0.048582995951417005"
+        },
+        {
+          "value": "59.768037615384614"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "203"
+        },
+        {
+          "value": "0.10837438423645321"
+        },
+        {
+          "value": "138.6187898275862"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "181"
+        },
+        {
+          "value": "0.23204419889502761"
+        },
+        {
+          "value": "156.16890557458564"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "171"
+        },
+        {
+          "value": "0.19298245614035087"
+        },
+        {
+          "value": "107.54447747368421"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "146"
+        },
+        {
+          "value": "0.17808219178082191"
+        },
+        {
+          "value": "122.12614569863013"
+        },
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "109"
+        },
+        {
+          "value": "0.091743119266055051"
+        },
+        {
+          "value": "680.65374044954126"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "103"
+        },
+        {
+          "value": "0.36893203883495146"
+        },
+        {
+          "value": "121.42222961165048"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "95"
+        },
+        {
+          "value": "0.063157894736842107"
+        },
+        {
+          "value": "16.330782989473683"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/cart/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "92"
+        },
+        {
+          "value": "0.05434782608695652"
+        },
+        {
+          "value": "70.663108597826081"
+        },
+        {
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kahana-rainforest-river-oahu-kayak-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "91"
+        },
+        {
+          "value": "0.39560439560439559"
+        },
+        {
+          "value": "118.6516947912088"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "72"
+        },
+        {
+          "value": "0.16666666666666666"
+        },
+        {
+          "value": "102.79544423611111"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "71"
+        },
+        {
+          "value": "0.25352112676056338"
+        },
+        {
+          "value": "127.57671587323944"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-chair-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "71"
+        },
+        {
+          "value": "0.323943661971831"
+        },
+        {
+          "value": "67.589735859154942"
+        },
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-stand-up-paddle-board-rentals-sup-hire/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "65"
+        },
+        {
+          "value": "0.43076923076923079"
+        },
+        {
+          "value": "60.810990153846156"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/kailua-beach-bike-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "64"
+        },
+        {
+          "value": "0.234375"
+        },
+        {
+          "value": "105.511937265625"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "61"
+        },
+        {
+          "value": "0.29508196721311475"
+        },
+        {
+          "value": "112.09851737704919"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "58"
+        },
+        {
+          "value": "0.017241379310344827"
+        },
+        {
+          "value": "44.2193369137931"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "58"
+        },
+        {
+          "value": "0.48275862068965519"
+        },
+        {
+          "value": "129.55819593103448"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/chinamans-hat-oahu-kayak-tours/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "54"
+        },
+        {
+          "value": "0.48148148148148145"
+        },
+        {
+          "value": "138.17564890740741"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "54"
+        },
+        {
+          "value": "0.20370370370370369"
+        },
+        {
+          "value": "138.86931518518517"
+        },
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "54"
+        },
+        {
+          "value": "0.037037037037037035"
+        },
+        {
+          "value": "85.134317814814821"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-snorkel-mask-and-fin-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "48"
+        },
+        {
+          "value": "0.29166666666666669"
+        },
+        {
+          "value": "90.334688854166657"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/popoia-island-and-kailua-bay-guided-kayak-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "47"
+        },
+        {
+          "value": "0.2978723404255319"
+        },
+        {
+          "value": "129.50777940425533"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-umbrella-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "44"
+        },
+        {
+          "value": "0.34090909090909088"
+        },
+        {
+          "value": "121.6059975"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kailua-kayak-twin-islands-guided-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "43"
+        },
+        {
+          "value": "0.48837209302325579"
+        },
+        {
+          "value": "56.316417395348836"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400755/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "42"
+        },
+        {
+          "value": "0.023809523809523808"
+        },
+        {
+          "value": "26.022342666666667"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "40"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "15.176626875"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/kuilima-estates-at-turtle-bay/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "40"
+        },
+        {
+          "value": "0.45"
+        },
+        {
+          "value": "57.557652800000007"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "40"
+        },
+        {
+          "value": "0.375"
+        },
+        {
+          "value": "132.143842"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-life-vest-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "40"
+        },
+        {
+          "value": "0.25"
+        },
+        {
+          "value": "141.30667825"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400783/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "39"
+        },
+        {
+          "value": "0.05128205128205128"
+        },
+        {
+          "value": "49.079375051282049"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "39"
+        },
+        {
+          "value": "0.358974358974359"
+        },
+        {
+          "value": "41.331689230769229"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/multi-day-kayak-and-beach-gear-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "35"
+        },
+        {
+          "value": "0.31428571428571428"
+        },
+        {
+          "value": "79.092600942857132"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        },
+        {
+          "value": "0.090909090909090912"
+        },
+        {
+          "value": "77.705310424242427"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/115595/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        },
+        {
+          "value": "0.15151515151515152"
+        },
+        {
+          "value": "154.22637763636365"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/04/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        },
+        {
+          "value": "0.060606060606060608"
+        },
+        {
+          "value": "75.612782787878785"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/kailua-oahu-storefront/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        },
+        {
+          "value": "0.21212121212121213"
+        },
+        {
+          "value": "121.78714806060607"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "32"
+        },
+        {
+          "value": "0.0625"
+        },
+        {
+          "value": "55.36673553125"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/cruiser-oahu-beach-equipment-rental-package/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "31"
+        },
+        {
+          "value": "0.29032258064516131"
+        },
+        {
+          "value": "104.5743155483871"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "30"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "5.2865908999999993"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/371661/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "29"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "25.039886068965519"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "28"
+        },
+        {
+          "value": "0.39285714285714285"
+        },
+        {
+          "value": "41.6004915"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491345/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "28"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "59.95493925"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/371661/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        },
+        {
+          "value": "0.07407407407407407"
+        },
+        {
+          "value": "7.0506069259259263"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400755/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        },
+        {
+          "value": "0.037037037037037035"
+        },
+        {
+          "value": "13.330568814814816"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        },
+        {
+          "value": "0.1111111111111111"
+        },
+        {
+          "value": "104.02598877777778"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        },
+        {
+          "value": "0.55555555555555558"
+        },
+        {
+          "value": "128.68019496296296"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/east-oahu-self-guided-kayaking-experience/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "26"
+        },
+        {
+          "value": "0.23076923076923078"
+        },
+        {
+          "value": "111.85084065384616"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/kahana-river-kayak-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "26"
+        },
+        {
+          "value": "0.42307692307692307"
+        },
+        {
+          "value": "112.52508711538462"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/contact-us"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "24"
+        },
+        {
+          "value": "0.875"
+        },
+        {
+          "value": "3.1911882916666667"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491345/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "24"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "5.3770493333333329"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/ja/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "24"
+        },
+        {
+          "value": "0.20833333333333334"
+        },
+        {
+          "value": "127.93442270833333"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beginner-surf-board-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "24"
+        },
+        {
+          "value": "0.29166666666666669"
+        },
+        {
+          "value": "64.376150375"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-cooler-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "24"
+        },
+        {
+          "value": "0.25"
+        },
+        {
+          "value": "33.979391875"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/contact-us/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "22"
+        },
+        {
+          "value": "0.27272727272727271"
+        },
+        {
+          "value": "53.179266227272727"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/active-oahu-photo-gallery/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "21"
+        },
+        {
+          "value": "0.23809523809523808"
+        },
+        {
+          "value": "195.6204141904762"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "21"
+        },
+        {
+          "value": "0.33333333333333331"
+        },
+        {
+          "value": "204.58899433333335"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-boogie-board-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "21"
+        },
+        {
+          "value": "0.2857142857142857"
+        },
+        {
+          "value": "46.305370142857143"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/west-oahu-guided-snorkel-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "20"
+        },
+        {
+          "value": "0.3"
+        },
+        {
+          "value": "161.47062255"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400783/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "20"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "10.485730049999999"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "20"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "76.847330599999992"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/faq/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "20"
+        },
+        {
+          "value": "0.1"
+        },
+        {
+          "value": "42.93514595"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491345/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "19"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "8.2645902105263147"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "18"
+        },
+        {
+          "value": "0.1111111111111111"
+        },
+        {
+          "value": "47.412632"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/check-in"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "17"
+        },
+        {
+          "value": "0.52941176470588236"
+        },
+        {
+          "value": "48.092670058823529"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "17"
+        },
+        {
+          "value": "0.47058823529411764"
+        },
+        {
+          "value": "107.13781476470589"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-tour-packages/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "17"
+        },
+        {
+          "value": "0.41176470588235292"
+        },
+        {
+          "value": "51.197094588235295"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/reviews/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "17"
+        },
+        {
+          "value": "0.82352941176470584"
+        },
+        {
+          "value": "15.962470823529413"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/oahu-surf-lessons/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "16"
+        },
+        {
+          "value": "0.4375"
+        },
+        {
+          "value": "76.228055125"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/ja/activities/sharks-cove-self-guided-snorkel/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "16"
+        },
+        {
+          "value": "0.5"
+        },
+        {
+          "value": "137.509344875"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "15"
+        },
+        {
+          "value": "0.53333333333333333"
+        },
+        {
+          "value": "13.359882266666666"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491553/calendar/2026/06/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "15"
+        },
+        {
+          "value": "0.066666666666666666"
+        },
+        {
+          "value": "7.7132354666666663"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "15"
+        },
+        {
+          "value": "0.53333333333333333"
+        },
+        {
+          "value": "84.783591066666673"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/kayak-rental-delivery-locations/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "15"
+        },
+        {
+          "value": "0.2"
+        },
+        {
+          "value": "202.83060953333333"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/about-active-oahu-tours/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "14"
+        },
+        {
+          "value": "0.071428571428571425"
+        },
+        {
+          "value": "36.981908999999995"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/oahu-snorkel-tour/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "14"
+        },
+        {
+          "value": "0.5714285714285714"
+        },
+        {
+          "value": "146.5337915"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/6/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "13"
+        },
+        {
+          "value": "0.076923076923076927"
+        },
+        {
+          "value": "72.381904923076931"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/date/2026-05-30/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "13"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "30.42975723076923"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "13"
+        },
+        {
+          "value": "0.30769230769230771"
+        },
+        {
+          "value": "154.70203115384615"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/rainforest-oahu-stand-up-paddle-boarding/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        },
+        {
+          "value": "0.66666666666666663"
+        },
+        {
+          "value": "11.028012416666668"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/371661/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        },
+        {
+          "value": "0.083333333333333329"
+        },
+        {
+          "value": "10.756392499999999"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/404326/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "23.91623875"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491549/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "26.997749916666667"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491549/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "8.0512481666666655"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activeoahutours/login/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0.36363636363636365"
+        },
+        {
+          "value": "247.14857463636363"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/haleiwa-paddleboarding/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0.54545454545454541"
+        },
+        {
+          "value": "31.522297000000002"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0.54545454545454541"
+        },
+        {
+          "value": "62.950027636363643"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/400755/calendar/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "70.242906818181822"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/booking/ID/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "5.9828530909090913"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/calendar/2026/07/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "2.0641931818181818"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/516089/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0"
+        },
+        {
+          "value": "92.65885200000001"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/ja/rentals/kailua-beach-bike-rentals/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0.45454545454545453"
+        },
+        {
+          "value": "109.77182090909091"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "11"
+        },
+        {
+          "value": "0.45454545454545453"
+        },
+        {
+          "value": "295.7201619090909"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/active-oahu-tours/chinamans-hat-kayak-rentals"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        },
+        {
+          "value": "0.3"
+        },
+        {
+          "value": "325.59654390000003"
+        },
+        {
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/491553/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        },
+        {
+          "value": "0.1"
+        },
+        {
+          "value": "14.834446"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/526399/calendar/2026/05/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        },
+        {
+          "value": "0.2"
+        },
+        {
+          "value": "69.2301143"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/join-the-team/"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        },
+        {
+          "value": "0.4"
+        },
+        {
+          "value": "16.6253523"
+        },
+        {
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "rowCount": 1445,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "Pacific/Honolulu"
+  },
+  "kind": "analyticsData#runReport"
+}
