@@ -455,7 +455,22 @@ document.addEventListener('DOMContentLoaded', function() {
                   padding: 3px 6px !important;
                 }
               }
-            </style>
+            
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
 <nav class="main-navigation" data-instant="" id="site-navigation" role="navigation">
@@ -526,6 +541,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <h5>Explore Oahu's Underwater Treasures</h5>
 <div class="row">
 <div class="col col-sm-12 col-md-6">
+<div class="alert alert-info" style="margin-top:15px; padding:15px; background-color:#fff3cd; border:1px solid #ffc107; border-radius:5px;">
+<strong>📍 Important — Gear Pickup Location:</strong> Your snorkel gear is picked up at our <strong>Kailua storefront</strong> (134B Hamakua Dr, Kailua). Sharks Cove is on the North Shore, about a <strong>40-minute drive</strong> from our shop — an easy, scenic drive up the coast. This is perfect if you're staying in Waikiki or Honolulu, as Kailua is right on the way North. We'll outfit you with everything you need and point you to the best spots!
+</div>
 <p>Shark’s Cove is arguably the most iconic snorkeling spot in the world. It consistently ranks in the "Top Shore Dives in the World" lists. We want to share our favorite summer snorkel spot with you and provide everything you need to enjoy the experience!<br/>
 <em>You will meet us at our Kailua storefront to pickup the gear, perfect if you are driving up from Honolulu. With this self-guided tour, you'll get a small bottle of biodegradable baby shampoo as defog for your mask, a dry bag, a snorkel mask and fins, a life vest, and some great tips on where to snorkel and the best routes.</em></p>
 <div class="single-icons">
@@ -954,7 +972,11 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 <p>Looking for more snorkeling adventures? Check out our <a href="../../guides/electric-beach/">Electric Beach Guide — Kahe Point</a> for another great snorkel spot on Oahu's west side.</p>
 </div><!-- #content -->
 <section class="container-fluid">
-<footer>
+<div style="text-align:center; margin:20px 0;">
+  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({&apos;shortname&apos;:&apos;activeoahutours&apos;,&apos;fallback&apos;:&apos;simple&apos;}); return false;" target="_blank" class="btn btn-primary" style="padding:12px 30px; font-size:18px;">
+    <strong>Book Now</strong>
+  </a>
+</div><footer>
 <div class="container">
 <div class="row">
 <div class="col col-sm-6 col-md-4">

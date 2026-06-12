@@ -191,7 +191,22 @@ jQuery(document).ready(function($) {
   });
 });
 </script>
-<style>.sub-menu{display:none}</style>
+<style>.sub-menu{display:none}
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
 <script>
 // Nav dropdown + mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -533,7 +548,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>I started my journey to Mokoli’i island by renting a kayak from Active Oahu Tours. The Booking process was simple. I chose the activity I wanted on activeoahutours.com and then chose the 3-hour time slot availability that worked for me. After booking, I was sent an email with a waiver to sign, the meeting location, […]</p>
 </div><!-- .entry-content -->
 </div>
-<footer class="entry-footer">
+<div style="text-align:center; margin:20px 0;">
+  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({&apos;shortname&apos;:&apos;activeoahutours&apos;,&apos;fallback&apos;:&apos;simple&apos;}); return false;" target="_blank" class="btn btn-primary" style="padding:12px 30px; font-size:18px;">
+    <strong>Book Now</strong>
+  </a>
+</div><footer class="entry-footer">
 </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 </div>
