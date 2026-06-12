@@ -75,7 +75,7 @@ gsc_query-date.json                ← e.g. gsc_top-queries_20260611.json
 | 0 | Ubersuggest Baseline Sweep | GRO-1171 | 🟡 In Progress | agy-ubs-audit-2026-06-11.md |
 | 1 | Topical Authority & Content Clusters | GRO-1172 | 🟢 Completed | reports/01-topical-authority/ |
 | 2 | GEO / AI SEO Optimization | GRO-1173 | 📝 Queued | reports/02-geo-ai-seo/ |
-| 3 | Japanese Market SEO | GRO-1174 | 📝 Queued | reports/03-japanese-market/ |
+| 3 | Japanese Market SEO | GRO-1180 | 🟢 Completed | reports/03-japanese-market/ |
 | 4 | Backlink & Digital PR | GRO-1175 | 📝 Queued | reports/04-backlink-strategy/ |
 | 5 | CRO + SEO Integration | GRO-1176 | 📝 Queued | reports/05-cro-seo/ |
 | 6 | Strategic Questions Audit | GRO-1177 | 📝 Queued | reports/06-questions-audit/ |
