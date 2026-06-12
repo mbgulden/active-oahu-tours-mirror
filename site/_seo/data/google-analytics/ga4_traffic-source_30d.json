@@ -1,0 +1,621 @@
+{
+  "dimensionHeaders": [
+    {
+      "name": "sessionSourceMedium"
+    }
+  ],
+  "metricHeaders": [
+    {
+      "name": "sessions",
+      "type": "TYPE_INTEGER"
+    }
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {
+          "value": "google / organic"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2112"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "(direct) / (none)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1494"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "chatgpt.com / (not set)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "55"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "bing / organic"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "yahoo / organic"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "25"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "duckduckgo / organic"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "m.yelp.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "l.facebook.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "yelp.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "youtube.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "(not set)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "google / cpc"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "activeoahu.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "chatgpt.com / ai-assistant"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "chatgpt.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "airbnb.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "gemini.google.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "m.facebook.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "waikikiadventures.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "ecosia.org / organic"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "facebook.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "hawaii-guide.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "lm.facebook.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "activeoahutours.knoji.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "hbl.org / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "myhawaiianadventure.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "perplexity / (not set)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "search.nortonsafesearch.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "snucm.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "theworldonmynecklace.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "tombarefoot.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "tripoutside.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "adventuretourshi.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "aloha-street.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "ameblo.jp / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "antonyhome.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "awaylands.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "danielleoutdoors.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "dooahu.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "gateway.zscaler.net / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "gearo.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "genniferrose.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "graball.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "ig / social"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "linkedin.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "mylisthawaii.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "oceanfrontturtlebay.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "openai / (not set)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "reddit.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "reddit.lightning.force.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rowCount": 56,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "Pacific/Honolulu"
+  },
+  "kind": "analyticsData#runReport"
+}
