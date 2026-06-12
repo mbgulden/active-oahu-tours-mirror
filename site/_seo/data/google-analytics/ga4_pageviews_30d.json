@@ -25,7 +25,7 @@
       ],
       "metricValues": [
         {
-          "value": "860"
+          "value": "850"
         }
       ]
     },
@@ -40,7 +40,7 @@
       ],
       "metricValues": [
         {
-          "value": "411"
+          "value": "400"
         }
       ]
     },
@@ -55,7 +55,7 @@
       ],
       "metricValues": [
         {
-          "value": "254"
+          "value": "248"
         }
       ]
     },
@@ -70,7 +70,7 @@
       ],
       "metricValues": [
         {
-          "value": "203"
+          "value": "207"
         }
       ]
     },
@@ -85,7 +85,7 @@
       ],
       "metricValues": [
         {
-          "value": "188"
+          "value": "181"
         }
       ]
     },
@@ -100,7 +100,7 @@
       ],
       "metricValues": [
         {
-          "value": "181"
+          "value": "179"
         }
       ]
     },
@@ -115,7 +115,7 @@
       ],
       "metricValues": [
         {
-          "value": "171"
+          "value": "159"
         }
       ]
     },
@@ -130,7 +130,7 @@
       ],
       "metricValues": [
         {
-          "value": "146"
+          "value": "142"
         }
       ]
     },
@@ -145,7 +145,7 @@
       ],
       "metricValues": [
         {
-          "value": "103"
+          "value": "101"
         }
       ]
     },
@@ -160,7 +160,7 @@
       ],
       "metricValues": [
         {
-          "value": "91"
+          "value": "89"
         }
       ]
     },
@@ -175,7 +175,7 @@
       ],
       "metricValues": [
         {
-          "value": "90"
+          "value": "82"
         }
       ]
     },
@@ -190,7 +190,7 @@
       ],
       "metricValues": [
         {
-          "value": "77"
+          "value": "74"
         }
       ]
     },
@@ -205,7 +205,7 @@
       ],
       "metricValues": [
         {
-          "value": "71"
+          "value": "69"
         }
       ]
     },
@@ -220,52 +220,7 @@
       ],
       "metricValues": [
         {
-          "value": "71"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/rentals/oahu-beach-chair-rentals/"
-        },
-        {
-          "value": "Oahu Beach Chair Rentals, North Shore Oahu Near Laie, PCC, Hauula, HI"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "71"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/rentals/oahu-stand-up-paddle-board-rentals-sup-hire/"
-        },
-        {
-          "value": "Oahu Stand Up Paddle Board Rentals. Pick up at our shop in Kailua, Oahu"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "65"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/embeds/book/activeoahutours/items/"
-        },
-        {
-          "value": "FareHarbor"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "64"
+          "value": "66"
         }
       ]
     },
@@ -280,7 +235,52 @@
       ],
       "metricValues": [
         {
-          "value": "64"
+          "value": "66"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-chair-rentals/"
+        },
+        {
+          "value": "Oahu Beach Chair Rentals, North Shore Oahu Near Laie, PCC, Hauula, HI"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "66"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/"
+        },
+        {
+          "value": "FareHarbor"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "63"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-stand-up-paddle-board-rentals-sup-hire/"
+        },
+        {
+          "value": "Oahu Stand Up Paddle Board Rentals. Pick up at our shop in Kailua, Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "61"
         }
       ]
     },
@@ -295,7 +295,7 @@
       ],
       "metricValues": [
         {
-          "value": "61"
+          "value": "59"
         }
       ]
     },
@@ -310,37 +310,7 @@
       ],
       "metricValues": [
         {
-          "value": "60"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/"
-        },
-        {
-          "value": "How to Transport Kayaks and SUPs From Our Shop In Kailua to the Beach \u2013 Active Oahu"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "58"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/activities/chinamans-hat-oahu-kayak-tours/"
-        },
-        {
-          "value": "Mokolii Self-Guided Kayak and Hike on Oahu Near Kualoa Ranch"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "54"
+          "value": "57"
         }
       ]
     },
@@ -355,6 +325,21 @@
       ],
       "metricValues": [
         {
+          "value": "54"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/"
+        },
+        {
+          "value": "How to Transport Kayaks and SUPs From Our Shop In Kailua to the Beach \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
           "value": "53"
         }
       ]
@@ -362,15 +347,15 @@
     {
       "dimensionValues": [
         {
-          "value": "/rentals/oahu-snorkel-mask-and-fin-rentals/"
+          "value": "/activities/chinamans-hat-oahu-kayak-tours/"
         },
         {
-          "value": "Oahu Snorkel Mask and Fin Rentals, North Shore Oahu Near Laie Hawaii"
+          "value": "Mokolii Self-Guided Kayak and Hike on Oahu Near Kualoa Ranch"
         }
       ],
       "metricValues": [
         {
-          "value": "48"
+          "value": "52"
         }
       ]
     },
@@ -385,7 +370,7 @@
       ],
       "metricValues": [
         {
-          "value": "47"
+          "value": "51"
         }
       ]
     },
@@ -400,37 +385,7 @@
       ],
       "metricValues": [
         {
-          "value": "47"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/06/"
-        },
-        {
-          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "44"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/rentals/oahu-beach-umbrella-rentals/"
-        },
-        {
-          "value": "Oahu Beach Umbrella Rentals, North Shore Oahu Near Laie, HI & PCC"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "44"
+          "value": "48"
         }
       ]
     },
@@ -445,7 +400,37 @@
       ],
       "metricValues": [
         {
-          "value": "43"
+          "value": "46"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/06/"
+        },
+        {
+          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "46"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-snorkel-mask-and-fin-rentals/"
+        },
+        {
+          "value": "Oahu Snorkel Mask and Fin Rentals, North Shore Oahu Near Laie Hawaii"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "45"
         }
       ]
     },
@@ -460,7 +445,22 @@
       ],
       "metricValues": [
         {
-          "value": "40"
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/oahu-beach-umbrella-rentals/"
+        },
+        {
+          "value": "Oahu Beach Umbrella Rentals, North Shore Oahu Near Laie, HI & PCC"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "41"
         }
       ]
     },
@@ -475,7 +475,7 @@
       ],
       "metricValues": [
         {
-          "value": "39"
+          "value": "37"
         }
       ]
     },
@@ -490,7 +490,7 @@
       ],
       "metricValues": [
         {
-          "value": "39"
+          "value": "37"
         }
       ]
     },
@@ -505,52 +505,7 @@
       ],
       "metricValues": [
         {
-          "value": "37"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/embeds/book/activeoahutours/items/400783/calendar/2026/05/"
-        },
-        {
-          "value": "Sharks Cove Self-Guided Snorkel | Active Oahu Tours"
-        }
-      ],
-      "metricValues": [
-        {
           "value": "34"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/multi-day-kayak-and-beach-gear-rentals/"
-        },
-        {
-          "value": "Multi-Day Kayak and Beach Gear Rentals \u2013 Active Oahu"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "34"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/04/"
-        },
-        {
-          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "33"
         }
       ]
     },
@@ -565,7 +520,7 @@
       ],
       "metricValues": [
         {
-          "value": "33"
+          "value": "34"
         }
       ]
     },
@@ -580,17 +535,32 @@
       ],
       "metricValues": [
         {
-          "value": "32"
+          "value": "33"
         }
       ]
     },
     {
       "dimensionValues": [
         {
-          "value": "/embeds/book/activeoahutours/cart/"
+          "value": "/embeds/book/activeoahutours/items/400783/calendar/2026/05/"
         },
         {
-          "value": "Confirmation"
+          "value": "Sharks Cove Self-Guided Snorkel | Active Oahu Tours"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/rentals/"
+        },
+        {
+          "value": "Oahu Kayak Rentals, SUP & Beach Gear Delivery Near Kailua"
         }
       ],
       "metricValues": [
@@ -632,30 +602,15 @@
     {
       "dimensionValues": [
         {
-          "value": "/rentals/"
+          "value": "/multi-day-kayak-and-beach-gear-rentals/"
         },
         {
-          "value": "Oahu Kayak Rentals, SUP & Beach Gear Delivery Near Kailua"
+          "value": "Multi-Day Kayak and Beach Gear Rentals \u2013 Active Oahu"
         }
       ],
       "metricValues": [
         {
           "value": "30"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "/kuilima-estates-at-turtle-bay/"
-        },
-        {
-          "value": "Kuilima Estates At Turtle Bay \u2013 Active Oahu"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "29"
         }
       ]
     },
@@ -670,37 +625,37 @@
       ],
       "metricValues": [
         {
-          "value": "28"
+          "value": "29"
         }
       ]
     },
     {
       "dimensionValues": [
         {
-          "value": "/embeds/book/activeoahutours/items/115595/calendar/2026/05/"
+          "value": "/embeds/book/activeoahutours/cart/"
         },
         {
-          "value": "Chinaman's Hat Self-Guided Kayak Tour | Active Oahu Tours"
+          "value": "Confirmation"
         }
       ],
       "metricValues": [
         {
-          "value": "28"
+          "value": "29"
         }
       ]
     },
     {
       "dimensionValues": [
         {
-          "value": "/embeds/book/activeoahutours/items/402403/"
+          "value": "/embeds/book/activeoahutours/items/7872/calendar/2026/04/"
         },
         {
-          "value": "FareHarbor"
+          "value": "Kayak & Beach Gear Rental | Active Oahu Tours"
         }
       ],
       "metricValues": [
         {
-          "value": "28"
+          "value": "29"
         }
       ]
     },
@@ -715,7 +670,7 @@
       ],
       "metricValues": [
         {
-          "value": "27"
+          "value": "28"
         }
       ]
     },
@@ -726,6 +681,51 @@
         },
         {
           "value": "East Oahu Self-Guided Kayaking, Kayak Rental & Snorkel Set Included"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/402403/"
+        },
+        {
+          "value": "FareHarbor"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/kuilima-estates-at-turtle-bay/"
+        },
+        {
+          "value": "Kuilima Estates At Turtle Bay \u2013 Active Oahu"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "/embeds/book/activeoahutours/items/115595/calendar/2026/05/"
+        },
+        {
+          "value": "Chinaman's Hat Self-Guided Kayak Tour | Active Oahu Tours"
         }
       ],
       "metricValues": [
@@ -752,20 +752,20 @@
     {
       "dimensionValues": [
         {
-          "value": "/oahu-kayaking-and-beach-adventures/"
+          "value": "/rentals/oahu-cooler-rentals/"
         },
         {
-          "value": "Oahu Kayaking and Beach Experiences - Kaneohe Sandbar and More"
+          "value": "Oahu Cooler Rentals, North Shore, Near Laie Marriott, PCC Oahu, Hawaii"
         }
       ],
       "metricValues": [
         {
-          "value": "25"
+          "value": "26"
         }
       ]
     }
   ],
-  "rowCount": 1872,
+  "rowCount": 1885,
   "metadata": {
     "currencyCode": "USD",
     "timeZone": "Pacific/Honolulu"

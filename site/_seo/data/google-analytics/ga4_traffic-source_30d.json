@@ -19,7 +19,7 @@
       ],
       "metricValues": [
         {
-          "value": "2112"
+          "value": "2068"
         }
       ]
     },
@@ -31,7 +31,7 @@
       ],
       "metricValues": [
         {
-          "value": "1494"
+          "value": "1510"
         }
       ]
     },
@@ -43,7 +43,7 @@
       ],
       "metricValues": [
         {
-          "value": "55"
+          "value": "52"
         }
       ]
     },
@@ -55,7 +55,7 @@
       ],
       "metricValues": [
         {
-          "value": "26"
+          "value": "23"
         }
       ]
     },
@@ -67,7 +67,7 @@
       ],
       "metricValues": [
         {
-          "value": "25"
+          "value": "20"
         }
       ]
     },
@@ -79,19 +79,7 @@
       ],
       "metricValues": [
         {
-          "value": "15"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "m.yelp.com / referral"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "13"
+          "value": "16"
         }
       ]
     },
@@ -110,12 +98,12 @@
     {
       "dimensionValues": [
         {
-          "value": "yelp.com / referral"
+          "value": "m.yelp.com / referral"
         }
       ],
       "metricValues": [
         {
-          "value": "10"
+          "value": "11"
         }
       ]
     },
@@ -134,12 +122,12 @@
     {
       "dimensionValues": [
         {
-          "value": "(not set)"
+          "value": "yelp.com / referral"
         }
       ],
       "metricValues": [
         {
-          "value": "8"
+          "value": "9"
         }
       ]
     },
@@ -152,6 +140,18 @@
       "metricValues": [
         {
           "value": "8"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "(not set)"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "7"
         }
       ]
     },
@@ -362,31 +362,7 @@
     {
       "dimensionValues": [
         {
-          "value": "theworldonmynecklace.com / referral"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "2"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
           "value": "tombarefoot.com / referral"
-        }
-      ],
-      "metricValues": [
-        {
-          "value": "2"
-        }
-      ]
-    },
-    {
-      "dimensionValues": [
-        {
-          "value": "tripoutside.com / referral"
         }
       ],
       "metricValues": [
@@ -590,7 +566,7 @@
     {
       "dimensionValues": [
         {
-          "value": "reddit.com / referral"
+          "value": "reddit.lightning.force.com / referral"
         }
       ],
       "metricValues": [
@@ -602,7 +578,31 @@
     {
       "dimensionValues": [
         {
-          "value": "reddit.lightning.force.com / referral"
+          "value": "seesources.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "theworldonmynecklace.com / referral"
+        }
+      ],
+      "metricValues": [
+        {
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "dimensionValues": [
+        {
+          "value": "thingstodohawaii.com / referral"
         }
       ],
       "metricValues": [
@@ -612,7 +612,7 @@
       ]
     }
   ],
-  "rowCount": 56,
+  "rowCount": 54,
   "metadata": {
     "currencyCode": "USD",
     "timeZone": "Pacific/Honolulu"
