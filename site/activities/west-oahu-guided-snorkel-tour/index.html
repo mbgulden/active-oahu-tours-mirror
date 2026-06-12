@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -218,8 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-<script defer id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
-
+<script defer="" id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -240,29 +238,59 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 </script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
+  "@type": "Product",
   "name": "West Oahu Guided Snorkel Tour",
+  "image": "/wp-content/uploads/2025/06/Active-Oahu-496-2.jpg",
   "description": "Join our guided snorkel tour on West Oahu — explore vibrant reefs and marine life away from the crowds. Small-group experience with expert guides and premium gear from Active Oahu.",
   "url": "https://activeoahutours.com/activities/west-oahu-guided-snorkel-tour/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com"
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu Tours"
   },
-  "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples"
-  ],
   "offers": {
     "@type": "Offer",
+    "price": 72.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://activeoahutours.com/book/"
+    "url": "https://activeoahutours.com/activities/west-oahu-guided-snorkel-tour/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://activeoahutours.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Activities",
+      "item": "https://activeoahutours.com/activities/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "West Oahu Guided Snorkel Tour",
+      "item": "https://activeoahutours.com/activities/west-oahu-guided-snorkel-tour/"
+    }
+  ]
 }
 </script>
 </head>
@@ -918,23 +946,23 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 </div><!-- #content -->
 <section class="container-fluid">
 <div style="text-align:center; margin:20px 0;">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({&apos;shortname&apos;:&apos;activeoahutours&apos;,&apos;fallback&apos;:&apos;simple&apos;}); return false;" target="_blank" class="btn btn-primary" style="padding:12px 30px; font-size:18px;">
-    <strong>Book Now</strong>
-  </a>
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div><footer>
 <div class="container">
 <div class="row">
 <div class="col col-sm-6 col-md-4">
 <h3>Follow our Oahu Adventures</h3>
 <p>Keep up-to-date with our social media, or just contact us directly</p>
-<h4><a href="tel:+18084981894" aria-label="Call us">(808)498-1894</a></h4>
+<h4><a aria-label="Call us" href="tel:+18084981894">(808)498-1894</a></h4>
 <p><a href="https://activeoahutours.com/cdn-cgi/l/email-protection#c6b2a3a7ab86a7a5b2afb0a3a9a7aeb3b2a9b3b4b5e8a5a9ab"><span class="__cf_email__" data-cfemail="fb8f9e9a96bb9a988f928d9e949a938e8f948e8988d5989496">[email protected]</span></a></p>
-<p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
+<p></p><address>134B Hamakua Dr., Kailua, HI, 96734</address>
 <!--<a target="_blank" href="https://twitter.com/activeoahutours" aria-label="Follow us on Twitter">Twitter</a>&nbsp;&nbsp;&nbsp;-->
-<a href="https://www.facebook.com/activeoahutours/" target="_blank" aria-label="Follow us on Facebook">Facebook</a>   
+<a aria-label="Follow us on Facebook" href="https://www.facebook.com/activeoahutours/" target="_blank">Facebook</a>   
           <a href="https://www.yelp.com/biz/active-oahu-tours-kailua" target="_blank">Yelp</a>   
           <a href="https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html" target="_blank">Tripadvisor</a>   
-          <a href="https://www.instagram.com/activeoahu/" target="_blank" aria-label="Follow us on Instagram">Instagram</a>
+          <a aria-label="Follow us on Instagram" href="https://www.instagram.com/activeoahu/" target="_blank">Instagram</a>
 </div>
 <div class="col col-sm-6 col-md-4">
 <div class="bilboard-item-content">
@@ -1292,11 +1320,11 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1373,10 +1401,10 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1807,7 +1835,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 
 </script>
 <!-- magnific popoup -->
-<script defer src="/wp-content/themes/activeoahu/js/magnific-popup.min.js"></script>
+<script defer="" src="/wp-content/themes/activeoahu/js/magnific-popup.min.js"></script>
 <script>
     jQuery(document).ready(function($) {
       $('.gallery').each(function() {

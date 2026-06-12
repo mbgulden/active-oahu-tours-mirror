@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -214,31 +213,25 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "オアフ島カヤックツアー＆アドベンチャー | アクティブオアフツアー",
-  "description": "オアフ島が提供する最高のパドリングを体験してください。カイルア湾、カハナバレー、チャイナマンズハットなどの魅力的なツアーをご案内。",
-  "url": "https://activeoahutours.com/ja/activities/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567"
-  },
-  "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples",
-    "Groups"
-  ],
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://activeoahutours.com/ja/activities/"
-  }
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "オアフ島のカヤック アクティビティとツアー",
+      "item": "https://activeoahutours.com/ja/activities/"
+    }
+  ]
 }
 </script>
 </head>
@@ -2045,11 +2038,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -2126,10 +2119,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

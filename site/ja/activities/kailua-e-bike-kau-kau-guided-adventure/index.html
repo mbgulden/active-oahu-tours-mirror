@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -221,31 +220,59 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "カイルア E-Bike カウカウ ガイド付きグルメツアー | オアフ島",
+  "@type": "Product",
+  "name": "カイルア E バイク カウカウ ガイド付きアドベンチャー",
+  "image": "/wp-content/uploads/2025/04/Active-Oahu-E-Bikes-127-2.jpg",
   "description": "カイルアをE-Bikeで走りながら、地元ハワイのB級グルメや名物フードを楽しむガイド付きグルメ（カウカウ）ツアー。",
   "url": "https://activeoahutours.com/ja/activities/kailua-e-bike-kau-kau-guided-adventure/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567"
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu Tours"
   },
-  "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples",
-    "Groups"
-  ],
   "offers": {
     "@type": "Offer",
+    "price": 82.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/activities/kailua-e-bike-kau-kau-guided-adventure/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "アクティビティ",
+      "item": "https://activeoahutours.com/ja/activities/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "カイルア E バイク カウカウ ガイド付きアドベンチャー",
+      "item": "https://activeoahutours.com/ja/activities/kailua-e-bike-kau-kau-guided-adventure/"
+    }
+  ]
 }
 </script>
 </head>
@@ -1042,11 +1069,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1123,10 +1150,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

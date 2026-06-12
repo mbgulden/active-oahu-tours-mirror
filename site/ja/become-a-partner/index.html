@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -217,7 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -235,6 +233,27 @@ document.addEventListener('DOMContentLoaded', function() {
     "postalCode": "96734",
     "addressCountry": "US"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "パートナーになる",
+      "item": "https://activeoahutours.com/ja/become-a-partner/"
+    }
+  ]
 }
 </script>
 </head>
@@ -982,10 +1001,10 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1005,7 +1024,6 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     });
   });
 </script>
-
 <script type="text/javascript">
 /* <![CDATA[ */
                     }jQuery('#input_3_2').mask('(999) 999-9999').bind('keypress', function(e){if(e.which == 13){jQuery(this).blur();} } );} } );jQuery(document)

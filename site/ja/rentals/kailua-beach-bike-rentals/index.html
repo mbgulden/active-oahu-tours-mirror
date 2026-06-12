@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -221,11 +220,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "カイルア電動自転車レンタル、オアフ島カイルア ビーチとカイルア タウンへのクルーズ",
+  "name": "カイルア電動自転車レンタル",
+  "image": "/wp-content/uploads/2023/09/Electric-Bikeweb_1-e1695419425330.jpg",
   "description": "オアフ島カイルアの当店で電動自転車のレンタルをご利用ください。カイルア タウンには、安全で便利な自転車体験のための自転車レーンやルートがたくさんあります。",
   "url": "https://activeoahutours.com/ja/rentals/kailua-beach-bike-rentals/",
   "brand": {
@@ -234,10 +235,44 @@ document.addEventListener('DOMContentLoaded', function() {
   },
   "offers": {
     "@type": "Offer",
+    "price": 55.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/rentals/kailua-beach-bike-rentals/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "レンタル",
+      "item": "https://activeoahutours.com/ja/rentals/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "カイルア電動自転車レンタル",
+      "item": "https://activeoahutours.com/ja/rentals/kailua-beach-bike-rentals/"
+    }
+  ]
 }
 </script>
 </head>
@@ -850,11 +885,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -931,10 +966,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

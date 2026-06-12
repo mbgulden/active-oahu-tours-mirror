@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-<script defer id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
+<script defer="" id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -220,14 +219,38 @@ document.addEventListener('DOMContentLoaded', function() {
   "description": "Browse more Oahu kayak tours, snorkeling adventures, and beach gear rentals from Active Oahu Tours.",
   "url": "https://activeoahutours.com/activities/page/2/"
 }</script>
+
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Oahu Kayaking Activities and Tours",
-  "description": "Discover more guided and self-guided Oahu kayak tours, e-bike tours, and snorkeling packages from Active Oahu. Plan your Windward Oahu adventure today.",
-  "url": "https://activeoahutours.com/activities/page/2/",
-  "itemListElement": []
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://activeoahutours.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Activities",
+      "item": "https://activeoahutours.com/activities/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Page",
+      "item": "https://activeoahutours.com/activities/page/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Oahu Kayaking Activities and Tours",
+      "item": "https://activeoahutours.com/activities/page/2/"
+    }
+  ]
 }
 </script>
 </head>
@@ -2017,23 +2040,23 @@ document.addEventListener('DOMContentLoaded', function() {
 </div><!-- #content -->
 <section class="container-fluid">
 <div style="text-align:center; margin:20px 0;">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({&apos;shortname&apos;:&apos;activeoahutours&apos;,&apos;fallback&apos;:&apos;simple&apos;}); return false;" target="_blank" class="btn btn-primary" style="padding:12px 30px; font-size:18px;">
-    <strong>Book Now</strong>
-  </a>
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div><footer>
 <div class="container">
 <div class="row">
 <div class="col col-sm-6 col-md-4">
 <h3>Follow our Oahu Adventures</h3>
 <p>Keep up-to-date with our social media, or just contact us directly</p>
-<h4><a href="tel:+18084981894" aria-label="Call us">(808)498-1894</a></h4>
+<h4><a aria-label="Call us" href="tel:+18084981894">(808)498-1894</a></h4>
 <p><a href="https://activeoahutours.com/cdn-cgi/l/email-protection#8df9e8ece0cdeceef9e4fbe8e2ece5f8f9e2f8fffea3eee2e0"><span class="__cf_email__" data-cfemail="196d7c787459787a6d706f7c7678716c6d766c6b6a377a7674">[email protected]</span></a></p>
-<p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
+<p></p><address>134B Hamakua Dr., Kailua, HI, 96734</address>
 <!--<a target="_blank" href="https://twitter.com/activeoahutours" aria-label="Follow us on Twitter">Twitter</a>&nbsp;&nbsp;&nbsp;-->
-<a href="https://www.facebook.com/activeoahutours/" target="_blank" aria-label="Follow us on Facebook">Facebook</a>   
+<a aria-label="Follow us on Facebook" href="https://www.facebook.com/activeoahutours/" target="_blank">Facebook</a>   
           <a href="https://www.yelp.com/biz/active-oahu-tours-kailua" target="_blank">Yelp</a>   
           <a href="https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html" target="_blank">Tripadvisor</a>   
-          <a href="https://www.instagram.com/activeoahu/" target="_blank" aria-label="Follow us on Instagram">Instagram</a>
+          <a aria-label="Follow us on Instagram" href="https://www.instagram.com/activeoahu/" target="_blank">Instagram</a>
 </div>
 <div class="col col-sm-6 col-md-4">
 <div class="bilboard-item-content">
@@ -2388,11 +2411,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -2469,10 +2492,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -2903,7 +2926,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <!-- magnific popoup -->
-<script defer src="/wp-content/themes/activeoahu/js/magnific-popup.min.js"></script>
+<script defer="" src="/wp-content/themes/activeoahu/js/magnific-popup.min.js"></script>
 <script>
     jQuery(document).ready(function($) {
       $('.gallery').each(function() {

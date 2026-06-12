@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -222,31 +221,100 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "オアフ島プナルウ、ライエ近郊のスタンド アップ パドルボーディング ガイドなしツアー",
+  "@type": "Product",
+  "name": "熱帯雨林スタンド アップ パドルボード ガイドなしツアー",
+  "image": "/wp-content/uploads/2016/11/Standup-Paddleboard-Lessons_header1-1.jpg",
   "description": "オアフ島、カハナ バレーの熱帯雨林の川でスタンド アップ パドル ボード、SUP を楽しみます。パドリングに最適なオアフ島の緑豊かな隠れた宝石を体験してください",
   "url": "https://activeoahutours.com/ja/activities/rainforest-oahu-stand-up-paddle-boarding/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567"
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu Tours"
   },
-  "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples",
-    "Groups"
-  ],
   "offers": {
     "@type": "Offer",
+    "price": 70.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/activities/rainforest-oahu-stand-up-paddle-boarding/"
-  }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewBody": "「初めてのSUP体験は最高でした。全体的に見て、美しいカハナ川での非常にお勧めのアドベンチャーでした。」",
+      "author": {
+        "@type": "Person",
+        "name": "Kasia W."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「立て続けにアクティビティを予約しました。スタンドアップパドルボードとチャイマンズハットまでのカヤックです。どちらも素晴らしかったです。オアフ島を訪れる人には両方のツアーを強くお勧めします!」",
+      "author": {
+        "@type": "Person",
+        "name": "Lauren Martin"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「私たちはマイクとボビーと素晴らしい時間を過ごしました! 3時間のサーフィン/パドルボードのパッケージに参加しました。それで疲れましたが、最終的には非常に満足しました。私は間違いなくこの人たちをあらゆるレベルの人に勧めます! 改めてありがとう。」",
+      "author": {
+        "@type": "Person",
+        "name": "NickTaylor"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "アクティビティ",
+      "item": "https://activeoahutours.com/ja/activities/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "熱帯雨林スタンド アップ パドルボード ガイドなしツアー",
+      "item": "https://activeoahutours.com/ja/activities/rainforest-oahu-stand-up-paddle-boarding/"
+    }
+  ]
 }
 </script>
 </head>
@@ -1072,11 +1140,11 @@ Ahupuaʻa ʻO Kahana State Park<br/>
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1153,10 +1221,10 @@ Ahupuaʻa ʻO Kahana State Park<br/>
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

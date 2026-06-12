@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -221,11 +220,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "カイルア カヤック レンタル、モクルア諸島とポポイア (フラット アイランド) へのカヤック",
+  "name": "カイルア カヤック レンタル",
+  "image": "/wp-content/uploads/2023/03/Kayak-rentals-near-lanikai-beach1x2-e1679685424655.jpg",
   "description": "モクルア諸島とポポイア島州立野生生物保護区へのカヤックのレンタルを予約してください。カヤック カイルア ベイ ＆ スパは上記クレジットカードでの決済を受け付けています。ラニカイ ビーチに立ち寄ってください。それはあなたの冒険です。",
   "url": "https://activeoahutours.com/ja/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/",
   "brand": {
@@ -234,10 +235,91 @@ document.addEventListener('DOMContentLoaded', function() {
   },
   "offers": {
     "@type": "Offer",
+    "price": 37.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/"
-  }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewBody": "「これは素晴らしい経験でした。ハワイを訪れたときに行った私のお気に入りのトップ 3 の 1 つです。カヤックを受け取るとき、スタッフはとてもフレンドリーで親切でした。価格も素晴らしく、3 時間の楽しさ、美しさ、陽気さ、そして平和をもたらす価値がありました。強くお勧めします。」",
+      "author": {
+        "@type": "Person",
+        "name": "Brit H"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「経験は素晴らしく、景色は素晴らしかったです。水がとても透き通っていて、とても素敵な一日でした。」",
+      "author": {
+        "@type": "Person",
+        "name": "Alyssa M"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「素晴らしいコミュニケーションがあり、とても迅速で、とてもフレンドリーで、私たちの経験をとても便利にしてくれました。」",
+      "author": {
+        "@type": "Person",
+        "name": "Kasie C"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "レンタル",
+      "item": "https://activeoahutours.com/ja/rentals/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Oahu Tandem Kayak Rentals",
+      "item": "https://activeoahutours.com/ja/rentals/oahu-tandem-kayak-rentals/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "カイルア カヤック レンタル",
+      "item": "https://activeoahutours.com/ja/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/"
+    }
+  ]
 }
 </script>
 </head>
@@ -1189,11 +1271,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1270,10 +1352,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

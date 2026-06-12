@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -221,31 +220,100 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "スタンドアップパドルボードレッスン ハワイ州ハレイワ オアフ島ノースショアのグローSUP",
+  "@type": "Product",
+  "name": "ハレイワ パドルボーディング",
+  "image": "/wp-content/uploads/2016/12/North-Shore-SUP_Header2.jpg",
   "description": "ハワイ州ハレイワでのオアフ島SUPレッスン。ハレイワ川でパドルを漕ぐだけでなく、レインボー・ウォータースポーツ・アドベンチャーズによる夜のグローSUPレッスンも行います。",
   "url": "https://activeoahutours.com/ja/activities/haleiwa-paddleboarding/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567"
+  "brand": {
+    "@type": "Brand",
+    "name": "Active Oahu Tours"
   },
-  "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples",
-    "Groups"
-  ],
   "offers": {
     "@type": "Offer",
+    "price": 52.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/activities/haleiwa-paddleboarding/"
-  }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "bestRating": 5,
+    "ratingCount": 356
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewBody": "「これはかなり素晴らしかったです。できるかどうか心配しているなら、心配しないでください。私の妹は5歩以上まっすぐ歩くことさえできないのに、彼女はすぐに立ち上がりました。家族や友達と天気の良い日を楽しむのに最適な方法です。ぜひやってください！」",
+      "author": {
+        "@type": "Person",
+        "name": "トラヴィス"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「とても楽しかったです！ サービスは素晴らしく、新しいことに気軽に挑戦できました。お金を払う価値は十分にありました。誰にでもお勧めします!!」",
+      "author": {
+        "@type": "Person",
+        "name": "アレックス"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "「私たちは素晴らしい経験をしました。ノースショア、海、そして私たちが受けた素晴らしい指導すべてが素晴らしい朝につながりました。ハワイにいてスタンドアップパドルボードに挑戦しないと、素晴らしい時間を逃してしまいます。またそれをするのが待ちきれません。」",
+      "author": {
+        "@type": "Person",
+        "name": "リッチとステイシー"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "アクティビティ",
+      "item": "https://activeoahutours.com/ja/activities/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ハレイワ パドルボーディング",
+      "item": "https://activeoahutours.com/ja/activities/haleiwa-paddleboarding/"
+    }
+  ]
 }
 </script>
 </head>
@@ -1030,11 +1098,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1111,10 +1179,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

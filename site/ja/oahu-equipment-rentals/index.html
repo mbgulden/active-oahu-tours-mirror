@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8"/>
@@ -214,11 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "カイルア近郊のオアフ島カヤック レンタル、SUP、ビーチ用品の配達",
+  "name": "オアフ島のビーチ用品のレンタルと配達",
+  "image": "https://activeoahutours.com/wp-content/uploads/2022/06/Rental-Gear-Banner.jpg",
   "description": "レンタルカヤック、SUP、シュノーケル、アクティビティを予約してください。オアフ島のその他のビーチ用品は、カイルア店でお受け取りください。割引された複数日料金をぜひご利用ください。",
   "url": "https://activeoahutours.com/ja/oahu-equipment-rentals/",
   "brand": {
@@ -227,10 +228,32 @@ document.addEventListener('DOMContentLoaded', function() {
   },
   "offers": {
     "@type": "Offer",
+    "price": 76.0,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/oahu-equipment-rentals/"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "オアフ島のビーチ用品のレンタルと配達",
+      "item": "https://activeoahutours.com/ja/oahu-equipment-rentals/"
+    }
+  ]
 }
 </script>
 </head>
@@ -897,9 +920,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </div><!-- #content -->
 <section class="container-fluid">
 <div style="text-align:center; margin:20px 0;">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({&apos;shortname&apos;:&apos;activeoahutours&apos;,&apos;fallback&apos;:&apos;simple&apos;}); return false;" target="_blank" class="btn btn-primary" style="padding:12px 30px; font-size:18px;">
-    <strong>Book Now</strong>
-  </a>
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div><footer>
 <div class="container">
 <div class="row">
@@ -1031,11 +1054,11 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -1112,10 +1135,10 @@ document.addEventListener('DOMContentLoaded', function() {
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

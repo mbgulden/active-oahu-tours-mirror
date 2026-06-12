@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-no-instant="" lang="ja" prefix="og: http://ogp.me/ns#" translate="no">
 <head>
 <meta charset="utf-8"/>
@@ -225,6 +224,27 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "This Page is on an Adventure, Sorry", "url": "https://activeoahutours.com/ja/sharks-cove-snorkeling/", "description": "オアフ島ノースショアのシャークスコーブでシュノーケリング。ププケアビーチパークの海中世界を探索。"}</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://activeoahutours.com/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "This page left on an adventure...",
+      "item": "https://activeoahutours.com/ja/sharks-cove-snorkeling/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="error404 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
@@ -582,7 +602,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 <p>Keep up-to-date with our social media, or just contact us directly</p>
 <h4><a href="tel:+18084981894">(808)498-1894</a></h4>
 <p><a href="/cdn-cgi/l/email-protection#384c5d595578595b4c514e5d5759504d4c574d4a4b165b5755"><span class="__cf_email__" data-cfemail="f480919599b49597809d82919b959c81809b818687da979b99">[email protected]</span></a></p>
-<p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
+<p></p><address>134B Hamakua Dr., Kailua, HI, 96734</address>
 <!--<a target="_blank" href="https://twitter.com/activeoahutours">Twitter</a>&nbsp;&nbsp;&nbsp;-->
 <a href="https://www.facebook.com/activeoahutours/" target="_blank">Facebook</a>   
           <a href="https://www.yelp.com/biz/active-oahu-tours-kailua" target="_blank">Yelp</a>   
@@ -706,11 +726,11 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
     font-size: 18px; text-align: center;
   }
 </style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
+<div class="fh-loading-overlay" id="fh-loading-overlay">
+<div style="text-align:center;">
+<div class="fh-loading-spinner"></div>
+<div class="fh-loading-text">Loading booking calendar...</div>
+</div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -787,10 +807,10 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
     body.has-sticky-cta { padding-bottom: 70px; }
   }
 </style>
-<div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
-    <strong>Book Now</strong>
-  </a>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
