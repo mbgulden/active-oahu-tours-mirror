@@ -54,7 +54,7 @@ BUSINESS = {
     "name": "Active Oahu Tours",
     "description": "Kayak tours, e-bike adventures, paddleboarding, and beach gear rentals on Oahu's Windward coast. Based in Kailua, serving Kualoa, Kaneohe Bay, Lanikai, and Sharks Cove.",
     "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567",
+    "telephone": "+1-808-498-1894",
     "email": "info@activeoahutours.com",
     "address": {
         "@type": "PostalAddress",
@@ -166,7 +166,7 @@ def page_schema(path, rel_path):
             "@context": "https://schema.org",
             "@type": "TouristTrip",
             "name": name,
-            "description": desc[:500] if desc else f"Guided and self-guided kayak tours from Active Oahu in Kailua, Oahu.",
+            "description": desc[:500] if desc else f"Guided and self-guided kayak tours and activities from Active Oahu Tours: {name} in Kailua, Oahu.",
             "url": page_url,
             "tourOperator": {
                 "@type": "TravelAgency",
@@ -185,12 +185,13 @@ def page_schema(path, rel_path):
     # Rental pages
     if 'rental' in rel_str.lower() or 'equipment' in rel_str.lower():
         soup = BeautifulSoup(Path(SITE_DIR / rel_path).read_text(), 'lxml')
-        name = get_page_title(soup, rel_path)
+        desc_tag = soup.find('meta', attrs={'name': 'description'})
+        desc = desc_tag.get('content', '').strip() if desc_tag else ''
         return {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": name,
-            "description": f"Rent {name.lower()} from Active Oahu Tours in Kailua, Oahu. Daily and multi-day rates available.",
+            "description": desc[:500] if desc else f"Rent {name.lower()} from Active Oahu Tours in Kailua, Oahu. Daily and multi-day rates available.",
             "url": page_url,
             "brand": {"@type": "Brand", "name": "Active Oahu Tours"},
             "offers": {
@@ -242,7 +243,7 @@ def page_schema(path, rel_path):
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": title,
-            "description": desc[:300] if desc else '',
+            "description": desc[:300] if desc else f"Read our guide on {title} by Active Oahu Tours, your trusted adventure partner in Kailua, Hawaii.",
             "url": page_url,
             "author": {"@type": "Person", "name": "Michael Gulden"},
             "publisher": {
@@ -261,7 +262,7 @@ def page_schema(path, rel_path):
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": title,
-        "description": desc[:300] if desc else f"Active Oahu Tours - {title}",
+        "description": desc[:300] if desc else f"Explore {title} on Active Oahu Tours. Learn about our kayak, e-bike, paddleboard rentals and guided tours.",
         "url": page_url
     }
 
