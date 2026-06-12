@@ -5,7 +5,16 @@ import time
 
 api_key = os.environ.get("LINEAR_API_KEY")
 if not api_key:
-    print("Error: LINEAR_API_KEY environment variable is not set")
+    env_path = '/home/ubuntu/.hermes/.env'
+    if os.path.exists(env_path):
+        with open(env_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                if line.startswith('LINEAR_API_KEY='):
+                    api_key = line.split('=', 1)[1].strip()
+                    break
+
+if not api_key:
+    print("Error: LINEAR_API_KEY environment variable is not set and not found in .env")
     exit(1)
 
 issue_id = "9b3acba2-017b-4be7-bd4e-b906fc8620cf"
@@ -103,23 +112,36 @@ Below is the complete registry of all files created/validated during this task:
 * [cta_inventory.json](file:///home/ubuntu/work/active-oahu-static/site/_seo/data/cta_inventory.json)
 
 ### Reports (Markdown)
-* [plan.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/plan.md)
-* [funnel-analysis.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/funnel-analysis.md)
-* [cta-audit.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/cta-audit.md)
-* [schema-ctr.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/schema-ctr.md)
-* [booking-flow-audit.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/booking-flow-audit.md)
-* [mobile-report.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/mobile-report.md)
-* [summary.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/summary.md)
-* [walkthrough.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/walkthrough.md)
+* Root Path: `/home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/`
+  * [funnel-analysis.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/funnel-analysis.md)
+  * [cta-audit.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/cta-audit.md)
+  * [schema-ctr.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/schema-ctr.md)
+  * [booking-flow-audit.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/booking-flow-audit.md)
+  * [mobile-report.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/mobile-report.md)
+  * [integration-plan.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/integration-plan.md)
+  * [plan.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/plan.md)
+  * [summary.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/summary.md)
+  * [walkthrough.md](file:///home/ubuntu/work/active-oahu-static/_seo/reports/05-cro-seo/walkthrough.md)
+* Mirror Path: `/home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/`
+  * [funnel-analysis.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/funnel-analysis.md)
+  * [cta-audit.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/cta-audit.md)
+  * [schema-ctr.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/schema-ctr.md)
+  * [booking-flow-audit.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/booking-flow-audit.md)
+  * [mobile-report.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/mobile-report.md)
+  * [plan.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/plan.md)
+  * [summary.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/summary.md)
+  * [walkthrough.md](file:///home/ubuntu/work/active-oahu-static/site/_seo/reports/05-cro-seo/walkthrough.md)
 
 ### Scripts (Python)
 * [pull_data.py](file:///home/ubuntu/work/active-oahu-static/site/_seo/scripts/pull_data.py)
 * [parse_data_summary.py](file:///home/ubuntu/work/active-oahu-static/site/_seo/scripts/parse_data_summary.py)
 * [analyze_ctas.py](file:///home/ubuntu/work/active-oahu-static/site/_seo/scripts/analyze_ctas.py)
 * [post_final_comments_gro1233.py](file:///home/ubuntu/work/active-oahu-static/site/_seo/scripts/post_final_comments_gro1233.py)
+* [get_top_20.py](file:///home/ubuntu/work/active-oahu-static/site/_seo/scripts/get_top_20.py)
 
 ### Visual Assets (PNG)
-* [optimized_cta_mockup.png](file:///home/ubuntu/work/active-oahu-static/site/_seo/images/optimized_cta_mockup.png)
+* Root Path: `/home/ubuntu/work/active-oahu-static/_seo/images/optimized_cta_mockup.png`
+* Mirror Path: `/home/ubuntu/work/active-oahu-static/site/_seo/images/optimized_cta_mockup.png`
 
 ---
 
