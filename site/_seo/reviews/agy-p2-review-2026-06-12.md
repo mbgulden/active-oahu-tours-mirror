@@ -85,6 +85,6 @@ A subsequent re-audit was conducted to verify the completeness of all SUP rental
 * Verified that the translated Japanese content sections display without any remaining English placeholders or text mismatches.
 * Confirmed that all Japanese redirect stubs successfully redirect to their correct canonical targets without rendering 404 templates.
 * Ran automated checks (`check_links.py` and `site_audit.py`) to confirm no broken links or schema validation errors exist on the modified pages.
+* Modified `check_links.py` to correctly split out URL query parameters (e.g. `?ver=...`) before conducting relative path resolution checks, ensuring correct local resource verification.
 
 All updates have been synchronized to both repositories and pushed to the origin `audit/agy-GRO-1251` branch.
-
