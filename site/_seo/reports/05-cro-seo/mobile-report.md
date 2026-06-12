@@ -1,6 +1,6 @@
 # Mobile Experience Report
 
-**Date:** 2026-06-11  
+**Date:** 2026-06-12  
 **Source Data:** GA4 Device report (Property `289642224`, last 30 days)  
 
 ---

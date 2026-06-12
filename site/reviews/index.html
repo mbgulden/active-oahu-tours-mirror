@@ -34,7 +34,6 @@
 <meta content="93780a0eca896a61df488e87781da6c8" name="p:domain_verify"/>
 <!-- / Yoast SEO Premium plugin. -->
 <link href="https://www.googletagmanager.com/" rel="dns-prefetch"/>
-<link href="https://fonts.googleapis.com/" rel="dns-prefetch"/>
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -92,7 +91,6 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 <link href="/wp-content/plugins/weglot/dist/css/front-css.css?ver=5.5" id="weglot-css-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/weglot/dist/css/new-flags.css?ver=5.5" id="new-flag-css-css" media="all" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css?family=Lato%3A400%2C700%7COpen+Sans+Condensed%3A700&amp;ver=6.9.4" id="wpb-google-fonts-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css?ver=3.7.5" id="kadence-blocks-rowlayout-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-column.css?ver=3.7.5" id="kadence-blocks-column-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-image.css?ver=3.7.5" id="kadence-blocks-image-css" media="all" rel="stylesheet" type="text/css"/>
@@ -125,10 +123,10 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
 <script id="google_gtagjs-js-after" type="text/javascript">
 /* <![CDATA[ */
 window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-gtag("set","linker",{"domains":["activeoahutours.com"]});
 gtag("js", new Date());
-gtag("set", "developer_id.dZTNiMT", true);
-gtag("config", "G-PRRRLMBR8Z");
+gtag("config", "G-PRRRLMBR8Z", {
+  'transport_type': 'beacon'
+});
 //# sourceURL=google_gtagjs-js-after
 /* ]]> */
 </script>
@@ -284,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 </script>
 </head>
-<body class="home wp-singular page-template-default page page-id-2389 wp-theme-activeoahu" data-fh-item="115595">
+<body class="home wp-singular page-template-default page page-id-2389 wp-theme-activeoahu">
 <div class="hfeed site" id="page">
 <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 <!-- Banner HTML -->
@@ -321,7 +319,27 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="social-header">
 <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
-<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" id="header-book-online" onclick="(function(){var el=document.body;var item=el.getAttribute('data-fh-item');if(item&&typeof FH!=='undefined'){FH.open({'shortname':'activeoahutours','view':{'item':item},'fallback':'simple'});return false;}return true;})()"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+<script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var cta = document.querySelector('.social-header .social-links a');
+                if (cta) {
+                  cta.addEventListener('click', function(e) {
+                    var itemId = document.body.getAttribute('data-item-id');
+                    if (itemId) {
+                      if (window.FH && window.FH.open) {
+                        e.preventDefault();
+                        FH.open({
+                          shortname: 'activeoahutours',
+                          view: { item: itemId },
+                          fallback: 'simple'
+                        });
+                      }
+                    }
+                  });
+                }
+              });
+            </script>
 <a href="/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a>
 </div>
 </div>
@@ -473,7 +491,22 @@ document.addEventListener('DOMContentLoaded', function() {
                   padding: 3px 6px !important;
                 }
               }
-            </style>
+            
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
 <nav class="main-navigation" data-instant="" id="site-navigation" role="navigation">
@@ -1165,7 +1198,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </main></div><!-- #content -->
 <section class="container-fluid">
-<footer>
+<div style="text-align:center; margin:20px 0;">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
+<strong>Book Now</strong>
+</a>
+</div><footer>
 <div class="container">
 <div class="row">
 <div class="col col-sm-6 col-md-4">

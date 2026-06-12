@@ -18,7 +18,6 @@
 <meta content="Ultimate guide to kayaking Kaneohe Sandbar." name="twitter:description"/>
 <link href="/wp-content/plugins/weglot/dist/css/front-css.css?ver=5.5" id="weglot-css-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/weglot/dist/css/new-flags.css?ver=5.5" id="new-flag-css-css" media="all" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css?family=Lato%3A400%2C700%7COpen+Sans+Condensed%3A700&amp;ver=6.9.4" id="wpb-google-fonts-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css?ver=3.7.5" id="kadence-blocks-rowlayout-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-column.css?ver=3.7.5" id="kadence-blocks-column-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-image.css?ver=3.7.5" id="kadence-blocks-image-css" media="all" rel="stylesheet" type="text/css"/>
@@ -238,6 +237,26 @@ document.addEventListener('DOMContentLoaded', function() {
   <br/><small>📍 Kāneʻohe Sandbar | Best: Low to Mid Tide</small>
 </div>
 <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var cta = document.querySelector('.social-header .social-links a');
+                if (cta) {
+                  cta.addEventListener('click', function(e) {
+                    var itemId = document.body.getAttribute('data-item-id');
+                    if (itemId) {
+                      if (window.FH && window.FH.open) {
+                        e.preventDefault();
+                        FH.open({
+                          shortname: 'activeoahutours',
+                          view: { item: itemId },
+                          fallback: 'simple'
+                        });
+                      }
+                    }
+                  });
+                }
+              });
+            </script>
 <a href="/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a>
 </div>
 </div>
@@ -389,7 +408,22 @@ document.addEventListener('DOMContentLoaded', function() {
                   padding: 3px 6px !important;
                 }
               }
-            </style>
+            
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
 </section><!-- branding -->
 <section class="navbar" id="navbar-scroll">
 <nav class="main-navigation" data-instant="" id="site-navigation" role="navigation">

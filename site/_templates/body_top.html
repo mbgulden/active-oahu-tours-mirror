@@ -38,9 +38,29 @@
 
             <div class="social-header">
               <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
-              <div class="social-links"> <a href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" class="pull-right btn btn-small btn-primary" id="header-book-online" onclick="(function(){var el=document.body;var item=el.getAttribute('data-fh-item');if(item&&typeof FH!=='undefined'){FH.open({'shortname':'activeoahutours','view':{'item':item},'fallback':'simple'});return false;}return true;})()"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a> 
+              <div class="social-links"> <a href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" class="pull-right btn btn-small btn-primary"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a> 
               </div>
             </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var cta = document.querySelector('.social-header .social-links a');
+                if (cta) {
+                  cta.addEventListener('click', function(e) {
+                    var itemId = document.body.getAttribute('data-item-id');
+                    if (itemId) {
+                      if (window.FH && window.FH.open) {
+                        e.preventDefault();
+                        FH.open({
+                          shortname: 'activeoahutours',
+                          view: { item: itemId },
+                          fallback: 'simple'
+                        });
+                      }
+                    }
+                  });
+                }
+              });
+            </script>
             <style>
               .site-banner-announcement {
                 position: sticky;
@@ -189,7 +209,22 @@
                   padding: 3px 6px !important;
                 }
               }
-            </style>
+            
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
           </section><!-- branding -->
 
           <section class="navbar" id="navbar-scroll">

@@ -31,7 +31,6 @@
 <meta content="2025-05-22T10:43:50-10:00" property="DC.date.issued"/>
 <!-- / Yoast SEO Premium plugin. -->
 <link href="//www.googletagmanager.com" rel="dns-prefetch"/>
-<link href="//fonts.googleapis.com" rel="dns-prefetch"/>
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -122,10 +121,10 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
 <script id="google_gtagjs-js-after" type="text/javascript">
 /* <![CDATA[ */
 window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-gtag("set","linker",{"domains":["activeoahutours.com"]});
 gtag("js", new Date());
-gtag("set", "developer_id.dZTNiMT", true);
-gtag("config", "G-PRRRLMBR8Z");
+gtag("config", "G-PRRRLMBR8Z", {
+  'transport_type': 'beacon'
+});
 //# sourceURL=google_gtagjs-js-after
 /* ]]> */
 </script>
@@ -191,7 +190,22 @@ jQuery(document).ready(function($) {
   });
 });
 </script>
-<style>.sub-menu{display:none}</style>
+<style>.sub-menu{display:none}
+              @media (max-width: 480px) {
+                .aot-logo img { width: 160px !important; height: auto !important; }
+                .aot-logo, .aot-logo a { max-width: 160px !important; }
+                .social-header { width: auto !important; padding: 5px 8px !important; }
+                .social-header-h3 { font-size: 18px !important; margin: 0 !important; }
+                .social-header .btn { font-size: 12px !important; padding: 4px 8px !important; }
+                #branding { height: auto !important; min-height: 55px !important; }
+              }
+              @media (max-width: 380px) {
+                .aot-logo img { width: 130px !important; }
+                .aot-logo, .aot-logo a { max-width: 130px !important; }
+                .social-header-h3 { font-size: 15px !important; }
+                .social-header .btn { font-size: 11px !important; padding: 3px 6px !important; }
+              }
+</style>
 <script>
 // Nav dropdown + mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -340,7 +354,27 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="social-header">
 <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
-<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" id="header-book-online" onclick="(function(){var el=document.body;var item=el.getAttribute('data-fh-item');if(item&&typeof FH!=='undefined'){FH.open({'shortname':'activeoahutours','view':{'item':item},'fallback':'simple'});return false;}return true;})()"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var cta = document.querySelector('.social-header .social-links a');
+                if (cta) {
+                  cta.addEventListener('click', function(e) {
+                    var itemId = document.body.getAttribute('data-item-id');
+                    if (itemId) {
+                      if (window.FH && window.FH.open) {
+                        e.preventDefault();
+                        FH.open({
+                          shortname: 'activeoahutours',
+                          view: { item: itemId },
+                          fallback: 'simple'
+                        });
+                      }
+                    }
+                  });
+                }
+              });
+            </script>
 <a href="/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a>
 </div>
 </div>
@@ -1019,6 +1053,56 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
       }
     });
   </script>
+<!-- Sticky Mobile CTA (GRO-1302) -->
+<style>
+  .mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: #fff;
+    border-top: 2px solid #cc5500;
+    padding: 10px 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+  .mobile-sticky-cta .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    .mobile-sticky-cta.visible { display: block; }
+    body.has-sticky-cta { padding-bottom: 70px; }
+  }
+</style>
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<strong>Book Now</strong>
+</a>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sticky = document.getElementById("mobile-sticky-cta");
+    if (!sticky) return;
+    var body = document.body;
+    // Show sticky CTA when user scrolls past 500px (past header/book buttons)
+    var showAt = 500;
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > showAt) {
+        sticky.classList.add("visible");
+        body.classList.add("has-sticky-cta");
+      } else {
+        sticky.classList.remove("visible");
+        body.classList.remove("has-sticky-cta");
+      }
+    });
+  });
+</script>
 <script>
   /**
    * navigation.js
