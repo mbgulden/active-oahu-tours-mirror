@@ -25,8 +25,8 @@ def resolve_relative(origin_dir, href):
     """Resolve a relative href against the origin directory."""
     if href.startswith("/") or href.startswith("http://") or href.startswith("https://") or href.startswith("#") or href.startswith("//"):
         return None  # absolute or external or fragment
-    # Remove anchor
-    href_clean = href.split("#")[0]
+    # Remove anchor and query parameters
+    href_clean = href.split("#")[0].split("?")[0]
     if not href_clean:
         return None
     
