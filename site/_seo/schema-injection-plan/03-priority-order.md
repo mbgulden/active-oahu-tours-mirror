@@ -4,10 +4,11 @@ This document details the rank-order injection schedule based on a traffic x sch
 
 * **P0: Top-20 High-Value Pages (Highest organic ROI)**
 * **P1: Mid-Traffic Core Pages (Pages 21-50)**
-* **P2: Remaining English Pages**
-* **P3: Japanese Locale Pages (All 83 JA pages)**
+* **P2: Remaining English Pages (118 pages)**
+* **P3: Japanese Locale Pages (All 89 JA pages)**
 
 ---
+
 
 ## P0: Top-20 High-Traffic Pages (Highest ROI)
 
@@ -37,6 +38,7 @@ These 20 pages drive over 75% of organic traffic and direct bookings for AOT. In
 | 20 | `contact-us.html` | Contact | `ContactPage` |
 
 ---
+
 
 ## P1: Mid-Traffic Core Pages (Pages 21-50)
 
@@ -76,6 +78,7 @@ These pages cover secondary tours, popular equipment rentals, and high-impressio
 | 50 | `reviews/index.html` | Other | `WebPage` |
 
 ---
+
 
 ## P2: Remaining English Pages (118 pages)
 
@@ -204,8 +207,8 @@ These pages cover supporting blog posts, pagination pages, policy terms, and min
 | `stand-up-paddleboard-rental/index.html` | Rental | `Product` |
 | `trip-cancellation-insurance-terms-and-conditions.html` | Other | `WebPage` |
 | `trip-cancellation-insurance-terms-and-conditions/index.html` | Other | `WebPage` |
-</details>
-## P3: Japanese Locale Pages (All 89 JA pages)
+
+## P3: Japanese Locale Pages (All 89 pages)
 
 Japanese language versions of all core and supporting pages.
 
