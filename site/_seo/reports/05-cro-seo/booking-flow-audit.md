@@ -1,6 +1,6 @@
 # Booking Flow Friction Audit
 
-**Date:** 2026-06-11  
+**Date:** 2026-06-12  
 **Target URL:** [activeoahutours.com](https://activeoahutours.com) (FareHarbor Integration)  
 
 ---

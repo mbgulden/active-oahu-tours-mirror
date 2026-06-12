@@ -1,21 +1,23 @@
 # Active Oahu Tours Mirror - Site Audit Report
 
-**Total HTML pages:** 208
+**Total HTML pages:** 253
 
 ## Category Breakdown
 
-- **ja/ (Japanese)**: 83
-- **activities/**: 27
-- **rentals/**: 16
-- **oahu-kayaking-and-beach-adventures/**: 12
+- **ja/ (Japanese)**: 89
+- **activities/**: 29
+- **oahu-kayaking-and-beach-adventures/**: 28
+- **rentals/**: 18
 - **guides/**: 8
-- **oahu-equipment-rentals/**: 6
+- **oahu-equipment-rentals/**: 8
 - **about-***: 5
 - **reviews/**: 5
-- **root pages**: 3
+- **root pages**: 4
+- **multi-day-rentals/**: 4
 - **faq/**: 3
 - **jobs/**: 3
-- **multi-day-rentals/**: 3
+- **other (oahu-hawaii-kayaking-guide/)**: 2
+- **other (active-aloha-ambassador/)**: 1
 - **other (active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/)**: 1
 - **other (active-oahu-photo-gallery/)**: 1
 - **other (ariyoshis-summer-vacation-rainforest-kayak-tour-oahu-hawaii-2017/)**: 1
@@ -23,116 +25,161 @@
 - **other (beach-gear-rentals/)**: 1
 - **other (become-a-partner/)**: 1
 - **other (cancellation-policy/)**: 1
+- **other (chinamans-hat-kayak-tour/)**: 1
 - **other (chinamans-hat-tide-guide/)**: 1
 - **other (chinamans-hat/)**: 1
 - **other (contact-us/)**: 1
 - **other (electric-bike-rentals/)**: 1
+- **other (faq-oahu-beach-gear-rentals/)**: 1
 - **other (guided-tours/)**: 1
 - **root homepage**: 1
+- **other (kailua-ebike-route/)**: 1
 - **other (kailua-kayak/)**: 1
 - **other (kailua-oahu-storefront/)**: 1
-- **other (kaneohe-bay-sandbar-tide-guide/)**: 1
+- **other (kailua-town-history/)**: 1
+- **other (kaneohe-bay-sandbar-kayak/)**: 1
 - **other (kaneohe-sandbar-tide-guide/)**: 1
 - **other (kaneohe-sandbar/)**: 1
 - **other (kayak-kailua/)**: 1
 - **other (kayak-rentals/)**: 1
 - **other (kayak-safety-guide/)**: 1
 - **other (kualoa-bay-guide/)**: 1
+- **other (laie-bay-goat-island-kayaking/)**: 1
 - **other (lanikai-vs-hanauma-bay-snorkeling/)**: 1
+- **other (living-aloha-respectful-travel/)**: 1
 - **other (mokolii/)**: 1
+- **other (multi-activity-adventure-packages/)**: 1
 - **other (oahu-launch-guide/)**: 1
+- **other (oahu-tour-packages/)**: 1
+- **other (oahus-best-kayaking-trips/)**: 1
 - **other (paa-answers/)**: 1
 - **other (privacy-policy/)**: 1
 - **other (self-guided/)**: 1
 - **other (sharks-cove-snorkeling-guide/)**: 1
 - **other (sharks-cove-snorkeling/)**: 1
 - **other (sharks-cove-vs-lanikai-snorkeling/)**: 1
+- **other (stand-up-paddleboard-rental/)**: 1
 - **other (tours/)**: 1
+- **other (trip-cancellation-insurance-terms-and-conditions/)**: 1
 - **other (what-to-bring/)**: 1
 - **other (why-choose-active-oahu/)**: 1
+- **other (wp-content/)**: 1
 
-## Orphan Pages (7)
+## Orphan Pages (61)
 
 Pages with no other pages linking TO them (excluding homepage).
 
-- activities/chinamans-hat-kayak-complete-self-guided-tour-guide/index.html
-- activities/kailua-bay-mokulua-island-self-guided-kayak-tour/.html
-- activities/kailua-kayak-twin-islands-guided-tour/.html
+- 404.html
+- active-aloha-ambassador/index.html
+- activities/chinamans-hat-oahu-kayak-tours/index.html
+- activities/destination-yoga/index.html
+- activities/kaneohe-sandbar-kayak-rentals/index.html
+- activities/lanikai-beach-self-guided-snorkel/index.html
 - activities/oahu-snorkel-tour/index.html
-- guides/electric-beach/index.html
-- guides/waimanalo-beach/index.html
-- paa-answers/index.html
+- activities/rainforest-guided-hike/index.html
+- chinamans-hat-kayak-tour/index.html
+- faq/faq-chinamans-hat-kayak-hike/index.html
+- faq/faq-oahu-beach-gear-rentals/index.html
+- ja/404.html
+- ja/about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html
+- ja/about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html
+- ja/chinamans-hat-kayak-tour/index.html
+- ja/faq-oahu-beach-gear-rentals/index.html
+- ja/faq/faq-chinamans-hat-kayak-hike/index.html
+- ja/faq/faq-oahu-beach-gear-rentals/index.html
+- ja/guides/index.html
+- ja/kaneohe-bay-sandbar-kayak/index.html
+- ja/kayak-kailua/index.html
+- ja/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html
+- ja/oahu-equipment-rentals/page/2/index.html
+- ja/oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html
+- ja/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html
+- ja/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html
+- ja/sharks-cove-snorkeling/index.html
+- ja/stand-up-paddleboard-rental/index.html
+- kailua-ebike-route/index.html
+- kailua-town-history/index.html
+- kaneohe-bay-sandbar-kayak/index.html
+- laie-bay-goat-island-kayaking/index.html
+- living-aloha-respectful-travel/index.html
+- multi-activity-adventure-packages/index.html
+- multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html
+- oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/index.html
+- oahu-equipment-rentals/standard-meeting-location-info/index.html
+- oahu-hawaii-kayaking-guide/index.html
+- oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html
+- oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/index.html
+- oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/index.html
+- oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/index.html
+- oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/index.html
+- oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/index.html
+- oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/index.html
+- oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/index.html
+- oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/index.html
+- oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/index.html
+- oahu-tour-packages/index.html
+- oahus-best-kayaking-trips/index.html
+- rentals/cruiser-oahu-beach-equipment-rental-package/index.html
+- rentals/explorer-oahu-kayak-rental-package/index.html
+- stand-up-paddleboard-rental/index.html
+- trip-cancellation-insurance-terms-and-conditions/index.html
+- wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html
 
 ## Schema Markup
 
-- Pages **with** schema markup: 179
-- Pages **without** schema markup: 29
+- Pages **with** schema markup: 249
+- Pages **without** schema markup: 4
 
 ### Pages Missing Schema Markup
 
-- active-oahu-photo-gallery/index.html
-- activities.html
-- activities/oahu-snorkel-tour/index.html
-- activities/page/2/index.html
-- activities/page/3/index.html
-- become-a-partner/index.html
-- cancellation-policy/index.html
-- guides/chinamans-hat-tide-guide/index.html
-- ja/active-oahu-photo-gallery/index.html
-- ja/activities/page/2/index.html
-- ja/activities/page/3/index.html
-- ja/become-a-partner/index.html
-- ja/cancellation-policy/index.html
-- ja/job-dashboard/index.html
-- ja/join-the-team/index.html
-- ja/kailua-oahu-storefront/index.html
-- ja/oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html
-- ja/oahu-kayaking-and-beach-adventures/index.html
-- ja/oahu-kayaking-and-beach-adventures/kahana-river-kayak-adventure/index.html
-- ja/oahu-kayaking-and-beach-adventures/kalama-beach-bodyboarding-adventure/index.html
-- ja/oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/index.html
-- ja/privacy-policy/index.html
-- ja/trip-cancellation-insurance-terms-and-conditions/index.html
-- job-dashboard/index.html
-- join-the-team/index.html
-- kailua-oahu-storefront/index.html
-- oahu-kayaking-and-beach-adventures/index.html
-- privacy-policy/index.html
-- trip-cancellation-insurance-terms-and-conditions.html
+- chinamans-hat-kayak-tour/index.html
+- kaneohe-bay-sandbar-kayak/index.html
+- stand-up-paddleboard-rental/index.html
+- wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html
 
 ## Complete Page Listing
 
+- 404.html
 - about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html
 - about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html
 - about-active-oahu-tours/awards/index.html
 - about-active-oahu-tours/index.html
 - about-active-oahu/index.html
+- active-aloha-ambassador/index.html
 - active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html
 - active-oahu-photo-gallery/index.html
 - activities.html
 - activities/aloha-aina-e-bike-adventure/index.html
 - activities/chinamans-hat-kayak-complete-self-guided-tour-guide/index.html
 - activities/chinamans-hat-kayak-rentals/index.html
+- activities/chinamans-hat-oahu-kayak-tours/index.html
 - activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html
+- activities/destination-yoga/index.html
 - activities/east-oahu-self-guided-kayaking-experience/index.html
 - activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/index.html
 - activities/haleiwa-paddleboarding/index.html
 - activities/index.html
 - activities/kahana-rainforest-river-oahu-kayak-tour/index.html
-- activities/kailua-bay-mokulua-island-self-guided-kayak-tour/.html
 - activities/kailua-bay-mokulua-island-self-guided-kayak-tour/index.html
 - activities/kailua-e-bike-kau-kau-guided-adventure/index.html
 - activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/index.html
-- activities/kailua-kayak-twin-islands-guided-tour/.html
 - activities/kailua-kayak-twin-islands-guided-tour/index.html
 - activities/kaneohe-sandbar-kayak-rentals/index.html
 - activities/kaneohe-sandbar-kayak-ultimate-guide/index.html
 - activities/lanikai-beach-self-guided-e-bike-snorkel-adventure/index.html
+- activities/lanikai-beach-self-guided-snorkel/index.html
 - activities/oahu-snorkel-tour/index.html
 - activities/oahu-surf-lessons/index.html
 - activities/page/2/index.html
 - activities/page/3/index.html
 - activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html
+- activities/rainforest-guided-hike/index.html
 - activities/rainforest-oahu-kayak-tour.html
 - activities/rainforest-oahu-stand-up-paddle-boarding/index.html
 - activities/sharks-cove-self-guided-snorkel/index.html
@@ -142,11 +189,13 @@ Pages with no other pages linking TO them (excluding homepage).
 - beach-gear-rentals/index.html
 - become-a-partner/index.html
 - cancellation-policy/index.html
+- chinamans-hat-kayak-tour/index.html
 - chinamans-hat-tide-guide/index.html
 - chinamans-hat/index.html
 - contact-us.html
 - contact-us/index.html
 - electric-bike-rentals/index.html
+- faq-oahu-beach-gear-rentals/index.html
 - faq/faq-chinamans-hat-kayak-hike/index.html
 - faq/faq-oahu-beach-gear-rentals/index.html
 - faq/index.html
@@ -160,6 +209,7 @@ Pages with no other pages linking TO them (excluding homepage).
 - guides/sea-turtles-oahu/index.html
 - guides/waimanalo-beach/index.html
 - index.html
+- ja/404.html
 - ja/about-active-oahu-tours/awards/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html
 - ja/about-active-oahu-tours/awards/active-oahu-recognized-one-top-10-hospitality-businesses-world/index.html
 - ja/about-active-oahu-tours/awards/index.html
@@ -189,6 +239,7 @@ Pages with no other pages linking TO them (excluding homepage).
 - ja/author/mbgulden/index.html
 - ja/become-a-partner/index.html
 - ja/cancellation-policy/index.html
+- ja/chinamans-hat-kayak-tour/index.html
 - ja/contact-us/index.html
 - ja/faq-oahu-beach-gear-rentals/index.html
 - ja/faq/faq-chinamans-hat-kayak-hike/index.html
@@ -200,6 +251,8 @@ Pages with no other pages linking TO them (excluding homepage).
 - ja/job/hiring-kayak-delivery-driver-jobs-in-laie/index.html
 - ja/join-the-team/index.html
 - ja/kailua-oahu-storefront/index.html
+- ja/kaneohe-bay-sandbar-kayak/index.html
+- ja/kayak-kailua/index.html
 - ja/multi-day-kayak-and-beach-gear-rentals/index.html
 - ja/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html
 - ja/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html
@@ -242,45 +295,77 @@ Pages with no other pages linking TO them (excluding homepage).
 - ja/reviews/page/3/index.html
 - ja/reviews/page/4/index.html
 - ja/reviews/page/5/index.html
+- ja/sharks-cove-snorkeling/index.html
+- ja/stand-up-paddleboard-rental/index.html
 - ja/trip-cancellation-insurance-terms-and-conditions/index.html
 - job-dashboard/index.html
 - job/hiring-kayak-delivery-driver-jobs-in-laie/index.html
 - join-the-team/index.html
+- kailua-ebike-route/index.html
 - kailua-kayak/index.html
 - kailua-oahu-storefront/index.html
-- kaneohe-bay-sandbar-tide-guide/index.html
+- kailua-town-history/index.html
+- kaneohe-bay-sandbar-kayak/index.html
 - kaneohe-sandbar-tide-guide/index.html
 - kaneohe-sandbar/index.html
 - kayak-kailua/index.html
 - kayak-rentals/index.html
 - kayak-safety-guide/index.html
 - kualoa-bay-guide/index.html
+- laie-bay-goat-island-kayaking/index.html
 - lanikai-vs-hanauma-bay-snorkeling/index.html
+- living-aloha-respectful-travel/index.html
 - mokolii/index.html
+- multi-activity-adventure-packages/index.html
 - multi-day-kayak-and-beach-gear-rentals/index.html
+- multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/index.html
 - multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html
 - multi-day-rentals/index.html
 - oahu-equipment-rentals/chinamans-hat-kayak-rentals/index.html
+- oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/index.html
 - oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html
 - oahu-equipment-rentals/index.html
 - oahu-equipment-rentals/kayak-rental-delivery-locations/index.html
 - oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html
 - oahu-equipment-rentals/page/2/index.html
+- oahu-equipment-rentals/standard-meeting-location-info/index.html
+- oahu-hawaii-kayaking-guide/index.html
+- oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/chinamans-hat-kayak-adventure/index.html
+- oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html
+- oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/index.html
+- oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/index.html
+- oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/index.html
 - oahu-kayaking-and-beach-adventures/kahana-river-kayak-adventure/index.html
+- oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/index.html
 - oahu-kayaking-and-beach-adventures/kalama-beach-bodyboarding-adventure/index.html
+- oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/index.html
 - oahu-kayaking-and-beach-adventures/kaneohe-sandbar-self-guided-kayak-adventure/index.html
+- oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/index.html
 - oahu-kayaking-and-beach-adventures/lanikai-e-bike-and-snorkel-self-guided-tour/index.html
 - oahu-kayaking-and-beach-adventures/lanikai-e-bike-snorkel-and-pillbox-hike-self-guided-adventure/index.html
 - oahu-kayaking-and-beach-adventures/lanikai-pillbox-hike-adventure-guide/index.html
 - oahu-kayaking-and-beach-adventures/mokulua-islands-self-guided-kayak-adventure/index.html
 - oahu-kayaking-and-beach-adventures/popoia-island-kayaking-adventure/index.html
+- oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/index.html
+- oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/index.html
+- oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/index.html
+- oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/index.html
+- oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/index.html
+- oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/index.html
 - oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html
 - oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html
+- oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/index.html
 - oahu-launch-guide/index.html
+- oahu-tour-packages/index.html
+- oahus-best-kayaking-trips/index.html
 - paa-answers/index.html
 - privacy-policy/index.html
+- rentals/cruiser-oahu-beach-equipment-rental-package/index.html
+- rentals/explorer-oahu-kayak-rental-package/index.html
 - rentals/index.html
 - rentals/kailua-beach-bike-rentals/index.html
 - rentals/kayak-sup-trolley/index.html
@@ -306,7 +391,10 @@ Pages with no other pages linking TO them (excluding homepage).
 - sharks-cove-snorkeling-guide/index.html
 - sharks-cove-snorkeling/index.html
 - sharks-cove-vs-lanikai-snorkeling/index.html
+- stand-up-paddleboard-rental/index.html
 - tours/index.html
 - trip-cancellation-insurance-terms-and-conditions.html
+- trip-cancellation-insurance-terms-and-conditions/index.html
 - what-to-bring/index.html
 - why-choose-active-oahu/index.html
+- wp-content/themes/activeoahu/template-parts/kayak-animation/kayakers.html

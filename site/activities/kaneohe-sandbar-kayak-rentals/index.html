@@ -19,7 +19,6 @@
 <meta content="Rent kayaks for Kaneohe Sandbar." name="twitter:description"/>
 <link href="/wp-content/plugins/weglot/dist/css/front-css.css?ver=5.5" id="weglot-css-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/weglot/dist/css/new-flags.css?ver=5.5" id="new-flag-css-css" media="all" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css?family=Lato%3A400%2C700%7COpen+Sans+Condensed%3A700&amp;ver=6.9.4" id="wpb-google-fonts-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css?ver=3.7.5" id="kadence-blocks-rowlayout-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-column.css?ver=3.7.5" id="kadence-blocks-column-css" media="all" rel="stylesheet" type="text/css"/>
 <link href="/wp-content/plugins/kadence-blocks/dist/style-blocks-image.css?ver=3.7.5" id="kadence-blocks-image-css" media="all" rel="stylesheet" type="text/css"/>
@@ -512,24 +511,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
-<script>
-(function() {
-  var loaded = false;
-  function loadFH() {
-    if (loaded) return;
-    loaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
-    s.async = true;
-    document.body.appendChild(s);
-  }
-  document.addEventListener('click', function(e) {
-    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
-      loadFH();
-    }
-  });
-  setTimeout(loadFH, 5000);
-})();
-</script>
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

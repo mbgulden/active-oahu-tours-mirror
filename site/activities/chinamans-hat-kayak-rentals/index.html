@@ -218,25 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>For a detailed step-by-step guide, check out our <a href="../chinamans-hat-kayak-complete-self-guided-tour-guide/">Complete Self-Guided Tour Guide to Chinaman’s Hat</a> with launch tips, tide info, and more.</p>
 <link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
-<script>
-(function() {
-  var loaded = false;
-  function loadFH() {
-    if (loaded) return;
-    loaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
-    s.async = true;
-    document.body.appendChild(s);
-  }
-  document.addEventListener('click', function(e) {
-    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
-      loadFH();
-    }
-  });
-  setTimeout(loadFH, 5000);
-})();
-</script>
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 <p><strong>Related:</strong> Check the <a href="../../guides/chinamans-hat-tide-guide/">Chinaman's Hat Tide Guide</a> for optimal paddling conditions and our <a href="../../oahu-launch-guide/">Oahu Kayak Launch Guide</a> for legal access points.</p>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Schema-Driven CTR Opportunities
 
-**Date:** 2026-06-11  
+**Date:** 2026-06-12  
 **Source Data:** Google Search Console (`sc-domain:activeoahutours.com`, last 6 months)  
 
 ---

@@ -836,29 +836,9 @@
 </div><!-- #page -->
 
 
-
-<!-- FareHarbor plugin activated --><script>
-// Lazy-load FareHarbor API on first booking interaction
-(function() {
-  var loaded = false;
-  function loadFH() {
-    if (loaded) return;
-    loaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://fareharbor.com/embeds/api/v1/?autolightframe=yes';
-    s.async = true;
-    document.body.appendChild(s);
-  }
-  // Load on first click anywhere on page (booking buttons use FH.open)
-  document.addEventListener('click', function(e) {
-    if (!loaded && e.target.closest('[onclick*="FH.open"]')) {
-      loadFH();
-    }
-  });
-  // Also load after 5s idle (for direct bookers)
-  setTimeout(loadFH, 5000);
-})();
-</script><!-- Banner Script -->
+<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
+</script>
+<!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1273,4 +1253,4 @@
 <!-- magnific popoup -->
 
 
-<script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477b73aca3c0a6',t:'MTc4MDI0NjI3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
