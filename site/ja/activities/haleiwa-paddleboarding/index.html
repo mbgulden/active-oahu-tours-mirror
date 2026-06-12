@@ -227,26 +227,50 @@ document.addEventListener('DOMContentLoaded', function() {
 {
   "@context": "https://schema.org",
   "@type": "TouristTrip",
-  "name": "スタンドアップパドルボードレッスン ハワイ州ハレイワ オアフ島ノースショアのグローSUP",
-  "description": "ハワイ州ハレイワでのオアフ島SUPレッスン。ハレイワ川でパドルを漕ぐだけでなく、レインボー・ウォータースポーツ・アドベンチャーズによる夜のグローSUPレッスンも行います。",
+  "name": "ハレイワ スタンドアップパドルボード（SUP）ツアー",
+  "description": "オアフ島ノースショアの歴史ある街ハレイワのハレイワ川を巡る、スタンドアップパドルボード（SUP）体験ツアーです。カメに出会えるパドリングや、幻想的なナイト・グローSUPツアーを提供しています。",
   "url": "https://activeoahutours.com/ja/activities/haleiwa-paddleboarding/",
-  "tourOperator": {
-    "@type": "TravelAgency",
-    "name": "Active Oahu Tours",
-    "url": "https://activeoahutours.com",
-    "telephone": "+1-808-123-4567"
-  },
   "touristType": [
-    "Adventure Travelers",
-    "Families",
-    "Couples",
-    "Groups"
+    "アドベンチャー旅行者",
+    "ファミリー",
+    "カップル",
+    "グループ"
   ],
   "offers": {
     "@type": "Offer",
     "priceCurrency": "USD",
+    "price": "69.00",
     "availability": "https://schema.org/InStock",
     "url": "https://activeoahutours.com/ja/activities/haleiwa-paddleboarding/"
+  },
+  "itinerary": {
+    "@type": "ItemList",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "集合 ＆ パドルの基礎講習",
+        "description": "インストラクターから安全対策とSUPボードの基本的な漕ぎ方についてレクチャーを受けます。"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ハレイワ川パドリング",
+        "description": "緑豊かなハレイワ川をゆっくり進み、ハワイアン・アオウミガメなどの野生動物を探します。"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "終了 ＆ ギア返却",
+        "description": "川を上り下りして集合場所に戻り、ツアー終了となります。"
+      }
+    ]
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "アクティブ・オアフ・ツアーズ",
+    "url": "https://activeoahutours.com/"
   }
 }
 </script>
