@@ -72,5 +72,8 @@
 /blog/* /:splat 301
 
 
+# Category archive pages (from WordPress)
+/category/kayaking-experiences/ /oahu-kayaking-and-beach-adventures/ 301
+
 # 404 catch-all — MUST BE LAST
 /* /404.html 404
