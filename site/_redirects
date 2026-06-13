@@ -51,5 +51,22 @@
 /author/* /about-active-oahu/ 301
 /activities/oahu-snorkel-tour/ /guides/sharks-cove-snorkeling-guide/ 301
 
+# Reviews pagination redirects
+/reviews /reviews/ 301
+/reviews/page/1/ /reviews/ 301
+/reviews/* /reviews/ 301
+
+
+# Old/missing slug wildcards
+/chinamans-hat-kayak-tour/* /activities/chinamans-hat-oahu-kayak-tours/:splat 301
+/kaneohe-bay-sandbar-kayak/* /kaneohe-sandbar/:splat 301
+/stand-up-paddleboard-rental/* /oahu-equipment-rentals/:splat 301
+/e-bike-rentals/* /electric-bike-rentals/:splat 301
+/snorkel-gear-rental/* /oahu-equipment-rentals/:splat 301
+/guided-kayak-tour-of-the-mokulua-islands/* /activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/:splat 301
+/kualoa-beach-park-and-chinamans-hat-kayak-rentals/* /activities/chinamans-hat-kayak-rentals/:splat 301
+/blog/* /:splat 301
+
+
 # 404 catch-all — MUST BE LAST
 /* /404.html 404
