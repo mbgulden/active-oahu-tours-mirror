@@ -1,0 +1,252 @@
+/* ========================================================================
+   Active Oahu Tours — Booking CTA Button Styles
+   GRO-1540: Styled booking CTA buttons matching site design
+   ========================================================================
+   Usage: Inject into <head> of any page via <link> or <style> tag.
+   Works alongside existing Kadence/Bootstrap button classes.
+   ======================================================================== */
+
+/* ------------------------------------------------------------------------ */
+/* 1. Custom Properties (Design Tokens — matches site :root)               */
+/* ------------------------------------------------------------------------ */
+:root {
+  /* Blue palette */
+  --aot-blue-800: #003366;
+  --aot-blue-600: #0B4A97;
+  --aot-blue-500: #069;
+  --aot-blue-400: #0085B0;
+
+  /* Orange/accent palette */
+  --aot-orange-600: #cc5500;
+  --aot-orange-500: #f60;
+  --aot-orange-400: #ff7f00;
+  --aot-orange-300: #ff9a33;
+
+  /* Neutrals */
+  --aot-white: #ffffff;
+  --aot-gray-100: #f8f8f8;
+  --aot-gray-200: #efefef;
+  --aot-gray-300: #ddd;
+  --aot-gray-600: #666;
+  --aot-gray-800: #333;
+
+  /* Shadows */
+  --aot-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --aot-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --aot-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+  /* Typography */
+  --aot-font-sans: "Open Sans Condensed", "Lato", system-ui, -apple-system, sans-serif;
+  --aot-font-body: "Lato", system-ui, -apple-system, sans-serif;
+}
+
+/* ------------------------------------------------------------------------ */
+/* 2. Base CTA Button                                                       */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-family: var(--aot-font-sans, "Open Sans Condensed", system-ui, sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.aot-cta-btn:hover {
+  text-decoration: none;
+}
+
+/* Remove default link underline on CTA buttons */
+a.aot-cta-btn {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------------ */
+/* 3. Primary CTA — Orange "Book Now"                                       */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn-primary {
+  color: var(--aot-white, #ffffff);
+  background-color: var(--aot-orange-500, #f60);
+  border-color: var(--aot-orange-600, #cc5500);
+  box-shadow: var(--aot-shadow-sm, 0 1px 3px rgba(0,0,0,0.12));
+}
+
+.aot-cta-btn-primary:hover,
+.aot-cta-btn-primary:active {
+  color: var(--aot-white, #ffffff);
+  background-color: var(--aot-orange-400, #ff7f00);
+  border-color: var(--aot-orange-500, #f60);
+  box-shadow: var(--aot-shadow-md, 0 2px 8px rgba(0,0,0,0.15));
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------------ */
+/* 4. Secondary CTA — Blue "Reserve Online" / "Check Availability"          */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn-secondary {
+  color: var(--aot-white, #ffffff);
+  background-color: var(--aot-blue-500, #069);
+  border-color: var(--aot-blue-400, #0085B0);
+  box-shadow: var(--aot-shadow-sm, 0 1px 3px rgba(0,0,0,0.12));
+}
+
+.aot-cta-btn-secondary:hover,
+.aot-cta-btn-secondary:active {
+  color: var(--aot-white, #ffffff);
+  background-color: var(--aot-blue-400, #0085B0);
+  border-color: var(--aot-blue-500, #069);
+  box-shadow: var(--aot-shadow-md, 0 2px 8px rgba(0,0,0,0.15));
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------------ */
+/* 5. Outline CTA — Subtle option for less prominent placements             */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn-outline {
+  color: var(--aot-orange-500, #f60);
+  background-color: transparent;
+  border-color: var(--aot-orange-500, #f60);
+}
+
+.aot-cta-btn-outline:hover,
+.aot-cta-btn-outline:active {
+  color: var(--aot-white, #ffffff);
+  background-color: var(--aot-orange-500, #f60);
+  border-color: var(--aot-orange-600, #cc5500);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------------ */
+/* 6. Sizes                                                                  */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn-sm {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+.aot-cta-btn-lg {
+  padding: 16px 36px;
+  font-size: 20px;
+}
+
+.aot-cta-btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------------ */
+/* 7. Focus-Visible State (Accessibility — WCAG 2.1 AA)                     */
+/* ------------------------------------------------------------------------ */
+.aot-cta-btn:focus-visible {
+  outline: 3px solid var(--aot-blue-600, #0B4A97);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* 8. Responsive Adjustments                                                */
+/* ------------------------------------------------------------------------ */
+
+/* Tablet: 768px and down */
+@media (max-width: 768px) {
+  .aot-cta-btn {
+    padding: 10px 22px;
+    font-size: 15px;
+  }
+
+  .aot-cta-btn-lg {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+
+  /* Full-width CTAs on mobile for easier tapping */
+  .aot-cta-btn-responsive {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Mobile: 480px and down */
+@media (max-width: 480px) {
+  .aot-cta-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .aot-cta-btn-lg {
+    padding: 14px 24px;
+    font-size: 17px;
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* 9. Placement Helpers — Drop-in for common CTA spots                      */
+/* ------------------------------------------------------------------------ */
+
+/* End-of-content CTA wrapper (single-book-cta replacement) */
+.aot-cta-wrapper {
+  text-align: center;
+  margin: 30px auto 50px auto;
+  clear: both;
+}
+
+/* Inline text link → CTA button upgrade */
+.aot-cta-inline-upgrade {
+  /* Apply to the <a> tag wrapping an inline FareHarbor text link */
+  display: inline-block;
+  padding: 8px 22px;
+  margin: 4px 0;
+  font-weight: 700;
+}
+
+/* Sticky mobile CTA (bottom of viewport) */
+.aot-cta-sticky-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .aot-cta-sticky-mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: var(--aot-white, #ffffff);
+    border-top: 2px solid var(--aot-orange-600, #cc5500);
+    padding: 10px 15px;
+    box-shadow: var(--aot-shadow-lg, 0 -2px 10px rgba(0,0,0,0.1));
+  }
+
+  .aot-cta-sticky-mobile .aot-cta-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  /* Push page content up so sticky CTA doesn't overlap */
+  body.has-aot-sticky-cta {
+    padding-bottom: 75px;
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* 10. Icon Support — Use with <span> inside the <a> or <button>           */
+/* ------------------------------------------------------------------------ */
+.aot-cta-icon {
+  margin-right: 6px;
+  font-size: 0.9em;
+}
