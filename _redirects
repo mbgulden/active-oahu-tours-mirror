@@ -1,6 +1,11 @@
-# Reviews pagination
+# Reviews pagination and missing reviews redirects
 /reviews /reviews/ 301
 /reviews/page/1/ /reviews/ 301
+/reviews/3-person-kayak-rental-alyssa /rentals/oahu-tandem-kayak-rentals 301
+/reviews/3-person-kayak-rental-remy /rentals/oahu-tandem-kayak-rentals 301
+/reviews/rental-deliveries-3 /oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu 301
+/reviews/* /reviews/ 301
+
 
 # Old/missing slug redirects
 /chinamans-hat-kayak-tour/* /activities/chinamans-hat-oahu-kayak-tours/:splat 301
