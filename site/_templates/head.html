@@ -184,4 +184,140 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 <!-- build: 1780339711.2951758 -->
 <!-- fp:935be793:_templates/head.html -->
+<style>
+/* ── Navigation Styles ── */
+.sub-menu { display: none; }
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .menu-toggle { display: none !important; }
+  .main-navigation .menu { display: flex !important; }
+}
+
+/* Mobile header: logo left, phone right */
+@media (max-width: 1023px) {
+  #branding {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 8px 12px !important;
+    height: auto !important;
+  }
+  #branding .aot-logo {
+    margin: 0 !important;
+    float: none !important;
+    max-width: 160px !important;
+  }
+  #branding .aot-logo img {
+    width: 150px !important;
+    height: auto !important;
+  }
+  #branding .social-header {
+    display: flex !important;
+    flex-flow: column !important;
+    align-items: flex-end !important;
+    float: none !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+  #branding .social-header-h3 {
+    font-size: 16px !important;
+    margin: 0 !important;
+    text-align: right !important;
+  }
+  #branding .social-header-h3::before {
+    content: none !important;
+  }
+  #branding .social-links {
+    float: none !important;
+    margin-top: 4px !important;
+  }
+  #branding .social-links .btn {
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+  }
+  #branding .lang-switcher {
+    display: none !important;
+  }
+}
+
+/* Japanese font fix — prevent tofu boxes */
+.lang-switcher, .weglot-flags, [href*="/ja/"] {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Yu Gothic", "MS PGothic", sans-serif;
+}
+</style>
+<script>
+// Nav dropdown + mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Mobile menu toggle (WordPress _s theme pattern) ---
+  var navContainer = document.getElementById('site-navigation');
+  var toggleBtn = document.querySelector('.menu-toggle');
+  if (navContainer && toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      navContainer.classList.toggle('toggled');
+      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+      toggleBtn.setAttribute('aria-expanded', expanded);
+    });
+  }
+
+  // --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
+  var isDesktop = window.innerWidth > 1023;
+  var subs = document.querySelectorAll('.sub-menu');
+  if (isDesktop) {
+    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  }
+  
+  function closeSiblings(li, keep) {
+    var parent = li.parentNode;
+    for (var i = 0; i < parent.children.length; i++) {
+      var sib = parent.children[i];
+      if (sib !== li) {
+        var sibSub = sib.querySelector('.sub-menu');
+        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
+      }
+    }
+  }
+  
+  var links = document.querySelectorAll('.menu-item-has-children > a');
+  for (var i = 0; i < links.length; i++) {
+    (function(link) {
+      link.addEventListener('click', function(e) {
+        if (!isDesktop) return; // Let CSS handle mobile
+        var li = link.parentNode;
+        var sub = null;
+        for (var j = 0; j < li.children.length; j++) {
+          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
+        }
+        if (sub) {
+          e.preventDefault();
+          closeSiblings(li, sub);
+          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
+        }
+      });
+    })(links[i]);
+  }
+  
+  document.addEventListener('click', function(e) {
+    if (!isDesktop) return; // Let CSS handle mobile
+    var el = e.target;
+    var inMenu = false;
+    while (el) {
+      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
+      el = el.parentNode;
+    }
+    if (!inMenu) {
+      var all = document.querySelectorAll('.sub-menu');
+      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
+    }
+  });
+});
+
+</script>
+<!-- FareHarbor preconnect + loading spinner styles -->
+<link rel="preconnect" href="https://fareharbor.com">
+<link rel="dns-prefetch" href="https://fareharbor.com">
+<style id="fh-loading-style">
+#fh-loading-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;z-index:99998;opacity:0;pointer-events:none;transition:opacity .2s ease}#fh-loading-overlay.active{opacity:1;pointer-events:all}#fh-loading-overlay .fh-spinner{width:48px;height:48px;border:4px solid #d0d0d0;border-top-color:#069;border-radius:50%;animation:fh-spin .7s linear infinite;margin:0 auto 12px}#fh-loading-overlay .fh-label{color:#069;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;text-align:center}@keyframes fh-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
 </head>
