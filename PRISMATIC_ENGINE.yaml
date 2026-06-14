@@ -1,114 +1,90 @@
-# ============================================================
-# PRISMATIC ENGINE — Lane Governance Configuration
-# ============================================================
-# Generated: 2026-06-12
-# Repo: active-oahu-static
-# 
-# Defines which agent lanes can write to which directories.
-# Enforced by the Git pre-push hook (GRO-1315) and swarm.js
-# file locking CLI (GRO-1314).
-# ============================================================
-
-version: "1.0.0"
-staging_governor: fred
-
-# ── Agent Lanes ────────────────────────────────────────
-lanes:
+# PRISMATIC ENGINE — Workspace Governance
+# Phase 1: Convention Layer
+# Converted: 2026-06-14 by Jules (GRO-1561)
+# Repo: active-oahu-tours-mirror
+#
+# This file governs how AI agents collaborate on this repository.
+# Every agent MUST respect lane assignments, branch conventions, and locking protocol.
+# Enforced by the Git pre-push hook (GRO-1315).
+version: 1.0.0
+agents:
   fred:
     role: Orchestrator & Staging Governor
-    write:
-      - "*"  # Fred owns everything — review gate
-    read_only: []
+    lanes:
+      owner:
+      - '*'
+      read_only: []
     branch_prefix: feature/
-    commit_prefix: "[Fred]"
-
+    staging_governor: true
   kai:
     role: Hawaii Tourism & Content Specialist
-    write:
+    lanes:
+      owner:
       - site/
       - _seo/
-    read_only:
+      read_only:
       - scripts/
     branch_prefix: kai/
-    commit_prefix: "[Kai]"
-
   ned:
     role: Code Execution & Infrastructure
-    write:
+    lanes:
+      owner:
       - scripts/
       - prismatic/
       - plugins/
-    read_only:
+      read_only:
       - site/
       - _seo/
     branch_prefix: ned/
-    commit_prefix: "[Ned]"
-
   agy:
     role: SEO Auditor & Researcher
-    write:
+    lanes:
+      owner:
       - _seo/
       - designs/
-    read_only:
+      read_only:
       - site/
       - scripts/
     branch_prefix: agy/
-    commit_prefix: "[AGY]"
-
   jules:
     role: PR Auditor & Documentation
-    write:
+    lanes:
+      owner:
       - docs/
       - README.md
-    read_only:
+      read_only:
       - site/
       - _seo/
     branch_prefix: jules/
-    commit_prefix: "[Jules]"
-
-# ── Branch Protection ──────────────────────────────────
-branches:
-  protected:
-    - main
-  staging: deploy-fresh
-  production: main
-
-# ── File Locking ───────────────────────────────────────
-locking:
-  lockfile: .antigravity/swarm_locks.json
-  heartbeat_interval: 60
-  stale_ttl: 300
-  cli: .antigravity/swarm.js
-
-# ── Commit Convention ──────────────────────────────────
-commits:
-  require_prefix: true
+staging:
+  governor: fred
+  branch: deploy-fresh
+locks:
+  file: .antigravity/swarm_locks.json
+  heartbeat_interval_s: 60
+  heartbeat_ttl_ms: 300000
+commit:
+  prefix_format: '[Agent] description (#ISSUE)'
   require_issue_ref: true
-  format: "[Agent] description (#ISSUE)"
-
-# ── Providers & Fallback (GRO-1476) ────────────────────
 providers:
   default: google-antigravity
-  fallback_chain: [claude-code]
-
-# ── Validation Pipeline (GRO-1476) ─────────────────────
+  fallback_chain:
+  - claude-code
 pipeline:
   phase1_development:
     stages:
-      - worker_implementation
-      - self_validation_loop
-      - peer_review
-      - fix_application
-      - orchestrator_approval
+    - worker_implementation
+    - self_validation_loop
+    - peer_review
+    - fix_application
+    - orchestrator_approval
   phase2_post_publish:
     trigger: github_push_detected
     stages:
-      - active_review
-      - read_only_review
-      - apply_suggestions
-      - publish_and_validate
-
-# ── Credit & Budget Policies (GRO-1476) ────────────────
+    - active_review
+    - read_only_review
+    - apply_suggestions
+    - publish_and_validate
 policies:
   global:
     monthly_budget: 10000
