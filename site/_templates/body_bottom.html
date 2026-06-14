@@ -1253,4 +1253,90 @@
 <!-- magnific popoup -->
 
 
+<!-- FareHarbor loading spinner + pre-warm -->
+<script>
+(function() {
+  'use strict';
+  // Create overlay element
+  var overlay = document.createElement('div');
+  overlay.id = 'fh-loading-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = '<div class="fh-spinner"></div><div class="fh-label">Loading booking...</div>';
+  document.body.appendChild(overlay);
+
+  var active = false;
+  var timer = null;
+  var poller = null;
+
+  function showSpinner() {
+    if (active) return;
+    active = true;
+    overlay.classList.add('active');
+
+    var checks = 0;
+    poller = setInterval(function() {
+      checks++;
+      // Detect FH lightbox by looking for FareHarbor DOM elements
+      var fhLb = document.querySelectorAll(
+        '[class*="fareharbor"],[class*="lightframe"],[class*="fh-modal"],' +
+        '[class*="fh-overlay"],.lightframe-parent,.fh-scroll-lock,' +
+        'iframe[src*="fareharbor"],iframe[src*="fh-"]'
+      );
+      if (fhLb.length > 0 || checks > 40) {
+        clearInterval(poller);
+        poller = null;
+        dismissSpinner();
+      }
+    }, 200);
+
+    timer = setTimeout(function() {
+      if (poller) { clearInterval(poller); poller = null; }
+      dismissSpinner();
+    }, 8000);
+  }
+
+  function dismissSpinner() {
+    active = false;
+    overlay.classList.remove('active');
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
+
+  // Pre-warm: preload the FareHarbor book page in hidden iframe
+  function prewarmFH() {
+    var pw = document.createElement('iframe');
+    pw.src = 'https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes';
+    pw.style.cssText = 'display:none!important;width:0!important;height:0!important';
+    pw.title = 'fareharbor-prewarm';
+    pw.setAttribute('aria-hidden', 'true');
+    pw.setAttribute('tabindex', '-1');
+    document.body.appendChild(pw);
+    setTimeout(function() {
+      if (pw.parentNode) pw.parentNode.removeChild(pw);
+    }, 4000);
+  }
+
+  // Intercept FH.open
+  function wrapFH() {
+    if (typeof FH !== 'undefined' && FH.open && !FH._kaiWrapped) {
+      FH._kaiWrapped = true;
+      var orig = FH.open;
+      FH.open = function(cfg) {
+        showSpinner();
+        return orig.call(FH, cfg);
+      };
+    }
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      prewarmFH();
+      wrapFH();
+    });
+  } else {
+    prewarmFH();
+    wrapFH();
+  }
+})();
+</script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477b73aca3c0a6',t:'MTc4MDI0NjI3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
