@@ -223,9 +223,9 @@ body #branding .aot-logo img {
 }
 
 /* --------------------------------------------------------------------------
-   3. MOBILE NAV (< 1024px) — single column, clean dividers
+   3. MOBILE NAV (< 768px) — single column, clean dividers
    -------------------------------------------------------------------------- */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
 
   /* Show hamburger, hide inline menu */
   .menu-toggle {

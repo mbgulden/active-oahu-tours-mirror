@@ -225,9 +225,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. Mobile Responsiveness (< 550px)
+   4. Mobile Responsiveness (< 768px)
    -------------------------------------------------------------------------- */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .menu-toggle {
     display: block !important;
     width: 100% !important;
