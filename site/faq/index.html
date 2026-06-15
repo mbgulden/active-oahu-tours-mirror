@@ -819,7 +819,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
 <section class="container-fluid">
 </section></main>
 <div style="text-align:center; margin:20px 0;">
-<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" style="padding:12px 30px; font-size:18px;" target="_blank">
 <strong>Book Now</strong>
 </a>
 </div><footer>
@@ -1331,7 +1331,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
   }
 </style>
 <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank">
 <strong>Book Now</strong>
 </a>
 </div>

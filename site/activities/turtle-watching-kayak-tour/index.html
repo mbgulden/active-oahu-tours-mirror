@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
           
           
-      <a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1128101" target="_blank" onclick="FH.open({'shortname':'activeoahutours','view':'items','fallback':'simple','flow':'1128101'}); return false;">
+      <a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1128101" target="_blank" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;">
       <div class="btn btn-primary">
           <strong>
             <span class="glyphicon glyphicon-calendar"></span> 
@@ -760,7 +760,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="col-sm-12">
             <h2>Reserve Your Turtle Watching Adventure</h2>
             <p>Spaces are limited to keep groups small and minimize wildlife disturbance. Book online to secure your spot. Come paddle with us and meet the honu of Kailua Bay.</p>
-            <a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1128101" target="_blank" onclick="FH.open({'shortname':'activeoahutours','view':'items','fallback':'simple','flow':'1128101'}); return false;">
+            <a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1128101" target="_blank" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;">
               <div class="btn btn-primary">
                 <strong>
                   <span class="glyphicon glyphicon-calendar"></span> 
@@ -950,7 +950,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 </style>
 <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank">
 <strong>Book Now</strong>
 </a>
 </div>

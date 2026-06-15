@@ -1507,7 +1507,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 </style>
 <div id="mobile-sticky-cta" class="mobile-sticky-cta">
-  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank" class="btn btn-primary">
+  <a href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank" class="btn btn-primary">
     <strong>Book Now</strong>
   </a>
 </div>

@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </li>
 </ul>
 </div>
-<a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1038571" onclick="FH.open({'shortname':'activeoahutours','view':'items','fallback':'simple','flow':'1038571'}); return false;" target="_blank">
+<a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1038571" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank">
 <div class="btn btn-primary">
 <strong>
 <span class="glyphicon glyphicon-calendar"></span>今すぐ予約する</strong>
@@ -697,7 +697,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 <div class="single-book-cta">
 <h2>カイルア湾とモクルア諸島のガイドなしカヤック ツアーを予約する</h2>
-<a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1038571" onclick="FH.open({'shortname':'activeoahutours','view':'items','fallback':'simple','flow':'1038571'}); return false;" target="_blank">
+<a href="https://fareharbor.com/embeds/book/activeoahutours/?flow=1038571" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank">
 <div class="btn btn-primary">
 <strong>
 <span class="glyphicon glyphicon-calendar"></span>今すぐ予約する</strong>
@@ -1206,8 +1206,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 </style>
 <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
-<strong>Book Now</strong>
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="var i=document.body.getAttribute('data-item-id');if(i&&window.FH){FH.open({'shortname':'activeoahutours','view':{'item':i},'fallback':'simple'});return false;}FH.open({'shortname':'activeoahutours','fallback':'simple'});return false;" target="_blank">
+<strong>ご予約はこちら</strong>
 </a>
 </div>
 <script>
