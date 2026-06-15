@@ -1,0 +1,328 @@
+/* ==========================================================================
+   MOBILE CTA & TRUST BLOCK VISIBILITY AUDIT — Kai-CSS GRO-1713
+   Sub-task of GRO-1680
+   Audit date: June 15, 2026
+   ==========================================================================
+   
+   FINDINGS SUMMARY
+   -----------------
+   1. CTA BUTTON HIERARCHY (375px): The primary "Book Online" FH button
+      in the header is well-positioned. However, the FareHarbor booking CTAs
+      in the activities listing (lines 757, 812, 867 of index.html) use
+      .listing-book-button with float:right which collapses on narrow widths.
+      
+   2. TRUST SIGNALS: Review items (.review-item) go 100% width at 460px
+      and are below the fold on most mobile pages. The Trustpilot/TripAdvisor
+      widget loads dynamically and often pushes below fold. No trust badges
+      or guarantee statements are visible above the fold.
+      
+   3. STICKY HEADER: The .sticky class (position:fixed, z-index:100) exists
+      but is NOT applied to the nav on mobile — the nav scrolls with content.
+      The social-header has z-index:20. No fixed/sticky header element could
+      obscure CTAs on mobile since nothing is position:fixed on mobile widths.
+      
+   4. MISSING MOBILE-SPECIFIC CTA ELEMENTS: No sticky "Book Now" or "Call"
+      floating button at the bottom of the viewport on mobile — a common
+      conversion pattern for local/tour businesses.
+   
+   RECOMMENDATIONS
+   ---------------
+   A. Add a sticky mobile CTA bar at the bottom of the viewport
+   B. Improve CTA button sizing on mobile for tap targets (min 44x44pt)
+   C. Surface trust signals (rating, reviews) above the fold
+   D. Fix FareHarbor booking button layout in activity listings
+   
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A — STICKY MOBILE CTA BAR
+   Fixed at bottom of viewport on mobile only.
+   Contains: Phone call + Book Now buttons.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .aot-mobile-cta-bar {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: var(--color-white, #ffffff) !important;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.12) !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .aot-mobile-cta-bar .aot-cta-btn {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    border-radius: var(--border-radius-md, 8px) !important;
+    font-family: var(--font-display, "Open Sans Condensed", sans-serif) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    min-height: 44px !important; /* iOS minimum tap target */
+    transition: all var(--transition-fast, 0.15s ease) !important;
+  }
+
+  .aot-cta-btn-call {
+    background: var(--color-accent-orange, #FF6600) !important;
+    color: var(--color-white, #ffffff) !important;
+    border: none !important;
+  }
+
+  .aot-cta-btn-call:hover,
+  .aot-cta-btn-call:focus {
+    background: var(--color-accent-orange-hover, #e55a00) !important;
+    color: var(--color-white, #ffffff) !important;
+  }
+
+  .aot-cta-btn-book {
+    background: var(--color-secondary-blue, #006699) !important;
+    color: var(--color-white, #ffffff) !important;
+    border: none !important;
+  }
+
+  .aot-cta-btn-book:hover,
+  .aot-cta-btn-book:focus {
+    background: var(--color-primary-blue, #0285B1) !important;
+    color: var(--color-white, #ffffff) !important;
+  }
+
+  /* Add bottom padding to body so content isn't hidden behind CTA bar */
+  body {
+    padding-bottom: 64px !important;
+  }
+
+  /* Ensure FareHarbor modal isn't behind the bar */
+  .aot-mobile-cta-bar {
+    pointer-events: auto !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   B — MOBILE CTA BUTTON SIZING & TAP TARGETS
+   Ensure all booking CTAs meet 44x44pt minimum tap target on mobile.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* FareHarbor booking buttons in listings */
+  .listing-book-button a,
+  .listing-book-button .btn,
+  .single-book-cta a,
+  .single-book-cta .btn {
+    display: block !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    border-radius: var(--border-radius-sm, 4px) !important;
+  }
+
+  /* Fix float-based CTA layout on mobile */
+  .listing-book-button {
+    float: none !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Kadence block CTAs on homepage */
+  .kb-button.kt-btn-size-standard {
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Carousel CTA button */
+  .carousel-caption .btn {
+    min-height: 44px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   C — TRUST SIGNALS ABOVE THE FOLD ON MOBILE
+   Surfacing reviews and ratings higher in the layout.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Move review section closer to top content */
+  .review-container {
+    margin-top: 16px !important;
+  }
+
+  .review-item {
+    width: 100% !important;
+    padding-right: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .review-item:first-child {
+    display: block !important;
+  }
+
+  /* TripAdvisor/TripAdvisor ratings widget */
+  .TA_cdsratingsonlynarrow {
+    margin: 8px 0 !important;
+    text-align: center !important;
+  }
+
+  /* Highlight star ratings */
+  .review-stars {
+    width: auto !important;
+    float: none !important;
+    display: inline-block !important;
+    margin-right: 8px !important;
+  }
+
+  /* Trust badges / guarantee notices */
+  .aot-trust-badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    padding: 12px 0 !important;
+    margin: 8px 0 !important;
+  }
+
+  .aot-trust-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 12px !important;
+    color: var(--color-text-muted, #586E75) !important;
+    font-family: var(--font-body, "Lato", sans-serif) !important;
+  }
+
+  .aot-trust-badge svg {
+    flex-shrink: 0 !important;
+  }
+
+  /* Top review excerpt — show above fold */
+  .aot-featured-review {
+    background: var(--color-bg-gray, #F8F8F8) !important;
+    border-left: 3px solid var(--color-accent-orange, #FF6600) !important;
+    padding: 12px !important;
+    margin: 12px 0 !important;
+    border-radius: var(--border-radius-sm, 4px) !important;
+  }
+
+  .aot-featured-review p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    color: var(--color-text-dark, #333333) !important;
+    font-style: italic !important;
+  }
+
+  .aot-featured-review .aot-featured-review-author {
+    font-size: 12px !important;
+    color: var(--color-text-muted, #586E75) !important;
+    margin-top: 4px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+  }
+
+  .aot-featured-review .aot-featured-review-stars {
+    color: var(--color-star-gold, #f0ad4e) !important;
+    margin-bottom: 4px !important;
+    font-size: 16px !important;
+  }
+
+  /* Featured review on homepage hero area */
+  .bilboard-item-hero-content .aot-featured-review {
+    background: rgba(0,0,0,0.3) !important;
+    border-left-color: var(--color-accent-orange, #FF6600) !important;
+  }
+
+  .bilboard-item-hero-content .aot-featured-review p {
+    color: var(--color-white, #ffffff) !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   D — FAR EHARBOR BOOKING BUTTON FIXES IN ACTIVITY LISTINGS
+   Fix collapsed float-based booking buttons on mobile widths.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .listing-book-button {
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    clear: both !important;
+  }
+
+  .listing-book-button .btn.btn-primary,
+  .listing-book-button a {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Homepage "Rent Kayaks & Beach Gear" CTA */
+  .home .btn-info.text-center {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    margin: 8px 0 !important;
+    font-size: 14px !important;
+  }
+
+  /* Single tour page CTA */
+  .single-book-cta a {
+    margin: 0 auto 24px auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   E — GENERAL MOBILE CONVERSION IMPROVEMENTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Ensure "Call or Text" number is tappable */
+  .social-header-h3 a,
+  .social-header .feature {
+    pointer-events: auto !important;
+    text-decoration: underline !important;
+  }
+}
+
+@media (max-width: 479px) {
+  /* Tighten spacing on smallest screens */
+  .listing-book-button {
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .listing-book-button .btn.btn-primary,
+  .listing-book-button a {
+    padding: 10px !important;
+    font-size: 13px !important;
+  }
+}
