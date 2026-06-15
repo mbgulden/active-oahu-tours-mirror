@@ -155,9 +155,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" href="/ja/" hreflang="ja"/>
 <script type="application/json" id="weglot-data">{"website":"https:\/\/activeoahutours.com\/","uid":"e1754302a6","project_slug":"aot","deleted_at":null,"language_from":"en","language_from_custom_flag":"us","language_from_custom_name":null,"auto_switch":false,"auto_switch_fallback":null,"translation_engine":3,"excluded_paths":[{"type":"CONTAIN","value":"\/sitemap_index.xml","language_button_displayed":false,"exclusion_behavior":"REDIRECT","excluded_languages":[],"regex":"\/sitemap_index\\.xml"},{"type":"CONTAIN","value":"sitemap","language_button_displayed":false,"exclusion_behavior":"REDIRECT","excluded_languages":[],"regex":"sitemap"}],"excluded_blocks":[],"dynamics":[],"custom_settings":{"button_style":{"with_flags":true,"flag_type":"rectangle_mat","with_name":true,"full_name":true,"custom_css":"","is_dropdown":false},"translate_email":false,"translate_search":false,"translate_amp":false,"switchers":[{"templates":{"name":"default","hash":"cce4ff11c363cb04c771312b7262a91cd3aee9bc"},"location":[],"style":{"with_flags":true,"flag_type":"rectangle_mat","with_name":true,"full_name":true,"is_dropdown":false}}]},"media_enabled":false,"external_enabled":false,"page_views_enabled":false,"versions":{"translation":1777946288,"slugTranslation":1649797085},"pending_translation_enabled":false,"curl_ssl_check_enabled":true,"custom_css":null,"languages":[{"language_to":"ja","custom_code":null,"custom_name":null,"custom_local_name":null,"provider":null,"enabled":true,"automatic_translation_enabled":true,"deleted_at":null,"connect_host_destination":null,"custom_flag":null}],"category":1,"organization_slug":"w-076fb259cb","technology_id":1,"technology_name":"WordPress","api_domain":"cdn-api-weglot.com","api_base_url":"https:\/\/cdn-api-weglot.com","product":"1.0","current_language":"en","switcher_links":{"en":"https:\/\/activeoahutours.com\/","ja":"https:\/\/activeoahutours.com\/ja\/"},"original_path":"\/"}</script>
 <style type="text/css" id="breadcrumb-trail-css">.breadcrumbs .trail-browse,.breadcrumbs .trail-items,.breadcrumbs .trail-items li {display: inline-block;margin:0;padding: 0;border:none;background:transparent;text-indent: 0;}.breadcrumbs .trail-browse {font-size: inherit;font-style:inherit;font-weight: inherit;color: inherit;}.breadcrumbs .trail-items {list-style: none;}.trail-items li::after {content: "\002F";padding: 0 0.5em;}.trail-items li:last-of-type::after {display: none;}</style>
-<link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-32x32.png" sizes="32x32" />
-<link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-180x180.png" />
+<link rel="icon" href="wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-32x32.png" sizes="32x32" />
+<link rel="icon" href="wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-180x180.png" />
 <meta name="msapplication-TileImage" content="https://activeoahutours.com/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-270x270.png" />
   <!-- Inline script to set initial state -->
     <!-- Other head content -->
@@ -184,6 +184,142 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 <!-- build: 1780339711.2951758 -->
 <!-- fp:935be793:_templates/head.html -->
+<style>
+/* ── Navigation Styles ── */
+.sub-menu { display: none; }
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .menu-toggle { display: none !important; }
+  .main-navigation .menu { display: flex !important; }
+}
+
+/* Mobile header: logo left, phone right */
+@media (max-width: 1023px) {
+  #branding {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 8px 12px !important;
+    height: auto !important;
+  }
+  #branding .aot-logo {
+    margin: 0 !important;
+    float: none !important;
+    max-width: 160px !important;
+  }
+  #branding .aot-logo img {
+    width: 150px !important;
+    height: auto !important;
+  }
+  #branding .social-header {
+    display: flex !important;
+    flex-flow: column !important;
+    align-items: flex-end !important;
+    float: none !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+  #branding .social-header-h3 {
+    font-size: 16px !important;
+    margin: 0 !important;
+    text-align: right !important;
+  }
+  #branding .social-header-h3::before {
+    content: none !important;
+  }
+  #branding .social-links {
+    float: none !important;
+    margin-top: 4px !important;
+  }
+  #branding .social-links .btn {
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+  }
+  #branding .lang-switcher {
+    display: none !important;
+  }
+}
+
+/* Japanese font fix — prevent tofu boxes */
+.lang-switcher, .weglot-flags, [href*="/ja/"] {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Yu Gothic", "MS PGothic", sans-serif;
+}
+</style>
+<script>
+// Nav dropdown + mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Mobile menu toggle (WordPress _s theme pattern) ---
+  var navContainer = document.getElementById('site-navigation');
+  var toggleBtn = document.querySelector('.menu-toggle');
+  if (navContainer && toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      navContainer.classList.toggle('toggled');
+      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+      toggleBtn.setAttribute('aria-expanded', expanded);
+    });
+  }
+
+  // --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
+  var isDesktop = window.innerWidth > 1023;
+  var subs = document.querySelectorAll('.sub-menu');
+  if (isDesktop) {
+    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
+  }
+  
+  function closeSiblings(li, keep) {
+    var parent = li.parentNode;
+    for (var i = 0; i < parent.children.length; i++) {
+      var sib = parent.children[i];
+      if (sib !== li) {
+        var sibSub = sib.querySelector('.sub-menu');
+        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
+      }
+    }
+  }
+  
+  var links = document.querySelectorAll('.menu-item-has-children > a');
+  for (var i = 0; i < links.length; i++) {
+    (function(link) {
+      link.addEventListener('click', function(e) {
+        if (!isDesktop) return; // Let CSS handle mobile
+        var li = link.parentNode;
+        var sub = null;
+        for (var j = 0; j < li.children.length; j++) {
+          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
+        }
+        if (sub) {
+          e.preventDefault();
+          closeSiblings(li, sub);
+          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
+        }
+      });
+    })(links[i]);
+  }
+  
+  document.addEventListener('click', function(e) {
+    if (!isDesktop) return; // Let CSS handle mobile
+    var el = e.target;
+    var inMenu = false;
+    while (el) {
+      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
+      el = el.parentNode;
+    }
+    if (!inMenu) {
+      var all = document.querySelectorAll('.sub-menu');
+      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
+    }
+  });
+});
+
+</script>
+<!-- FareHarbor preconnect + loading spinner styles -->
+<link rel="preconnect" href="https://fareharbor.com">
+<link rel="dns-prefetch" href="https://fareharbor.com">
+<style id="fh-loading-style">
+#fh-loading-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;z-index:99998;opacity:0;pointer-events:none;transition:opacity .2s ease}#fh-loading-overlay.active{opacity:1;pointer-events:all}#fh-loading-overlay .fh-spinner{width:48px;height:48px;border:4px solid #d0d0d0;border-top-color:#069;border-radius:50%;animation:fh-spin .7s linear infinite;margin:0 auto 12px}#fh-loading-overlay .fh-label{color:#069;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;text-align:center}@keyframes fh-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
 <script type='application/ld+json'>{"@context": "https://schema.org", "@type": "TouristTrip", "name": "Self-Guided Oahu Kayak Tours \u2014 Rentals & Route Maps", "description": "Explore Oahu at your own pace with self-guided kayak tours. Kayak rental delivery, route maps, and support from Oahu\u2019s top-rated outfitter.", "touristType": "Self-Guided", "provider": {"@type": "TravelAgency", "name": "Active Oahu, LLC", "url": "https://activeoahutours.com/"}}</script>
 </head>
 <body class="home wp-singular page-template-default page page-id-2389 wp-theme-activeoahu">
@@ -218,7 +354,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <section id="branding">
             <div class="aot-logo">
               <span class="site-title">
-                <a href="/index.html" rel="home" data-instant>
+                <a href="index.html" rel="home" data-instant>
                   <img loading="lazy" alt="Active Oahu Tours, Oahu Hawaii Activities" src="wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
                 </a>
               </span>
@@ -479,6 +615,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </section>
 
+
+
+
     <div id="content" class="site-content">
 
     <div id="content" class="site-content">
@@ -535,11 +674,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           
           <div class="col col-xs-4">
-            <a href="/rentals/index.html" data-instant>
+            <a href="rentals/index.html" data-instant>
               <div class="featured-three"><img alt="Beach Gear Rentals" class="hover-opacity" src="wp-content/uploads/2019/06/Rentals-2.png" width="200" height="115">
               </div>
             </a>
-            <a href="/rentals/index.html" data-instant>
+            <a href="rentals/index.html" data-instant>
               <h4 class="center-text feature">
                 Beach Gear Rentals              </h4>
             </a>
@@ -549,11 +688,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           
           <div class="col col-xs-4">
-            <a href="/rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
+            <a href="rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
               <div class="featured-three"><img alt="Need Kayaks Today? " class="hover-opacity" src="wp-content/uploads/2022/04/Rentals-3.png" width="200" height="115">
               </div>
             </a>
-            <a href="/rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
+            <a href="rentals/oahu-tandem-kayak-rentals/index.html" data-instant>
               <h4 class="center-text feature">
                 Need Kayaks Today?               </h4>
             </a>
@@ -603,7 +742,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col col-xs-12">
             <img src="wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg" alt="Oahu Kayak Rentals" width="337" height="168" loading="lazy" />
       
-      <a href="/activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" data-instant>
+      <a href="activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" data-instant>
         <h3>
           Chinaman&#8217;s Hat Self-Guided Kayak Tour        </h3>
       </a>
@@ -622,7 +761,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="col col-xxs-4">
-          <a class="listing-more" href="/activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
+          <a class="listing-more" href="activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
         </div>
 
       </div>
@@ -658,7 +797,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col col-xs-12">
             <img src="wp-content/uploads/2023/03/lanikai-Kayak-rental-480x320.jpg" alt="kailua-lanikai-kayak-rental-mokes-oahu" width="337" height="168" loading="lazy" />
       
-      <a href="../activities/kailua-kayak-twin-islands-guided-tour/" data-instant>
+      <a href="activities/kailua-kayak-twin-islands-guided-tour/" data-instant>
         <h3>
           Mokulua Islands Guided Kayak Tour, Kailua&#8217;s Twin Islands        </h3>
       </a>
@@ -677,7 +816,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="col col-xxs-4">
-          <a class="listing-more" href="../activities/kailua-kayak-twin-islands-guided-tour/" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
+          <a class="listing-more" href="activities/kailua-kayak-twin-islands-guided-tour/" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
         </div>
 
       </div>
@@ -713,7 +852,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col col-xs-12">
             <img src="wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg" alt="Best Oahu Kayak Tour" width="337" height="168" loading="lazy" />
       
-      <a href="/activities/rainforest-oahu-kayak-tour.html" data-instant>
+      <a href="activities/rainforest-oahu-kayak-tour.html" data-instant>
         <h3>
           Kahana Rainforest River Kayak Self-Guided Tour        </h3>
       </a>
@@ -732,7 +871,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="col col-xxs-4">
-          <a class="listing-more" href="/activities/rainforest-oahu-kayak-tour.html" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
+          <a class="listing-more" href="activities/rainforest-oahu-kayak-tour.html" data-instant><strong>More Info</strong> <span class="glyphicon glyphicon-arrow-right"></span></a>
         </div>
 
       </div>
@@ -852,7 +991,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="row">
 
                 <div class="front-page-packages text-center">
-                  <a href="/activities/rainforest-oahu-kayak-tour.html" class="darken" style="background-image: url('wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg')">
+                  <a href="activities/rainforest-oahu-kayak-tour.html" class="darken" style="background-image: url('wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg')">
                     <h5 class="package-front-text">Self-Guided Kayak Tour</h5>
                     <h3 class="feature package-margins">Rainforest River</h3>
                     <h5 class="package-margins activity-front-text">Jungle With Great views</h5>
@@ -863,7 +1002,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
 
                 <div class="front-page-packages text-center">
-                  <a href="/activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" class="darken" style="background-image: url('wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg')">
+                  <a href="activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html" class="darken" style="background-image: url('wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg')">
                     <h5 class="package-front-text">Self-Guided Kayak Tour</h5>
                     <h3 class="feature package-margins">Chinaman's Hat</h3>
                     <h5 class="package-margins activity-front-text">Ocean Kayak & Hike</h5>
@@ -893,7 +1032,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <p><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;We are based out of Kailua where we have our storefront. Make a reservation with us and we will set you up with kayaks, beach gear and amazing self-guided experiences.&quot;}" data-sheets-userformat="{&quot;2&quot;:15299,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;9&quot;:0,&quot;10&quot;:0,&quot;11&quot;:4,&quot;12&quot;:0,&quot;14&quot;:{&quot;1&quot;:2,&quot;2&quot;:5795445},&quot;15&quot;:&quot;Arial&quot;,&quot;16&quot;:11}">We are based out of Kailua where we have our storefront. Make a reservation with us and we will set you up with kayaks, beach gear and amazing self-guided experiences.</span></p>
 <p><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;We provide a rental service and can suggest some of the best places to experience Oahu’s natural beauty. We also have some hand-picked self-guided experiences that are perfect if you are looking for something specific, pre-planned, and approachable but don’t have the time to do the research and extra planning that comes with a regular rental.&quot;}" data-sheets-userformat="{&quot;2&quot;:15299,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;9&quot;:0,&quot;10&quot;:0,&quot;11&quot;:4,&quot;12&quot;:0,&quot;14&quot;:{&quot;1&quot;:2,&quot;2&quot;:5795445},&quot;15&quot;:&quot;Arial&quot;,&quot;16&quot;:11}">We provide a rental service and can suggest some of the best places to experience Oahu’s natural beauty. We also have some hand-picked self-guided experiences that are perfect if you are looking for something specific, pre-planned, and approachable but don’t have the time to do the research and extra planning that comes with a regular rental.</span></p>
-<p>We offer self-guided stand-up paddle boarding or self-guided kayak tours on a <a href="/activities/rainforest-oahu-kayak-tour.html">secluded river in Kahana Valley</a> and ocean <a href="/activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html">kayaking to Mokolii, Chinaman&#8217;s Hat,</a> where you can hike and see amazing views. We also offer <a href="../activities/kailua-bay-mokulua-island-self-guided-kayak-tour/">kayaking to the Mokulua islands</a> in Kailua Bay where you will get a permit from our team to land your kayak on the beach of the bird sanctuaries of Popoia island (Flat island) or Moku Nui, one of the Mokulua Islands (Twin Islands).</p>
+<p>We offer self-guided stand-up paddle boarding or self-guided kayak tours on a <a href="activities/rainforest-oahu-kayak-tour.html">secluded river in Kahana Valley</a> and ocean <a href="activities/chinamans-hat-self-guided-oahu-kayak-tour/index.html">kayaking to Mokolii, Chinaman&#8217;s Hat,</a> where you can hike and see amazing views. We also offer <a href="activities/kailua-bay-mokulua-island-self-guided-kayak-tour/">kayaking to the Mokulua islands</a> in Kailua Bay where you will get a permit from our team to land your kayak on the beach of the bird sanctuaries of Popoia island (Flat island) or Moku Nui, one of the Mokulua Islands (Twin Islands).</p>
 <p>Join us for a single activity or do a multi-day rental so you can keep adventuring for your whole trip. We help make your Oahu kayaking adventures a breeze so you have more time on the water packed with priceless memories that you can take home with you.</p>
 
             <div>
@@ -907,15 +1046,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="testemonials col col-md-6 col-lg-7">
             <div class="front-page">
               
-              <h2><a href="/about-active-oahu-tours/awards/index.html">Awards</a></h2>
+              <h2><a href="about-active-oahu-tours/awards/index.html">Awards</a></h2>
               <div class="row">
                 <div class="col-sm-4">
                   <img src="wp-content/uploads/2022/07/TC_2022_L_TRANSPARENT_BG_RGB.svg" alt="Active Oahu 2022 Travelers' Choice Award" class="wp-image-2404" width="170" height="200" style="display: block; margin: 0 auto; max-width: 170px; width: 100%;" loading="lazy">
                 </div>
                 <div class="col-sm-8">
-                  <h2><a href="/ja/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html">Active Oahu, LLC Wins 2022 Tripadvisor Travelers’ Choice Award for Tours and Activities</a></h2>
+                  <h2><a href="ja/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html">Active Oahu, LLC Wins 2022 Tripadvisor Travelers’ Choice Award for Tours and Activities</a></h2>
                   <p>Travelers’ Choice recognizes businesses that consistently deliver great service. Active Oahu, LLC ranks among the top 10% of listings on Tripadvisor. </p>
-                  <p><a href="/ja/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html">View our award press release</a></p>
+                  <p><a href="ja/active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html">View our award press release</a></p>
                 </div>
               </div>
               <h2>Testimonials</h2>
@@ -1012,10 +1151,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <br>
           <hr>
 
-          <h4><a href="/join-the-team/index.html">Join The Team</a></h4>
+          <h4><a href="join-the-team/index.html">Join The Team</a></h4>
           <p>You think you have what it takes?</p>
 
-          <a href="/join-the-team/index.html">
+          <a href="join-the-team/index.html">
             <strong>View Job Openings</strong> <span class="glyphicon glyphicon-arrow-right"></span>
           </a>
         </div>
@@ -1033,7 +1172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 ">
 
                                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1067,7 +1206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1101,7 +1240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1135,7 +1274,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1169,7 +1308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1203,7 +1342,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1237,7 +1376,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1271,7 +1410,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </a>
 
                 
-                <a href="/active-oahu-photo-gallery/index.html" style="
+                <a href="active-oahu-photo-gallery/index.html" style="
     position: relative;
     float: left;
     overflow: hidden;
@@ -1309,7 +1448,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
           
-          <a href="/active-oahu-photo-gallery/index.html">
+          <a href="active-oahu-photo-gallery/index.html">
             <strong>View the Gallery</strong> <span class="glyphicon glyphicon-arrow-right"></span>
           </a>
         </div>
@@ -1324,9 +1463,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col col-lg-12">
             <nav>
               <ul class="breadcrumb">
-                <li><a href="/about-active-oahu-tours/index.html">About Active Oahu Tours</a></li>
-                <li><a href="/cancellation-policy/index.html">Cancellation Policy</a></li>
-                <li><a href="/privacy-policy/index.html">Privacy Policy</a></li>
+                <li><a href="about-active-oahu-tours/index.html">About Active Oahu Tours</a></li>
+                <li><a href="cancellation-policy/index.html">Cancellation Policy</a></li>
+                <li><a href="privacy-policy/index.html">Privacy Policy</a></li>
                 <li>© Active Oahu, LLC 2026</li>
               </ul>
             </nav>
@@ -1345,63 +1484,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script><!-- Banner Script -->
 
-<!-- FareHarbor Loading Overlay (GRO-1301) -->
-<style>
-  .fh-loading-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 100001;
-    justify-content: center;
-    align-items: center;
-  }
-  .fh-loading-overlay.active { display: flex; }
-  .fh-loading-spinner {
-    width: 50px; height: 50px;
-    border: 5px solid #fff;
-    border-top: 5px solid #cc5500;
-    border-radius: 50%;
-    animation: fh-spin 0.8s linear infinite;
-  }
-  @keyframes fh-spin { to { transform: rotate(360deg); } }
-  .fh-loading-text {
-    color: #fff; margin-top: 15px;
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 18px; text-align: center;
-  }
-</style>
-<div id="fh-loading-overlay" class="fh-loading-overlay">
-  <div style="text-align:center;">
-    <div class="fh-loading-spinner"></div>
-    <div class="fh-loading-text">Loading booking calendar...</div>
-  </div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var overlay = document.getElementById("fh-loading-overlay");
-    if (!overlay) return;
-    // Intercept all FareHarbor booking links
-    document.addEventListener("click", function(e) {
-      var target = e.target.closest ? e.target.closest("a[onclick*='FH.open']") : null;
-      if (!target) return;
-      overlay.classList.add("active");
-      // Hide overlay after 8s max (in case FH fails to load)
-      setTimeout(function() { overlay.classList.remove("active"); }, 8000);
-    });
-    // Hide overlay when FH iframe appears (polling method)
-    var checkFH = setInterval(function() {
-      if (document.querySelector(".fareharbor-lightframe, .fh-lightframe, iframe[src*='fareharbor']")) {
-        overlay.classList.remove("active");
-        clearInterval(checkFH);
-      }
-    }, 500);
-    // Also hide if FH is not available
-    if (typeof FH === "undefined") {
-      setTimeout(function() { overlay.classList.remove("active"); }, 1000);
-    }
-  });
-</script>
+<!-- Booking blocking overlays removed (GRO-1755) -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1864,6 +1947,92 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- magnific popoup -->
 
+<!-- FareHarbor loading spinner + pre-warm -->
+<script>
+(function() {
+  'use strict';
+  // Create overlay element
+  var overlay = document.createElement('div');
+  overlay.id = 'fh-loading-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = '<div class="fh-spinner"></div><div class="fh-label">Loading booking...</div>';
+  document.body.appendChild(overlay);
+
+  var active = false;
+  var timer = null;
+  var poller = null;
+
+  function showSpinner() {
+    if (active) return;
+    active = true;
+    overlay.classList.add('active');
+
+    var checks = 0;
+    poller = setInterval(function() {
+      checks++;
+      // Detect FH lightbox by looking for FareHarbor DOM elements
+      var fhLb = document.querySelectorAll(
+        '[class*="fareharbor"],[class*="lightframe"],[class*="fh-modal"],' +
+        '[class*="fh-overlay"],.lightframe-parent,.fh-scroll-lock,' +
+        'iframe[src*="fareharbor"],iframe[src*="fh-"]'
+      );
+      if (fhLb.length > 0 || checks > 40) {
+        clearInterval(poller);
+        poller = null;
+        dismissSpinner();
+      }
+    }, 200);
+
+    timer = setTimeout(function() {
+      if (poller) { clearInterval(poller); poller = null; }
+      dismissSpinner();
+    }, 8000);
+  }
+
+  function dismissSpinner() {
+    active = false;
+    overlay.classList.remove('active');
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
+
+  // Pre-warm: preload the FareHarbor book page in hidden iframe
+  function prewarmFH() {
+    var pw = document.createElement('iframe');
+    pw.src = 'https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes';
+    pw.style.cssText = 'display:none!important;width:0!important;height:0!important';
+    pw.title = 'fareharbor-prewarm';
+    pw.setAttribute('aria-hidden', 'true');
+    pw.setAttribute('tabindex', '-1');
+    document.body.appendChild(pw);
+    setTimeout(function() {
+      if (pw.parentNode) pw.parentNode.removeChild(pw);
+    }, 4000);
+  }
+
+  // Intercept FH.open
+  function wrapFH() {
+    if (typeof FH !== 'undefined' && FH.open && !FH._kaiWrapped) {
+      FH._kaiWrapped = true;
+      var orig = FH.open;
+      FH.open = function(cfg) {
+        showSpinner();
+        return orig.call(FH, cfg);
+      };
+    }
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      prewarmFH();
+      wrapFH();
+    });
+  } else {
+    prewarmFH();
+    wrapFH();
+  }
+})();
+</script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477b73aca3c0a6',t:'MTc4MDI0NjI3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </body>
 </html>
