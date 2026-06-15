@@ -219,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script defer="" id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1510,117 +1509,7 @@ href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kaneohe-san
 <!-- FareHarbor plugin activated --><link crossorigin="" href="https://fareharbor.com" rel="preconnect"/>
 <link href="https://fareharbor.com" rel="dns-prefetch"/>
 <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
-<!-- Booking Progress Indicator (GRO-1303) -->
 
-<!-- Booking Progress Indicator (GRO-1303) -->
-<style>
-  .fh-progress-container {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    z-index: 100002;
-    background: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-    text-align: center;
-    min-width: 300px;
-  }
-  .fh-progress-container.active { display: block; }
-  .fh-progress-steps {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    gap: 0;
-  }
-  .fh-step {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: bold; font-size: 16px;
-    background: #e0e0e0; color: #999;
-    position: relative;
-  }
-  .fh-step.active { background: #cc5500; color: #fff; }
-  .fh-step.done { background: #3d8b3d; color: #fff; }
-  .fh-step-connector {
-    width: 40px; height: 3px;
-    background: #e0e0e0;
-    align-self: center;
-  }
-  .fh-step-connector.done { background: #3d8b3d; }
-  .fh-progress-label { font-family: "Open Sans Condensed", sans-serif; font-size: 18px; color: #333; margin-top: 10px; }
-</style>
-<div id="fh-progress" class="fh-progress-container">
-  <div class="fh-progress-label"><strong>Booking Your Adventure</strong></div>
-  <div class="fh-progress-steps">
-    <div id="fh-step-1" class="fh-step active">1</div>
-    <div id="fh-conn-1" class="fh-step-connector"></div>
-    <div id="fh-step-2" class="fh-step">2</div>
-    <div id="fh-conn-2" class="fh-step-connector"></div>
-    <div id="fh-step-3" class="fh-step">3</div>
-    <div id="fh-conn-3" class="fh-step-connector"></div>
-    <div id="fh-step-4" class="fh-step">4</div>
-  </div>
-  <div id="fh-step-label" class="fh-progress-label" style="font-size:14px; color:#666;">Select Date &amp; Time</div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var progress = document.getElementById("fh-progress");
-    if (!progress) return;
-    
-    var steps = { 1: "Select Date &amp; Time", 2: "Choose Options", 3: "Review Cart", 4: "Confirm Booking" };
-    
-    // Show progress when FH overlay opens
-    function advanceStep(step) {
-      for (var i = 1; i <= 4; i++) {
-        var s = document.getElementById("fh-step-" + i);
-        if (!s) continue;
-        s.className = "fh-step";
-        if (i < step) s.classList.add("done");
-        else if (i === step) s.classList.add("active");
-      }
-      for (var i = 1; i <= 3; i++) {
-        var c = document.getElementById("fh-conn-" + i);
-        if (!c) continue;
-        c.className = "fh-step-connector";
-        if (i < step) c.classList.add("done");
-      }
-      var label = document.getElementById("fh-step-label");
-      if (label) label.innerHTML = steps[step] || "Booking";
-    }
-    
-    // Track FH events via URL changes (FH uses hash navigation)
-    var lastUrl = "";
-    setInterval(function() {
-      if (!progress.classList.contains("active")) return;
-      // Check if FareHarbor iframe is visible
-      var fhFrame = document.querySelector("iframe[src*='fareharbor'], .fareharbor-lightframe");
-      if (!fhFrame) {
-        progress.classList.remove("active");
-        return;
-      }
-      var currentUrl = fhFrame.src || "";
-      if (currentUrl === lastUrl) return;
-      lastUrl = currentUrl;
-      
-      if (currentUrl.includes("/items/") || currentUrl.includes("calendar")) advanceStep(1);
-      else if (currentUrl.includes("/cart/") || currentUrl.includes("checkout")) advanceStep(3);
-      else if (currentUrl.includes("thank-you") || currentUrl.includes("confirmation")) advanceStep(4);
-      else advanceStep(2);
-    }, 1000);
-    
-    // Show progress when any FH.open link is clicked
-    document.addEventListener("click", function(e) {
-      var target = e.target.closest ? e.target.closest("a[onclick*='FH.open']") : null;
-      if (!target) return;
-      setTimeout(function() {
-        progress.classList.add("active");
-        advanceStep(1);
-      }, 500);
-    });
-  });
-</script>
 <!-- FareHarbor Loading Overlay (GRO-1301) -->
 <style>
   .fh-loading-overlay {
@@ -2185,7 +2074,6 @@ href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kaneohe-san
 
   })(jQuery, window, document);
 
-
   /**
    * skip-link-focus-fix.js
    */
@@ -2215,7 +2103,6 @@ href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kaneohe-san
       }, false);
     }
   })();
-
 
 </script>
 <!-- magnific popoup -->
