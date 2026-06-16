@@ -1769,13 +1769,24 @@ document.addEventListener('DOMContentLoaded', function() {
     text-align: center;
     border-radius: 5px;
   }
+  .fh-inline-spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: fh-inline-spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
   @media (max-width: 768px) {
     .mobile-sticky-cta.visible { display: block; }
     body.has-sticky-cta { padding-bottom: 70px; }
   }
+  @keyframes fh-inline-spin { to { transform: rotate(360deg); } }
 </style>
 <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;" target="_blank">
+<a class="btn btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/" target="_blank">
 <strong>Book Now</strong>
 </a>
 </div>
@@ -1794,6 +1805,48 @@ document.addEventListener('DOMContentLoaded', function() {
         sticky.classList.remove("visible");
         body.classList.remove("has-sticky-cta");
       }
+    });
+    // FareHarbor integration: inline spinner + double-tap prevention
+    var btn = sticky.querySelector("a.btn");
+    if (!btn) return;
+    var origHtml = btn.innerHTML;
+    var busy = false;
+    btn.addEventListener("click", function(e) {
+      if (busy) {
+        e.preventDefault();
+        return;
+      }
+      e.preventDefault();
+      busy = true;
+      btn.style.pointerEvents = "none";
+      btn.innerHTML = '<span class="fh-inline-spinner"></span> Booking...';
+      // Call FareHarbor open
+      if (typeof FH !== "undefined" && FH.open) {
+        FH.open({'shortname':'activeoahutours','fallback':'simple'});
+      }
+      var pollCount = 0;
+      var pollTimer = setInterval(function() {
+        pollCount++;
+        if (document.querySelector('[class*="fareharbor"],[class*="lightframe"],iframe[src*="fareharbor"]')) {
+          clearInterval(pollTimer);
+          clearTimeout(failTimer);
+          busy = false;
+          btn.style.pointerEvents = "";
+          btn.innerHTML = origHtml;
+        } else if (pollCount > 40) {
+          clearInterval(pollTimer);
+          clearTimeout(failTimer);
+          busy = false;
+          btn.style.pointerEvents = "";
+          btn.innerHTML = origHtml;
+        }
+      }, 200);
+      var failTimer = setTimeout(function() {
+        clearInterval(pollTimer);
+        busy = false;
+        btn.style.pointerEvents = "";
+        btn.innerHTML = origHtml;
+      }, 8000);
     });
   });
 </script>
