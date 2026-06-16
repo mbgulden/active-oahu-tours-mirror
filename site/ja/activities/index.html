@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="social-header">
 <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
-<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes"> <strong> <span class="glyphicon glyphicon-calendar"></span>オンラインで予約する</strong></a> </div>
+<div class="social-links"> <a class="pull-right btn btn-small btn-primary" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" onclick="FH.open({&#039;shortname&#039;:&#039;activeoahutours&#039;,&#039;fallback&#039;:&#039;simple&#039;}); return false;"> <strong> <span class="glyphicon glyphicon-calendar"></span>オンラインで予約する</strong></a> </div>
 </div>
 <style>
               .site-banner-announcement {
@@ -2002,7 +2002,54 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
 <link rel="dns-prefetch" href="https://fareharbor.com" />
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script><!-- Banner Script -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>
+<!-- Booking analytics tracking -->
+<script>
+(function() {
+  var FH_OPEN_ORIG = null;
+  function initTracking() {
+    if (typeof FH === 'undefined' || typeof FH.open !== 'function') {
+      setTimeout(initTracking, 500);
+      return;
+    }
+    FH_OPEN_ORIG = FH.open;
+    FH.open = function(options) {
+      // Determine CTA type from options
+      var ctaType = 'unknown';
+      if (options && options.view) {
+        if (options.view.item) ctaType = 'calendar';
+        else if (options.view.category) ctaType = 'category';
+        else ctaType = 'view';
+      }
+      
+      // Determine source context from the clicked element
+      var el = null;
+      try { el = window.event && window.event.target; } catch(e) {}
+      
+      // gtag event
+      if (typeof gtag === 'function') {
+        gtag('event', 'booking_click', {
+          'fareharbor_shortname': (options && options.shortname) || '',
+          'fareharbor_item': (options && options.view && options.view.item) || '',
+          'cta_type': ctaType
+        });
+      }
+      
+      // Call original
+      return FH_OPEN_ORIG.apply(this, arguments);
+    };
+  }
+  // Wait for FH to load (script has defer)
+  initTracking();
+
+  // Track booking completion via URL hash change
+  window.addEventListener('hashchange', function() {
+    if (window.location.hash && window.location.hash.indexOf('fareharbor') > -1) {
+      // FH opens in lightbox/overlay — completion is detected when FH closes
+    }
+  });
+})();
+</script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
