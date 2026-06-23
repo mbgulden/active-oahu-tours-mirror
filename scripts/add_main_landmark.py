@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GRO-585/A11y: Add role="main" to all <div id="content" class="site-content"> elements.
+A11y: Add role="main" to all <div id="content" class="site-content"> elements.
 
 Resolves Lighthouse 'landmark-one-main' audit failure (a11y weight 3).
 
@@ -8,64 +8,121 @@ Before: <div class="site-content" id="content">
 After:  <div class="site-content" id="content" role="main">
 
 Idempotent: skips files that already have role="main" on the content div.
+
+Uses stdlib HTMLParser for safe attribute manipulation — never regex on HTML.
+
+Usage:
+    python3 scripts/add_main_landmark.py
+    python3 scripts/add_main_landmark.py --dry-run    # Report only, don't write
 """
+from __future__ import annotations
+
+import argparse
+import sys
+from html.parser import HTMLParser
 from pathlib import Path
-import re
 
 ROOT = Path(__file__).parent.parent / 'site'
 
-# Match the opening div tag with id="content"
-# Pattern: <div [class="site-content"] id="content"> optionally with other attrs
-PATTERN = re.compile(
-    r'<div(\s+[^>]*?)?(\sid="content")([^>]*?)>',
-    re.IGNORECASE
-)
 
-def has_role_main(s):
-    """Check if the tag already has role='main' or role=main."""
-    return bool(re.search(r'role\s*=\s*["\']main["\']', s, re.IGNORECASE))
+class MainLandmarkAdder(HTMLParser):
+    """Stateful HTML parser that adds role="main" to <div id="content"> open tags.
 
-def process_file(path: Path) -> bool:
-    """Returns True if file was modified."""
+    Tracks raw text offsets so we can rewrite the source file safely.
+    """
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=False)
+        self.rewrites: list[tuple[int, int, str]] = []  # (start, end, replacement)
+        self._pos = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag != 'div':
+            return
+        attr_dict = dict(attrs)
+        if attr_dict.get('id') != 'content':
+            return
+        if attr_dict.get('role') == 'main':
+            return  # Already done — idempotent
+
+        # Reconstruct the open tag exactly as it appeared in the source.
+        # We rely on get_starttag_text() which returns the full <tag ...> string.
+        # Find the position of this start tag in the source via raw offset tracking.
+        start_text = self.get_starttag_text()  # e.g., '<div class="site-content" id="content">'
+        if start_text is None:
+            return
+
+        # Locate in remaining source from current position
+        # HTMLParser guarantees strict order of callbacks during a single parse
+        start_offset = self._find_in_remaining(start_text)
+        if start_offset is None:
+            return
+
+        end_offset = start_offset + len(start_text)
+        # Insert role="main" right before the closing '>'
+        new_text = start_text[:-1].rstrip() + ' role="main">'
+        self.rewrites.append((start_offset, end_offset, new_text))
+
+    def _find_in_remaining(self, needle: str) -> int | None:
+        """Find needle in self.rawdata starting from self._pos. Returns absolute offset."""
+        haystack = self.rawdata
+        idx = haystack.find(needle, self._pos)
+        if idx == -1:
+            return None
+        self._pos = idx + 1
+        return idx
+
+    def error(self, message: str) -> None:
+        # Don't crash on minor parse issues — log and continue.
+        print(f"  parser warning: {message}", file=sys.stderr)
+
+
+def process_file(path: Path, dry_run: bool = False) -> bool:
+    """Returns True if file was modified (or would be, in dry-run)."""
     text = path.read_text(encoding='utf-8', errors='ignore')
-    
-    # Quick check: does this file even have id="content"?
     if 'id="content"' not in text:
         return False
-    
-    # Find all opening div tags with id="content"
-    new_text = text
-    modified = False
-    
-    for m in PATTERN.finditer(text):
-        full_tag = m.group(0)
-        if has_role_main(full_tag):
-            continue
-        # Insert role="main" before the closing >
-        old_tag = full_tag
-        new_tag = full_tag[:-1] + ' role="main">'
-        new_text = new_text.replace(old_tag, new_tag, 1)
-        modified = True
-        # Only process first match per file (there's typically only one #content)
-        break
-    
-    if modified:
-        path.write_text(new_text, encoding='utf-8')
-        return True
-    return False
 
-def main():
-    files = list(ROOT.rglob('*.html'))
+    parser = MainLandmarkAdder()
+    try:
+        parser.feed(text)
+        parser.close()
+    except Exception as e:
+        print(f"  parse error in {path}: {e}", file=sys.stderr)
+        return False
+
+    if not parser.rewrites:
+        return False
+
+    # Apply rewrites in reverse order so offsets remain valid
+    new_text = text
+    for start, end, replacement in sorted(parser.rewrites, key=lambda r: -r[0]):
+        new_text = new_text[:start] + replacement + new_text[end:]
+
+    if not dry_run:
+        path.write_text(new_text, encoding='utf-8')
+    return True
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description='Add role="main" to #content divs site-wide.')
+    parser.add_argument('--dry-run', action='store_true', help='Report changes without writing.')
+    args = parser.parse_args()
+
+    files = sorted(ROOT.rglob('*.html'))
     modified = 0
     skipped = 0
-    
+
     for f in files:
-        if process_file(f):
+        if process_file(f, dry_run=args.dry_run):
             modified += 1
         else:
             skipped += 1
-    
-    print(f"Processed {len(files)} files: {modified} modified, {skipped} skipped (already had role=main or no #content)")
+
+    action = 'would modify' if args.dry_run else 'modified'
+    print(f"Processed {len(files)} files: {modified} {action}, {skipped} skipped")
+    return 0
+
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
