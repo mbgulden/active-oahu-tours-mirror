@@ -2,7 +2,7 @@
 """Generate snorkeling comparison pages."""
 import os, json, re
 
-SITE = "/home/ubuntu/work/active-oahu-static/site"
+SITE = "/home/ubuntu/work/active-oahu-tours-mirror/site"
 
 with open(f"{SITE}/_templates/head.html", 'r') as f:
     head_template = f.read()

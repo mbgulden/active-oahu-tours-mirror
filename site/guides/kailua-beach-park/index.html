@@ -1475,13 +1475,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
 </script>
-<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
-<link rel="dns-prefetch" href="https://fareharbor.com" />
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>
 <!-- Booking analytics tracking -->
 <script>
 (function() {
   var FH_OPEN_ORIG = null;
+  var BOOKING_IN_PROGRESS = false;
+
+  // Categorize source element by DOM context
+  function classifyCTASource(el) {
+    if (!el) return 'unknown';
+    var el2 = el;
+    // Walk up to 10 levels to find the container context
+    for (var i = 0; i < 10 && el2; i++) {
+      var cls = (el2.className || '') + ' ' + (el2.id || '');
+      if (cls.indexOf('listing-book-button') > -1 || cls.indexOf('card-cta') > -1) return 'card';
+      if (cls.indexOf('site-header') > -1 || cls.indexOf('header-cta') > -1 || cls.indexOf('nav') > -1) return 'header';
+      if (cls.indexOf('footer') > -1) return 'footer';
+      if (cls.indexOf('calendar') > -1 || cls.indexOf('fareharbor-calendar') > -1) return 'calendar';
+      if (cls.indexOf('hero') > -1 || cls.indexOf('banner') > -1) return 'hero';
+      el2 = el2.parentElement;
+    }
+    // Infer from element tag/class
+    if (el && el.tagName === 'A' && el.href && el.href.indexOf('fareharbor.com/embeds/book') > -1) return 'card';
+    return 'unknown';
+  }
+
   function initTracking() {
     if (typeof FH === 'undefined' || typeof FH.open !== 'function') {
       setTimeout(initTracking, 500);
@@ -1489,7 +1507,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     FH_OPEN_ORIG = FH.open;
     FH.open = function(options) {
-      // Determine CTA type from options
+      // Determine CTA type from FH options
       var ctaType = 'unknown';
       if (options && options.view) {
         if (options.view.item) ctaType = 'calendar';
@@ -1500,31 +1518,55 @@ document.addEventListener('DOMContentLoaded', function() {
       // Determine source context from the clicked element
       var el = null;
       try { el = window.event && window.event.target; } catch(e) {}
+      var ctaSource = classifyCTASource(el);
       
       // gtag event
       if (typeof gtag === 'function') {
         gtag('event', 'booking_click', {
           'fareharbor_shortname': (options && options.shortname) || '',
           'fareharbor_item': (options && options.view && options.view.item) || '',
-          'cta_type': ctaType
+          'cta_type': ctaType,
+          'cta_source': ctaSource
         });
       }
+      
+      // Mark booking as in progress
+      BOOKING_IN_PROGRESS = true;
       
       // Call original
       return FH_OPEN_ORIG.apply(this, arguments);
     };
+
+    // Booking completion detection — poll for FH lightbox closure
+    var COMPLETION_CHECKED = false;
+    function checkBookingCompletion() {
+      if (!BOOKING_IN_PROGRESS || COMPLETION_CHECKED) { return; }
+      // FH lightbox adds a fareharbor-iframe or .fh-modal to the DOM
+      var fhOverlay = document.querySelector('.fh-modal, .fareharbor-iframe, [data-fh-modal]');
+      // If overlay is gone and booking was in progress, it completed
+      if (!fhOverlay) {
+        COMPLETION_CHECKED = true;
+        BOOKING_IN_PROGRESS = false;
+        if (typeof gtag === 'function') {
+          gtag('event', 'booking_complete', {
+            'source': 'fh_lightbox_dismiss'
+          });
+        }
+      }
+    }
+    // Poll every 2s while booking is in progress
+    setInterval(function() {
+      if (BOOKING_IN_PROGRESS) { checkBookingCompletion(); }
+    }, 2000);
   }
+
   // Wait for FH to load (script has defer)
   initTracking();
-
-  // Track booking completion via URL hash change
-  window.addEventListener('hashchange', function() {
-    if (window.location.hash && window.location.hash.indexOf('fareharbor') > -1) {
-      // FH opens in lightbox/overlay — completion is detected when FH closes
-    }
-  });
 })();
-</script><!-- Banner Script -->
+</script>
+<!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
+<link rel="dns-prefetch" href="https://fareharbor.com" />
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script><!-- Banner Script -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.querySelector(".site-banner-announcement");
@@ -1939,6 +1981,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- magnific popoup -->
 
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a10766a74ec469f1',t:'MTc4MjI1ODY4OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1061b024ca87660',t:'MTc4MjI0NTEwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 <p>Explore more Windward beaches — check out our <a href="../waimanalo-beach/">Waimanalo Beach guide</a> for Oahu&#8217;s longest stretch of white sand.</p>
 </body>
