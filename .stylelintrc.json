@@ -1,0 +1,34 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "indentation": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "custom-property-pattern": null,
+    "comment-empty-line-before": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "declaration-empty-line-before": null,
+    "no-empty-source": null,
+    "no-duplicate-selectors": null,
+    "no-duplicate-at-import-rules": null,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
+    "media-feature-range-notation": null,
+    "font-family-name-quotes": null,
+    "property-no-vendor-prefix": null,
+    "value-no-vendor-prefix": null,
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "length-zero-no-unit": null,
+    "shorthand-property-no-redundant-values": null,
+    "declaration-block-no-shorthand-property-overrides": null,
+    "selector-id-pattern": null,
+    "keyframes-name-pattern": null
+  },
+  "ignoreFiles": [
+    "site/wp-content/**",
+    "site/wp-includes/**",
+    "node_modules/**"
+  ]
+}

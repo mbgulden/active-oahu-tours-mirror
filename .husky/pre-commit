@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# Pre-commit hook for AOT mirror repo
+# Runs lint-staged on staged files (HTML/CSS/JS/Python).
+# Bypass with: git commit --no-verify
+
+set -e
+
+# Get list of staged files
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+
+if [ -z "$STAGED" ]; then
+  echo "No staged files to lint"
+  exit 0
+fi
+
+echo "Running lint-staged on staged files..."
+npx lint-staged

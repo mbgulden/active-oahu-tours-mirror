@@ -1,0 +1,43 @@
+{
+  "name": "active-oahu-tours-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Cloudflare Pages site for Active Oahu Tours. Dev tooling for linting and pre-commit hooks.",
+  "scripts": {
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "html-validate \"site/**/*.html\"",
+    "lint:css": "stylelint \"site/**/*.css\" \"site/_headers\"",
+    "lint:js": "eslint \"site/**/*.js\" \"scripts/**/*.js\"",
+    "lint:fix": "npm run lint:html -- --formatter=checkstyle > /tmp/htmlvalidate.xml || true && npm run lint:css -- --fix && npm run lint:js -- --fix",
+    "prepare": "husky",
+    "test": "python3 scripts/tests/test_add_main_landmark.py"
+  },
+  "devDependencies": {
+    "html-validate": "^8.18.1",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2"
+  },
+  "lint-staged": {
+    "site/**/*.html": [
+      "html-validate --formatter stylish"
+    ],
+    "site/**/*.css": [
+      "stylelint --fix"
+    ],
+    "site/**/*.js": [
+      "eslint --fix"
+    ],
+    "scripts/**/*.js": [
+      "eslint --fix"
+    ],
+    "scripts/**/*.py": [
+      "python3 -m py_compile"
+    ]
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
