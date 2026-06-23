@@ -2,7 +2,7 @@
 """Generate 4 informational/operational pages for Active Oahu Tours static mirror."""
 import os, json, re
 
-SITE = "/home/ubuntu/work/active-oahu-static/site"
+SITE = "/home/ubuntu/work/active-oahu-tours-mirror/site"
 
 # Read templates
 with open(f"{SITE}/_templates/head.html", 'r') as f:

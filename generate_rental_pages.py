@@ -2,7 +2,7 @@
 """Generate 4 rental hub pages with Product schema + self-transport language."""
 import os, json, re
 
-SITE = "/home/ubuntu/work/active-oahu-static/site"
+SITE = "/home/ubuntu/work/active-oahu-tours-mirror/site"
 
 # Read templates
 with open(f"{SITE}/_templates/head.html", 'r') as f:
