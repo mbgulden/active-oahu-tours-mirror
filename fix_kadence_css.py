@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fix Kadence CSS links on all HTML pages - dedup, fix hrefs, ensure all 5 present."""
+"""Fix Kadence CSS links on all HTML pages - dedup, fix hrefs, ensure all 5 present + strip/extract inline Kadence CSS."""
 import os, re, sys
 
 SITE = os.path.join(os.path.dirname(__file__), 'site')
@@ -13,6 +13,10 @@ KADENCE_LINKS = {
 kadence_link_re = re.compile(
     r"<link[^>]*id=['\"]kadence-blocks-(?:%s)-css['\"][^>]*>" % '|'.join(KADENCE_ORDER)
 )
+
+# Pattern to match inline Kadence CSS style tag
+inline_css_re = re.compile(r"<style[^>]*id=['\"]kadence_blocks_css-inline-css['\"][^>]*>(.*?)</style>", re.DOTALL)
+default_sig = "id2389"
 
 fixed_count = 0
 
@@ -52,6 +56,47 @@ for root, dirs, files in os.walk(SITE):
             content,
             count=1
         )
+        
+        # Step 6: Handle inline Kadence CSS block
+        match = inline_css_re.search(content)
+        if match:
+            css_text = match.group(1).strip()
+            
+            # Check if homepage
+            if fname == 'index.html' and root == SITE:
+                # Extract homepage styles to kadence-homepage.css
+                css_dir = os.path.join(SITE, 'wp-content', 'themes', 'activeoahu', 'css')
+                os.makedirs(css_dir, exist_ok=True)
+                css_fpath = os.path.join(css_dir, 'kadence-homepage.css')
+                with open(css_fpath, 'w', encoding='utf-8') as css_file:
+                    css_file.write(css_text)
+                
+                # Replace inline style with link to the file
+                link_tag = "<link rel='stylesheet' id='kadence-homepage-css' href='/wp-content/themes/activeoahu/css/kadence-homepage.css' type='text/css' media='all' />\n"
+                content = inline_css_re.sub(link_tag, content)
+                print("Extracted homepage CSS to kadence-homepage.css")
+            else:
+                # Check if it has the default homepage signature (which means it's unused template bloat on other pages)
+                if default_sig in css_text:
+                    # Strip entirely
+                    content = inline_css_re.sub('', content)
+                else:
+                    # Extract page-specific unique styles to inline-{slug}.css
+                    rel_path = os.path.relpath(fpath, SITE)
+                    slug = rel_path.replace('/index.html', '').replace('.html', '').replace('/', '-')
+                    
+                    css_dir = os.path.join(SITE, 'wp-content', 'themes', 'activeoahu', 'css')
+                    os.makedirs(css_dir, exist_ok=True)
+                    css_fpath = os.path.join(css_dir, f"inline-{slug}.css")
+                    with open(css_fpath, 'w', encoding='utf-8') as css_file:
+                        css_file.write(css_text)
+                    
+                    link_tag = f"<link rel='stylesheet' id='kadence-inline-{slug}-css' href='/wp-content/themes/activeoahu/css/inline-{slug}.css' type='text/css' media='all' />\n"
+                    content = inline_css_re.sub(link_tag, content)
+                    print(f"Extracted unique page CSS for {rel_path} to inline-{slug}.css")
+                    
+        # Step 7: Clean up spacing that might be left over from removing style tag
+        content = re.sub(r'\n{4,}', '\n\n', content)
         
         if content != original:
             fixed_count += 1
