@@ -9,8 +9,10 @@ Validates that the pushing agent:
 4. Doesn't push to deploy-fresh unless they're the staging governor (Fred)
 5. Never pushes directly to main (production is manual-only)
 
-Install: ln -s ../../scripts/pre-push-hook.py .git/hooks/pre-push
+Install: ln -s ../../scripts/prismatic-pre-push-hook.py .git/hooks/pre-push
          chmod +x .git/hooks/pre-push
+
+Refs: GRO-1218, GRO-1484, GRO-2224
 
 Part of the Prismatic Engine — Phase 3: Pre-push Hooks.
 Refs: specs/prismatic-engine-architecture-v1.md §3, GRO-1218
