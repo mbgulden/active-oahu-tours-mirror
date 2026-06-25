@@ -24,3 +24,6 @@ status: current
 - [Reports](./reports/index.md) — Time-stamped audits, post-mortems, snapshots.
 - [Audits](./audits/index.md) — Findings + recommendations.
 - [Research](./research/index.md) — Project-specific reference research.
+
+## Current Operating Records
+- [AOT Site Governance Reset — Branch Drift, Page Restoration, and Style Standards](./reports/aot-site-governance-reset-2026-06-25.md) — canonical OKF record for the branch drift incident, restoration plan, style normalization workstream, and site editing standards.
