@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
   });
 });
 </script>
-<link href="/wp-content/themes/activeoahu/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" id="activeoahu-style-css" href="/wp-content/themes/activeoahu/style.css" type="text/css" media="all"/>
 <link href="/wp-content/themes/activeoahu/style.css?ver=1.1" media="all" rel="stylesheet" type="text/css"/>
 <style>
   .guide-section { margin: 2em 0; padding: 1.5em; background: #f8f8f8; border-left: 4px solid #006699; border-radius: 0 8px 8px 0; }
@@ -69,53 +69,95 @@ jQuery(document).ready(function($) {
 </head>
 <body class="page-template-default page page-id-0 page-child parent-pageid-0">
 <div id="page" class="hfeed site">
-  <header id="masthead" class="site-header" role="banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <nav id="site-navigation" class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">
-                <img alt="Active Oahu Tours" height="50" src="/wp-content/uploads/2016/08/logo.png" width="283"/>
-              </a>
+    <section class="container-fluid">
+      <div class="content">
+        <header class="clearfix">
+          <section id="branding">
+            <div class="aot-logo">
+              <span class="site-title">
+                <a href="/" rel="home" data-instant>
+                  <img alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65">
+                </a>
+              </span>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Home</a></li>
-                <li><a href="/activities/">Tours</a></li>
-                <li><a href="/rentals/">Rentals</a></li>
-                <li><a href="/guides/">Guides</a></li>
-                <li><a href="/contact-us/">Contact</a></li>
-              </ul>
+            <div class="social-header">
+              <h3 class="social-header-h3"><span class="feature">(808)498-1894</span></h3>
+              <div class="social-links"> <a href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" class="pull-right btn btn-small btn-primary" onclick="FH.open({shortname:'activeoahutours',fallback:'simple'}); return false;"> <strong> <span class="glyphicon glyphicon-calendar"></span> Book Online </strong></a> </div>
+              <span class="lang-switcher" style="font-size:14px;color:#006699;margin:0;vertical-align:middle;display:inline-block;line-height:1;"><a href="/guides/eating-your-way-windward-to-north-shore/" style="color:#006699;text-decoration:none;padding:0 4px;">English</a><span style="color:#ccc;padding:0 2px;">|</span><a href="/ja/guides/eating-your-way-windward-to-north-shore/" style="color:#006699;text-decoration:none;padding:0 4px;">日本語</a></span>
             </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
+          </section><!-- branding -->
 
-  <div id="content" class="site-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
+          <section class="navbar" id="navbar-scroll">
+            <nav id="site-navigation" class="main-navigation" role="navigation" data-instant>
+              <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
+              <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75"><a href="/activities.html">Activities &amp; Tours</a>
+<ul class="sub-menu">
+	<li id="menu-item-4484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4484"><a href="/activities.html">All Tours</a></li>
+	<li id="menu-item-4482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4482"><a href="/activities.html#Self%20Guided">Self Guided Tours</a></li>
+	<li id="menu-item-4483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4483"><a href="/activities.html#Guided%20Tours">Guided Tours</a></li>
+</ul>
+</li>
+<li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-144"><a href="/rentals/index.html">Rentals</a>
+<ul class="sub-menu">
+	<li id="menu-item-4470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="/rentals/index.html">All Rentals</a></li>
+	<li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-rentals menu-item-has-children menu-item-1375"><a href="/rentals/oahu-tandem-kayak-rentals/index.html">Kayak Rentals</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2857" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2857"><a href="/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html">Mokolii Kayak Rentals</a></li>
+		<li id="menu-item-3036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3036"><a href="/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html">Kailua Kayak Rentals</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2676"><a href="/multi-day-kayak-and-beach-gear-rentals/index.html">Multi-Day Rentals</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="/multi-day-kayak-and-beach-gear-rental-partners/index.html">Rental Partners</a></li>
+	</ul>
+</li>
+	<li id="menu-item-3256" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3256"><a href="/rentals/kailua-beach-bike-rentals/index.html">Electric Bike Rentals</a></li>
+</ul>
+</li>
+<li id="menu-item-4473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4473"><a href="/oahu-kayaking-and-beach-adventures/index.html">Adventure Guide</a>
+<ul class="sub-menu">
+	<li id="menu-item-4480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4480"><a href="/oahu-kayaking-and-beach-adventures/index.html">All Adventure Guides</a></li>
+</ul>
+</li>
+<li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-17"><a href="/contact-us.html">Contact Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-76"><a href="/about-active-oahu-tours/index.html">About</a>
+	<ul class="sub-menu">
+		<li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="/kailua-oahu-storefront/index.html">Our Kailua Storefront</a></li>
+		<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="/guides/index.html">Guides</a></li>
+		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="/reviews/index.html">Reviews</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div>            </nav>
+          </section><!-- navbar -->
+          <div class="breadcrumb-container">
+            <div class="container">
+              <div class="breadcrumb" data-instant>
+                <p id="breadcrumbs"><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="/" property="v:title" rel="v:url">Home</a> / <span typeof="v:Breadcrumb"><a href="/guides/" property="v:title" rel="v:url">Guides</a> / <span class="breadcrumb_last">Eating Your Way from Windward Oahu to the North Shore</span></span></span></span></p>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </section>
+
+    <div id="content" class="site-content">
+      <div class="container">
+        <div class="row">
+          <div class="content-area col col-sm-8">
+            <div class="entry-content">
           
           <h1>Eating Your Way from Windward Oahu to the North Shore</h1>
           <p class="route-intro">
             When you rent gear from us at <strong>134B Hamakua Drive in Kailua</strong>, you're not just getting snorkel gear — you're getting a full-day pass to one of the best drives on the island. The windward coast to the North Shore is packed with hidden food gems, empty beaches, and local spots most visitors never find.            Here's your insider route, from our shop to Sharks Cove.
           </p>
 
-          <div style="background: #f0f7fc; border: 1px solid #006699; border-radius: 8px; padding: 1em 1.5em; margin: 1em 0; text-align: center;">
-            <p style="margin: 0; font-size: 1.05em; color: #333;">
-              <strong>🏄 This whole route starts with your snorkel gear rental.</strong> Pick up at our Kailua shop, explore the windward coast, then snorkel Sharks Cove, Three Tables, and Waimea Bay.
-            </p>
-            <a href="/activities/sharks-cove-self-guided-snorkel/" style="display: inline-block; margin-top: 0.5em; background: #006699; color: white; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 700;">→ Book the Sharks Cove Snorkel Experience</a>
-          </div>
+          <aside class="aot-callout aot-callout--booking">
+            <p class="aot-callout__lead"><strong>🏄 This whole route starts with your snorkel gear rental.</strong> Pick up at our Kailua shop, explore the windward coast, then snorkel Sharks Cove, Three Tables, and Waimea Bay.</p>
+            <p><a class="btn btn-primary aot-cta" href="/rentals/snorkel-gear-rentals/">→ Reserve full-day snorkel gear rental ($18)</a> &nbsp; <a class="btn btn-primary aot-cta aot-cta--fareharbor" href="https://fareharbor.com/embeds/book/activeoahutours/items/7872/" data-fh-open="activeoahutours">→ Book online on FareHarbor</a></p>
+          </aside>
 
           <div class="route-map">
             <strong>📍 The Route:</strong> Kailua Shop → Waiahole → Kahana → Punaluʻu → Kahuku → Kawela Bay → Sunset Beach → Pupukea<br/>
@@ -204,28 +246,55 @@ jQuery(document).ready(function($) {
             <p>Once you're at Pupukea, you've got options. Foodland is walking distance for poke, sandwiches, and supplies. A short drive south takes you to Haleiwa where you'll find Matsumoto Shave Ice, Haleiwa Joe's, and the famous Kahuku Sugar Mill food trucks. But honestly? Banzai Bowls at sunset beach and the poke from Foodland is a perfect North Shore dinner combo.</p>
           </div>
 
-          <div class="guide-section" style="border-left-color: #c9a84c;">
+          <div class="guide-section guide-section--gold">
             <h3>🏄 The Gear Connection</h3>
             <p>This whole route is possible because you rented from <strong>Active Oahu Tours</strong> in Kailua. We give you the gear for the <strong>full day</strong> — not a 2-hour window, not a rushed return time. Pick up at our shop (134B Hamakua Dr), take the scenic route, snorkel at your pace, and <strong>return the gear after hours</strong> if you want to stay for sunset. No other rental company on Oahu offers this kind of flexibility.</p>
             <p><a href="/rentals/snorkel-gear-rentals/">→ Reserve full-day snorkel gear rental ($18)</a> · <a href="https://fareharbor.com/embeds/book/activeoahutours/items/7872/">Book online on FareHarbor</a> · <a href="/activities/sharks-cove-self-guided-snorkel/">→ Sharks Cove Snorkel Experience</a></p>
           </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
+            </div><!-- #content -->
 
-  <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <p>&copy; 2026 Active Oahu Tours. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
-<script defer src="/wp-content/themes/activeoahu/js/bootstrap.min.js"></script>
-<script defer src="/wp-content/themes/activeoahu/js/scripts.js"></script>
-</body>
-</html>
+              <section class="container-fluid">
+                <footer>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col col-sm-6 col-md-4">
+                        <h3>Follow our Oahu Adventures</h3>
+                        <p>Keep up-to-date with our social media, or just contact us directly</p>
+                        <h4><a href="tel:+180****1894">(808)498-1894</a></h4>
+                        <p><address>134B Hamakua Dr., Kailua, HI, 96734</address></p>
+                        <a href="https://www.facebook.com/activeoahutours/" target="_blank" rel="noopener" aria-label="Follow us on Facebook">Facebook</a>
+                        <a href="https://www.yelp.com/biz/active-oahu-tours-kailua" target="_blank" rel="noopener">Yelp</a>
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html" target="_blank" rel="noopener">Tripadvisor</a>
+                        <a href="https://www.instagram.com/activeoahu/" target="_blank" rel="noopener" aria-label="Follow us on Instagram">Instagram</a>
+                      </div>
+                      <div class="col col-sm-6 col-md-4">
+                        <h3>Get Updates and Freebies</h3>
+                        <p class="small">Sign up for our email newsletter for exclusive deals &amp; freebies</p>
+                        <form action="https://activeoahu.us9.list-manage.com/subscribe/post?u=5cb586c27776f84f261f708d6&amp;id=894ddfa45f" method="post" target="_blank" novalidate>
+                          <div class="form-group"><input class="form-control" type="email" name="EMAIL" placeholder="Email" required/></div>
+                          <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+                        </form>
+                        <hr/>
+                        <h4><a href="/join-the-team/index.html">Join The Team</a></h4>
+                        <p>You think you have what it takes?</p>
+                        <a href="/join-the-team/index.html"><strong>View Job Openings</strong></a>
+                      </div>
+                      <div class="col col-md-4">
+                        <h3>Awesome Photos</h3>
+                        <p>We've got plenty of photos to show off our kayaking, snorkeling, hiking and SUP adventures.</p>
+                        <a href="/active-oahu-photo-gallery/index.html"><img alt="Oahu Beach Equipment Rental Packages" loading="lazy" src="/wp-content/uploads/2018/11/DSC5447_2000-115x115.jpg" width="115" height="115"/></a>
+                        <a href="/active-oahu-photo-gallery/index.html"><img alt="Oahu activities photo" loading="lazy" src="/wp-content/uploads/2019/06/Activities-2.jpg" width="115" height="115"/></a>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </section>
+          <script defer src="/wp-content/themes/activeoahu/js/scripts.js"></script>
+          </body>
+          </html>
