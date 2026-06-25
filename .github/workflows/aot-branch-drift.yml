@@ -1,0 +1,64 @@
+name: AOT Branch Drift Guard
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - deploy-fresh
+  workflow_dispatch:
+    inputs:
+      prod:
+        description: Production/deploy source ref
+        required: false
+        default: origin/main
+      candidate:
+        description: Candidate/source ref to compare
+        required: false
+        default: origin/master
+      strict:
+        description: Fail on candidate-only pages / critical drift
+        required: false
+        default: "false"
+  schedule:
+    - cron: "17 15 * * *"
+
+jobs:
+  drift-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch branches
+        run: git fetch origin --prune
+
+      - name: Run branch drift guard
+        run: |
+          PROD="${{ github.event.inputs.prod || 'origin/main' }}"
+          CANDIDATE="${{ github.event.inputs.candidate || 'origin/master' }}"
+          STRICT="${{ github.event.inputs.strict || 'false' }}"
+          mkdir -p reports
+          if [ "$STRICT" = "true" ]; then
+            python3 scripts/aot_branch_drift_guard.py \
+              --prod "$PROD" \
+              --candidate "$CANDIDATE" \
+              --strict \
+              --report reports/aot-branch-drift.md \
+              --json reports/aot-branch-drift.json
+          else
+            python3 scripts/aot_branch_drift_guard.py \
+              --prod "$PROD" \
+              --candidate "$CANDIDATE" \
+              --report reports/aot-branch-drift.md \
+              --json reports/aot-branch-drift.json
+          fi
+
+      - name: Upload drift report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aot-branch-drift-report
+          path: reports/aot-branch-drift.*

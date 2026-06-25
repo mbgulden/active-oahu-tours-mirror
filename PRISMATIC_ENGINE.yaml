@@ -49,7 +49,18 @@ locks:
 staging:
   governor: "fred"
   branch: "deploy-fresh"
+  # IMPORTANT: live production/source-of-truth must be verified before site edits.
+  # Historical drift: master contains pages that main/root Pages did not serve.
+  # Use scripts/aot_branch_drift_guard.py + live curl checks before restoration/merge.
+  production_branch_verified_by_live_check: false
+  production_branch_candidate: "main"
+  content_source_branch_candidate: "master"
 
 commit:
   prefix_format: "[Fred] description (#ISSUE)"
   require_issue_ref: true
+
+site_management:
+  standards: "docs/AOT_SITE_MANAGEMENT_STANDARDS.md"
+  drift_guard: "scripts/aot_branch_drift_guard.py"
+  no_blind_main_master_merges: true
