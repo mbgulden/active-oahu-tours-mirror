@@ -49,6 +49,7 @@ locks:
 staging:
   governor: "fred"
   branch: "deploy-fresh"
+  production_branch: "master"
 
 commit:
   prefix_format: "[Fred] description (#ISSUE)"

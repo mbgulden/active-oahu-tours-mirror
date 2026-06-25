@@ -31,7 +31,7 @@ LOCK_FILE = Path(PRISMATIC_HOME) / '.antigravity' / 'swarm_locks.json'
 STALE_TTL_MS = 300_000  # 5 minutes
 GOVERNOR_AGENT = "fred"
 STAGING_BRANCH = "deploy-fresh"
-PRODUCTION_BRANCH = "main"
+DEFAULT_PRODUCTION = "main"
 
 # ── Helpers ────────────────────────────────────────────
 
@@ -184,21 +184,28 @@ def main() -> int:
     repo_root = _find_repo_root()
     branch = _get_current_branch()
 
-    # Rule 5: Block ALL pushes to main (production is manual-only)
+    # Read the config
+    config = _read_yaml_config(repo_root)
+
+    # Determine production branch (configurable via staging.production_branch, default: master for AOT mirror, main elsewhere)
+    default_prod = "master" if "active-oahu-tours" in str(repo_root) else DEFAULT_PRODUCTION
+    prod_branch = default_prod
+    if config is not None:
+        prod_branch = config.get("staging", {}).get("production_branch", default_prod)
+
+    # Rule 5: Block ALL pushes to production branch (production is manual-only)
     remote_refs = []
     for line in ref_lines:
         parts = line.split()
         if len(parts) >= 3:
             remote_refs.append(parts[2])
     for ref in remote_refs:
-        if ref == f"refs/heads/{PRODUCTION_BRANCH}":
-            print("❌ [Prismatic Engine] Push to main is BLOCKED.")
+        if ref == f"refs/heads/{prod_branch}":
+            print(f"❌ [Prismatic Engine] Push to {prod_branch} is BLOCKED.")
             print("   Production deployments are manual-only.")
             print("   Use deploy-fresh for staging, then merge manually.")
             return 1
 
-    # Read the config
-    config = _read_yaml_config(repo_root)
     if config is None:
         # No PRISMATIC_ENGINE.yaml — warn but allow (convention mode)
         print("⚠️  [Prismatic Engine] No PRISMATIC_ENGINE.yaml found.")
