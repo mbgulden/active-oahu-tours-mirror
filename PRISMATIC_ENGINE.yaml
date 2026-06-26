@@ -16,15 +16,15 @@ agents:
   kai:
     role: Content Writer (AOT site)
     lanes:
-      owner: ["content/", "active-oahu/", "okf/"]
-      read_only: ["src/", "infra/", "deploy/"]
+      owner: ["site/", "okf/"]
+      read_only: ["scripts/", "reports/"]
     branch_prefix: "content/"
 
   agy:
     role: Designer & Research
     lanes:
-      owner: ["assets/", "designs/", "reports/"]
-      read_only: ["src/", "content/", "active-oahu/"]
+      owner: ["reports/", "okf/"]
+      read_only: ["site/", "scripts/"]
     branch_prefix: "design/"
 
   jules:
@@ -37,8 +37,8 @@ agents:
   ned:
     role: Code Execution & Infrastructure
     lanes:
-      owner: ["src/", "infra/", "deploy/", "scripts/"]
-      read_only: ["content/"]
+      owner: ["scripts/", "okf/", "*.py", ".gitignore"]
+      read_only: ["site/"]
     branch_prefix: "ned/"
 
 locks:

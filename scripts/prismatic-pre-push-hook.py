@@ -3,13 +3,13 @@
 Prismatic Engine pre-push hook — lane validation + lock checking.
 
 Validates that the pushing agent:
-1. Uses the correct branch prefix for their role
+1. Uses the correct branch prefix or author initials for their role
 2. Only touches files within their lane (per PRISMATIC_ENGINE.yaml)
 3. Doesn't push files locked by another agent
 4. Doesn't push to deploy-fresh unless they're the staging governor (Fred)
 5. Never pushes directly to main (production is manual-only)
 
-Install: ln -s ../../scripts/pre-push-hook.py .git/hooks/pre-push
+Install: ln -s ../../scripts/prismatic-pre-push-hook.py .git/hooks/pre-push
          chmod +x .git/hooks/pre-push
 
 Part of the Prismatic Engine — Phase 3: Pre-push Hooks.
@@ -26,12 +26,12 @@ from pathlib import Path
 from typing import Any
 
 # ── Constants ──────────────────────────────────────────
-PRISMATIC_HOME = os.environ.get('PRISMATIC_HOME', '/home/ubuntu')
+PRISMATIC_HOME = os.environ.get('PRISMATIC_HOME', os.environ.get('HOME', '/home/ubuntu'))
 LOCK_FILE = Path(PRISMATIC_HOME) / '.antigravity' / 'swarm_locks.json'
 STALE_TTL_MS = 300_000  # 5 minutes
 GOVERNOR_AGENT = "fred"
 STAGING_BRANCH = "deploy-fresh"
-DEFAULT_PRODUCTION = "main"
+PRODUCTION_BRANCH = "main"
 
 # ── Helpers ────────────────────────────────────────────
 
@@ -45,24 +45,37 @@ def _find_repo_root() -> Path:
     return Path(result.stdout.strip())
 
 
-def _get_current_branch() -> str:
-    """Get the current branch name."""
-    result = subprocess.run(
-        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
-        capture_output=True, text=True, check=True,
-    )
-    return result.stdout.strip()
-
-
 def _get_changed_files(local_sha: str, remote_sha: str, repo_root: Path) -> list[str]:
     """Get list of files changed between remote and local sha."""
     if remote_sha == "0000000000000000000000000000000000000000":
-        # New branch — compare against the base (deploy-fresh or main)
-        # Fall back to diffing against HEAD~1
-        result = subprocess.run(
-            ["git", "diff", "--name-only", f"{local_sha}~1", local_sha],
-            capture_output=True, text=True, cwd=str(repo_root),
-        )
+        # New branch — compare against the production branch merge base or default target
+        # Fall back to diffing against HEAD~1 if main/master doesn't exist or git merge-base fails
+        try:
+            base_branch = "main"
+            # Verify if 'main' exists, otherwise try 'master'
+            res = subprocess.run(
+                ["git", "show-ref", "--verify", "refs/heads/main"],
+                capture_output=True, text=True, cwd=str(repo_root)
+            )
+            if res.returncode != 0:
+                base_branch = "master"
+                
+            # Find the merge base
+            mb = subprocess.run(
+                ["git", "merge-base", base_branch, local_sha],
+                capture_output=True, text=True, cwd=str(repo_root), check=True
+            )
+            merge_base = mb.stdout.strip()
+            
+            result = subprocess.run(
+                ["git", "diff", "--name-only", merge_base, local_sha],
+                capture_output=True, text=True, cwd=str(repo_root), check=True
+            )
+        except Exception:
+            result = subprocess.run(
+                ["git", "diff", "--name-only", f"{local_sha}~1", local_sha],
+                capture_output=True, text=True, cwd=str(repo_root),
+            )
     else:
         result = subprocess.run(
             ["git", "diff", "--name-only", remote_sha, local_sha],
@@ -99,12 +112,23 @@ def _read_locks() -> list[dict[str, Any]]:
 
 
 def _determine_agent(branch: str, config: dict[str, Any]) -> str | None:
-    """Determine which agent is pushing based on branch prefix."""
+    """Determine which agent is pushing based on branch name structure or prefix."""
     agents = config.get("agents", {})
+    
+    # 1. Parse by AOT branch naming convention: <type>/<author-initials>-<linear-id>-...
+    parts = branch.split('/', 1)
+    if len(parts) == 2:
+        second_part = parts[1]
+        author_part = second_part.split('-', 1)[0]
+        if author_part in agents:
+            return author_part
+
+    # 2. Fall back to branch_prefix prefix matching
     for agent_id, agent_cfg in agents.items():
         prefix = agent_cfg.get("branch_prefix", "")
         if prefix and branch.startswith(prefix.rstrip("/")):
             return agent_id
+            
     return None
 
 
@@ -115,7 +139,7 @@ def _check_lane_ownership(
     agent_cfg = config.get("agents", {}).get(agent_id, {})
     lanes = agent_cfg.get("lanes", {})
 
-    # "owner" lanes are the directories the agent can write to
+    # "owner" lanes are the directories/files the agent can write to
     owner_dirs = []
     for entry in lanes.get("owner", []):
         if isinstance(entry, dict):
@@ -132,7 +156,8 @@ def _check_lane_ownership(
     for f in files:
         is_owned = any(
             f == d.rstrip("/") or f.startswith(d.rstrip("/") + "/")
-            or f.startswith(d)  # fuzzier match for non-suffixed dirs
+            or f.endswith(d)  # for glob/suffix matching like *.py
+            or (d.startswith("*.") and f.endswith(d[1:]))
             for d in owner_dirs
         )
         if is_owned:
@@ -182,95 +207,89 @@ def main() -> int:
         return 0
 
     repo_root = _find_repo_root()
-    branch = _get_current_branch()
 
     # Read the config
     config = _read_yaml_config(repo_root)
-
-    # Determine production branch (configurable via staging.production_branch, default: master for AOT mirror, main elsewhere)
-    default_prod = "master" if "active-oahu-tours" in str(repo_root) else DEFAULT_PRODUCTION
-    prod_branch = default_prod
-    if config is not None:
-        prod_branch = config.get("staging", {}).get("production_branch", default_prod)
-
-    # Rule 5: Block ALL pushes to production branch (production is manual-only)
-    remote_refs = []
-    for line in ref_lines:
-        parts = line.split()
-        if len(parts) >= 3:
-            remote_refs.append(parts[2])
-    for ref in remote_refs:
-        if ref == f"refs/heads/{prod_branch}":
-            print(f"❌ [Prismatic Engine] Push to {prod_branch} is BLOCKED.")
-            print("   Production deployments are manual-only.")
-            print("   Use deploy-fresh for staging, then merge manually.")
-            return 1
-
     if config is None:
         # No PRISMATIC_ENGINE.yaml — warn but allow (convention mode)
         print("⚠️  [Prismatic Engine] No PRISMATIC_ENGINE.yaml found.")
         print("   Push allowed, but governance is not active for this repo.")
         return 0
 
-    # Determine agent from branch prefix
-    agent_id = _determine_agent(branch, config)
-    if agent_id is None:
-        print(f"❌ [Prismatic Engine] Branch '{branch}' doesn't match any agent prefix.")
-        agents = config.get("agents", {})
-        print("   Valid prefixes:")
-        for aid, acfg in agents.items():
-            print(f"     {acfg.get('branch_prefix', 'N/A')} → {aid}")
-        return 1
+    locks = _read_locks()
 
-    # Rule 4: Block pushes to deploy-fresh unless governor
-    governor = config.get("staging", {}).get("governor", GOVERNOR_AGENT)
-    staging_branch_name = config.get("staging", {}).get("branch", STAGING_BRANCH)
-    for ref in remote_refs:
-        if ref == f"refs/heads/{staging_branch_name}" and agent_id != governor:
+    # Validate each ref line being pushed
+    for line in ref_lines:
+        parts = line.split()
+        if len(parts) < 4:
+            continue
+            
+        local_ref, local_sha, remote_ref, remote_sha = parts[0], parts[1], parts[2], parts[3]
+        
+        # Rule 5: Block ALL pushes to main (production is manual-only)
+        if remote_ref == f"refs/heads/{PRODUCTION_BRANCH}":
+            print("❌ [Prismatic Engine] Push to main is BLOCKED.")
+            print("   Production deployments are manual-only.")
+            print("   Use deploy-fresh for staging, then merge manually.")
+            return 1
+
+        # Extract branch name from local_ref
+        if not local_ref.startswith("refs/heads/"):
+            continue
+        branch_name = local_ref[len("refs/heads/"):]
+
+        # Determine agent from branch name
+        agent_id = _determine_agent(branch_name, config)
+        if agent_id is None:
+            print(f"❌ [Prismatic Engine] Branch '{branch_name}' doesn't match any agent prefix.")
+            agents = config.get("agents", {})
+            print("   Valid prefixes/initials:")
+            for aid, acfg in agents.items():
+                print(f"     {acfg.get('branch_prefix', 'N/A')} (or initials: {aid}) → {aid}")
+            return 1
+
+        # Rule 4: Block pushes to deploy-fresh unless governor
+        governor = config.get("staging", {}).get("governor", GOVERNOR_AGENT)
+        staging_branch_name = config.get("staging", {}).get("branch", STAGING_BRANCH)
+        if remote_ref == f"refs/heads/{staging_branch_name}" and agent_id != governor:
             print(f"❌ [Prismatic Engine] Push to {staging_branch_name} is BLOCKED.")
             print(f"   Only {governor} (staging governor) can push to {staging_branch_name}.")
             print(f"   You are: {agent_id}")
             return 1
 
-    # Get changed files
-    all_files: list[str] = []
-    for line in ref_lines:
-        parts = line.split()
-        if len(parts) >= 4:
-            local_sha, remote_sha = parts[1], parts[3]
-            all_files.extend(_get_changed_files(local_sha, remote_sha, repo_root))
+        # Get changed files for this ref
+        changed_files = _get_changed_files(local_sha, remote_sha, repo_root)
+        if not changed_files:
+            continue
 
-    if not all_files:
-        return 0  # No files to check
+        # Deduplicate
+        changed_files = list(dict.fromkeys(changed_files))
 
-    # Deduplicate
-    all_files = list(dict.fromkeys(all_files))
+        # Rule 2: Lane validation
+        owned, violations = _check_lane_ownership(changed_files, agent_id, config)
+        if violations:
+            print(f"❌ [Prismatic Engine] Lane violation by {agent_id} on branch '{branch_name}':")
+            for f in violations:
+                print(f"   - {f}")
+            print(f"   These files are outside {agent_id}'s lane.")
+            print(f"   Owned directories/files: {config['agents'][agent_id]['lanes']['owner']}")
+            return 1
 
-    # Rule 2: Lane validation
-    owned, violations = _check_lane_ownership(all_files, agent_id, config)
-    if violations:
-        print(f"❌ [Prismatic Engine] Lane violation by {agent_id}:")
-        for f in violations:
-            print(f"   - {f}")
-        print(f"   These files are outside {agent_id}'s lane.")
-        print(f"   Owned directories: {config['agents'][agent_id]['lanes']['owner']}")
-        return 1
+        # Rule 3: Lock checking
+        blocked = _check_file_locks(changed_files, agent_id, locks, repo_root)
+        if blocked:
+            print(f"❌ [Prismatic Engine] Locked files detected on branch '{branch_name}':")
+            for f in blocked:
+                # Find who holds the lock
+                for lock in locks:
+                    if lock["filePath"] == f or lock["filePath"] == str(Path(f)):
+                        print(f"   - {f} (locked by {lock['agentId']})")
+            print("   Wait for the lock to be released or contact the holding agent.")
+            return 1
 
-    # Rule 3: Lock checking
-    locks = _read_locks()
-    blocked = _check_file_locks(all_files, agent_id, locks, repo_root)
-    if blocked:
-        print(f"❌ [Prismatic Engine] Locked files detected:")
-        for f in blocked:
-            # Find who holds the lock
-            for lock in locks:
-                if lock["filePath"] == f or lock["filePath"] == str(Path(f)):
-                    print(f"   - {f} (locked by {lock['agentId']})")
-        print("   Wait for the lock to be released or contact the holding agent.")
-        return 1
+        print(f"✅ [Prismatic Engine] Pre-push OK: {agent_id} → {branch_name}")
+        print(f"   Files: {len(changed_files)} changed, {len(owned)} in-lane, 0 violations")
 
-    print(f"✅ [Prismatic Engine] Pre-push OK: {agent_id} → {branch}")
-    print(f"   Files: {len(all_files)} changed, {len(owned)} in-lane, 0 violations")
     return 0
 
 
