@@ -53,12 +53,12 @@ status: current
 - **Prod (WP):** `/activities.html`, `/contact-us.html`, hash anchors encoded as `%20`/`&#038;`.
 - **Staging (static mirror):** `/activities/`, `/contact-us/`, hash anchors as raw spaces/`&`.
 - **Impact:** Anchor links like `/activities.html#Chinaman%27s%20Hat` (prod) vs `/activities/#Chinaman's Hat` (staging) resolve identically per browser but the staging mirror's `_redirects` only handles the trailing-slash canonical form. A new internal link authored in the mirror's trailing-slash style will 301-redirect through the prod layer — extra hop, no semantic issue, but cache-busting work is wasted.
-- **Recommendation:** Document the canonical URL form per environment in the mirror's README. Don't try to unify them — they exist because prod IS WP and mirror IS static export. The drift is structural, not a bug.
+- **Recommendation:** Documented the canonical URL form per environment in [README.md](../../README.md#environments). Don't try to unify them — they exist because prod IS WP and mirror IS static export. The drift is structural, not a bug.
 
 ### D6. Japanese lang-switcher link uses `/ja/` on staging, not present on prod
 - **Staging:** Homepage nav has a hardcoded `href="/ja/"` link (the static mirror's index.html output).
 - **Prod:** No such hardcoded link — Weglot JS dynamically rewrites the switcher. The Weglot data block is identical on both.
-- **Impact:** Cosmetic. The Weglot switcher renders correctly on prod and replaces the static link at runtime. On staging the static `/ja/` link shows up but Weglot still rewrites it. Confirm by visual QA — no fix required unless the link is visually wrong.
+- **Impact:** Cosmetic. The Weglot switcher renders correctly on prod and replaces the static link at runtime. On staging the static `/ja/` link shows up but Weglot still rewrites it. Confirm by visual QA — no fix required unless the link is visually wrong. Documented this behavior in [README.md](../../README.md#japanese-language-switcher-ja).
 
 ### D7. `/wp-content/uploads/2023/01/active-oahu-logo.png` referenced by staging schema, not by prod HTML
 - **Staging:** Schema.org JSON-LD `"image": "/wp-content/uploads/2023/01/active-oahu-logo.png"` (TravelAgency schema).
@@ -73,7 +73,7 @@ status: current
 ### D9. Font paths differ — staging uses `../fonts.gstatic.com/...` (relative), prod uses `fonts.gstatic.com/...` (root-relative)
 - **Prod:** `src: url(fonts.gstatic.com/s/lato/v25/...ttf)`
 - **Staging:** `src: url(../fonts.gstatic.com/s/lato/v25/...ttf)`
-- **Impact:** Resolves identically on the staging URL tree because the mirror is a directory export. On prod it resolves relative to the page. **Not a bug** — but if the mirror is ever served from a sub-path (e.g., `growthwebdev.com/active-oahu/`), the `../` would break. Add a note in the mirror README.
+- **Impact:** Resolves identically on the staging URL tree because the mirror is a directory export. On prod it resolves relative to the page. **Not a bug** — but if the mirror is ever served from a sub-path (e.g., `growthwebdev.com/active-oahu/`), the `../` would break. Added a caution/note in [README.md](../../README.md#font-path-caveat).
 
 ---
 
