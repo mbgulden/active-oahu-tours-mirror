@@ -19,6 +19,7 @@ Time-stamped reports for Active Oahu Tours.
 
 | Report | Date | Description |
 |---|---|---|
+| [AOT Static Asset / Layout Hotfix — Cloudflare WAF + Relative Asset Paths](aot-static-asset-hotfix-2026-07-03.md) | 2026-07-03 | Post-incident OKF record for the live layout collapse caused by overbroad Cloudflare WAF rules and relative WordPress static asset paths; documents edge fix, source fix, deployment, and follow-up. |
 | [AOT Site Governance Reset — Branch Drift, Page Restoration, and Style Standards](aot-site-governance-reset-2026-06-25.md) | 2026-06-25 | Canonical OKF record for branch drift, missing snorkel/route pages, site editing standards, restoration plan, and style normalization workstream. |
 | [FareHarbor Widget + CTA Friction Audit — GRO-1711](fareharbor-cta-friction-audit-gro-1711.md) | 2026-06-19 | Performance and CTA friction audit of the FareHarbor booking widget integration. |
 | [Mobile CTA + Trust Block Visibility Audit — GRO-1713](gro-1713-mobile-cta-trust-audit.md) | 2026-06-19 | 375px mobile viewport audit — CTA prominence and trust signal visibility. |

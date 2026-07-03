@@ -26,4 +26,5 @@ status: current
 - [Research](./research/index.md) — Project-specific reference research.
 
 ## Current Operating Records
+- [AOT Static Asset / Layout Hotfix — Cloudflare WAF + Relative Asset Paths](./reports/aot-static-asset-hotfix-2026-07-03.md) — canonical OKF record for the July 3, 2026 live layout incident, emergency Cloudflare edge fix, source repair, deployment verification, and follow-up work.
 - [AOT Site Governance Reset — Branch Drift, Page Restoration, and Style Standards](./reports/aot-site-governance-reset-2026-06-25.md) — canonical OKF record for the branch drift incident, restoration plan, style normalization workstream, and site editing standards.
