@@ -601,6 +601,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://activeoahutours.com/ja/guides/eating-your-way-windward-to-north-shore/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://activeoahutours.com/ja/job-dashboard/</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -830,6 +836,12 @@
   </url>
   <url>
     <loc>https://activeoahutours.com/ja/rentals/oahu-snorkel-mask-and-fin-rentals/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://activeoahutours.com/ja/rentals/snorkel-gear-rentals/</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
