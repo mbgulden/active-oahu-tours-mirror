@@ -144,6 +144,30 @@ python3 scripts/aot_branch_drift_guard.py --prod origin/main --candidate origin/
 
 Use `--strict` only after the current drift backlog is resolved or a baseline is committed.
 
+## 8.5. Prismatic Web Governance Guard
+
+Before claiming any of these statements, run the portable governance guard:
+
+- “staging has the fix”
+- “production is stale”
+- “this PR can safely merge”
+- “the homepage/nav is fixed”
+- “all Active Oahu project branches are in sync”
+
+Required command:
+
+```bash
+git fetch origin --prune
+python3 scripts/prismatic_web_governance.py \
+  --config .prismatic-web-governance.json \
+  --report /tmp/aot-prismatic-web-governance.md \
+  --json /tmp/aot-prismatic-web-governance.json
+```
+
+The guard checks branch divergence, open/stale/conflicting PRs, protected-path overlap, dirty workspaces, remote stale branches, and live production homepage markers. WARN/FAIL sections are the cleanup backlog unless explicitly waived in a PR or Linear thread.
+
+See `docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md` for the Prismatic Web Plugin distribution contract.
+
 ## 9. Agent Responsibilities
 
 - **Fred:** governance, deploy source verification, drift guard, staging/production merge decisions.

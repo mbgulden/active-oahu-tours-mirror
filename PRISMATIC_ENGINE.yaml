@@ -74,5 +74,9 @@ commit:
 
 site_management:
   standards: "docs/AOT_SITE_MANAGEMENT_STANDARDS.md"
+  prismatic_web_governance: "docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md"
+  governance_config: ".prismatic-web-governance.json"
+  governance_guard: "scripts/prismatic_web_governance.py"
   drift_guard: "scripts/aot_branch_drift_guard.py"
   no_blind_main_master_merges: true
+  no_claiming_staging_or_production_state_without_guard_report: true
