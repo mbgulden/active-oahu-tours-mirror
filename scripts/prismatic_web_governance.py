@@ -79,6 +79,34 @@ def rev_count(left: str, right: str) -> int:
     return int(out or "0")
 
 
+def exclusive_commits(base: str, head: str, limit: int = 10) -> list[str]:
+    out = git("log", "--oneline", f"{base}..{head}", f"--max-count={limit}", check=False)
+    return [line for line in out.splitlines() if line]
+
+
+def cherry_equivalence(upstream: str, head: str) -> tuple[int, int, list[str]]:
+    """Return (equivalent, unique, sample_lines) for commits in head not in upstream.
+
+    `git cherry` prints '-' for patch-equivalent commits already present upstream
+    and '+' for commits whose patch is unique. This is exactly what a website
+    staging branch needs before anyone decides whether it can be reset/rebuilt.
+    """
+    out = git("cherry", "-v", upstream, head, check=False)
+    equivalent = 0
+    unique = 0
+    sample: list[str] = []
+    for line in out.splitlines():
+        if not line:
+            continue
+        if line.startswith("-"):
+            equivalent += 1
+        elif line.startswith("+"):
+            unique += 1
+        if len(sample) < 10:
+            sample.append(line)
+    return equivalent, unique, sample
+
+
 def file_at_ref(ref: str, path: str) -> str:
     proc = run(["git", "show", f"{ref}:{path}"], check=False)
     return proc.stdout if proc.returncode == 0 else ""
@@ -132,12 +160,25 @@ def check_branches(cfg: dict[str, Any]) -> Check:
     if branch_exists(prod) and branch_exists(staging):
         staging_behind = rev_count(staging, prod)
         prod_behind = rev_count(prod, staging)
+        equiv, unique, cherry_sample = cherry_equivalence(prod, staging)
         details.append(f"`{staging}` is behind `{prod}` by **{staging_behind}** commits.")
         details.append(f"`{prod}` is behind `{staging}` by **{prod_behind}** commits.")
+        details.append(f"Staging-only patch equivalence vs production: **{equiv}** equivalent, **{unique}** unique.")
+        if staging_behind:
+            details.append("Production-only commits not present on staging:")
+            details.extend(f"- `{line}`" for line in exclusive_commits(staging, prod, limit=10))
+        if prod_behind:
+            details.append("Staging-only commits (`git cherry -v production staging`; `-` means patch-equivalent upstream):")
+            details.extend(f"- `{line}`" for line in cherry_sample)
         if staging_behind > policy.get("max_staging_behind_production_commits", 0):
             status = "fail"
-        if prod_behind > policy.get("max_production_behind_staging_commits", 0):
+        # Do not fail merely because staging has patch-equivalent commits: that
+        # is cleanup debt, not unreconciled work. Still fail on truly unique
+        # staging-only patches unless policy allows them.
+        if unique > policy.get("max_production_behind_staging_commits", 0):
             status = "fail"
+        if prod_behind and unique == 0:
+            details.append("Reconciliation guidance: staging-only commits are patch-equivalent to production. Prefer rebuilding/resetting staging from production after human/governor approval; do not merge stale staging into production.")
 
     return Check("branch-drift", status, "Production/staging branch topology checked.", details)
 

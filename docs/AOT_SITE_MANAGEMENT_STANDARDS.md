@@ -168,6 +168,15 @@ The guard checks branch divergence, open/stale/conflicting PRs, protected-path o
 
 See `docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md` for the Prismatic Web Plugin distribution contract.
 
+## 8.6. Branch Reconciliation Guidance
+
+When `staging` or another preview branch is ahead of production, do **not** assume it contains unreleased work. The governance guard uses `git cherry -v <production> <staging>`:
+
+- `- <sha> ...` means the staging-only commit is patch-equivalent to production and is cleanup debt.
+- `+ <sha> ...` means staging contains unique work that needs review before any reset/rebuild.
+
+If all staging-only commits are patch-equivalent, the preferred fix is to rebuild/reset staging from production after human/governor approval. Do not merge stale staging into production just to “catch up”; that can reintroduce old files and erase newer homepage/nav fixes.
+
 ## 9. Agent Responsibilities
 
 - **Fred:** governance, deploy source verification, drift guard, staging/production merge decisions.
