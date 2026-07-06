@@ -1,0 +1,54 @@
+name: Prismatic Web Governance
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 15 * * *'
+  pull_request:
+    branches:
+      - {{PRODUCTION_BRANCH}}
+      - {{STAGING_BRANCH}}
+    paths:
+      - '.prismatic-web-governance.json'
+      - 'PRISMATIC_ENGINE.yaml'
+      - 'site/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/prismatic-web-governance.yml'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  governance:
+    name: Run web governance guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch governance comparison branches
+        run: |
+          git fetch origin {{PRODUCTION_BRANCH}} {{STAGING_BRANCH}} {{LEGACY_BRANCH}} --prune || true
+
+      - name: Run governance report
+        env:
+          GH_TOKEN: __GITHUB_TOKEN_EXPRESSION__
+        run: |
+          python3 scripts/prismatic_web_governance.py \
+            --config .prismatic-web-governance.json \
+            --report prismatic-web-governance-report.md \
+            --json prismatic-web-governance-report.json \
+            --report-only
+
+      - name: Upload governance report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prismatic-web-governance-report
+          path: |
+            prismatic-web-governance-report.md
+            prismatic-web-governance-report.json
