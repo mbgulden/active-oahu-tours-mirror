@@ -89,14 +89,29 @@ Minimum agent loop:
 
 ## Plugin distribution contract
 
-For a new Prismatic-managed website, the plugin should install:
+The reusable package now lives at [`prismatic-web-plugin/governance/`](../prismatic-web-plugin/governance/). For a new Prismatic-managed website, install it with:
+
+```bash
+python3 prismatic-web-plugin/governance/scripts/install_prismatic_web_governance.py \
+  --target /path/to/site-repo \
+  --site-name "Example Site" \
+  --repo owner/example-site \
+  --production-url https://example.com/ \
+  --staging-url https://example.pages.dev/ \
+  --homepage-path site/index.html \
+  --required-marker "Example Site" \
+  --forbidden-marker "old-broken-block"
+```
+
+The plugin installs:
 
 1. `.prismatic-web-governance.json` with site URLs, branch names, protected paths, required markers, and agent lanes.
-2. `scripts/prismatic_web_governance.py` unchanged.
-3. A GitHub Action equivalent to `.github/workflows/prismatic-web-governance.yml`.
-4. A project-specific doc that explains the site’s promotion policy and live verification markers.
+2. `scripts/prismatic_web_governance.py`
+3. `.github/workflows/prismatic-web-governance.yml`
+4. A site standards doc section requiring the guard before staging/prod claims
+5. Optional Hermes watchdog using the JSON report output
 
-Required config fields:
+Example config shape:
 
 ```json
 {
