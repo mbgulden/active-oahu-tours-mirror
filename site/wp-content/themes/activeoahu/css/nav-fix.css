@@ -1,7 +1,7 @@
 /* ==========================================================================
    NAV FIX — Loaded AFTER style.css so cascade always wins
    Fixes desktop nav height + mobile menu layout
-   v=9
+   v=10
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -210,6 +210,63 @@ body #branding .aot-logo img {
 
 .main-navigation .sub-menu li:hover > .sub-menu {
   display: block !important;
+}
+
+/* Desktop/tablet nav readability guardrails — keep the compact mobile header
+   rules below isolated to phones, but restore comfortable desktop spacing,
+   stronger font weight, and an unwrapped horizontal menu at 768px+. */
+@media (min-width: 768px) {
+  #branding {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    padding: 10px 24px !important;
+  }
+
+  .main-navigation {
+    min-height: 48px !important;
+    overflow: visible !important;
+  }
+
+  .main-navigation .menu {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+  }
+
+  .main-navigation .menu > li > a {
+    padding: 13px 18px !important;
+    color: #fff8e8 !important;
+    line-height: 22px !important;
+    font-size: 16px !important;
+    font-family: "Open Sans", Arial, sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.28) !important;
+  }
+
+  .main-navigation .menu > li > a:hover,
+  .main-navigation .menu > li > a:focus,
+  .main-navigation .menu > li:hover > a {
+    background-color: #004f75 !important;
+    color: #ffffff !important;
+  }
+
+  .main-navigation .current-menu-item > a,
+  .main-navigation .current_page_item > a {
+    background-color: #005f8f !important;
+    color: #ffffff !important;
+  }
+
+  .main-navigation .sub-menu {
+    min-width: 230px !important;
+  }
+
+  .main-navigation .sub-menu a {
+    padding: 10px 16px !important;
+    font-family: "Open Sans", Arial, sans-serif !important;
+    font-weight: 600 !important;
+    color: #fff8e8 !important;
+  }
 }
 
 /* Only hide mobile toggle on desktop — on mobile, nav-fix.css ::before overrides the original style.css */

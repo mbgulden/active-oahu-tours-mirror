@@ -14,9 +14,14 @@ agents:
     staging_governor: true
 
   kai:
-    role: Content Writer (AOT site)
+    role: Orchestrator of Tourism — owns ALL Hawaii tour businesses (AOT flagship + future)
     lanes:
-      owner: ["content/", "active-oahu/", "okf/"]
+      owner:
+        - "content/"
+        - "active-oahu/"
+        - "site/"          # AOT static site body content (overlaps with Fred's default; Kai has primacy here)
+        - "okf/"           # ops-runbook, knowledge hub
+        - "scripts/"       # co-owned with Ned — Kai may add a11y/content scripts; Ned owns src/infra/deploy
       read_only: ["src/", "infra/", "deploy/"]
     branch_prefix: "content/"
 
@@ -49,7 +54,29 @@ locks:
 staging:
   governor: "fred"
   branch: "deploy-fresh"
+  # IMPORTANT: live production/source-of-truth must be verified before site edits.
+  # Historical drift: master contains pages that main/root Pages did not serve.
+  # Use scripts/aot_branch_drift_guard.py + live curl checks before restoration/merge.
+  production_branch_verified_by_live_check: false
+  production_branch_candidate: "main"
+  content_source_branch_candidate: "master"
 
 commit:
-  prefix_format: "[Fred] description (#ISSUE)"
+  # Per-agent prefixes (must match the [Agent] tag on each commit)
+  prefixes:
+    fred: "[Fred] description (#ISSUE)"
+    kai:  "[Kai] description (#ISSUE)"
+    agy:  "[AGY] description (#ISSUE)"
+    jules: "[Jules] description (#ISSUE)"
+    ned:  "[Ned] description (#ISSUE)"
   require_issue_ref: true
+  note: "Multi-agent lane precedence: more-specific lane wins over '*'' (Fred's default). E.g. site/ belongs to Kai even though Fred owns '*'."
+
+site_management:
+  standards: "docs/AOT_SITE_MANAGEMENT_STANDARDS.md"
+  prismatic_web_governance: "docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md"
+  governance_config: ".prismatic-web-governance.json"
+  governance_guard: "scripts/prismatic_web_governance.py"
+  drift_guard: "scripts/aot_branch_drift_guard.py"
+  no_blind_main_master_merges: true
+  no_claiming_staging_or_production_state_without_guard_report: true

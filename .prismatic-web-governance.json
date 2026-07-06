@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "site": {
+    "name": "Active Oahu Tours",
+    "repo": "mbgulden/active-oahu-tours-mirror",
+    "production_branch": "origin/main",
+    "staging_branch": "origin/staging",
+    "legacy_content_branch": "origin/master",
+    "production_url": "https://activeoahutours.com/",
+    "staging_url": "https://active-oahu-tours-mirror.pages.dev/",
+    "homepage_path": "site/index.html"
+  },
+  "policy": {
+    "max_open_pr_age_days": 7,
+    "max_staging_behind_production_commits": 0,
+    "max_production_behind_staging_commits": 0,
+    "stale_branch_days": 14,
+    "allowed_long_lived_branches": ["main", "master", "staging", "deploy-fresh"],
+    "required_production_markers": [
+      "nav-fix.css?v=10",
+      "Active Oahu is a Kailua-based outfitter"
+    ],
+    "forbidden_production_markers": [
+      "aot-quick-answer"
+    ],
+    "protected_paths": [
+      "site/_redirects",
+      "_redirects",
+      "site/robots.txt",
+      "site/sitemap.xml",
+      "PRISMATIC_ENGINE.yaml",
+      ".prismatic-web-governance.json"
+    ]
+  },
+  "agents": {
+    "kai": {"branch_prefix": "content/", "owner_paths": ["site/", "content/", "active-oahu/", "okf/", "docs/", "scripts/"]},
+    "fred": {"branch_prefix": "feature/", "owner_paths": ["*"]},
+    "agy": {"branch_prefix": "design/", "owner_paths": ["assets/", "designs/", "reports/"]},
+    "ned": {"branch_prefix": "ned/", "owner_paths": ["src/", "infra/", "deploy/", "scripts/"]},
+    "jules": {"branch_prefix": "jules/", "owner_paths": ["docs/"]}
+  }
+}

@@ -60,6 +60,10 @@
 
 
 # Old/missing slug wildcards
+/contact /contact-us/ 301
+/contact/ /contact-us/ 301
+/guided-kayak-tours /activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/ 301
+/guided-kayak-tours/ /activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/ 301
 /chinamans-hat-kayak-tour/* /activities/chinamans-hat-oahu-kayak-tours/:splat 301
 /kaneohe-bay-sandbar-kayak/* /kaneohe-sandbar/:splat 301
 /stand-up-paddleboard-rental/* /oahu-equipment-rentals/:splat 301
