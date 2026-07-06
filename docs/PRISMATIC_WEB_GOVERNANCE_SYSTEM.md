@@ -21,7 +21,7 @@ This system turns that into a repeatable governance layer that can ship with the
 | Governance surface | Guardrail |
 |---|---|
 | Branch source-of-truth | Compares production/staging branches and fails when staging is behind production beyond policy |
-| Branch reconciliation | Uses `git cherry -v` to distinguish unique staging-only work from patch-equivalent commits already present on production |
+| Branch reconciliation | Uses `git cherry -v` plus tree-SHA equality to distinguish unique staging-only work, patch-equivalent commits, and history-only drift |
 | PR hygiene | Lists open PRs, mergeability, age, protected-path touches, and file overlap between PRs |
 | Workspace safety | Warns if the local worktree is dirty so agents do not `git add .` someone else’s WIP |
 | Live production freshness | Fetches production with `Cache-Control: no-cache`, checks HTTP status and required/forbidden markers |

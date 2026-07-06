@@ -170,12 +170,13 @@ See `docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md` for the Prismatic Web Plugin distr
 
 ## 8.6. Branch Reconciliation Guidance
 
-When `staging` or another preview branch is ahead of production, do **not** assume it contains unreleased work. The governance guard uses `git cherry -v <production> <staging>`:
+When `staging` or another preview branch is ahead of production, do **not** assume it contains unreleased work. The governance guard uses both `git cherry -v <production> <staging>` and production/staging tree SHA equality:
 
 - `- <sha> ...` means the staging-only commit is patch-equivalent to production and is cleanup debt.
-- `+ <sha> ...` means staging contains unique work that needs review before any reset/rebuild.
+- `+ <sha> ...` means staging may contain unique work that needs review before any reset/rebuild.
+- Identical production/staging tree SHAs mean the deployable site content is already reconciled; remaining ahead/behind is history-only drift.
 
-If all staging-only commits are patch-equivalent, the preferred fix is to rebuild/reset staging from production after human/governor approval. Do not merge stale staging into production just to “catch up”; that can reintroduce old files and erase newer homepage/nav fixes.
+If all staging-only commits are patch-equivalent, the preferred fix is to rebuild/reset staging from production after human/governor approval or use a normal non-force PR to bring staging forward from `main`. Do not merge stale staging into production just to “catch up”; that can reintroduce old files and erase newer homepage/nav fixes.
 
 ## 9. Agent Responsibilities
 
