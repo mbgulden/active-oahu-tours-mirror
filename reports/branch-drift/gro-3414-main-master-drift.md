@@ -1,0 +1,65 @@
+# AOT Branch Drift Guard — `origin/main` vs `origin/master`
+
+- Merge base: `5ed2e164fd3ae09e91fd7ea20475e7164d5af630`
+
+## Counts
+- prod_files: **2467**
+- candidate_files: **2494**
+- candidate_only_files: **111**
+- prod_only_files: **84**
+- modified_shared_files: **321**
+- candidate_only_pages: **0**
+- prod_only_pages: **1**
+- modified_shared_page_or_text_files: **307**
+- critical_changed_files: **7**
+
+## Candidate-only categories
+- site: 96
+- root: 11
+- directory-listings: 2
+- .antigravity: 1
+- reports: 1
+
+## Production-only categories
+- wp-content: 50
+- scripts: 9
+- okf: 7
+- prismatic-web-plugin: 4
+- root: 3
+- docs: 3
+- .github: 2
+- reports: 2
+- site: 2
+- content: 1
+- other-pages: 1
+
+## Modified shared-file categories
+- ja: 123
+- other-pages: 104
+- activities: 38
+- rentals: 19
+- guides: 14
+- root: 9
+- routing/seo/governance: 5
+- site: 4
+- templates: 3
+- wp-content: 2
+
+## Critical changed files
+- `.github/workflows/aot-branch-drift.yml`
+- `.github/workflows/prismatic-web-governance.yml`
+- `PRISMATIC_ENGINE.yaml`
+- `_redirects`
+- `site/_redirects`
+- `site/sitemap.xml`
+- `sitemap.xml`
+
+## Candidate-only page examples
+| Path | URL | Title |
+|---|---|---|
+| — | — | — |
+
+## Production-only page examples
+| Path | URL | Title |
+|---|---|---|
+| `site/kaneohe-bay-sandbar-tide-guide/index.html` | `/kaneohe-bay-sandbar-tide-guide/` | Kaneohe Sandbar Tide Calendar — Best Times to Visit / Active Oahu |

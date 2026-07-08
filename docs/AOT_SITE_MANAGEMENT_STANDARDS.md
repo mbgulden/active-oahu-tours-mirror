@@ -144,40 +144,6 @@ python3 scripts/aot_branch_drift_guard.py --prod origin/main --candidate origin/
 
 Use `--strict` only after the current drift backlog is resolved or a baseline is committed.
 
-## 8.5. Prismatic Web Governance Guard
-
-Before claiming any of these statements, run the portable governance guard:
-
-- “staging has the fix”
-- “production is stale”
-- “this PR can safely merge”
-- “the homepage/nav is fixed”
-- “all Active Oahu project branches are in sync”
-
-Required command:
-
-```bash
-git fetch origin --prune
-python3 scripts/prismatic_web_governance.py \
-  --config .prismatic-web-governance.json \
-  --report /tmp/aot-prismatic-web-governance.md \
-  --json /tmp/aot-prismatic-web-governance.json
-```
-
-The guard checks branch divergence, open/stale/conflicting PRs, protected-path overlap, dirty workspaces, remote stale branches, and live production homepage markers. WARN/FAIL sections are the cleanup backlog unless explicitly waived in a PR or Linear thread.
-
-See `docs/PRISMATIC_WEB_GOVERNANCE_SYSTEM.md` for the Prismatic Web Plugin distribution contract.
-
-## 8.6. Branch Reconciliation Guidance
-
-When `staging` or another preview branch is ahead of production, do **not** assume it contains unreleased work. The governance guard uses both `git cherry -v <production> <staging>` and production/staging tree SHA equality:
-
-- `- <sha> ...` means the staging-only commit is patch-equivalent to production and is cleanup debt.
-- `+ <sha> ...` means staging may contain unique work that needs review before any reset/rebuild.
-- Identical production/staging tree SHAs mean the deployable site content is already reconciled; remaining ahead/behind is history-only drift.
-
-If all staging-only commits are patch-equivalent, the preferred fix is to rebuild/reset staging from production after human/governor approval or use a normal non-force PR to bring staging forward from `main`. Do not merge stale staging into production just to “catch up”; that can reintroduce old files and erase newer homepage/nav fixes.
-
 ## 9. Agent Responsibilities
 
 - **Fred:** governance, deploy source verification, drift guard, staging/production merge decisions.
@@ -187,7 +153,33 @@ If all staging-only commits are patch-equivalent, the preferred fix is to rebuil
 - **AGY:** review/audit of restoration batches before broad production merge.
 - **Jules/Ned:** deterministic scripts, CI, validation tooling, implementation review.
 
-## 10. Definition of Done for Site Changes
+## 10. Staging-First Deploy / Verify Checklist
+
+Production is read-only until the staging diff has been reviewed and the promotion path is explicit.
+
+For every implementation/layout/content change:
+
+1. **Start from the verified production source**
+   - `git fetch origin --prune`
+   - Confirm current branch and intended base with `git branch --show-current` and `git log -1 --oneline origin/main`.
+   - Do not branch from `staging` unless the task explicitly says staging is the source of truth.
+2. **Make changes on a feature branch or staging worktree only**
+   - Never edit production directly.
+   - Never push directly to `main`, `master`, or deployment branches.
+   - Never force-push shared branches.
+3. **Run drift/additive checks before promotion**
+   - `python3 scripts/aot_branch_drift_guard.py --prod origin/main --candidate origin/master --report reports/branch-drift/<issue>-main-master-drift.md`
+   - For rendered-output work, compare production against the approved staging URL (`https://activeoahutours2.flywheelstaging.com`) and/or Cloudflare preview.
+   - Classify any drift as additive, intentional replacement, or blocker before merge.
+4. **Verify affected routes before claiming done**
+   - `curl -sSI https://activeoahutours.com/<changed-path>/ | sed -n '1,12p'`
+   - Check title/H1, canonical, schema, nav, footer links, and booking/FareHarbor CTAs for revenue pages.
+   - Verify `www.activeoahutours.com` redirects to apex instead of serving a broken origin response.
+5. **Document the evidence**
+   - Linear comment must include command output, URLs checked, report path(s), and any caveats.
+   - If Google Search Console or Cloudflare dashboard-only verification is required but not available, state the exact blocker instead of marking Done.
+
+## 11. Definition of Done for Site Changes
 
 A site change is not done until all are true:
 
