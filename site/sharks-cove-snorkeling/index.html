@@ -1992,8 +1992,19 @@ document.addEventListener('DOMContentLoaded', function() {
       window.gtag('event', name, params);
     }
   }
+  function isVisibleOverlay(el) {
+    if (!el) { return false; }
+    var cs = window.getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden' || cs.opacity === '0') { return false; }
+    var rect = el.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  }
   function hasFareHarborOverlay() {
-    return !!document.querySelector('iframe[src*="fareharbor"], .fh-modal, .fareharbor-iframe, [data-fh-modal], [class*="lightframe"], [class*="fareharbor"]');
+    var nodes = document.querySelectorAll('iframe[src*="fareharbor"], .fh-modal, .fareharbor-iframe, [data-fh-modal], [class*="lightframe"], [id*="lightframe"]');
+    for (var i = 0; i < nodes.length; i += 1) {
+      if (isVisibleOverlay(nodes[i])) { return true; }
+    }
+    return false;
   }
   function overlapRisk() {
     if (hasFareHarborOverlay()) { return 'fareharbor_open'; }
