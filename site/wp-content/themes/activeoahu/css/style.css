@@ -340,3 +340,88 @@
     background-color: rgba(255,255,255,0.1) !important;
   }
 }
+
+/* ==========================================================================
+   GRO-3666 ACCESSIBILITY PATCHES — booking pages
+   ========================================================================== */
+.social-header .feature,
+.social-header-h3 .feature,
+#branding .feature,
+.feature-block h4.feature,
+section.feature-block > div.col > a > h4.center-text,
+.section-header h5.section-title,
+.section-header h2.section-title,
+h5.section-title,
+h2.section-title {
+  color: #c94a00 !important;
+}
+
+.package-margins.activity-front-text {
+  font-size: 20px !important;
+  line-height: 1.25 !important;
+}
+
+.btn-primary,
+a.btn-primary,
+.social-header .btn-primary,
+.social-links a.btn-primary,
+.social-links a.pull-right.btn-primary,
+.listing-book-button .btn,
+.listing-book-button a .btn,
+.listing-book-button a > .btn,
+.flex-table .btn,
+.flex-table a .btn,
+.single-book-cta .btn,
+.single-book-cta a .btn,
+input#mc-embedded-subscribe,
+.homepage-subscribe {
+  background-color: #c94a00 !important;
+  border-color: #c94a00 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+a.btn-primary:hover,
+a.btn-primary:focus,
+.social-header .btn-primary:hover,
+.social-header .btn-primary:focus,
+.social-links a.btn-primary:hover,
+.social-links a.btn-primary:focus,
+.social-links a.pull-right.btn-primary:hover,
+.social-links a.pull-right.btn-primary:focus,
+.listing-book-button .btn:hover,
+.listing-book-button .btn:focus,
+.listing-book-button a > .btn:hover,
+.listing-book-button a > .btn:focus,
+.flex-table .btn:hover,
+.flex-table .btn:focus,
+.single-book-cta .btn:hover,
+.single-book-cta .btn:focus,
+input#mc-embedded-subscribe:hover,
+input#mc-embedded-subscribe:focus,
+.homepage-subscribe:hover,
+.homepage-subscribe:focus {
+  background-color: #a83d00 !important;
+  border-color: #a83d00 !important;
+  color: #ffffff !important;
+}
+
+.accredited,
+.accredited em,
+.accredited small,
+.review-item .accredited,
+.review-item .accredited em,
+.review-item .accredited small,
+.single-review-item .accredited,
+.single-review-item .accredited em,
+.single-review-item .accredited small,
+.flex-table small,
+.flex-table .flex-row p small {
+  color: #555555 !important;
+}
+
+button.menu-toggle {
+  background-color: #006699 !important;
+  color: #ffffff !important;
+}
