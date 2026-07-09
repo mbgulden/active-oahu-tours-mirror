@@ -430,5 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <script>
     (function(){var banner=document.querySelector(".site-banner-announcement");var closeTrigger=document.querySelector(".site-banner-announcement .closeTrigger");if(!banner||!closeTrigger)return;closeTrigger.addEventListener("click",function(e){e.stopPropagation();banner.classList.add("fade-out");banner.classList.remove("fade-in");banner.addEventListener("animationend",function handler(ev){if(ev.animationName==="fadeOut"){banner.removeEventListener("animationend",handler);banner.style.display="none";localStorage.setItem("bannerClosedTimestamp",Date.now().toString());}});});})();
   </script>
+<!-- AOT booking analytics tracking -->
+<script src="/assets/js/aot-booking-analytics.js" defer></script>
 </body>
 </html>
