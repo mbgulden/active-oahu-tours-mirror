@@ -1074,7 +1074,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </li>
                     </ul>
                   </div>
-                  <script async src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=95&amp;locationId=5079465&amp;lang=en_US&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+                  <script type="text/plain" data-aot-lazy-tripadvisor data-src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&uniq=95&locationId=5079465&lang=en_US&border=true&display_version=2"></script>
                 </div>
               </div>
             </div>
@@ -1977,19 +1977,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if (timer) { clearTimeout(timer); timer = null; }
   }
 
-  // Pre-warm: preload the FareHarbor book page in hidden iframe
-  function prewarmFH() {
-    var pw = document.createElement('iframe');
-    pw.src = 'https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes';
-    pw.style.cssText = 'display:none!important;width:0!important;height:0!important';
-    pw.title = 'fareharbor-prewarm';
-    pw.setAttribute('aria-hidden', 'true');
-    pw.setAttribute('tabindex', '-1');
-    document.body.appendChild(pw);
-    setTimeout(function() {
-      if (pw.parentNode) pw.parentNode.removeChild(pw);
-    }, 4000);
-  }
+  // FareHarbor prewarm intentionally disabled: loading the hidden
+  // checkout iframe on every page view creates third-party-cookie
+  // Lighthouse noise before a visitor asks to book.
 
   // Intercept FH.open
   function wrapFH() {
@@ -2006,15 +1996,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
-      prewarmFH();
       wrapFH();
     });
   } else {
-    prewarmFH();
     wrapFH();
   }
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0477b73aca3c0a6',t:'MTc4MDI0NjI3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script src="/assets/js/aot-lazy-tripadvisor.js" defer></script>
 </body>
 </html>
