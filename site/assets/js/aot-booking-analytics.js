@@ -5,6 +5,7 @@
 
   var bookingInProgress = false;
   var lastClickTarget = null;
+  var lastClickAt = 0;
   var lastBookingClickSignature = '';
   var lastBookingClickAt = 0;
 
@@ -54,6 +55,7 @@
     var link = target && target.closest ? target.closest('a[href*="fareharbor.com/embeds/book"]') : null;
     if (link) {
       lastClickTarget = link;
+      lastClickAt = Date.now();
       emitBookingClick({
         shortname: parseShortnameFromHref(link.href),
         view: { item: parseItemFromHref(link.href) },
@@ -65,8 +67,12 @@
   function emitBookingClick(options) {
     var item = (options && options.view && options.view.item) || '';
     if (!item && lastClickTarget) { item = parseItemFromHref(lastClickTarget.href); }
+    var hasRecentLinkClick = lastClickTarget && Date.now() - lastClickAt < 1000;
+    var lastClickItem = hasRecentLinkClick ? parseItemFromHref(lastClickTarget.href) : '';
     var ctaType = 'unknown';
     if (options && options.source === 'fareharbor_link') {
+      ctaType = 'link';
+    } else if (hasRecentLinkClick && (!item || item === lastClickItem)) {
       ctaType = 'link';
     } else if (options && options.view) {
       ctaType = options.view.item ? 'calendar' : (options.view.category ? 'category' : 'view');
