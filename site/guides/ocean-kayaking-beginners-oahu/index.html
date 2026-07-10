@@ -195,56 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 1023;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
+  // Desktop submenus are controlled by CSS :hover/:focus-within so parent
+  // menu links remain real links. The old desktop click handler prevented
+  // Activities, Rentals, Adventure Guide, and Contact Us from navigating.
 });
 
 </script>
@@ -471,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		<li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="/kailua-oahu-storefront/index.html">Our Kailua Storefront</a></li>
 		<li id="menu-item-2421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2421"><a href="/about-active-oahu-tours/awards/index.html">Awards</a></li>
 		<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="/guides/index.html">Guides</a></li>
-		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="/reviews/index.html">Reviews</a></li>
+		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="/reviews/">Reviews</a></li>
 	</ul>
 </li>
 	<li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="/active-oahu-photo-gallery/index.html">Gallery</a></li>
