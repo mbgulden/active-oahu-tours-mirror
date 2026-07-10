@@ -176,7 +176,8 @@ body #branding .aot-logo img {
   box-shadow: 0 3px 6px rgba(0,0,0,0.2) !important;
 }
 
-.main-navigation .menu > li:hover > .sub-menu {
+.main-navigation .menu > li:hover > .sub-menu,
+.main-navigation .menu > li:focus-within > .sub-menu {
   display: block !important;
 }
 
@@ -208,7 +209,8 @@ body #branding .aot-logo img {
   left: 100% !important;
 }
 
-.main-navigation .sub-menu li:hover > .sub-menu {
+.main-navigation .sub-menu li:hover > .sub-menu,
+.main-navigation .sub-menu li:focus-within > .sub-menu {
   display: block !important;
 }
 
@@ -529,4 +531,27 @@ small,
 .review-container .accredited em,
 .accredited em {
   color: #555555 !important;
+}
+
+/* GRO desktop-nav Playwright fix: parent nav items remain clickable while
+   dropdowns stay accessible on hover and keyboard focus. */
+@media (min-width: 768px) {
+  .main-navigation .menu-item-has-children > a:focus {
+    outline: 2px solid #fff8e8 !important;
+    outline-offset: -2px !important;
+  }
+
+  .main-navigation .sub-menu {
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  .main-navigation .menu > li:hover > .sub-menu,
+  .main-navigation .menu > li:focus-within > .sub-menu,
+  .main-navigation .sub-menu li:hover > .sub-menu,
+  .main-navigation .sub-menu li:focus-within > .sub-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
 }
