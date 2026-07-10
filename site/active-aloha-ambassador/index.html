@@ -175,16 +175,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Active Aloha Ambassador Program", "description": "Join the Active Aloha Ambassador program. Share your Oahu adventures and earn free kayak rentals, e-bike credits, and beach gear. Open to locals and frequent visitors.", "provider": {"@type": "TravelAgency", "name": "Active Oahu, LLC", "url": "https://activeoahutours.com/"}}</script>
 <!-- build: 1780339711.2951758 -->
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-
-  // Desktop submenus are controlled by CSS :hover/:focus-within so parent
-  // menu links remain real links. The old desktop click handler prevented
-  // Activities, Rentals, Adventure Guide, and Contact Us from navigating.
-});
-
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
 </script>
 <script defer="" id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" type="text/javascript"></script>
 <script type="application/ld+json">
@@ -1369,8 +1363,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 </section><!-- container -->
 <!-- #page -->
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
-</script>
+<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">{}</script>
 <!-- AOT booking analytics tracking -->
 <script src="/assets/js/aot-booking-analytics.js" defer></script>
 <!-- FareHarbor plugin activated --><script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>
@@ -1560,6 +1553,7 @@ document.addEventListener('DOMContentLoaded', function() {
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1742,7 +1736,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return fold <= $(element).offset().left;
     };
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 </script>
 <script>
   // Smooth scroll to booking

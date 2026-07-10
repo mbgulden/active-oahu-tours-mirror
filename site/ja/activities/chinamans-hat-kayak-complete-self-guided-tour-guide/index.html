@@ -26,7 +26,7 @@
 <link rel='stylesheet' id='kadence-blocks-advancedbtn-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css' type='text/css' media='all' />
 <link rel='stylesheet' id='kadence-blocks-advancedgallery-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedgallery.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-style-css' href='/wp-content/themes/activeoahu/css/style.css?v=7' type='text/css' media='all' />
-<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=11' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=12' type='text/css' media='all' />
   <link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-32x32.png" sizes="32x32" />
   <link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-192x192.png" sizes="192x192" />
   <script type="application/ld+json">
@@ -131,73 +131,11 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
-});
-
-</script></script>
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
+</script>
 <link href="https://activeoahutours.com/activities/chinamans-hat-kayak-complete-self-guided-tour-guide/" hreflang="en" rel="alternate"/>
 <link href="https://activeoahutours.com/ja/activities/chinamans-hat-kayak-complete-self-guided-tour-guide/" hreflang="ja" rel="alternate"/>
 </head>

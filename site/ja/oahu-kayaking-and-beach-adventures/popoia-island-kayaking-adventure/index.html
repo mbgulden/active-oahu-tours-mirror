@@ -210,73 +210,11 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
-});
-
-</script></script>
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
+</script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <link rel='stylesheet' id='kadence-blocks-iconlist-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-iconlist.css' type='text/css' media='all' />
@@ -716,8 +654,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 </section><!-- container -->
 </div><!-- #page -->
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
-</script>
+<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">{}</script>
 <!-- AOT booking analytics tracking -->
 <script src="/assets/js/aot-booking-analytics.js" defer></script>
 <!-- FareHarbor plugin activated -->
@@ -832,6 +769,7 @@ document.addEventListener('DOMContentLoaded', function() {
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -920,7 +858,7 @@ document.addEventListener('DOMContentLoaded', function() {
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("<img loading=\"lazy\" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
@@ -1097,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', function() {
       effect: "fadeIn"
     });
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 
 
   /**

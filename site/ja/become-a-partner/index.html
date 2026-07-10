@@ -167,25 +167,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- build: 1780339711.2951758 -->
 
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-  // Desktop submenus are controlled by CSS :hover/:focus-within so parent
-  // menu links remain real links. The old desktop click handler prevented
-  // Activities, Rentals, Adventure Guide, and Contact Us from navigating.
-});
-
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
 </script>
 
 <script type="application/ld+json">
@@ -884,8 +869,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 </section><!-- container -->
 </div><!-- #page -->
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
-</script>
+<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">{}</script>
 <!-- AOT booking analytics tracking -->
 <script src="/assets/js/aot-booking-analytics.js" defer></script>
 <!-- FareHarbor plugin activated -->
@@ -900,31 +884,29 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
 <script type="text/javascript">
 /* <![CDATA[ */
-                    }jQuery('#input_3_2').mask('(999) 999-9999').bind('keypress', function(e){if(e.which == 13){jQuery(this).blur();} } );} } );jQuery(document)
+document.addEventListener("DOMContentLoaded", function () {
+  const banner = document.querySelector(".site-banner-announcement");
+  const closeTrigger = document.querySelector(".closeTrigger");
+  const body = document.body;
+  const STORAGE_KEY = "bannerClosedTimestamp";
+
+  if (closeTrigger && banner) {
+    closeTrigger.addEventListener("click", function (event) {
+      event.preventDefault();
+      banner.classList.remove("fade-in");
+      banner.classList.add("fade-out");
+
+      setTimeout(function () {
+        banner.style.display = "none";
+        banner.classList.remove("fade-out");
+        body.classList.add("anncmnt_hide");
+        localStorage.setItem(STORAGE_KEY, Date.now().toString());
+      }, 250);
+    });
+  }
+});
 /* ]]> */
 </script>
-<script type="text/javascript">
-/* <![CDATA[ */
-      const closeTrigger = document.querySelector(".closeTrigger");
-      const body = document.body;
-      const STORAGE_KEY = "bannerClosedTimestamp";
-
-      if (closeTrigger && banner) {
-        closeTrigger.addEventListener("click", function (event) {
-          event.preventDefault();
-          banner.classList.remove("fade-in");
-          banner.classList.add("fade-out");
-
-          setTimeout(function () {
-            banner.style.display = "none";
-            banner.classList.remove("fade-out");
-            body.classList.add("anncmnt_hide");
-            localStorage.setItem(STORAGE_KEY, Date.now().toString());
-          }, 250);
-        });
-      }
-    });
-  </script>
 <script>
   /**
    * navigation.js
@@ -1011,6 +993,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1099,7 +1082,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("<img loading=\"lazy\" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
@@ -1276,7 +1259,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
       effect: "fadeIn"
     });
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 
 
   /**

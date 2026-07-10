@@ -836,8 +836,7 @@
 </div><!-- #page -->
 
 
-<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
-</script>
+<script data-cfasync="false" src="https://activeoahutours.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">{}</script>
 <!-- Booking analytics tracking -->
 <script>
 (function() {
@@ -1037,6 +1036,7 @@
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1302,7 +1302,7 @@
       effect: "fadeIn"
     });
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 
 
   /**

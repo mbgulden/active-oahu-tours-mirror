@@ -176,25 +176,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- build: 1780339711.2951758 -->
 
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-  // Desktop submenus are controlled by CSS :hover/:focus-within so parent
-  // menu links remain real links. The old desktop click handler prevented
-  // Activities, Rentals, Adventure Guide, and Contact Us from navigating.
-});
-
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
 </script>
 
 <script type="application/ld+json">
@@ -1196,6 +1181,7 @@ Ahupuaʻa ʻO Kahana State Park<br/>
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1284,7 +1270,7 @@ Ahupuaʻa ʻO Kahana State Park<br/>
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("<img loading=\"lazy\" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
@@ -1461,7 +1447,7 @@ Ahupuaʻa ʻO Kahana State Park<br/>
       effect: "fadeIn"
     });
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 
 
   /**
