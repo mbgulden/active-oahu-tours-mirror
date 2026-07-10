@@ -101,7 +101,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <link rel='stylesheet' id='kadence-blocks-advancedbtn-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css' type='text/css' media='all' />
 <link rel='stylesheet' id='kadence-blocks-advancedgallery-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedgallery.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-style-css' href='/wp-content/themes/activeoahu/css/style.css?v=7' type='text/css' media='all' />
-<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=11' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=12' type='text/css' media='all' />
 <style id='kadence-blocks-global-variables-inline-css' type='text/css'>
 :root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}:root {--global-palette1: #3182CE;--global-palette2: #2B6CB0;--global-palette3: #1A202C;--global-palette4: #2D3748;--global-palette5: #4A5568;--global-palette6: #718096;--global-palette7: #EDF2F7;--global-palette8: #F7FAFC;--global-palette9: #ffffff;--global-palette-btn-bg: #006699;--global-palette-btn: #ffffff;--global-palette-btn-bg-hover: #004d73;--global-palette-btn-hover: #ffffff;}
 /*# sourceURL=kadence-blocks-global-variables-inline-css */
@@ -204,73 +204,11 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
-});
-
-</script></script>
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
+</script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "The Ultimate Guide for the North Shore of Oahu &ndash; Active Oahu", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/", "description": "The complete North Shore Oahu guide: best surf spots, shrimp trucks, snorkeling at Sharks Cove, Waimea Valley hikes, and where to rent gear."}</script>
@@ -1195,6 +1133,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
    */
 
   (function($, window, document, undefined) {
+    if (!$) { return; }
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1283,7 +1222,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
               var elements_left = elements.length;
               settings.appear.call(self, elements_left, settings);
             }
-            $("<img loading="lazy" />")
+            $("<img loading=\"lazy\" />")
               .bind("load", function() {
 
                 var original = $self.attr("data-" + settings.data_attribute);
@@ -1460,7 +1399,7 @@ boarding, snorkeling, surf lessons, Hiking and other self-guided experiences</p>
       effect: "fadeIn"
     });
 
-  })(jQuery, window, document);
+  })(window.jQuery, window, document);
 
 
   /**

@@ -168,12 +168,13 @@ body #branding .aot-logo img {
   top: 100% !important;
   left: 0 !important;
   z-index: 99999 !important;
-  background-color: #006699 !important;
+  background-color: #004f75 !important;
   list-style: none !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 4px 0 !important;
   min-width: 200px !important;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28) !important;
+  border-top: 4px solid #f47b20 !important;
 }
 
 .main-navigation .menu > li:hover > .sub-menu,
@@ -189,18 +190,25 @@ body #branding .aot-logo img {
 .main-navigation .sub-menu a {
   display: block !important;
   padding: 8px 16px !important;
-  color: #fdf5e3 !important;
+  color: #ffffff !important;
+  background-color: #004f75 !important;
   font-size: 14px !important;
   font-family: "Open Sans Condensed", sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
   text-transform: none !important;
   text-decoration: none !important;
   white-space: nowrap !important;
+  border-bottom: 1px solid rgba(255,255,255,0.16) !important;
 }
 
-.main-navigation .sub-menu a:hover {
-  background-color: #005580 !important;
-  color: #fff !important;
+.main-navigation .sub-menu a:hover,
+.main-navigation .sub-menu a:focus,
+.main-navigation .sub-menu li:hover > a,
+.main-navigation .sub-menu li:focus-within > a {
+  background-color: #003f5e !important;
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
 }
 
 /* Nested sub-menus */
