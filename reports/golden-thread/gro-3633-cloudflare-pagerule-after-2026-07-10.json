@@ -1,0 +1,34 @@
+{
+  "captured_at_utc": "2026-07-10T09:43:37.666849+00:00",
+  "source": "Cloudflare Page Rules API",
+  "data": {
+    "result": {
+      "id": "c617be5d10a43e634dad4c6ce06c1ee2",
+      "targets": [
+        {
+          "target": "url",
+          "constraint": {
+            "operator": "matches",
+            "value": "activeoahutours.com/ja/activities/lanikai-beach-self-guided-snorkel*"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "forwarding_url",
+          "value": {
+            "url": "https://activeoahutours.com/activities/lanikai-beach-self-guided-snorkel/",
+            "status_code": 301
+          }
+        }
+      ],
+      "priority": 4,
+      "status": "active",
+      "created_on": "2026-06-24T02:38:51.000000Z",
+      "modified_on": "2026-07-10T09:43:28.000000Z"
+    },
+    "success": true,
+    "errors": [],
+    "messages": []
+  }
+}
