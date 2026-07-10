@@ -99,5 +99,9 @@ z-index: -5;
 <div class="kayak-bg">
   <img src="/wp-content/uploads/2016/09/Animated_Kayakers-325x400.png" />
 </div>
+
+
+
+<script src="/assets/js/aot-lazy-marketing.js" defer></script>
 </body>
 </html>

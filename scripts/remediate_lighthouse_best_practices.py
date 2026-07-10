@@ -10,13 +10,21 @@ from __future__ import annotations
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 LAZY_SRC = "/assets/js/aot-lazy-tripadvisor.js"
+LAZY_FH_SRC = "/assets/js/aot-lazy-fareharbor.js"
+LAZY_FH_CALENDAR_SRC = "/assets/js/aot-lazy-fareharbor-calendar.js"
+LAZY_MARKETING_SRC = "/assets/js/aot-lazy-marketing.js"
 TRIPADVISOR_MARKER = "https://www.jscache.com/wejs"
 CF_MARKERS = ("/cdn-cgi/challenge-platform/scripts/jsd/main.js", "window.__CF$cv")
+FAREHARBOR_API_MARKER = "https://fareharbor.com/embeds/api/v1/"
+FAREHARBOR_CALENDAR_MARKER = "https://fareharbor.com/embeds/script/calendar/"
+MARKETING_SRC_MARKERS = ("googletagmanager.com/gtag/js", "googletagmanager.com/gtm.js")
+MARKETING_INLINE_MARKERS = ("gtag(\"config\",\"G-PRRRLMBR8Z\")", "gtag(\"config\", \"G-PRRRLMBR8Z\")", "GTM-P55TSP")
 
 
 @dataclass(frozen=True)
@@ -67,6 +75,19 @@ class ScriptTransformParser(HTMLParser):
         self._script_tag_end = tag_end
         self._script_attrs = attr_map
         self._script_contains_cf = any(marker in src for marker in CF_MARKERS)
+        if FAREHARBOR_CALENDAR_MARKER in src:
+            close = self.html.lower().find("</script>", tag_end)
+            end = close + len("</script>") if close != -1 else tag_end
+            replacement = (
+                f'<div class="aot-lazy-fh-calendar" data-src="{src}">'
+                '<button type="button" class="btn btn-primary">Load booking calendar</button>'
+                '</div>'
+            )
+            self.replacements.append(Replacement(start, end, replacement))
+        if FAREHARBOR_API_MARKER in src or any(marker in src for marker in MARKETING_SRC_MARKERS):
+            close = self.html.lower().find("</script>", tag_end)
+            end = close + len("</script>") if close != -1 else tag_end
+            self.replacements.append(Replacement(start, end, ""))
         if script_type.lower() == "speculationrules":
             close = self.html.lower().find("</script>", tag_end)
             end = close + len("</script>") if close != -1 else tag_end
@@ -85,6 +106,21 @@ class ScriptTransformParser(HTMLParser):
     def handle_data(self, data: str) -> None:
         if self._script_start is not None and any(marker in data for marker in CF_MARKERS):
             self._script_contains_cf = True
+        if self._script_start is not None and any(marker in data for marker in MARKETING_INLINE_MARKERS):
+            self._script_contains_cf = True
+        if self._script_start is not None and "fareharbor.com\\/embeds\\/script\\/calendar" in data:
+            match = re.search(r'var\s+scriptSrc\s*=\s*"([^"]+)"', data)
+            src = match.group(1).replace("\\/", "/") if match else ""
+            if src:
+                replacement = (
+                    f'<div class="aot-lazy-fh-calendar" data-src="{src}">'
+                    '<button type="button" class="btn btn-primary">Load booking calendar</button>'
+                    '</div>'
+                )
+                self._script_contains_cf = False
+                close = self.html.lower().find("</script>", self._script_tag_end or self._script_start)
+                end = close + len("</script>") if close != -1 else (self._script_tag_end or self._script_start)
+                self.replacements.append(Replacement(self._script_start, end, replacement))
 
     def handle_endtag(self, tag: str) -> None:
         if tag.lower() != "script" or self._script_start is None:
@@ -106,15 +142,22 @@ def apply_replacements(html: str, replacements: Iterable[Replacement]) -> str:
 
 
 def ensure_lazy_loader(html: str) -> str:
-    if "data-aot-lazy-tripadvisor" not in html:
-        return html
-    loader = f'<script src="{LAZY_SRC}" defer></script>'
-    if loader in html:
-        html = html.replace(loader, "")
+    loaders: list[str] = []
+    if "data-aot-lazy-tripadvisor" in html:
+        loaders.append(f'<script src="{LAZY_SRC}" defer></script>')
+    if "fareharbor.com/embeds/book" in html or "FH.open" in html:
+        loaders.append(f'<script src="{LAZY_FH_SRC}" defer></script>')
+    if "aot-lazy-fh-calendar" in html:
+        loaders.append(f'<script src="{LAZY_FH_CALENDAR_SRC}" defer></script>')
+    loaders.append(f'<script src="{LAZY_MARKETING_SRC}" defer></script>')
+    for loader in loaders:
+        if loader in html:
+            html = html.replace(loader, "")
+    loader_block = "\n".join(loaders)
     body_idx = html.lower().rfind("</body>")
     if body_idx == -1:
-        return html + "\n" + loader + "\n"
-    return html[:body_idx] + loader + "\n" + html[body_idx:]
+        return html + "\n" + loader_block + "\n"
+    return html[:body_idx] + loader_block + "\n" + html[body_idx:]
 
 
 def normalize_duplicate_body_close(html: str) -> str:
@@ -133,6 +176,10 @@ def normalize_duplicate_body_close(html: str) -> str:
         f'<script src="{LAZY_SRC}" defer></script>' + "\n</body>",
     )
     return html
+
+
+def normalize_lazy_calendar_whitespace(html: str) -> str:
+    return re.sub(r'(aot-lazy-fh-calendar[^\n]*</div>)[ \t]+(\r?\n)', r'\1\2', html)
 
 
 def remove_fareharbor_prewarm(html: str) -> str:
@@ -189,6 +236,7 @@ def transform_file(path: Path) -> tuple[int, int]:
     updated = normalize_duplicate_body_close(updated)
     updated = ensure_lazy_loader(updated)
     updated = normalize_duplicate_body_close(updated)
+    updated = normalize_lazy_calendar_whitespace(updated)
     if updated != html:
         path.write_text(updated, encoding="utf-8")
     if updated == html and not parser.replacements:
