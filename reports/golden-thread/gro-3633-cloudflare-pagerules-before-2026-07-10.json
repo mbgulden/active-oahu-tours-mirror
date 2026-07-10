@@ -1,0 +1,162 @@
+{
+  "captured_at_utc": "2026-07-10T09:32:03.508842Z",
+  "source": "Cloudflare Page Rules API",
+  "data": {
+    "result": [
+      {
+        "id": "cd9a7ac7f58c042a55613b714b1d0449",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "activeoahutours.com/*/wp-content/*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "forwarding_url",
+            "value": {
+              "url": "https://activeoahutours.com/wp-content/$2",
+              "status_code": 301
+            }
+          }
+        ],
+        "priority": 7,
+        "status": "active",
+        "created_on": "2026-07-03T09:50:53.000000Z",
+        "modified_on": "2026-07-03T09:50:53.000000Z"
+      },
+      {
+        "id": "57d1ded0c57b06177ed27df02b611996",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "activeoahutours.com/*/wp-includes/*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "forwarding_url",
+            "value": {
+              "url": "https://activeoahutours.com/wp-includes/$2",
+              "status_code": 301
+            }
+          }
+        ],
+        "priority": 6,
+        "status": "active",
+        "created_on": "2026-07-03T09:50:52.000000Z",
+        "modified_on": "2026-07-03T09:50:52.000000Z"
+      },
+      {
+        "id": "b87e537f46f253566b784a5b13c433c4",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "activeoahutours.com/activities/oahu-snorkel-tour/*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "forwarding_url",
+            "value": {
+              "url": "https://activeoahutours.com/sharks-cove-snorkeling-guide/",
+              "status_code": 301
+            }
+          }
+        ],
+        "priority": 5,
+        "status": "active",
+        "created_on": "2026-06-24T02:38:51.000000Z",
+        "modified_on": "2026-06-24T02:38:51.000000Z"
+      },
+      {
+        "id": "c617be5d10a43e634dad4c6ce06c1ee2",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "activeoahutours.com/ja/activities/lanikai-beach-self-guided-snorkel*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "forwarding_url",
+            "value": {
+              "url": "https://activeoahutours.com/ja/sharks-cove-snorkeling-guide/",
+              "status_code": 301
+            }
+          }
+        ],
+        "priority": 4,
+        "status": "active",
+        "created_on": "2026-06-24T02:38:51.000000Z",
+        "modified_on": "2026-06-24T02:38:51.000000Z"
+      },
+      {
+        "id": "d5f7bd3d1d45e4e3eba8a5f7518728f1",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "activeoahutours.com/book*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "security_level",
+            "value": "high"
+          },
+          {
+            "id": "cache_level",
+            "value": "bypass"
+          }
+        ],
+        "priority": 2,
+        "status": "active",
+        "created_on": "2026-06-23T15:02:31.000000Z",
+        "modified_on": "2026-06-23T15:02:31.000000Z"
+      },
+      {
+        "id": "c92eaafe40965ec9df87c6fa6bb5ba2f",
+        "targets": [
+          {
+            "target": "url",
+            "constraint": {
+              "operator": "matches",
+              "value": "www.activeoahutours.com/*"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "forwarding_url",
+            "value": {
+              "url": "https://activeoahutours.com/$1",
+              "status_code": 301
+            }
+          }
+        ],
+        "priority": 1,
+        "status": "active",
+        "created_on": "2026-07-07T21:14:51.000000Z",
+        "modified_on": "2026-07-07T21:14:51.000000Z"
+      }
+    ],
+    "success": true,
+    "errors": [],
+    "messages": []
+  }
+}
