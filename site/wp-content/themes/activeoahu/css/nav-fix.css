@@ -215,11 +215,33 @@ body #branding .aot-logo img {
 .main-navigation .sub-menu .sub-menu {
   top: 0 !important;
   left: 100% !important;
+  background-color: #004f75 !important;
+  border-top: 4px solid #f47b20 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28) !important;
+}
+
+.main-navigation .sub-menu .sub-menu a {
+  color: #ffffff !important;
+  background-color: #004f75 !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.16) !important;
+}
+
+.main-navigation .sub-menu .sub-menu a:hover,
+.main-navigation .sub-menu .sub-menu a:focus,
+.main-navigation .sub-menu .sub-menu li:hover > a,
+.main-navigation .sub-menu .sub-menu li:focus-within > a {
+  color: #ffffff !important;
+  background-color: #003f5e !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
 }
 
 .main-navigation .sub-menu li:hover > .sub-menu,
 .main-navigation .sub-menu li:focus-within > .sub-menu {
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Desktop/tablet nav readability guardrails — keep the compact mobile header
