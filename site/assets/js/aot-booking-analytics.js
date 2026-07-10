@@ -5,6 +5,9 @@
 
   var bookingInProgress = false;
   var lastClickTarget = null;
+  var lastClickAt = 0;
+  var lastBookingClickSignature = '';
+  var lastBookingClickAt = 0;
 
   function closestContext(el) {
     var node = el;
@@ -26,28 +29,64 @@
     return match ? match[1] : '';
   }
 
+  function parseShortnameFromHref(href) {
+    var match = String(href || '').match(/fareharbor\.com\/embeds\/book\/([^/?#]+)/);
+    return match ? match[1] : 'activeoahutours';
+  }
+
+  function shouldEmitBookingClick(payload) {
+    var now = Date.now();
+    var signature = [
+      payload.fareharbor_shortname || '',
+      payload.fareharbor_item || '',
+      payload.cta_type || '',
+      payload.cta_source || ''
+    ].join('|');
+    if (signature === lastBookingClickSignature && now - lastBookingClickAt < 1000) {
+      return false;
+    }
+    lastBookingClickSignature = signature;
+    lastBookingClickAt = now;
+    return true;
+  }
+
   document.addEventListener('click', function(evt) {
     var target = evt.target;
     var link = target && target.closest ? target.closest('a[href*="fareharbor.com/embeds/book"]') : null;
-    if (link) { lastClickTarget = link; }
+    if (link) {
+      lastClickTarget = link;
+      lastClickAt = Date.now();
+      emitBookingClick({
+        shortname: parseShortnameFromHref(link.href),
+        view: { item: parseItemFromHref(link.href) },
+        source: 'fareharbor_link'
+      });
+    }
   }, true);
 
   function emitBookingClick(options) {
     var item = (options && options.view && options.view.item) || '';
     if (!item && lastClickTarget) { item = parseItemFromHref(lastClickTarget.href); }
+    var hasRecentLinkClick = lastClickTarget && Date.now() - lastClickAt < 1000;
+    var lastClickItem = hasRecentLinkClick ? parseItemFromHref(lastClickTarget.href) : '';
     var ctaType = 'unknown';
-    if (options && options.view) {
+    if (options && options.source === 'fareharbor_link') {
+      ctaType = 'link';
+    } else if (hasRecentLinkClick && (!item || item === lastClickItem)) {
+      ctaType = 'link';
+    } else if (options && options.view) {
       ctaType = options.view.item ? 'calendar' : (options.view.category ? 'category' : 'view');
     } else if (lastClickTarget) {
       ctaType = 'link';
     }
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'booking_click', {
-        fareharbor_shortname: (options && options.shortname) || 'activeoahutours',
-        fareharbor_item: item,
-        cta_type: ctaType,
-        cta_source: closestContext(lastClickTarget)
-      });
+    var payload = {
+      fareharbor_shortname: (options && options.shortname) || 'activeoahutours',
+      fareharbor_item: item,
+      cta_type: ctaType,
+      cta_source: closestContext(lastClickTarget)
+    };
+    if (typeof window.gtag === 'function' && shouldEmitBookingClick(payload)) {
+      window.gtag('event', 'booking_click', payload);
     }
   }
 
