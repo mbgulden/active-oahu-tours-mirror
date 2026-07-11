@@ -1678,6 +1678,7 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
 <!-- magnific popoup -->
 <script defer src="/wp-content/themes/activeoahu/js/magnific-popup.min.js"></script>
 <script>
+    if (window.jQuery && window.jQuery.fn && window.jQuery.fn.magnificPopup) {
     jQuery(document).ready(function($) {
       $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -1690,6 +1691,7 @@ cssTarget={"Bodhi":"img.style-svg","ForceInlineSVG":"style-svg"};ForceInlineSVGA
         });
       });
     });
+    }
   </script>
 
 
