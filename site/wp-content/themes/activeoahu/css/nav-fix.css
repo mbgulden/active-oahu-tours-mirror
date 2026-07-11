@@ -379,22 +379,45 @@ body #branding .aot-logo img {
     line-height: 1.4 !important;
   }
 
-  /* Sub-menus: indented with lighter background */
+  /* Sub-menus: indented and kept in normal document flow on mobile.
+     Older desktop rules float submenu ULs; if that float survives on mobile,
+     submenu rows visually overlap the next top-level item. */
   .main-navigation .sub-menu {
     display: none !important;
     position: static !important;
+    float: none !important;
+    clear: both !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
     background-color: #005580 !important;
     box-shadow: none !important;
     min-width: 0 !important;
     width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
   }
 
   .main-navigation .menu-item-has-children.toggled > .sub-menu,
   .main-navigation .menu-item-has-children:focus-within > .sub-menu {
     display: block !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  .main-navigation .menu-item-has-children,
+  .main-navigation .sub-menu li {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
   }
 
   .main-navigation .sub-menu li {
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
     border-bottom: 1px solid rgba(255,255,255,0.08) !important;
   }
 
