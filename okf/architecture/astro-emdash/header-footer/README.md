@@ -83,6 +83,10 @@ The contract is in `canonical-shell.contract.json`.
 
 The next slice added `prototype/`, including typed nav/footer/booking JSON, TypeScript interfaces, Astro component stubs, and a static non-public render proof. The verification target remains exact link-label/href parity before visual styling or page adoption.
 
+## Phase 3 completed — schema + AI outputs
+
+The next slice generated `SiteNavigationElement`, LocalBusiness/contact schema, a combined JSON-LD graph, and an `/llms.txt` navigation section from `prototype/src/content/nav/aot-shell-data.json`. Rendered UI remains unchanged.
+
 ## Next implementation slice
 
-Use the typed `prototype/src/content/nav/aot-shell-data.json` source to generate `SiteNavigationElement` and LocalBusiness schema, plus an `/llms.txt` navigation section. Keep the rendered UI unchanged until schema/AI output proves it can be derived from the same canonical nav/footer graph.
+Create a sandbox Astro route that consumes the canonical shell data and generated schema/AI outputs together, then run rendered accessibility/semantic checks against that route before migrating real pages.

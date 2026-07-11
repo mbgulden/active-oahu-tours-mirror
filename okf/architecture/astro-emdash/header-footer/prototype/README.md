@@ -33,6 +33,20 @@ Astro should not inherit the current static export’s hundreds of header/footer
 3. `/llms.txt` and AI navigation summaries,
 4. booking CTA behavior.
 
+
+## Generated schema + AI outputs
+
+This slice adds search/AI artifacts generated from the same canonical shell data:
+
+- `generated/schema/site-navigation.jsonld` — `SiteNavigationElement` graph.
+- `generated/schema/local-business.jsonld` — LocalBusiness/contact/booking action graph.
+- `generated/schema/combined-shell-schema.jsonld` — combined graph for future page injection.
+- `generated/llms/navigation-section.txt` — `/llms.txt` navigation section.
+- `generated/schema-ai-manifest.json` — source/output/count manifest.
+- `scripts/generate-schema-ai.py` — reproducible generator.
+
+The generated outputs preserve the same user/search/AI/booking priority order and the same FareHarbor shortname (`activeoahutours`) as the canonical shell data.
+
 ## Verification target
 
-This slice must pass exact label/href parity against `current-header-footer-inventory.json` before visual styling or page adoption starts.
+This slice must pass exact label/href parity against `current-header-footer-inventory.json` before visual styling or page adoption starts. The schema/AI outputs must also regenerate deterministically from `aot-shell-data.json`.
