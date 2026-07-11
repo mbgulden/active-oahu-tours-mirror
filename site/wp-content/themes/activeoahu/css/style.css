@@ -17,7 +17,7 @@
   --color-white: #FFFFFF;
   
   /* Brand Typography */
-  --font-headings: "Aleo", serif;
+  --font-headings: "Open Sans Condensed", sans-serif;
   --font-display: "Open Sans Condensed", sans-serif;
   --font-body: "Lato", sans-serif;
   
@@ -413,4 +413,12 @@ small,
 .review-container .accredited em,
 .accredited em {
   color: #555555 !important;
+}
+
+/* GRO heading font guard: Michael's historical heading face is Open Sans Condensed Bold. */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
 }
