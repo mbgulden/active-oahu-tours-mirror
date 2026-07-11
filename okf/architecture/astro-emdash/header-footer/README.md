@@ -79,6 +79,10 @@ The contract is in `canonical-shell.contract.json`.
 - Each migrated page has `header`, `main`, and `footer` landmarks.
 - AI/search metadata derives from the same nav/footer source as the UI.
 
+## Phase 2 completed — typed data + non-public prototype
+
+The next slice added `prototype/`, including typed nav/footer/booking JSON, TypeScript interfaces, Astro component stubs, and a static non-public render proof. The verification target remains exact link-label/href parity before visual styling or page adoption.
+
 ## Next implementation slice
 
-Create typed `nav` and `footer` data files from the current inventory, then build a non-public Astro shell prototype that renders the header/footer from those data files. The verification target is exact link-label/href parity first, visual polish second.
+Use the typed `prototype/src/content/nav/aot-shell-data.json` source to generate `SiteNavigationElement` and LocalBusiness schema, plus an `/llms.txt` navigation section. Keep the rendered UI unchanged until schema/AI output proves it can be derived from the same canonical nav/footer graph.
