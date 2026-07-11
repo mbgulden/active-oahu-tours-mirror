@@ -389,7 +389,8 @@ body #branding .aot-logo img {
     width: 100% !important;
   }
 
-  .main-navigation .menu > li.menu-item-has-children.toggled > .sub-menu {
+  .main-navigation .menu-item-has-children.toggled > .sub-menu,
+  .main-navigation .menu-item-has-children:focus-within > .sub-menu {
     display: block !important;
   }
 
@@ -406,13 +407,37 @@ body #branding .aot-logo img {
     font-size: 14px !important;
   }
 
-  /* Nested sub-sub-menus: further indented */
-  .main-navigation .sub-menu .sub-menu {
+  /* Nested sub-sub-menus: further indented and explicitly high-contrast on mobile */
+  .main-navigation .sub-menu .sub-menu,
+  .main-navigation .menu .sub-menu .sub-menu {
     background-color: #004466 !important;
   }
 
-  .main-navigation .sub-menu .sub-menu a {
+  .main-navigation .sub-menu .sub-menu li,
+  .main-navigation .menu .sub-menu .sub-menu li {
+    background-color: #004466 !important;
+  }
+
+  .main-navigation .sub-menu .sub-menu a,
+  .main-navigation .menu .sub-menu .sub-menu a,
+  .main-navigation.toggled .sub-menu .sub-menu a {
     padding-left: 40px !important;
+    color: #ffffff !important;
+    background-color: #004466 !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.35) !important;
+  }
+
+  .main-navigation .sub-menu .sub-menu a:hover,
+  .main-navigation .sub-menu .sub-menu a:focus,
+  .main-navigation .sub-menu .sub-menu li:hover > a,
+  .main-navigation .sub-menu .sub-menu li:focus-within > a,
+  .main-navigation.toggled .sub-menu .sub-menu a:hover,
+  .main-navigation.toggled .sub-menu .sub-menu a:focus {
+    color: #ffffff !important;
+    background-color: #003f5e !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.16em !important;
   }
 
   /* Dropdown indicator for parent items */
