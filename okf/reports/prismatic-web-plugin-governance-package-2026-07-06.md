@@ -91,6 +91,25 @@ A site is governed when:
 - project OKF records define source-of-truth repos and ownership
 - optional watchdog is scheduled for ongoing drift reports
 
+## Conditional PWP QA modules
+
+PWP visual/content QA should support conditional modules that activate based on site context, not only generic HTTP/layout checks.
+
+The standing conditional added from AOT is **Cultural Diacritics & Search Compatibility**. It must trigger when a governed site is in Hawaiʻi, includes Hawaiian place names, already contains diacritical marks, or belongs to another culture/language where marks are meaningful and users may omit them in search.
+
+When triggered, PWP reports should check:
+
+- culturally correct visible place-name spelling;
+- preservation of operational strings, domains, URLs, IDs, analytics labels, and vendor names;
+- natural common/tourist search bridges;
+- meta/schema/hreflang URL validity;
+- malformed over-application such as `ActiveOʻahu.com`, `Hawaiʻian`, or diacritic-mutated slugs.
+
+AOT-specific doctrine lives in:
+
+- `okf/governance/cultural-diacritics-search-policy.md`
+- `okf/reports/golden-thread/pwp-cultural-diacritics-conditional-20260712.md`
+
 ## Long-term Active Oahu model
 
 Every future Active Oahu tourism-adjacent site should start with this package before content work begins. That keeps Michael from inheriting another messy branch/PR/staging tangle.
