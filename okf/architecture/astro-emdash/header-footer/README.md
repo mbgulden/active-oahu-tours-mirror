@@ -87,6 +87,10 @@ The next slice added `prototype/`, including typed nav/footer/booking JSON, Type
 
 The next slice generated `SiteNavigationElement`, LocalBusiness/contact schema, a combined JSON-LD graph, and an `/llms.txt` navigation section from `prototype/src/content/nav/aot-shell-data.json`. Rendered UI remains unchanged.
 
+## Phase 4 completed — sandbox route semantic proof
+
+The next slice added a non-public sandbox route stub and deterministic rendered proof that consume the canonical shell data, generated JSON-LD schema, and `/llms.txt` navigation output together. Rendered production `site/` files remain unchanged.
+
 ## Next implementation slice
 
-Create a sandbox Astro route that consumes the canonical shell data and generated schema/AI outputs together, then run rendered accessibility/semantic checks against that route before migrating real pages.
+Create the first real Astro page cohort plan: homepage, one activity, one rental, one guide, and one Japanese page. Capture current metadata/schema/content/booking baselines before building any public replacement route.
