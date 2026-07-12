@@ -50,3 +50,13 @@ The generated outputs preserve the same user/search/AI/booking priority order an
 ## Verification target
 
 This slice must pass exact label/href parity against `current-header-footer-inventory.json` before visual styling or page adoption starts. The schema/AI outputs must also regenerate deterministically from `aot-shell-data.json`.
+
+## Sandbox route semantic proof
+
+This slice adds:
+
+- `src/pages/_sandbox/aot-shell.astro` — non-public Astro route stub that imports shell data, generated JSON-LD, and `/llms.txt` output.
+- `rendered/sandbox-shell-route.html` — deterministic static proof render for semantic/accessibility checks before an Astro build harness exists.
+- `scripts/render-sandbox-route.py` — reproducible renderer for the sandbox proof.
+
+The proof is `noindex,nofollow`, includes one `header`, one `main`, and one `footer`, embeds generated `SiteNavigationElement` and LocalBusiness JSON-LD, includes the `/llms.txt` excerpt/digest, preserves `activeoahutours`, and keeps `h1`-`h6` on Open Sans Condensed Bold.
