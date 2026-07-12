@@ -29,8 +29,11 @@ TARGETS = [
 RAW_TERMS = ["Hawaii", "Oahu", "Kaneohe", "Mokolii", "Mokoli'i"]
 
 PLACEHOLDER = "__ACTIVE_OAHU_BRAND__"
+COMPACT_PLACEHOLDER = "__ACTIVE_OAHU_COMPACT_BRAND__"
 REPLACEMENTS = [
     ("Active Oahu", PLACEHOLDER),
+    ("ActiveOahu", COMPACT_PLACEHOLDER),
+    ("ActiveOʻahu", COMPACT_PLACEHOLDER),
     # Preserve the English adjective; the audit target is Hawaiian place names.
     ("Hawaiian", "__HAWAIIAN_ADJECTIVE__"),
     ("Hawaiʻian", "__HAWAIIAN_ADJECTIVE__"),
@@ -41,6 +44,7 @@ REPLACEMENTS = [
     ("Mokolii", "Mokoliʻi"),
     ("Mokoli'i", "Mokoliʻi"),
     ("__HAWAIIAN_ADJECTIVE__", "Hawaiian"),
+    (COMPACT_PLACEHOLDER, "ActiveOahu"),
     (PLACEHOLDER, "Active Oahu"),
 ]
 

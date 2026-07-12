@@ -24,7 +24,7 @@ HTMLParser-based visible text pass across 12 high-traffic AOT pages: homepage, a
 
 ## Verification
 - `python3 scripts/gro578_diacritical_text_pass.py --write` changed 12 files / 318 text nodes on first run.
-- Follow-up correction preserved the English adjective `Hawaiian` and fixed accidental `Hawaiʻian` outputs.
+- Follow-up correction preserved the English adjective `Hawaiian`, fixed accidental `Hawaiʻian` outputs, and preserved compact/domain brand text such as `ActiveOahu.com`.
 - Idempotence check: `python3 scripts/gro578_diacritical_text_pass.py` returned `SUMMARY changed_files=0 changed_text_nodes=0`.
 - HTML smoke parse: Python `HTMLParser` parsed all 12 changed HTML files successfully.
 - Guard search for malformed place-name suffixes found only two pre-existing `Active OʻahuReady` JSON text blobs outside this pass target set; no new `Hawaiʻi[a-zA-Z]` issues remain in changed files.
