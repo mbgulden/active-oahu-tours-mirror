@@ -35,6 +35,10 @@ scan=json.load(open(scan_path))
 safe={row['file']:row for row in scan['rows'] if row['counterpart_exists']}
 changed=[]
 for rel,row in safe.items():
+    # When the scanner reports this row as already clean, leave it alone.
+    # This keeps the helper idempotent when rerun against final audit output.
+    if not row.get('issues'):
+        continue
     p=root/rel
     source=p.read_text()
     parser=SpanParser(source); parser.feed(source)
