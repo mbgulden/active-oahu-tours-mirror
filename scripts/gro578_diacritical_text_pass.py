@@ -12,21 +12,15 @@ from pathlib import Path
 from typing import Iterable
 
 TARGETS = [
-    "site/index.html",
-    "site/activities.html",
-    "site/rentals/index.html",
-    "site/kayak-rentals/index.html",
-    "site/rentals/oahu-tandem-kayak-rentals/index.html",
-    "site/oahu-launch-guide/index.html",
-    "site/kaneohe-bay-sandbar-tide-guide/index.html",
-    "site/oahu-equipment-rentals/chinamans-hat-kayak-rentals/index.html",
-    "site/mokolii/index.html",
-    "site/activities/kailua-bay-mokulua-island-self-guided-kayak-tour/index.html",
-    "site/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html",
-    "site/sharks-cove-snorkeling-guide/index.html",
+    "site/beach-gear-rentals/index.html",
+    "site/kayak-safety-guide/index.html",
+    "site/kaneohe-sandbar/index.html",
+    "site/chinamans-hat/index.html",
+    "site/guides/kailua-beach-park/index.html",
+    "site/guides/best-beaches-windward-oahu/index.html",
 ]
 
-RAW_TERMS = ["Hawaii", "Oahu", "Kaneohe", "Mokolii", "Mokoli'i"]
+RAW_TERMS = ["Hawaii", "Oahu", "Kaneohe", "Mokolii", "Mokoli'i", "Laie"]
 
 PLACEHOLDER = "__ACTIVE_OAHU_BRAND__"
 COMPACT_PLACEHOLDER = "__ACTIVE_OAHU_COMPACT_BRAND__"
@@ -43,6 +37,7 @@ REPLACEMENTS = [
     ("Kane'ohe", "Kāneʻohe"),
     ("Mokolii", "Mokoliʻi"),
     ("Mokoli'i", "Mokoliʻi"),
+    ("Laie", "Lāʻie"),
     ("__HAWAIIAN_ADJECTIVE__", "Hawaiian"),
     (COMPACT_PLACEHOLDER, "ActiveOahu"),
     (PLACEHOLDER, "Active Oahu"),
