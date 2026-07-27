@@ -76,6 +76,7 @@
 /category/kayaking-experiences/ /oahu-kayaking-and-beach-adventures/ 301
 
 # Dead nav destinations
+/adventure-guide /activities/ 301
 /adventure-guide/ /activities/ 301
 /adventure-guide/* /activities/:splat 301
 
