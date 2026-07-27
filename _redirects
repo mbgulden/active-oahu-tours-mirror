@@ -11,3 +11,7 @@
 /guided-kayak-tour-of-the-mokulua-islands/* /activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/:splat 301
 /kualoa-beach-park-and-chinamans-hat-kayak-rentals/* /activities/chinamans-hat-kayak-rentals/:splat 301
 /blog/* /:splat 301
+
+# Dead nav destinations
+/adventure-guide/ /activities/ 301
+/adventure-guide/* /activities/:splat 301
