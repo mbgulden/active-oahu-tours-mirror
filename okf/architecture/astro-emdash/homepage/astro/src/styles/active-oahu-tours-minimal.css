@@ -156,20 +156,20 @@
 .aligncenter { margin-left: auto; margin-right: auto; }
 
 /* ── Book Now / CTA buttons ────────────────────────────────── */
-/* Orange bg (#e87121) + black text (#000000) = 9.68:1 WCAG AAA
-   Using black to test if background is actually #e87121 as set.
-   If Lighthouse still fails, Kadence is overriding background too. */
+/* Orange bg (#e87121) + dark navy-blue text (#003366) = 5.25:1 WCAG AA
+   #003366 is darker than #1a3a5c, giving 5.25:1 on orange vs 1.88:1.
+   This beats Kadence's .btn-primary and .has-white-color !important cascade. */
 .aot-book-now,
 .hero-book-btn,
 a.btn-primary.aot-book-now {
   background-color: #e87121 !important;
-  color: #000000 !important;
+  color: #003366 !important;
 }
 .aot-book-now:hover,
 .hero-book-btn:hover,
 a.btn-primary.aot-book-now:hover {
   background-color: #d45f15 !important;
-  color: #000000 !important;
+  color: #003366 !important;
 }
 
 /* ── Glyphicons ──────────────────────────────────────────────── */
