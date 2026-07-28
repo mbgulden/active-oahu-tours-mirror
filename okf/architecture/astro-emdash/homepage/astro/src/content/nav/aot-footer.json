@@ -82,76 +82,12 @@
       "priority": "secondary",
       "items": [
         {
-          "id": "gallery-image-1-9",
-          "label": "Gallery image 1",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 1 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-2-10",
-          "label": "Gallery image 2",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 2 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-3-11",
-          "label": "Gallery image 3",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 3 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-4-12",
-          "label": "Gallery image 4",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 4 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-5-13",
-          "label": "Gallery image 5",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 5 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-6-14",
-          "label": "Gallery image 6",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 6 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-7-15",
-          "label": "Gallery image 7",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 7 proof and visitor media."
-        },
-        {
-          "id": "gallery-image-8-16",
-          "label": "Gallery image 8",
-          "sourceText": "",
-          "href": "/active-oahu-photo-gallery/index.html",
-          "intent": "trust",
-          "aiSummary": "Builds trust through gallery image 8 proof and visitor media."
-        },
-        {
-          "id": "view-the-gallery-17",
+          "id": "view-gallery-9",
           "label": "View the Gallery",
           "sourceText": "View the Gallery",
-          "href": "/active-oahu-photo-gallery/index.html",
+          "href": "/active-oahu-photo-gallery/",
           "intent": "trust",
-          "aiSummary": "Builds trust through view the gallery proof and visitor media."
+          "aiSummary": "Lets visitors browse the Active Oahu Tours photo gallery."
         }
       ]
     },

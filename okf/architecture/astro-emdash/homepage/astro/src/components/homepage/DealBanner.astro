@@ -1,0 +1,36 @@
+---
+interface Props {
+  code: string;
+}
+const { code } = Astro.props;
+---
+<div id="deal-banner">
+  <div class="deal-banner-inner">
+    <p>
+      <strong>Deal:</strong> 15% Off Groups of 4 or More —
+      Use coupon code <strong>{code}</strong> by clicking "Add promo or discount code" at checkout.
+    </p>
+  </div>
+</div>
+
+<style>
+  #deal-banner {
+    background: #e87121;
+    color: #fff;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+  }
+  #deal-banner p {
+    margin: 0;
+    line-height: 1.4;
+  }
+  #deal-banner a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  #deal-banner strong {
+    font-weight: 700;
+  }
+</style>
