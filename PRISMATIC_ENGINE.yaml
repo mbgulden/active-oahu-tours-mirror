@@ -19,10 +19,11 @@ agents:
       owner:
         - "content/"
         - "active-oahu/"
-        - "site/"          # AOT static site body content (overlaps with Fred's default; Kai has primacy here)
+        - "site/"          # AOT static site body content
         - "okf/"           # ops-runbook, knowledge hub
-        - "scripts/"       # co-owned with Ned — Kai may add a11y/content scripts; Ned owns src/infra/deploy
-      read_only: ["src/", "infra/", "deploy/"]
+        - "scripts/"       # co-owned with Ned
+        - "astro/"         # Astro homepage project — Kai owns AOT content/UX
+      read_only: []
     branch_prefix: "content/"
 
   agy:
