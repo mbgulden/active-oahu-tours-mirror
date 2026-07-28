@@ -26,9 +26,9 @@ const { phone, address, note } = Astro.props;
 <style>
   /* ── Info strip shell ───────────────────────────────────────── */
   .info-strip {
-    background: #f0f0f0;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: var(--aot-off-white);
+    border-top: 1px solid var(--aot-gray-100);
+    border-bottom: 1px solid var(--aot-gray-100);
     padding: 1rem 0;
   }
   .info-strip .kt-inside-inner-col {
@@ -38,21 +38,8 @@ const { phone, address, note } = Astro.props;
   .info-strip p {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 0.95rem;
-    color: #555;
+    color: var(--aot-gray-900);
     margin: 0;
     line-height: 1.6;
-  }
-
-  /* Links: dark navy (#003366) on #f0f0f0 = 11.4:1 WCAG AAA
-     Kadence palette8 resolves to near-white (#f7fafc) which would make
-     default #0066cc blue fail (3.8:1). Using #003366 instead. */
-  .info-strip .info-tel,
-  .info-strip .info-addr {
-    color: #003366;        /* 11.4:1 on #f0f0f0 */
-    text-decoration: none;
-  }
-  .info-strip .info-tel:hover,
-  .info-strip .info-addr:hover {
-    text-decoration: underline;
   }
 </style>

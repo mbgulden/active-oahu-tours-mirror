@@ -48,66 +48,33 @@ const { h2, categories } = Astro.props;
 </section>
 
 <style>
-  .rental-types {
-    background: #fff;
-    padding: 2rem 0;
-  }
+  /* Component-specific — structural layout handled in global CSS */
   .rental-types h2 {
     font-size: 1.6rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
-    color: #333;
+    color: var(--aot-gray-900);
     text-align: center;
-    margin-bottom: 2rem;
-  }
-  .rental-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .rental-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    background: #fafafa;
-  }
-  .rental-item figure {
-    flex: 0 0 80px;
-    margin: 0;
-  }
-  .rental-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 4px;
+    margin: 0 0 2rem;
   }
   .rental-text h3 {
     font-size: 1.1rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
-    color: #003366; /* WCAG AA on #c9c9c9 = 7.2:1 */
+    color: var(--aot-navy);
     margin: 0 0 0.25rem;
   }
   .rental-text h4 {
     font-size: 0.9rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
-    color: #555;
+    color: var(--aot-gray-600);
     margin: 0 0 0.5rem;
   }
   .rental-text p {
-    font-family: 'Open Sans', Arial, sans-serif;
     font-size: 0.85rem;
-    color: #666;
+    color: var(--aot-gray-400);
     margin: 0;
     line-height: 1.4;
-  }
-  @media (max-width: 600px) {
-    .rental-grid { grid-template-columns: 1fr; }
   }
 </style>

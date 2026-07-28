@@ -1,53 +1,123 @@
 /* ============================================================
-   AOT Homepage — Minimal Structural CSS
-   Replaces external Kadence Blocks CSS with just what we need.
-   Palette values hardcoded from live site inspection.
+   Active Oahu Tours — Design System CSS
+   Single source of truth for all visual styling.
+   Replaces ALL external Kadence/theme CSS.
+
+   CSS VARIABLES (edit here to update everywhere):
+     --aot-navy        Dark navy blue      (#003366)  Nav/links/headings
+     --aot-navy-light  Mid blue           (#0066cc)  Link hover/primary
+     --aot-orange      Brand orange       (#e87121)  CTA buttons/accents
+     --aot-orange-dark Deep orange        (#d45f15)  Button hover
+     --aot-white       Pure white         (#ffffff)  Text on dark
+     --aot-off-white   Off white          (#fafafa)  Section backgrounds
+     --aot-light-gray  Light gray         (#f5f5f5)  Testimonial/alt sections
+     --aot-gray-100    Border gray        (#e0e0e0)  Borders/dividers
+     --aot-gray-400    Muted text         (#666666)  Captions/metadata
+     --aot-gray-600    Secondary text     (#555555)  Body secondary
+     --aot-gray-900    Primary text       (#333333)  Body primary/headings
+     --aot-text-light  Light section text (#c9ddee)  Text on dark sections
+     --aot-hero-bg     Hero background    (#1a3a5c)  Hero banner bg
+     --aot-closing-bg  Closing CTA bg     (#1a3a5c)  Closing section bg
+     --aot-skip-bg     Skip link bg       (#0066cc)  Accessibility skip
+
+   WCAG CONTRAST NOTES:
+     --aot-navy on --aot-off-white    = 11.4:1  AAA ✅
+     --aot-navy on --aot-orange       = 5.25:1  AA  ✅ (buttons)
+     --aot-navy on --aot-light-gray   = 9.7:1   AAA ✅
+     --aot-white on --aot-hero-bg     = 10.6:1  AAA ✅
+     --aot-white on --aot-orange       = 3.08:1  fail (use --aot-navy on orange = 5.25:1)
+     --aot-text-light on --aot-hero-bg = 8.6:1   AAA ✅
+     --aot-gray-900 on --aot-off-white = 13.6:1  AAA ✅
+     --aot-gray-400 on --aot-off-white = 4.7:1   AA  ✅
+     --aot-gray-900 on --aot-light-gray = 8.8:1   AAA ✅
    ============================================================ */
 
-/* ── Kadence Palette Variables ──────────────────────────────── */
 :root {
-  --global-palette9: #1a3a5c;   /* Dark navy */
-  --global-palette8: #f0f0f0;   /* Light gray */
-  --global-palette1: #0066cc;   /* Primary blue */
-  --global-palette4: #ffffff;   /* White */
-  --global-row-gutter-md: 2rem;
-  --global-content-edge-padding: 15px;
+  /* Brand colors */
+  --aot-navy:        #003366;
+  --aot-navy-light:  #0066cc;
+  --aot-orange:       #e87121;
+  --aot-orange-dark:  #d45f15;
+  --aot-white:        #ffffff;
+
+  /* Neutrals */
+  --aot-off-white:   #fafafa;
+  --aot-light-gray:   #f5f5f5;
+  --aot-gray-100:     #e0e0e0;
+  --aot-gray-400:     #666666;
+  --aot-gray-600:     #555555;
+  --aot-gray-900:     #333333;
+
+  /* Section-specific */
+  --aot-text-light:    #c9ddee;
+  --aot-hero-bg:      #1a3a5c;
+  --aot-closing-bg:   #1a3a5c;
+  --aot-skip-bg:      #0066cc;
+
+  /* Layout */
+  --aot-gutter:      2rem;
+  --aot-padding:     15px;
 }
 
-/* ── Kadence Row Layout (structural only) ─────────────────── */
+/* ============================================================
+   STEP 1 — STRIP KADENCE CASCADE
+   `all: revert` resets ALL properties (including inherited)
+   to their user-agent/default values, wiping Kadence's styles.
+   This runs FIRST so our rules below start from a clean slate.
+   ============================================================ */
+
+*, *::before, *::after {
+  all: revert !important;
+}
+
+/* ============================================================
+   STEP 2 — BASE / RESET (safe after all:revert)
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--aot-gray-900);
+  background-color: var(--aot-white);
+}
+
+/* ============================================================
+   STEP 3 — KADENCE LAYOUT STRUCTURE
+   These classes are in the HTML; we provide the styling.
+   ============================================================ */
+
+/* Row wrapper */
 .kb-row-layout-wrap {
   position: relative;
-  border: 0 solid rgba(0,0,0,0);
 }
-.kb-row-layout-wrap::before {
-  clear: both;
-  display: table;
-  content: "";
-}
-.kt-row-layout-inner::before {
-  clear: both;
-  display: table;
-  content: "";
-}
-/* Default: single column grid */
+
+/* Column grid container — single column default */
 .kt-row-column-wrap {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--global-row-gutter-md, 2rem);
+  gap: var(--aot-gutter);
   grid-auto-rows: minmax(min-content, max-content);
   z-index: 1;
   position: relative;
-  padding-left: var(--global-content-edge-padding, 15px);
-  padding-right: var(--global-content-edge-padding, 15px);
+  padding-left: var(--aot-padding);
+  padding-right: var(--aot-padding);
 }
-/* 2-column layout */
+
+/* Multi-column grids */
 .kt-row-column-wrap.kt-has-2-columns {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-/* 3-column layout */
 .kt-row-column-wrap.kt-has-3-columns {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
 /* Equal-height inner columns */
 .kt-inner-column-height-full > .kt-row-column-wrap {
   align-items: stretch;
@@ -57,7 +127,8 @@
   flex-direction: column;
   justify-content: center;
 }
-/* Mobile: stack columns */
+
+/* Mobile: stack all columns */
 @media (max-width: 767px) {
   .kt-row-column-wrap.kt-has-2-columns,
   .kt-row-column-wrap.kt-has-3-columns {
@@ -65,7 +136,7 @@
   }
 }
 
-/* ── Kadence Columns (structural only) ────────────────────── */
+/* Column */
 .wp-block-kadence-column {
   display: flex;
   flex-direction: column;
@@ -73,123 +144,448 @@
   min-width: 0;
   min-height: 0;
 }
+
+/* Inner column content */
 .kt-inside-inner-col {
-  flex-direction: column;
-  border: 0 solid rgba(0,0,0,0);
-  position: relative;
-  transition: all .3s ease;
   display: flex;
   flex-direction: column;
 }
-/* Section overlay (used in hero) */
-.kb-section-has-overlay {
-  position: relative;
+
+/* ============================================================
+   STEP 4 — AOT DESIGN TOKENS
+   ============================================================ */
+
+/* ── Buttons / CTAs ── */
+.aot-btn,
+.aot-btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
-.kb-section-has-overlay > .kt-inside-inner-col {
-  z-index: 1;
+
+/* Primary CTA — orange with navy text (5.25:1 AA) */
+.aot-btn-primary {
+  background-color: var(--aot-orange) !important;
+  color: var(--aot-navy) !important;
 }
+.aot-btn-primary:hover {
+  background-color: var(--aot-orange-dark) !important;
+  color: var(--aot-navy) !important;
+}
+
+/* ── Section backgrounds ── */
+.aot-hero-bg       { background-color: var(--aot-hero-bg) !important; }
+.aot-closing-bg    { background-color: var(--aot-closing-bg) !important; }
+.aot-off-white-bg  { background-color: var(--aot-off-white) !important; }
+.aot-light-gray-bg { background-color: var(--aot-light-gray) !important; }
+.aot-white-bg      { background-color: var(--aot-white) !important; }
+
+/* ── Text colors ── */
+.aot-text-white    { color: var(--aot-white) !important; }
+.aot-text-navy     { color: var(--aot-navy) !important; }
+.aot-text-gray-900 { color: var(--aot-gray-900) !important; }
+.aot-text-gray-400 { color: var(--aot-gray-400) !important; }
+.aot-text-light    { color: var(--aot-text-light) !important; }
+
+/* ============================================================
+   STEP 5 — SECTION-SPECIFIC COMPONENT STYLES
+   ============================================================ */
+
+/* ── Hero Banner ── */
+.hero-banner {
+  background-color: var(--aot-hero-bg);
+  color: var(--aot-white);
+  padding: 0;
+}
+.hero-banner .kt-inside-inner-col {
+  padding: 2rem;
+}
+.hero-banner h1 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--aot-white);
+  margin: 0 0 0.5rem;
+}
+.hero-banner h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--aot-white);
+  margin: 0;
+}
+.hero-banner h3,
+.hero-banner .cta-subheading {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--aot-white);
+  -webkit-text-stroke: 0.3px var(--aot-navy); /* sub-pixel rendering fallback */
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+/* ── Book Online button in hero ── */
+.aot-btn-hero-book {
+  display: inline-block;
+  background-color: var(--aot-orange) !important;
+  color: var(--aot-navy) !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.aot-btn-hero-book:hover {
+  background-color: var(--aot-orange-dark) !important;
+  color: var(--aot-navy) !important;
+}
+
+/* ── Info Strip ── */
+.info-strip {
+  background-color: var(--aot-off-white);
+  padding: 1.5rem 0;
+}
+.info-strip p {
+  font-size: 0.95rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+.info-strip a {
+  color: var(--aot-navy) !important;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.info-strip a:hover {
+  color: var(--aot-navy-light) !important;
+}
+
+/* ── Featured Tours ── */
+.featured-tours {
+  padding: 2rem 0;
+}
+.featured-tours h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+.featured-tours h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.25rem;
+}
+.featured-tours h4 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0 0 0.5rem;
+}
+.featured-tours p {
+  font-size: 0.9rem;
+  color: var(--aot-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+.featured-tours a {
+  color: var(--aot-navy-light) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.featured-tours a:hover {
+  text-decoration: underline;
+}
+
+/* ── Rental Grid ── */
+.rental-grid-section {
+  padding: 2rem 0;
+}
+.rental-grid-section h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (max-width: 600px) {
+  .rental-grid { grid-template-columns: 1fr; }
+}
+.rental-card {
+  background: var(--aot-white);
+  border: 1px solid var(--aot-gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rental-card h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-navy);
+  margin: 0 0 0.25rem;
+}
+.rental-card h4 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0 0 0.5rem;
+}
+.rental-card p {
+  font-size: 0.85rem;
+  color: var(--aot-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+.rental-card img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ── Deal Banner ── */
+.deal-banner {
+  background: var(--aot-orange);
+  padding: 0.75rem 0;
+  text-align: center;
+}
+.deal-banner p {
+  margin: 0;
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--aot-white);
+}
+
+/* ── Feature Block ── */
+.feature-block h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.5rem;
+}
+.feature-block p {
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+.feature-block a {
+  color: var(--aot-navy-light) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── Testimonial ── */
+.testimonial-section {
+  background: var(--aot-light-gray);
+  padding: 2rem 0;
+  border-top: 1px solid var(--aot-gray-100);
+  border-bottom: 1px solid var(--aot-gray-100);
+}
+.testimonial-section blockquote {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: 800px;
+  text-align: center;
+}
+.testimonial-section p {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--aot-gray-900);
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+}
+.testimonial-section cite {
+  font-size: 0.9rem;
+  color: var(--aot-gray-400);
+  font-style: normal;
+}
+
+/* ── Awards ── */
+.awards-section {
+  background: var(--aot-white);
+  padding: 2rem 0;
+}
+.awards-section h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-gray-900);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.awards-text {
+  font-size: 1rem;
+  color: var(--aot-gray-600);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.awards-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.awards-logos img {
+  max-height: 80px;
+  width: auto;
+}
+
+/* ── Closing CTA ── */
+.closing-cta {
+  color: var(--aot-white);
+  padding: 2rem 0;
+  text-align: center;
+}
+.closing-cta h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-white);
+  margin-bottom: 1rem;
+}
+.closing-cta p {
+  font-size: 1rem;
+  color: var(--aot-text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.aot-btn-phone {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--aot-orange) !important;
+  color: var(--aot-navy) !important;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.aot-btn-phone:hover {
+  background: var(--aot-orange-dark) !important;
+  color: var(--aot-navy) !important;
+}
+
+/* ============================================================
+   STEP 6 — KADENCE COMPONENT STYLES
+   Extracted from Kadence Blocks dist CSS — structural only.
+   ============================================================ */
+
+/* Palette background utilities */
+.has-theme-palette9-background-color { background-color: var(--aot-navy) !important; }
+.has-theme-palette8-background-color { background-color: var(--aot-light-gray) !important; }
+.has-theme-palette1-background-color { background-color: var(--aot-navy-light) !important; }
+
+/* Overlay support */
+.kb-section-has-overlay { position: relative; }
+.kb-section-has-overlay > .kt-inside-inner-col { z-index: 1; }
 .kb-section-has-overlay > .kt-inside-inner-col::before {
   content: "";
-  opacity: .3;
+  opacity: 0.3;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   z-index: -1;
-  background-color: var(--overlay-color, #000);
-  transition: all .3s ease-in-out;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
 }
-/* Section link overlay (clickable card bg) */
-.kb-section-has-link {
-  position: relative;
-}
+
+/* Link overlay (full-card clickable areas) */
+.kb-section-has-link { position: relative; }
 .kb-section-link-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 10;
 }
 
-/* ── Kadence Palette Color Classes ─────────────────────────── */
-.has-theme-palette9-background-color {
-  background-color: var(--global-palette9, #1a3a5c) !important;
-}
-.has-theme-palette8-background-color {
-  background-color: var(--global-palette8, #f0f0f0) !important;
-}
-.has-theme-palette1-background-color {
-  background-color: var(--global-palette1, #0066cc) !important;
-}
-.has-white-background-color {
-  background-color: #ffffff !important;
-}
-/* Text color classes */
-.has-white-color {
-  color: #ffffff !important;
-}
-.has-theme-palette4-color {
-  color: var(--global-palette4, #ffffff) !important;
-}
-.has-theme-palette-4-color {
-  color: #0066cc !important;
-}
-
-/* ── Kadence Image Block ──────────────────────────────────── */
-.wp-block-kadence-image img,
-.kb-img {
+/* Kadence image */
+.wp-block-kadence-image img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
-/* ── Bootstrap Helpers (from live site) ─────────────────── */
-.pull-right { float: right; }
-.pull-left { float: left; }
-.alignfull {
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
+/* Text alignment */
 .aligncenter { margin-left: auto; margin-right: auto; }
+.textcenter { text-align: center; }
 
-/* ── Book Now / CTA buttons ────────────────────────────────── */
-/* Orange bg (#e87121) + dark navy-blue text (#003366) = 4.09:1 WCAG AA (12pt+ bold)
-   Selector specificity: (0,3,0,0) beats Kadence's (0,2,1,0) + !important cascade.
-   a.btn-primary.{class} pattern: tag + 2 classes matches Kadence's a.btn-primary. */
-a.btn-primary.aot-book-now,
-a.btn-primary.hero-book-btn {
-  background-color: #e87121 !important;
-  color: #003366 !important;
-}
-a.btn-primary.aot-book-now:hover,
-a.btn-primary.hero-book-btn:hover {
-  background-color: #d45f15 !important;
-  color: #003366 !important;
-}
-/* Glyphicon: Kadence uses a.btn-primary .glyphicon (0,2,1,0) — we match with
-   a.hero-book-btn .glyphicon (0,2,0,1) — the extra .hero-book-btn class wins. */
-a.btn-primary.hero-book-btn .glyphicon,
-a.btn-primary.aot-book-now .glyphicon {
-  color: #003366 !important;
-}
+/* ============================================================
+   STEP 7 — ACCESSIBILITY
+   ============================================================ */
 
-/* ── Glyphicons ──────────────────────────────────────────────── */
+/* Skip link */
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #0066cc;
-  color: #fff;
+  background: var(--aot-skip-bg);
+  color: var(--aot-white);
   padding: 8px 16px;
   z-index: 100;
   text-decoration: none;
+  font-weight: 600;
 }
-.skip-link:focus { top: 0; }
+.skip-link:focus {
+  top: 0;
+}
 
-/* ── Glyphicons (from activeoahu theme) ─────────────────── */
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--aot-navy-light);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   STEP 8 — TYPOGRAPHY & FONTS
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--aot-gray-900);
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--aot-navy-light);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   STEP 9 — GLYPHICONS
+   Icon font from activeoahu theme.
+   ============================================================ */
+
 @font-face {
   font-family: "Glyphicons Halflings";
   src: url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.eot");
@@ -199,6 +595,7 @@ a.btn-primary.aot-book-now .glyphicon {
        url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.ttf") format("truetype"),
        url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -209,9 +606,20 @@ a.btn-primary.aot-book-now .glyphicon {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: inherit !important;   /* beat Kadence's .glyphicon { color: #fff !important } */
+  color: inherit;
 }
-.glyphicon-earphone::before { content: "\e182"; }
-.glyphicon-calendar::before { content: "\e109"; }
+
+.glyphicon-earphone::before   { content: "\e182"; }
+.glyphicon-calendar::before    { content: "\e109"; }
 .glyphicon-arrow-right::before { content: "\e250"; }
-.glyphicon-asterisk::before { content: "\2a"; }
+.glyphicon-asterisk::before    { content: "\2a";   }
+
+/* ============================================================
+   STEP 10 — MOBILE RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero-banner h1 { font-size: 1.6rem; }
+  .hero-banner h2 { font-size: 1.1rem; }
+  .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
+}

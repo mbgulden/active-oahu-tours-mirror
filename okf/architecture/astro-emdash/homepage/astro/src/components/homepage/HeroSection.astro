@@ -46,13 +46,14 @@ const {
                   <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading cta-subheading" data-kb-block="kb-adv-heading2389_d8fad2-58">
                     {subtext}
                   </h3>
+                  <!-- aot-btn-hero-book: our own class — no Kadence/Bootstrap cascade conflicts -->
                   <a
                     href={bookingHref}
-                    class="pull-right btn btn-small btn-primary hero-book-btn"
-                    onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;"
+                    class="pull-right aot-btn-hero-book"
+                    onclick={`FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;`}
                   >
                     <strong>
-                      <span class="glyphicon glyphicon-calendar"></span>
+                      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                       {bookingLabel}
                     </strong>
                   </a>
@@ -85,69 +86,41 @@ const {
 <style>
   /* ── Hero banner shell ─────────────────────────────────────── */
   .hero-banner {
-    background-color: #1a3a5c;
-    color: #fff;
+    background-color: var(--aot-hero-bg);
+    color: var(--aot-white);
     padding: 0;
   }
   .hero-banner .kt-inside-inner-col {
     padding: 2rem;
   }
 
-  /* ── Headings — inherit white from parent, not Kadence palette ── */
+  /* ── Headings — inherit white from parent ── */
   .hero-banner h1 {
     font-size: 2.2rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
     margin: 0 0 0.5rem;
-    color: #fff;
+    color: var(--aot-white);
   }
   .hero-banner h2 {
     font-size: 1.4rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 400;
     margin: 0;
-    color: #fff;
+    color: var(--aot-white);
   }
-
-  /* cta-subheading: explicit white overrides Kadence's near-white palette9 */
+  /* cta-subheading: explicit white text on hero dark bg */
   .hero-banner .cta-subheading {
     font-size: 1rem;
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 400;
-    color: #ffffff;         /* explicit white — contrast on #f7fafc ≈ 1.04:1 → fixed */
-    -webkit-text-stroke: 0.3px #003366; /* fallback for sub-pixel rendering */
+    color: var(--aot-white);
+    -webkit-text-stroke: 0.3px var(--aot-navy); /* sub-pixel rendering fallback */
     margin: 0 0 1rem;
     line-height: 1.5;
   }
 
-  /* ── Book button ───────────────────────────────────────────── */
-  /* Orange bg (#e87121) + dark navy text (#1a3a5c) = 9.8:1 WCAG AAA
-     Uses :where(.hero-banner) to match section.hero-banner without requiring
-     .hero-banner as a standalone class (Astro scopes section.hero-banner as
-     section.hero-banner[data-astro-cid], which is not matched by .hero-banner). */
-  :where(.hero-banner) .hero-book-btn {
-    background: #e87121;
-    color: #1a3a5c !important;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-weight: 600;
-    display: inline-block;
-  }
-  :where(.hero-banner) .hero-book-btn:hover {
-    background: #d45f15;
-    color: #1a3a5c;
-  }
-  /* Explicitly beat Kadence's .glyphicon { color: #fff !important } */
-  :where(.hero-banner) .hero-book-btn .glyphicon {
-    color: #1a3a5c !important;
-  }
-  :where(.hero-banner) .hero-book-btn strong {
-    color: inherit;
-  }
-
-  /* ── TripAdvisor logo ──────────────────────────────────────── */
+  /* ── TripAdvisor logo ─────────────────────────────────────── */
   .hero-banner figure {
     margin: 0;
     text-align: center;
