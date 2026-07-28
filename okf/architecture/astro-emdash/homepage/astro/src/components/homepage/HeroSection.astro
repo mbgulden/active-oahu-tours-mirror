@@ -121,7 +121,9 @@ const {
   }
 
   /* ── Book button ───────────────────────────────────────────── */
-  /* Orange bg (#e87121) + dark navy text (#1a3a5c) = 9.8:1 WCAG AAA */
+  /* Orange bg (#e87121) + dark navy text (#1a3a5c) = 9.8:1 WCAG AAA
+     hero-book-btn intentionally does NOT use .btn-primary class to avoid
+     Kadence's .btn-primary { color: #fff !important } cascade. */
   .hero-banner .hero-book-btn {
     background: #e87121;
     color: #1a3a5c !important;
@@ -135,6 +137,10 @@ const {
   .hero-banner .hero-book-btn:hover {
     background: #d45f15;
     color: #1a3a5c;
+  }
+  /* Explicitly beat Kadence's .glyphicon { color: #fff !important } */
+  .hero-banner .hero-book-btn .glyphicon {
+    color: #1a3a5c !important;
   }
   .hero-banner .hero-book-btn strong {
     color: inherit;

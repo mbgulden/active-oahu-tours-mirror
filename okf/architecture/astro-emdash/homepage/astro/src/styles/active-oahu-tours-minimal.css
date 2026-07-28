@@ -188,6 +188,7 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: inherit !important;   /* beat Kadence's .glyphicon { color: #fff !important } */
 }
 .glyphicon-earphone::before { content: "\e182"; }
 .glyphicon-calendar::before { content: "\e109"; }
