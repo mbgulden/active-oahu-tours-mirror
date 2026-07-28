@@ -1,0 +1,64 @@
+---
+interface Props {
+  h2: string;
+  text: string;
+  phone: string;
+  phoneHref: string;
+}
+
+const { h2, text, phone, phoneHref } = Astro.props;
+---
+<section class="closing-cta" aria-labelledby="closing-cta-heading">
+  <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <h2 id="closing-cta-heading">{h2}</h2>
+          <p>{text}</p>
+          <a href={phoneHref} class="btn-phone">
+            <span class="glyphicon glyphicon-earphone"></span>
+            {phone}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .closing-cta {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  .closing-cta h2 {
+    font-size: 1.6rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  .closing-cta p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1rem;
+    color: #cde;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .closing-cta .btn-phone {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #e87121;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .closing-cta .btn-phone:hover {
+    background: #d45f15;
+    color: #fff;
+  }
+</style>

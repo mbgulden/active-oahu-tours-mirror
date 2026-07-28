@@ -1,0 +1,118 @@
+---
+interface Tour {
+  id: string;
+  heading: string;
+  text: string;
+  href: string;
+  cta: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  h2: string;
+  tours: Tour[];
+}
+
+const { h2, tours } = Astro.props;
+---
+<section class="popular-tours" aria-labelledby="popular-tours-heading">
+  <div class="kb-row-layout-wrap alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <h2 id="popular-tours-heading" class="kt-adv-heading wp-block-kadence-advancedheading">
+            {h2}
+          </h2>
+          <div class="tours-grid">
+            {tours.map((tour) => (
+              <article class="tour-card">
+                <a href={tour.href}>
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="337"
+                    height="240"
+                    src={tour.image}
+                    alt={tour.imageAlt}
+                  />
+                  <h3>{tour.heading}</h3>
+                </a>
+                <p>{tour.text}</p>
+                <a href={tour.href} class="btn-secondary">{tour.cta}</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .popular-tours {
+    background: #f8f8f8;
+    padding: 2rem 0;
+  }
+  .popular-tours h2 {
+    font-size: 1.6rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .tour-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .tour-card h3 {
+    font-size: 1.1rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: #0066cc;
+    padding: 0.75rem 1rem 0.25rem;
+    margin: 0;
+  }
+  .tour-card p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    padding: 0.25rem 1rem 0.75rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .tour-card .btn-secondary {
+    display: inline-block;
+    margin: 0 1rem 1rem;
+    padding: 8px 16px;
+    background: #0066cc;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .tour-card .btn-secondary:hover {
+    background: #004999;
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    .tours-grid { grid-template-columns: 1fr; }
+  }
+</style>

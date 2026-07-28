@@ -1,0 +1,51 @@
+---
+interface Props {
+  phone: string;
+  address: string;
+  note: string;
+}
+
+const { phone, address, note } = Astro.props;
+---
+<section class="info-strip" aria-label="Contact and availability information">
+  <div class="kb-row-layout-wrap alignfull has-theme-palette8-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <p>
+            <strong>{note}</strong>
+            Call us at: <a href={`tel:+1-${phone.replace(/[^0-9]/g, '')}`}>{phone}</a>
+            or visit our shop at <a href="/kailua-oahu-storefront/">{address}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .info-strip {
+    background: #f0f0f0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+  }
+  .info-strip .kt-inside-inner-col {
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+  .info-strip p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .info-strip a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .info-strip a:hover {
+    text-decoration: underline;
+  }
+</style>

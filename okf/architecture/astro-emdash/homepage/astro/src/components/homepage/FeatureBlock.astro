@@ -1,0 +1,92 @@
+---
+interface Feature {
+  id: string;
+  icon: string;
+  iconAlt: string;
+  heading: string;
+  text: string;
+}
+
+interface Props {
+  h2: string;
+  intro: string;
+  features: Feature[];
+}
+
+const { h2, intro, features } = Astro.props;
+---
+<section class="feature-block" aria-labelledby="feature-block-heading">
+  <div class="kb-row-layout-wrap kb-row-layout-id2389_4b1a3e-2e alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
+      <div class="wp-block-kadence-column kadence-column2389_7e82bc-f0">
+        <div class="kt-inside-inner-col">
+          <h2 id="feature-block-heading" class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading has-theme-palette-4-color has-text-color" data-kb-block="kb-adv-heading2389_1c90f7-e5">
+            {h2}
+          </h2>
+          <p>{intro}</p>
+        </div>
+      </div>
+      {features.map((feature) => (
+        <div class={`wp-block-kadence-column kadence-column2389_${feature.id[0]}`}>
+          <div class="kt-inside-inner-col">
+            <figure class="wp-block-kadence-image kb-image2389_{feature.id} size-full">
+              <img
+                loading="lazy"
+                decoding="async"
+                width="200"
+                height="200"
+                src={feature.icon}
+                alt={feature.iconAlt}
+                class="kb-img"
+              />
+            </figure>
+            <h3 class="wp-block-kadence-advancedheading">{feature.heading}</h3>
+            <p>{feature.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-block {
+    background: #fff;
+    padding: 2rem 0;
+  }
+  .feature-block .kt-inside-inner-col {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .feature-block h2 {
+    font-size: 1.4rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .feature-block h3 {
+    font-size: 1.2rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: #0066cc;
+    margin: 1rem 0 0.5rem;
+  }
+  .feature-block p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .feature-block figure {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+  }
+  .feature-block img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+</style>

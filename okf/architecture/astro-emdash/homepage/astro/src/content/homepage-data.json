@@ -1,0 +1,189 @@
+{
+  "hero": {
+    "h1": "Oʻahu Kayak Rentals & Tours",
+    "h2": "Kailua Kayak & E-Bike Adventures With Aloha",
+    "subtext": "Kayak in Kailua to the Mokulua Islands, Kayak in Kualoa to Mokoliʻi (Chinaman's Hat), Kayak near Kāneʻohe Bay, or Explore the jungle river of Kahana near Laie.",
+    "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+    "bookingLabel": "Book Online"
+  },
+  "sections": [
+    {
+      "id": "feature-block",
+      "type": "feature-block",
+      "h2": "Kayak and Explore Chinaman's Hat, Kahana Bay, Kawela Bay, Kāneʻohe Bay, Kailua Bay and More",
+      "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our storefront in Kailua",
+      "features": [
+        {
+          "id": "kayak-tours",
+          "icon": "/wp-content/uploads/2019/06/Self-guided-Tours.png",
+          "iconAlt": "Guided Kayak Tours",
+          "heading": "Kayak Tours",
+          "text": "Enjoy Oʻahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips."
+        },
+        {
+          "id": "rentals",
+          "icon": "/wp-content/uploads/2019/06/Rentals-2.png",
+          "iconAlt": "Beach Gear Rentals",
+          "heading": "Kayak Rentals",
+          "text": "Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address."
+        },
+        {
+          "id": "ebike",
+          "icon": "/wp-content/uploads/2022/04/Rentals-3.png",
+          "iconAlt": "Need Kayaks Today?",
+          "heading": "Electric Bike Rentals & Tours",
+          "text": "Ride the best trails and beach paths on Oʻahu with our premium e-bike fleet."
+        }
+      ]
+    },
+    {
+      "id": "testimonial",
+      "type": "testimonial",
+      "quote": "Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure",
+      "attribution": "TripAdvisor Reviewer"
+    },
+    {
+      "id": "featured-tours",
+      "type": "featured-tours",
+      "h2": "Our Most Popular Experiences",
+      "tours": [
+        {
+          "id": "chinamans-hat",
+          "heading": "Chinaman's Hat Self-Guided Kayak Tour",
+          "text": "Experience ocean kayaking to Mokoliʻi on our Chinaman's Hat Self-Guided Kayak Tour*. We provide everything you need to have a great time.",
+          "href": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
+          "cta": "Learn More",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
+          "imageAlt": "Oahu Kayak Rentals"
+        },
+        {
+          "id": "mokulua",
+          "heading": "Mokulua Islands Guided Kayak Tour, Kailuaʻs Twin Islands",
+          "text": "Embark on an exhilarating guided kayak tour to the Twin Islands, led by our experienced guides!",
+          "href": "/activities/mokulua-islands-guided-kayak-tour/",
+          "cta": "Learn More",
+          "image": "/wp-content/uploads/2023/03/lanikai-Kayak-rental-480x320.jpg",
+          "imageAlt": "Kayakers paddling toward the Mokulua Islands off Kailua Beach"
+        },
+        {
+          "id": "kahana",
+          "heading": "Kahana Rainforest River Kayak Self-Guided Tour",
+          "text": "This is the Best Kayaking Experience on Oʻahu. This self-guided* Oʻahu kayak tour takes you up a calm river into the second largest valley on Oʻahu.",
+          "href": "/activities/kahana-rainforest-river-kayak-self-guided-tour/",
+          "cta": "Learn More",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg",
+          "imageAlt": "Best Oahu Kayak Tour"
+        }
+      ]
+    },
+    {
+      "id": "info-strip",
+      "type": "info-strip",
+      "phone": "(808)498-1894",
+      "address": "134B Hamakua Dr. Kailua HI 96734",
+      "note": "We take day-of and last minute tour or rental bookings. Call us or visit our shop."
+    },
+    {
+      "id": "ebike-adventure",
+      "type": "featured-tour-hero",
+      "heading": "Kailua E-Bike Kau Kau Guided Scenic Food Tour Adventure",
+      "text": "Discover the highlights of Kailua as you ride, taste, and explore on our guided E-bike Kau Kau adventure!",
+      "href": "/activities/kailua-e-bike-kau-kau-guided-adventure/",
+      "cta": "E-Bike Kau Kau Guided Adventure",
+      "image": "/wp-content/uploads/2025/03/Active-Oahu-373-e1743021729980.jpg",
+      "imageAlt": "Active Oahu Kailua Storefront Check-in"
+    },
+    {
+      "id": "popoia-adventure",
+      "type": "featured-tour-hero",
+      "heading": "Popoia Kailua's Flat Island Guided Kayak & E-Bike Adventure",
+      "text": "Ride, paddle, and explore on our guided e-bike and kayak adventure to Flat Island!",
+      "href": "/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+      "cta": "Learn More",
+      "image": "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61.jpg",
+      "imageAlt": "Two people e-bike on the Kailua Marsh Trail"
+    },
+    {
+      "id": "mokulua-kayak-adventure",
+      "type": "featured-tour-hero",
+      "heading": "Mokulua Islands Kayak Adventure",
+      "text": "Get more info about our self-guided kayak tour out to Kailua's twin islands.",
+      "href": "/activities/mokulua-islands-self-guided-kayak-tour/",
+      "cta": "Learn More",
+      "image": "/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
+      "imageAlt": "Hiking and Kayaking Tour, epic view"
+    },
+    {
+      "id": "rental-types",
+      "type": "rental-grid",
+      "h2": "Rentals",
+      "categories": [
+        {
+          "heading": "Daily",
+          "subheading": "4 Hour or Full Day Rentals",
+          "text": "Have an Adventure",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-2-115x115.jpg",
+          "imageAlt": "Kayaking to Mokolii"
+        },
+        {
+          "heading": "Multi-Day",
+          "subheading": "Convenient Multi-Day Rentals",
+          "text": "Explore Oʻahu at your own pace with our flexible multi-day kayak and beach gear packages.",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_13-115x115.jpg",
+          "imageAlt": "Hiking Mokoli"
+        },
+        {
+          "heading": "Self-Guided Kayak Tour",
+          "subheading": "Jungle With Great views",
+          "text": "Experience the best of Oʻahu's natural beauty on a self-guided kayak adventure.",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-115x115.jpg",
+          "imageAlt": "Best Oahu Kayak Tour"
+        },
+        {
+          "heading": "Chinaman's Hat",
+          "subheading": "Ocean Kayak & Hike",
+          "text": "Paddle to Mokoliʻi and hike to the summit for panoramic views of Kāneʻohe Bay.",
+          "image": "/wp-content/uploads/2016/11/Oahu-Snorkeling_6-1-115x115.jpg",
+          "imageAlt": "Oahu Snorkel Tours"
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "type": "closing-cta",
+      "h2": "Plan Your Oʻahu Kayaking Adventure",
+      "text": "We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734",
+      "phone": "(808)498-1894",
+      "phoneHref": "tel:+1-808-498-1894"
+    },
+    {
+      "id": "awards",
+      "type": "awards",
+      "h2": "Awards",
+      "awardText": "Active Oahu, LLC Wins 2022 Tripadvisor Travelers' Choice Award for Tours and Activities",
+      "awardImages": [
+        {
+          "src": "/wp-content/uploads/2025/03/TC_transparent_BF-Logo_L_2024_RGB.png",
+          "alt": "Tripadvisor Travelers' Choice Best of the Best award logo",
+          "width": "200"
+        },
+        {
+          "src": "/wp-content/uploads/2022/07/TC_2022_L_TRANSPARENT_BG_RGB.svg",
+          "alt": "Active Oahu 2022 Travelers",
+          "width": "170"
+        }
+      ]
+    },
+    {
+      "id": "testimonials-section",
+      "type": "testimonials-full",
+      "h2": "Testimonials",
+      "items": [
+        {
+          "quote": "Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure",
+          "author": "TripAdvisor Reviewer"
+        }
+      ]
+    }
+  ]
+}

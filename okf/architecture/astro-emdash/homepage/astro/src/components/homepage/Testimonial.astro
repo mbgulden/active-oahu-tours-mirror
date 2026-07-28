@@ -1,0 +1,51 @@
+---
+interface Props {
+  quote: string;
+  attribution?: string;
+}
+
+const { quote, attribution } = Astro.props;
+---
+<section class="testimonial-section" aria-label="Customer testimonial">
+  <div class="kb-row-layout-wrap alignfull has-grey-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <blockquote>
+            <p>"{quote}"</p>
+            {attribution && <cite>— {attribution}</cite>}
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-section {
+    background: #f5f5f5;
+    padding: 2rem 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .testimonial-section blockquote {
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 800px;
+    text-align: center;
+  }
+  .testimonial-section p {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    margin: 0 0 0.75rem;
+  }
+  .testimonial-section cite {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: normal;
+  }
+</style>
