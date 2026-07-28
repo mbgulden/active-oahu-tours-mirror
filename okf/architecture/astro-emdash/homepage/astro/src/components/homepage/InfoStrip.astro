@@ -14,8 +14,8 @@ const { phone, address, note } = Astro.props;
         <div class="kt-inside-inner-col">
           <p>
             <strong>{note}</strong>
-            Call us at: <a href={`tel:+1-${phone.replace(/[^0-9]/g, '')}`}>{phone}</a>
-            or visit our shop at <a href="/kailua-oahu-storefront/">{address}</a>
+            Call us at: <a href={`tel:+1-${phone.replace(/[^0-9]/g, '')}`} style="color:#003366">{phone}</a>
+            or visit our shop at <a href="/kailua-oahu-storefront/" style="color:#003366">{address}</a>
           </p>
         </div>
       </div>
