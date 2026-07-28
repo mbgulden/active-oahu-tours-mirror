@@ -155,7 +155,29 @@
 }
 .aligncenter { margin-left: auto; margin-right: auto; }
 
-/* ── Skip Link ───────────────────────────────────────────── */
+/* ── Book Now / CTA buttons: orange + dark navy = 9.8:1 WCAG AAA ── */
+/* The header nav "Book Online" button uses .aot-book-now (BookNowButton.astro)
+   The hero button uses .hero-book-btn. Both need this override to beat
+   Kadence's .btn-primary { color: #fff !important } cascade. */
+.aot-book-now,
+.hero-book-btn,
+a.btn-primary.aot-book-now {
+  background-color: #e87121 !important;
+  color: #1a3a5c !important;
+}
+.aot-book-now:hover,
+.hero-book-btn:hover,
+a.btn-primary.aot-book-now:hover {
+  background-color: #d45f15 !important;
+  color: #1a3a5c !important;
+}
+/* Explicitly beat Kadence's .glyphicon { color: #fff !important } for CTA buttons */
+.aot-book-now .glyphicon,
+.hero-book-btn .glyphicon {
+  color: #1a3a5c !important;
+}
+
+/* ── Glyphicons ──────────────────────────────────────────────── */
 .skip-link {
   position: absolute;
   top: -40px;
