@@ -51,21 +51,26 @@
 .has-white-background-color {
   background-color: var(--aot-white) !important;
 }
-/* Kadence text color utilities — force our palette colors */
+/* Kadence text color utilities — must use !important to beat Kadence's own rules */
 .has-theme-palette9-color,
+.has-theme-palette9-color.has-text-color,
 .kt-adv-heading.has-theme-palette9-color {
   color: var(--aot-hero-bg) !important;
 }
-.has-theme-palette8-color {
+.has-theme-palette8-color,
+.has-theme-palette8-color.has-text-color {
   color: var(--aot-gray-900) !important;
 }
-.has-theme-palette4-color {
+.has-theme-palette4-color,
+.has-theme-palette4-color.has-text-color {
   color: var(--aot-white) !important;
 }
-.has-theme-palette1-color {
+.has-theme-palette1-color,
+.has-theme-palette1-color.has-text-color {
   color: var(--aot-navy-light) !important;
 }
-.has-white-color {
+.has-white-color,
+.has-white-color.has-text-color {
   color: var(--aot-white) !important;
 }
 
