@@ -1,22 +1,487 @@
 ---
 import shellData from "../../content/nav/aot-shell-data.json";
+
 const nav = shellData.primaryNav;
+
+// Determine current path for aria-current
+const currentPath = Astro.url?.pathname ?? "/";
 ---
-<nav id="site-navigation" class="main-navigation" aria-label="Primary" data-instant>
-  <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
-  <ul id="primary-menu" class="menu">
-    {nav.map((item) => (
-      <li class:list={["menu-item", item.children?.length && "menu-item-has-children", `intent-${item.intent}`]}>
-        <a href={item.href}>{item.label}</a>
-        {item.children?.length ? <ul class="sub-menu">{item.children.map((child) => (
-          <li class:list={["menu-item", child.children?.length && "menu-item-has-children", `intent-${child.intent}`]}>
-            <a href={child.href}>{child.label}</a>
-            {child.children?.length ? <ul class="sub-menu">{child.children.map((grandchild) => (
-              <li class:list={["menu-item", `intent-${grandchild.intent}`]}><a href={grandchild.href}>{grandchild.label}</a></li>
-            ))}</ul> : null}
-          </li>
-        ))}</ul> : null}
-      </li>
-    ))}
+
+<nav
+  class="aot-primary-nav"
+  aria-label="Primary navigation"
+  id="site-navigation"
+  data-aot-nav
+>
+  <!-- Mobile toggle: rendered by JS for accessibility state sync, but
+       button markup is here so it's in the DOM even before JS runs. -->
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-controls="nav-menu"
+    aria-expanded="false"
+    aria-label="Toggle navigation menu"
+    data-nav-toggle
+  >
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="sr-only">Menu</span>
+  </button>
+
+  <!-- Nav list: id referenced by aria-controls on the toggle -->
+  <ul
+    class="nav-menu"
+    id="nav-menu"
+    role="menubar"
+    data-nav-menu
+  >
+    {nav.map((item) => {
+      const hasChildren = Boolean(item.children?.length);
+      const itemClasses = ["nav-item", hasChildren && "has-dropdown"].filter(Boolean);
+
+      return (
+        <li
+          class:list={itemClasses}
+          role="none"
+        >
+          <a
+            href={item.href}
+            class="nav-link"
+            role="menuitem"
+            aria-current={currentPath === item.href ? "page" : undefined}
+            {...(hasChildren ? { "aria-haspopup": "true", "aria-expanded": "false" } : {})}
+            data-nav-link={hasChildren ? "true" : undefined}
+          >
+            {item.label}
+          </a>
+
+          {hasChildren && (
+            <ul
+              class="nav-dropdown"
+              role="menu"
+              aria-label={`${item.label} submenu`}
+            >
+              {item.children!.map((child) => {
+                const hasGrandchildren = Boolean(child.children?.length);
+
+                return (
+                  <li
+                    class:list={["nav-dropdown-item", hasGrandchildren && "has-dropdown"]}
+                    role="none"
+                  >
+                    <a
+                      href={child.href}
+                      class="nav-dropdown-link"
+                      role="menuitem"
+                      aria-current={currentPath === child.href ? "page" : undefined}
+                      {...(hasGrandchildren ? { "aria-haspopup": "true", "aria-expanded": "false" } : {})}
+                    >
+                      {child.label}
+                    </a>
+
+                    {hasGrandchildren && (
+                      <ul
+                        class="nav-dropdown nav-dropdown--grandchild"
+                        role="menu"
+                        aria-label={`${child.label} submenu`}
+                      >
+                        {child.children!.map((grandchild) => (
+                          <li role="none">
+                            <a
+                              href={grandchild.href}
+                              class="nav-dropdown-link"
+                              role="menuitem"
+                              aria-current={currentPath === grandchild.href ? "page" : undefined}
+                            >
+                              {grandchild.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </li>
+      );
+    })}
   </ul>
 </nav>
+
+<style>
+  /* ── Nav shell ───────────────────────────────────────────── */
+  .aot-primary-nav {
+    position: relative;
+    font-family: var(--font-body, 'Open Sans', Arial, sans-serif);
+    background: #003366;
+    /* CSS custom props for consistent theming */
+    --nav-bg: #003366;
+    --nav-text: #ffffff;
+    --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
+    --nav-dropdown-bg: #ffffff;
+    --nav-dropdown-text: #333333;
+    --nav-dropdown-link-hover-bg: #f5f5f5;
+    --nav-dropdown-border: #e0e0e0;
+  }
+
+  /* ── Mobile toggle ───────────────────────────────────────── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    cursor: pointer;
+    /* Minimum touch target: 44×44 */
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  /* Hamburger → X animation when open */
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .nav-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  /* ── Nav menu (horizontal on desktop, vertical mobile) ────── */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  /* ── Top-level nav items ────────────────────────────────── */
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.125rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+    /* Touch target minimum */
+    min-height: 44px;
+  }
+  .nav-link:hover {
+    background: var(--nav-link-hover-bg);
+    color: var(--nav-text);
+    text-decoration: none;
+  }
+  .nav-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -2px;
+  }
+  .nav-link[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── Dropdown indicator (chevron) ──────────────────────── */
+  .has-dropdown > .nav-link::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    vertical-align: middle;
+    /* Prevent layout shift */
+    flex-shrink: 0;
+  }
+
+  /* ── Dropdown panel ──────────────────────────────────────── */
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: var(--nav-dropdown-bg);
+    border: 1px solid var(--nav-dropdown-border);
+    border-top: 3px solid #0066cc;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    z-index: 100;
+  }
+  .nav-dropdown.is-open {
+    display: block;
+  }
+
+  /* Grandchild panel */
+  .nav-dropdown--grandchild {
+    position: absolute;
+    top: -1px;
+    left: 100%;
+    border-radius: 0 4px 4px 0;
+    border-top: 1px solid var(--nav-dropdown-border);
+  }
+
+  .nav-dropdown-item {
+    position: relative;
+  }
+
+  .nav-dropdown-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 1.25rem;
+    color: var(--nav-dropdown-text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+    min-height: 40px;
+    transition: background-color 0.15s ease;
+  }
+  .nav-dropdown-link:hover,
+  .nav-dropdown-link:focus-visible {
+    background: var(--nav-dropdown-link-hover-bg);
+    color: var(--nav-dropdown-text);
+    text-decoration: none;
+  }
+  .nav-dropdown-link:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: -2px;
+  }
+  .nav-dropdown-link[aria-current="page"] {
+    background: #e8f0fe;
+    color: #003366;
+    font-weight: 700;
+  }
+
+  /* Grandchild chevron */
+  .has-dropdown > .nav-dropdown-link::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ── Desktop: show dropdown on hover + focus ─────────────── */
+  @media (hover: hover) {
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown {
+      display: block;
+    }
+  }
+
+  /* ── Mobile: stacked, toggleable ───────────────────────── */
+  @media (max-width: 767px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      border-top: 3px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 99;
+      padding: 0.5rem 0;
+    }
+    .nav-menu.is-open {
+      display: flex;
+    }
+
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dropdown: stacked below parent on mobile */
+    .nav-dropdown,
+    .nav-dropdown--grandchild {
+      position: static;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding-left: 1rem;
+      border-left: 3px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-dropdown.is-open {
+      display: block;
+    }
+
+    .nav-dropdown-link {
+      color: rgba(255, 255, 255, 0.9);
+      padding: 0.75rem 1rem;
+    }
+    .nav-dropdown-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    /* On mobile, dropdowns need explicit toggle via JS click */
+    @media (hover: hover) {
+      .has-dropdown:hover > .nav-dropdown {
+        display: none;
+      }
+    }
+  }
+
+  /* ── Screen-reader only ─────────────────────────────────── */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
+
+<script>
+  // ── Accessible nav: keyboard + mobile toggle + dropdown ──
+
+  const nav = document.querySelector('[data-aot-nav]') as HTMLElement | null;
+  if (!nav) throw new Error("AOT nav not found");
+
+  const toggle = nav.querySelector('[data-nav-toggle]') as HTMLButtonElement | null;
+  const menu = nav.querySelector('[data-nav-menu]') as HTMLElement | null;
+  const dropdownLinks = nav.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  // ── Mobile toggle ────────────────────────────────────────
+  function openMenu() {
+    menu?.classList.add('is-open');
+    toggle?.setAttribute('aria-expanded', 'true');
+    // Move focus to first menu item
+    const firstLink = menu?.querySelector<HTMLAnchorElement>('.nav-link');
+    firstLink?.focus();
+  }
+
+  function closeMenu() {
+    menu?.classList.remove('is-open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.focus(); // Return focus to toggle
+  }
+
+  toggle?.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    isExpanded ? closeMenu() : openMenu();
+  });
+
+  // ── Keyboard: Escape closes menu ─────────────────────────
+  nav.addEventListener('keydown', (e) => {
+    if ((e as KeyboardEvent).key === 'Escape') {
+      if (menu?.classList.contains('is-open')) {
+        closeMenu();
+      }
+    }
+  });
+
+  // ── Dropdown: aria-expanded toggle on click ───────────────
+  dropdownLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const isExpanded = link.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        link.setAttribute('aria-expanded', 'false');
+        const submenu = link.nextElementSibling as HTMLElement | null;
+        submenu?.classList.remove('is-open');
+      } else {
+        // Close all sibling dropdowns
+        link.parentElement?.parentElement
+          ?.querySelectorAll<HTMLElement>('[aria-expanded="true"]')
+          .forEach((el) => {
+            el.setAttribute('aria-expanded', 'false');
+            el.closest('.nav-dropdown')?.classList.remove('is-open');
+          });
+        link.setAttribute('aria-expanded', 'true');
+        const submenu = link.nextElementSibling as HTMLElement | null;
+        submenu?.classList.add('is-open');
+        // On mobile, prevent hash navigation if we just opened a dropdown
+        if (window.innerWidth < 768) {
+          e?.preventDefault();
+        }
+      }
+    });
+
+    // Keyboard: arrow down opens dropdown and focuses first item
+    link.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'ArrowDown') {
+        const submenu = link.nextElementSibling as HTMLElement | null;
+        if (submenu?.classList.contains('nav-dropdown')) {
+          e.preventDefault();
+          link.setAttribute('aria-expanded', 'true');
+          submenu.classList.add('is-open');
+          const firstChild = submenu.querySelector<HTMLAnchorElement>('.nav-dropdown-link');
+          firstChild?.focus();
+        }
+      }
+    });
+  });
+
+  // ── Close menu when clicking outside ─────────────────────
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target as Node)) {
+      menu?.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav.querySelectorAll<HTMLElement>('[aria-expanded="true"]').forEach((el) => {
+        el.setAttribute('aria-expanded', 'false');
+        el.closest('.nav-dropdown')?.classList.remove('is-open');
+      });
+    }
+  });
+
+  // ── Close on route change (if using a router) ─────────────
+  // Not needed for static Astro pages.
+</script>

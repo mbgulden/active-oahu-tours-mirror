@@ -1,18 +1,50 @@
 ---
 import shellData from "../../content/nav/aot-shell-data.json";
 const { business, footerGroups } = shellData;
+
+const year = new Date().getFullYear();
 ---
-<footer role="contentinfo">
-  <section class="aot-footer-contact" aria-label="Active Oahu Tours contact">
-    <p><strong>{business.name}</strong></p>
-    <p><a href={business.telephoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a></p>
-  </section>
-  <nav class="aot-footer-nav" aria-label="Footer">
+
+<footer role="contentinfo" class="aot-site-footer">
+  <!-- Contact block -->
+  <div class="footer-contact">
+    <p class="footer-business-name">
+      <strong>{business.name}</strong>
+    </p>
+    <address class="footer-address">
+      <a href={`tel:+1-${business.phoneRaw}`}>{business.phone}</a>
+      &nbsp;·&nbsp;
+      <a href={`mailto:${business.email}`}>{business.email}</a>
+    </address>
+  </div>
+
+  <!-- Nav groups -->
+  <nav class="footer-nav" aria-label="Footer navigation">
     {footerGroups.map((group) => (
-      <section class:list={["footer-group", `priority-${group.priority}`]}>
-        <h2>{group.heading}</h2>
-        <ul>{group.items.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
-      </section>
+      <div class="footer-nav-group">
+        <h2 class="footer-nav-heading">{group.heading}</h2>
+        <ul class="footer-nav-list" role="list">
+          {group.items.map((item) => (
+            <li>
+              <a href={item.href} class="footer-nav-link">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     ))}
   </nav>
+
+  <!-- Legal row -->
+  <div class="footer-legal">
+    <p class="footer-copyright">
+      &copy; {year} {business.name}. All rights reserved.
+    </p>
+    <ul class="footer-legal-links" role="list">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/accessibility/">Accessibility</a></li>
+    </ul>
+  </div>
 </footer>
