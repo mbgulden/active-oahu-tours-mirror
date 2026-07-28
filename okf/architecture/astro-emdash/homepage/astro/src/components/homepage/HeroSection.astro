@@ -22,6 +22,7 @@ const {
 <section class="hero-banner" aria-label="Hero">
   <div class="kb-row-layout-wrap kb-row-layout-id2389_6ed5ef-6d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
     <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
+
       <!-- Left: h1 + h2 + subtext + CTA -->
       <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
         <div class="kt-inside-inner-col">
@@ -33,6 +34,7 @@ const {
           </h2>
         </div>
       </div>
+
       <!-- Right: Booking CTA + TripAdvisor logo -->
       <div class="wp-block-kadence-column kadence-column2389_80c4a3-08">
         <div class="kt-inside-inner-col">
@@ -40,12 +42,13 @@ const {
             <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-left-golden kt-row-valign-top kt-inner-column-height-full">
               <div class="wp-block-kadence-column kadence-column2389_3c78ec-a7">
                 <div class="kt-inside-inner-col">
-                  <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading has-white-color has-text-color" data-kb-block="kb-adv-heading2389_d8fad2-58" style="color: #ffffff; -webkit-text-stroke: 0.5px #003366;">
+                  <!-- cta-subheading: overrides Kadence's palette9 text color (white on near-white) -->
+                  <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading cta-subheading" data-kb-block="kb-adv-heading2389_d8fad2-58">
                     {subtext}
                   </h3>
                   <a
                     href={bookingHref}
-                    class="pull-right btn btn-small btn-primary"
+                    class="pull-right btn btn-small btn-primary hero-book-btn"
                     onclick="FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;"
                   >
                     <strong>
@@ -74,11 +77,13 @@ const {
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <style>
+  /* ── Hero banner shell ─────────────────────────────────────── */
   .hero-banner {
     background-color: #1a3a5c;
     color: #fff;
@@ -87,6 +92,8 @@ const {
   .hero-banner .kt-inside-inner-col {
     padding: 2rem;
   }
+
+  /* ── Headings — inherit white from parent, not Kadence palette ── */
   .hero-banner h1 {
     font-size: 2.2rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
@@ -101,15 +108,20 @@ const {
     margin: 0;
     color: #fff;
   }
-  .hero-banner h3 {
+
+  /* cta-subheading: explicit white overrides Kadence's near-white palette9 */
+  .hero-banner .cta-subheading {
     font-size: 1rem;
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 400;
-    color: #fff;
+    color: #ffffff;         /* explicit white — contrast on #f7fafc ≈ 1.04:1 → fixed */
+    -webkit-text-stroke: 0.3px #003366; /* fallback for sub-pixel rendering */
     margin: 0 0 1rem;
     line-height: 1.5;
   }
-  .hero-banner .btn {
+
+  /* ── Book button ───────────────────────────────────────────── */
+  .hero-banner .hero-book-btn {
     background: #e87121;
     color: #fff;
     padding: 10px 20px;
@@ -119,13 +131,15 @@ const {
     font-weight: 600;
     display: inline-block;
   }
-  .hero-banner .btn:hover {
+  .hero-banner .hero-book-btn:hover {
     background: #d45f15;
     color: #fff;
   }
-  .hero-banner .btn strong {
+  .hero-banner .hero-book-btn strong {
     color: inherit;
   }
+
+  /* ── TripAdvisor logo ──────────────────────────────────────── */
   .hero-banner figure {
     margin: 0;
     text-align: center;
@@ -134,6 +148,8 @@ const {
     max-width: 180px;
     height: auto;
   }
+
+  /* ── Responsive ───────────────────────────────────────────── */
   @media (max-width: 768px) {
     .hero-banner h1 { font-size: 1.6rem; }
     .hero-banner h2 { font-size: 1.1rem; }

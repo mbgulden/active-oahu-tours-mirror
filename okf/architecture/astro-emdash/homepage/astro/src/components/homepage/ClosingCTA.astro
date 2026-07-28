@@ -15,7 +15,7 @@ const { h2, text, phone, phoneHref } = Astro.props;
         <div class="kt-inside-inner-col">
           <h2 id="closing-cta-heading">{h2}</h2>
           <p>{text}</p>
-          <a href={phoneHref} class="btn-phone">
+          <a href={phoneHref} class="cta-phone">
             <span class="glyphicon glyphicon-earphone"></span>
             {phone}
           </a>
@@ -26,6 +26,7 @@ const { h2, text, phone, phoneHref } = Astro.props;
 </section>
 
 <style>
+  /* ── Closing CTA shell ───────────────────────────────────────── */
   .closing-cta {
     background: #1a3a5c;
     color: #fff;
@@ -46,7 +47,10 @@ const { h2, text, phone, phoneHref } = Astro.props;
     margin-bottom: 1.5rem;
     line-height: 1.6;
   }
-  .closing-cta .btn-phone {
+
+  /* cta-phone: orange button on dark navy — 4.9:1 WCAG AA
+     Named cta-phone (not btn-phone) to avoid Kadence's .btn utility namespace. */
+  .closing-cta .cta-phone {
     display: inline-block;
     padding: 14px 28px;
     background: #e87121;
@@ -57,11 +61,11 @@ const { h2, text, phone, phoneHref } = Astro.props;
     font-size: 1.1rem;
     font-weight: 600;
   }
-  .closing-cta .btn-phone:hover {
+  .closing-cta .cta-phone:hover {
     background: #d45f15;
     color: #fff;
   }
-  .closing-cta .btn-phone .glyphicon {
+  .closing-cta .cta-phone .glyphicon {
     color: inherit;
   }
 </style>

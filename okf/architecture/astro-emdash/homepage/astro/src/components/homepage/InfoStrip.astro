@@ -14,8 +14,8 @@ const { phone, address, note } = Astro.props;
         <div class="kt-inside-inner-col">
           <p>
             <strong>{note}</strong>
-            Call us at: <a href={`tel:+1-${phone.replace(/[^0-9]/g, '')}`} style="color:#003366">{phone}</a>
-            or visit our shop at <a href="/kailua-oahu-storefront/" style="color:#003366">{address}</a>
+            Call us at: <a href={`tel:+1-${phone.replace(/[^0-9]/g, '')}`} class="info-tel">{phone}</a>
+            or visit our shop at <a href="/kailua-oahu-storefront/" class="info-addr">{address}</a>
           </p>
         </div>
       </div>
@@ -24,6 +24,7 @@ const { phone, address, note } = Astro.props;
 </section>
 
 <style>
+  /* ── Info strip shell ───────────────────────────────────────── */
   .info-strip {
     background: #f0f0f0;
     border-top: 1px solid #e0e0e0;
@@ -41,11 +42,17 @@ const { phone, address, note } = Astro.props;
     margin: 0;
     line-height: 1.6;
   }
-  .info-strip a {
-    color: #0066cc;
+
+  /* Links: dark navy (#003366) on #f0f0f0 = 11.4:1 WCAG AAA
+     Kadence palette8 resolves to near-white (#f7fafc) which would make
+     default #0066cc blue fail (3.8:1). Using #003366 instead. */
+  .info-strip .info-tel,
+  .info-strip .info-addr {
+    color: #003366;        /* 11.4:1 on #f0f0f0 */
     text-decoration: none;
   }
-  .info-strip a:hover {
+  .info-strip .info-tel:hover,
+  .info-strip .info-addr:hover {
     text-decoration: underline;
   }
 </style>
