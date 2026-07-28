@@ -156,9 +156,9 @@
 .aligncenter { margin-left: auto; margin-right: auto; }
 
 /* ── Book Now / CTA buttons ────────────────────────────────── */
-/* Orange bg (#e87121) + dark navy-blue text (#003366) = 5.25:1 WCAG AA
-   Selector specificity must match or exceed Kadence's .btn-primary (0,1,1,0)
-   to win against its !important cascade. */
+/* Orange bg (#e87121) + dark navy-blue text (#003366) = 4.09:1 WCAG AA (12pt+ bold)
+   Selector specificity: (0,3,0,0) beats Kadence's (0,2,1,0) + !important cascade.
+   a.btn-primary.{class} pattern: tag + 2 classes matches Kadence's a.btn-primary. */
 a.btn-primary.aot-book-now,
 a.btn-primary.hero-book-btn {
   background-color: #e87121 !important;
@@ -167,6 +167,12 @@ a.btn-primary.hero-book-btn {
 a.btn-primary.aot-book-now:hover,
 a.btn-primary.hero-book-btn:hover {
   background-color: #d45f15 !important;
+  color: #003366 !important;
+}
+/* Glyphicon: Kadence uses a.btn-primary .glyphicon (0,2,1,0) — we match with
+   a.hero-book-btn .glyphicon (0,2,0,1) — the extra .hero-book-btn class wins. */
+a.btn-primary.hero-book-btn .glyphicon,
+a.btn-primary.aot-book-now .glyphicon {
   color: #003366 !important;
 }
 
