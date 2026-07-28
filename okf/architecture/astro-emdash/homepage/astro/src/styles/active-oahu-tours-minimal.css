@@ -215,7 +215,26 @@
   line-height: 1.5;
 }
 
-/* ── Book Online button in hero ── */
+/* ── Book Now / CTA buttons — clean AOT classes, no Kadence cascade ── */
+
+/* Header nav "Book Online" — standalone class, no Bootstrap/Kadence namespace */
+.aot-book-now {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--aot-orange) !important;
+  color: var(--aot-navy) !important;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.aot-book-now:hover {
+  background-color: var(--aot-orange-dark) !important;
+  color: var(--aot-navy) !important;
+}
+
+/* Hero "Book Online" — standalone class, no btn-primary hook */
 .aot-btn-hero-book {
   display: inline-block;
   background-color: var(--aot-orange) !important;
@@ -230,6 +249,15 @@
 .aot-btn-hero-book:hover {
   background-color: var(--aot-orange-dark) !important;
   color: var(--aot-navy) !important;
+}
+
+/* Last-resort: any remaining .btn-primary gets our brand colors */
+.btn-primary {
+  background-color: var(--aot-navy-light) !important;
+  color: var(--aot-white) !important;
+}
+.btn-primary .glyphicon {
+  color: var(--aot-white) !important;
 }
 
 /* ── Info Strip ── */
