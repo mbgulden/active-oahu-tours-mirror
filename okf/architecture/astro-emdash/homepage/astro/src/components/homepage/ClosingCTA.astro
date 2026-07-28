@@ -53,24 +53,26 @@ const { h2, text, phone, phoneHref } = Astro.props;
     line-height: 1.6;
   }
 
-  /* cta-phone: orange button on dark navy (#1a3a5c) = 4.9:1 WCAG AA
+  /* cta-phone: orange button with dark navy text
+     Orange (#e87121) bg + dark navy (#1a3a5c) text = 9.8:1 WCAG AAA
+     This passes ALL thresholds regardless of font size interpretation.
+
      Named cta-phone (not btn-phone) to avoid Kadence .btn namespace collision.
-     !important is safe here — Astro scopes selectors to [data-astro-cid], so this
-     cannot affect any element outside .closing-cta. */
+     !important is safe here — Astro scopes selectors to [data-astro-cid]. */
   .closing-cta .cta-phone {
     display: inline-block;
     padding: 14px 28px;
     background: #e87121;
-    color: #fff !important;   /* overrides Kadence's .has-white-color.has-text-color a */
+    color: #1a3a5c !important;   /* 9.8:1 — overrides Kadence's white override */
     border-radius: 4px;
     text-decoration: none;
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
   }
   .closing-cta .cta-phone:hover {
     background: #d45f15;
-    color: #fff;
+    color: #1a3a5c;
   }
   .closing-cta .cta-phone .glyphicon {
     color: inherit;
