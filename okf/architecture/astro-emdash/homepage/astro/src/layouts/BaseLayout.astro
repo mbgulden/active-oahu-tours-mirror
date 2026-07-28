@@ -2,6 +2,7 @@
 import shellData from '../content/nav/aot-shell-data.json';
 import siteNavigationSchema from '../generated/schema/site-navigation.json';
 import localBusinessSchema from '../generated/schema/local-business.json';
+import '../styles/active-oahu-tours-minimal.css';
 
 interface Props {
   title: string;
@@ -54,17 +55,6 @@ const business = shellData.business;
       href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Kadence Blocks CSS -->
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/plugins/kadence-blocks/dist/style-blocks-column.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/plugins/kadence-blocks/dist/style-blocks-image.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedgallery.css" />
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/themes/activeoahu/css/style.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/themes/activeoahu/css/nav-fix.css" />
-    <link rel="stylesheet" href="https://activeoahutours.com/wp-content/themes/activeoahu/css/kadence-homepage.css" />
 
     <!-- JSON-LD: SiteNavigationElement -->
     <script type="application/ld+json" set:html={JSON.stringify(siteNavigationSchema)} />
