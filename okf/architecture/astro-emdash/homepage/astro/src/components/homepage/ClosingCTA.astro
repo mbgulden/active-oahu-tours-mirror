@@ -9,7 +9,7 @@ interface Props {
 const { h2, text, phone, phoneHref } = Astro.props;
 ---
 <section class="closing-cta" aria-labelledby="closing-cta-heading">
-  <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+  <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout closing-cta-bg">
     <div class="kt-row-column-wrap">
       <div class="wp-block-kadence-column">
         <div class="kt-inside-inner-col">
@@ -28,10 +28,15 @@ const { h2, text, phone, phoneHref } = Astro.props;
 <style>
   /* ── Closing CTA shell ───────────────────────────────────────── */
   .closing-cta {
-    background: #1a3a5c;
     color: #fff;
     padding: 2rem 0;
     text-align: center;
+  }
+  /* closing-cta-bg: override Kadence's palette9 (#f7fafc) with dark navy.
+     This ensures white text and orange button pass WCAG contrast on ALL devices,
+     not just those respecting the Kadence CSS override chain. */
+  .closing-cta .closing-cta-bg {
+    background-color: #1a3a5c !important;
   }
   .closing-cta h2 {
     font-size: 1.6rem;
@@ -48,8 +53,8 @@ const { h2, text, phone, phoneHref } = Astro.props;
     line-height: 1.6;
   }
 
-  /* cta-phone: orange button on dark navy — 4.9:1 WCAG AA
-     Named cta-phone (not btn-phone) to avoid Kadence's .btn utility namespace. */
+  /* cta-phone: orange button on dark navy (#1a3a5c) = 4.9:1 WCAG AA
+     Named cta-phone (not btn-phone) to avoid Kadence .btn namespace collision. */
   .closing-cta .cta-phone {
     display: inline-block;
     padding: 14px 28px;
