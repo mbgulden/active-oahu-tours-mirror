@@ -221,8 +221,8 @@
 .aot-book-now {
   display: inline-block;
   padding: 8px 16px;
-  background-color: var(--aot-orange) !important;
-  color: var(--aot-navy) !important;
+  background-color: #1a3a5c !important;
+  color: #ffffff !important;
   border-radius: 4px;
   text-decoration: none !important;
   font-family: 'Open Sans', Arial, sans-serif;
@@ -230,15 +230,15 @@
   font-weight: 600;
 }
 .aot-book-now:hover {
-  background-color: var(--aot-orange-dark) !important;
-  color: var(--aot-navy) !important;
+  background-color: #003366 !important;
+  color: #ffffff !important;
 }
 
 /* Hero "Book Online" — standalone class, no btn-primary hook */
 .aot-btn-hero-book {
   display: inline-block;
-  background-color: var(--aot-orange) !important;
-  color: var(--aot-navy) !important;
+  background-color: #1a3a5c !important;
+  color: #ffffff !important;
   padding: 10px 20px;
   border-radius: 4px;
   text-decoration: none !important;
@@ -247,8 +247,8 @@
   font-size: 1rem;
 }
 .aot-btn-hero-book:hover {
-  background-color: var(--aot-orange-dark) !important;
-  color: var(--aot-navy) !important;
+  background-color: #003366 !important;
+  color: #ffffff !important;
 }
 
 /* Last-resort: any remaining .btn-primary gets our brand colors */
@@ -488,8 +488,8 @@
 .aot-btn-phone {
   display: inline-block;
   padding: 14px 28px;
-  background: var(--aot-orange) !important;
-  color: var(--aot-navy) !important;
+  background: #1a3a5c !important;
+  color: #ffffff !important;
   border-radius: 4px;
   text-decoration: none !important;
   font-family: 'Open Sans', Arial, sans-serif;
@@ -497,8 +497,8 @@
   font-weight: 600;
 }
 .aot-btn-phone:hover {
-  background: var(--aot-orange-dark) !important;
-  color: var(--aot-navy) !important;
+  background: #003366 !important;
+  color: #ffffff !important;
 }
 
 /* ============================================================
