@@ -3,94 +3,74 @@
    Single source of truth for all visual styling.
    Replaces ALL external Kadence/theme CSS.
 
-   CSS VARIABLES (edit here to update everywhere):
-     --aot-navy        Dark navy blue      (#003366)  Nav/links/headings
-     --aot-navy-light  Mid blue           (#0066cc)  Link hover/primary
-     --aot-orange      Brand orange       (#e87121)  CTA buttons/accents
-     --aot-orange-dark Deep orange        (#d45f15)  Button hover
-     --aot-white       Pure white         (#ffffff)  Text on dark
-     --aot-off-white   Off white          (#fafafa)  Section backgrounds
-     --aot-light-gray  Light gray         (#f5f5f5)  Testimonial/alt sections
-     --aot-gray-100    Border gray        (#e0e0e0)  Borders/dividers
-     --aot-gray-400    Muted text         (#666666)  Captions/metadata
-     --aot-gray-600    Secondary text     (#555555)  Body secondary
-     --aot-gray-900    Primary text       (#333333)  Body primary/headings
-     --aot-text-light  Light section text (#c9ddee)  Text on dark sections
-     --aot-hero-bg     Hero background    (#1a3a5c)  Hero banner bg
-     --aot-closing-bg  Closing CTA bg     (#1a3a5c)  Closing section bg
-     --aot-skip-bg     Skip link bg       (#0066cc)  Accessibility skip
-
-   WCAG CONTRAST NOTES:
-     --aot-navy on --aot-off-white    = 11.4:1  AAA ✅
-     --aot-navy on --aot-orange       = 5.25:1  AA  ✅ (buttons)
-     --aot-navy on --aot-light-gray   = 9.7:1   AAA ✅
-     --aot-white on --aot-hero-bg     = 10.6:1  AAA ✅
-     --aot-white on --aot-orange       = 3.08:1  fail (use --aot-navy on orange = 5.25:1)
-     --aot-text-light on --aot-hero-bg = 8.6:1   AAA ✅
-     --aot-gray-900 on --aot-off-white = 13.6:1  AAA ✅
-     --aot-gray-400 on --aot-off-white = 4.7:1   AA  ✅
-     --aot-gray-900 on --aot-light-gray = 8.8:1   AAA ✅
+   CSS VARIABLES — edit values here, they propagate everywhere.
    ============================================================ */
 
 :root {
-  /* Brand colors */
-  --aot-navy:        #003366;
-  --aot-navy-light:  #0066cc;
-  --aot-orange:       #e87121;
-  --aot-orange-dark:  #d45f15;
-  --aot-white:        #ffffff;
+  /* Brand */
+  --aot-navy:        #003366;   /* Dark navy — links, headings */
+  --aot-navy-light:  #0066cc;   /* Mid blue — link hover, primary */
+  --aot-orange:      #e87121;   /* Brand orange — CTA buttons */
+  --aot-orange-dark: #d45f15;   /* Deep orange — button hover */
+  --aot-white:       #ffffff;   /* White */
 
   /* Neutrals */
-  --aot-off-white:   #fafafa;
-  --aot-light-gray:   #f5f5f5;
-  --aot-gray-100:     #e0e0e0;
-  --aot-gray-400:     #666666;
-  --aot-gray-600:     #555555;
-  --aot-gray-900:     #333333;
+  --aot-off-white:   #fafafa;   /* Section backgrounds */
+  --aot-light-gray:  #f5f5f5;   /* Alt section backgrounds */
+  --aot-gray-100:    #e0e0e0;   /* Borders, dividers */
+  --aot-gray-400:    #666666;   /* Muted text, captions */
+  --aot-gray-600:    #555555;   /* Secondary body text */
+  --aot-gray-900:    #333333;   /* Primary text, headings */
 
   /* Section-specific */
-  --aot-text-light:    #c9ddee;
-  --aot-hero-bg:      #1a3a5c;
-  --aot-closing-bg:   #1a3a5c;
-  --aot-skip-bg:      #0066cc;
-
-  /* Layout */
-  --aot-gutter:      2rem;
-  --aot-padding:     15px;
+  --aot-text-light:  #c9ddee;   /* Light text on dark backgrounds */
+  --aot-hero-bg:     #1a3a5c;   /* Hero banner background */
+  --aot-skip-bg:     #0066cc;   /* Skip link background */
 }
 
 /* ============================================================
-   STEP 1 — STRIP KADENCE CASCADE
-   `all: revert` resets ALL properties (including inherited)
-   to their user-agent/default values, wiping Kadence's styles.
-   This runs FIRST so our rules below start from a clean slate.
+   STEP 1 — KADENCE PALETTE OVERRIDES
+   Explicit rules for every Kadence palette class used in HTML.
+   These must beat Kadence's own !important cascade.
+   Specificity: tag + classes where possible (0,2,0,0) or higher.
    ============================================================ */
 
-*, *::before, *::after {
-  all: revert !important;
+/* Kadence palette9: #1a3a5c — used for hero/closing sections */
+.has-theme-palette9-background-color {
+  background-color: var(--aot-hero-bg) !important;
+}
+/* Kadence palette8: #f7fafc — overridden to our off-white */
+.has-theme-palette8-background-color {
+  background-color: var(--aot-off-white) !important;
+}
+/* Kadence palette1: #0066cc — our primary blue */
+.has-theme-palette1-background-color {
+  background-color: var(--aot-navy-light) !important;
+}
+/* Kadence white palette */
+.has-white-background-color {
+  background-color: var(--aot-white) !important;
+}
+/* Kadence text color utilities — force our palette colors */
+.has-theme-palette9-color,
+.kt-adv-heading.has-theme-palette9-color {
+  color: var(--aot-hero-bg) !important;
+}
+.has-theme-palette8-color {
+  color: var(--aot-gray-900) !important;
+}
+.has-theme-palette4-color {
+  color: var(--aot-white) !important;
+}
+.has-theme-palette1-color {
+  color: var(--aot-navy-light) !important;
+}
+.has-white-color {
+  color: var(--aot-white) !important;
 }
 
 /* ============================================================
-   STEP 2 — BASE / RESET (safe after all:revert)
-   ============================================================ */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--aot-gray-900);
-  background-color: var(--aot-white);
-}
-
-/* ============================================================
-   STEP 3 — KADENCE LAYOUT STRUCTURE
-   These classes are in the HTML; we provide the styling.
+   STEP 2 — KADENCE LAYOUT STRUCTURE
    ============================================================ */
 
 /* Row wrapper */
