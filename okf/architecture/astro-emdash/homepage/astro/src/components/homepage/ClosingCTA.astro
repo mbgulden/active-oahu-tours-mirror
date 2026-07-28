@@ -54,12 +54,14 @@ const { h2, text, phone, phoneHref } = Astro.props;
   }
 
   /* cta-phone: orange button on dark navy (#1a3a5c) = 4.9:1 WCAG AA
-     Named cta-phone (not btn-phone) to avoid Kadence .btn namespace collision. */
+     Named cta-phone (not btn-phone) to avoid Kadence .btn namespace collision.
+     !important is safe here — Astro scopes selectors to [data-astro-cid], so this
+     cannot affect any element outside .closing-cta. */
   .closing-cta .cta-phone {
     display: inline-block;
     padding: 14px 28px;
     background: #e87121;
-    color: #fff;
+    color: #fff !important;   /* overrides Kadence's .has-white-color.has-text-color a */
     border-radius: 4px;
     text-decoration: none;
     font-family: 'Open Sans', Arial, sans-serif;
