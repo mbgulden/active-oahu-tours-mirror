@@ -29,6 +29,9 @@ const { h2, tours } = Astro.props;
           <h2 id="popular-tours-heading" class="kt-adv-heading wp-block-kadence-advancedheading">
             {h2}
           </h2>
+          <div class="view-all-link">
+            <a href="/activities/" class="view-all-tours-link">View All Tours &amp; Activities &#8594;</a>
+          </div>
           <div class="tours-grid">
             {tours.map((tour) => (
               <article class="tour-card">
@@ -62,7 +65,7 @@ const { h2, tours } = Astro.props;
                   <a href={tour.href} class="tour-more-info">{tour.cta} &#10132;</a>
                   {tour.price && <span class="tour-price">{tour.price}</span>}
                   {tour.bookingHref && (
-                    <a href={tour.bookingHref} class="aot-btn-hero-book tour-book-btn" target="_blank" rel="noopener" onclick={`FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;`}>
+                    <a href={tour.bookingHref} class="aot-btn-hero-book tour-book-btn" rel="noopener" data-book>
                       <strong>Book</strong>
                     </a>
                   )}

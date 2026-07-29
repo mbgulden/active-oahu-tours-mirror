@@ -6,7 +6,6 @@ import Footer from '../components/shell/Footer.astro';
 import HeroSection from '../components/homepage/HeroSection.astro';
 import FeatureBlock from '../components/homepage/FeatureBlock.astro';
 import FeaturedTours from '../components/homepage/FeaturedTours.astro';
-import InfoStrip from '../components/homepage/InfoStrip.astro';
 import FeaturedTourHero from '../components/homepage/FeaturedTourHero.astro';
 import RentalGrid from '../components/homepage/RentalGrid.astro';
 import Testimonial from '../components/homepage/Testimonial.astro';
@@ -54,19 +53,6 @@ const { hero, sections } = homepageData;
       categoryLinks={hero.categoryLinks || []}
       rentalLink={hero.rentalLink}
       moreRentalLink={hero.moreRentalLink}
-    />
-
-    <!-- INFO STRIP (near top — contact info) -->
-    <InfoStrip
-      phone="(808)498-1894"
-      address="134B Hamakua Dr. Kailua HI 96734"
-      note="We take day-of and last minute tour or rental bookings."
-    />
-
-    <!-- FEATURED TOURS -->
-    <FeaturedTours
-      h2="Our Most Popular Experiences"
-      tours={sections.find(s => s.id === 'featured-tours')?.tours || []}
     />
 
     <!-- FEATURE BLOCK -->
@@ -134,20 +120,13 @@ const { hero, sections } = homepageData;
       ) : null;
     })()}
 
-    <!-- TESTIMONIAL -->
-    <Testimonial
-      quote="Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure"
-      attribution="TripAdvisor Reviewer"
-    />
-
-    <!-- AWARDS -->
+    <!-- FEATURED TOURS -->
     {(() => {
-      const aw = sections.find(s => s.id === 'awards');
-      return aw ? (
-        <Awards
-          h2={aw.h2}
-          awardText={aw.awardText}
-          awardImages={aw.awardImages}
+      const ft = sections.find(s => s.id === 'featured-tours');
+      return ft ? (
+        <FeaturedTours
+          h2={ft.h2}
+          tours={ft.tours || []}
         />
       ) : null;
     })()}
@@ -159,6 +138,7 @@ const { hero, sections } = homepageData;
         <BeachEquipment
           heading={be.heading}
           text={be.text}
+          inlineLinks={be.inlineLinks || []}
           details={be.details}
           cta={be.cta}
           ctaHref={be.ctaHref}
@@ -174,6 +154,24 @@ const { hero, sections } = homepageData;
       text="We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734"
       phone="(808)498-1894"
       phoneHref="tel:+1-808-498-1894"
+    />
+
+    <!-- AWARDS -->
+    {(() => {
+      const aw = sections.find(s => s.id === 'awards');
+      return aw ? (
+        <Awards
+          h2={aw.h2}
+          awardText={aw.awardText}
+          awardImages={aw.awardImages}
+        />
+      ) : null;
+    })()}
+
+    <!-- TESTIMONIALS -->
+    <Testimonial
+      quote="Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure"
+      attribution="TripAdvisor Reviewer"
     />
   </SiteShell>
 </BaseLayout>

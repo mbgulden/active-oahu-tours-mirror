@@ -1,4 +1,8 @@
 ---
+interface InlineLink {
+  label: string;
+  href: string;
+}
 interface Props {
   heading?: string;
   text: string;
@@ -7,6 +11,7 @@ interface Props {
   ctaHref?: string;
   image?: string;
   imageAlt?: string;
+  inlineLinks?: InlineLink[];
 }
 
 const {
@@ -17,7 +22,19 @@ const {
   ctaHref = "/rentals/",
   image = "https://activeoahutours.com/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
   imageAlt = "Hiking and Kayaking Tour, epic view",
+  inlineLinks = [],
 } = Astro.props;
+
+const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
+  let out = raw;
+  for (const link of links) {
+    const safeHref = link.href.replace(/"/g, '&quot;');
+    const safeLabel = link.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(safeLabel, 'g');
+    out = out.replace(re, `<a href="${safeHref}">${link.label}</a>`);
+  }
+  return out;
+};
 ---
 <section class="beach-equipment" aria-label={heading}>
   <div class="be-container">
@@ -34,7 +51,7 @@ const {
         />
         <div class="be-text-overlay">
           <h2>{heading}</h2>
-          <p set:html={text} />
+          <p set:html={renderTextWithLinks(text, inlineLinks)} />
           {details && <p>{details}</p>}
           <br />
           <a href={ctaHref}>{cta} <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a>

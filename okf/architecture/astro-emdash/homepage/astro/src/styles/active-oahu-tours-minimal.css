@@ -798,6 +798,22 @@ a:hover {
 .feature-cta-secondary:hover {
   text-decoration: underline !important;
 }
+/* FeaturedTours — "View All" link */
+.view-all-link {
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+}
+.view-all-tours-link {
+  color: #006699 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-decoration: none !important;
+}
+.view-all-tours-link:hover {
+  text-decoration: underline !important;
+  color: #1a3a5c !important;
+}
+
 .tours-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;

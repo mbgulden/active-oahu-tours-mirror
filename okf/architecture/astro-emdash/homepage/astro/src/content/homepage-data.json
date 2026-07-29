@@ -36,7 +36,7 @@
       "id": "feature-block",
       "type": "feature-block",
       "h2": "Kayak and Explore Chinaman's Hat, Kahana Bay, Kawela Bay, Kāneʻohe Bay, Kailua Bay and More",
-      "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our <a href='/rentals/'>storefront in Kailua</a>.",
+      "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our <a href='/kailua-oahu-storefront/'>storefront in Kailua</a>.",
       "features": [
         {
           "id": "guided-kayak",
@@ -96,7 +96,7 @@
           "cta": "Paddle to Mokoliʻi",
           "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
           "imageAlt": "Oahu Kayak Rentals",
-          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&full-day-kayak-rental&from-ssl=yes"
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&amp;full-day-kayak-rental&amp;from-ssl=yes"
         },
         {
           "id": "mokulua-islands",
@@ -111,7 +111,7 @@
           "cta": "Paddle to the Twin Islands",
           "image": "/wp-content/uploads/2018/11/kailua-lanikai-kayak-rental-mokes-oahu.jpg",
           "imageAlt": "Mokulua Islands",
-          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&mokulua-islands-guided-kayak-tour&from-ssl=yes"
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&amp;mokulua-islands-guided-kayak-tour&amp;from-ssl=yes"
         },
         {
           "id": "kahana-river",
@@ -126,7 +126,7 @@
           "cta": "Explore Kahana River",
           "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
           "imageAlt": "Best Oahu Kayak Tour",
-          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&kahana-river-kayak-rental&from-ssl=yes"
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&amp;kahana-river-kayak-rental&amp;from-ssl=yes"
         }
       ]
     },
@@ -244,6 +244,10 @@
       "type": "beach-equipment",
       "heading": "Beach Equipment Rentals",
       "text": "We help make your Oʻahu adventures a breeze with our kayak and beach gear rental delivery service and hand-picked self-guided tours.",
+      "inlineLinks": [
+        { "label": "kayak and beach gear rental delivery service", "href": "/rentals/" },
+        { "label": "hand-picked self-guided tours", "href": "/activities/" }
+      ],
       "details": "Paddle in an ocean kayak out to the offshore island of Mokoliʻi, up a mountain stream in Kahana Valley, or in the calm waters of Kailua Bay.",
       "cta": "Check out our rental packages",
       "ctaHref": "/rentals/",
