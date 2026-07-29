@@ -219,8 +219,10 @@
 .kt-row-layout-wrap .wp-block-kadence-navigation ul li a,
 .nav-item .nav-link,
 .aot-primary-nav .nav-link,
-.aot-primary-nav a {
+.aot-primary-nav a,
+.wp-block-kadence-navigation .nav-link {
   color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 /* Header nav "Book Online" — standalone class, no Bootstrap/Kadence namespace */
