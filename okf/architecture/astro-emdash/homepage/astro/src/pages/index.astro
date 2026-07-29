@@ -12,6 +12,7 @@ import RentalGrid from '../components/homepage/RentalGrid.astro';
 import Testimonial from '../components/homepage/Testimonial.astro';
 import Awards from '../components/homepage/Awards.astro';
 import ClosingCTA from '../components/homepage/ClosingCTA.astro';
+import DealBanner from '../components/homepage/DealBanner.astro';
 import shellData from '../content/nav/aot-shell-data.json';
 import homepageData from '../content/homepage-data.json';
 
@@ -37,6 +38,11 @@ const { hero, sections } = homepageData;
     bookingConfig={bookingConfig}
     businessIdentity={business}
   >
+    <!-- DEAL BANNER -->
+    <Fragment slot="deal-banner">
+      <DealBanner code="15OFFGROUPS" />
+    </Fragment>
+
     <!-- HERO -->
     <HeroSection
       h1={hero.h1}
