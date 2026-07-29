@@ -48,20 +48,34 @@ const business = shellData.business;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Fonts: Open Sans Condensed for headings, Open Sans for body -->
+    <!-- Fonts: Open Sans Condensed for headings, Open Sans for body
+         Async CSS pattern: load stylesheet non-blocking, swap to all when ready -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      />
+    </noscript>
 
     <!-- JSON-LD: SiteNavigationElement -->
     <script type="application/ld+json" set:html={JSON.stringify(siteNavigationSchema)} />
     <!-- JSON-LD: LocalBusiness -->
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <!-- FareHarbor Script -->
-    <script is:inline src="https://fareharbor.com/embeds/sdk/latest.js"></script>
+    <!-- FareHarbor Script (defer so it doesn't block render) -->
+    <script is:inline defer src="https://fareharbor.com/embeds/sdk/latest.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
