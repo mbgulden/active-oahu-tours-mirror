@@ -1,4 +1,9 @@
 ---
+interface RentalCta {
+  text: string;
+  href: string;
+}
+
 interface Feature {
   id: string;
   icon: string;
@@ -10,11 +15,13 @@ interface Feature {
 
 interface Props {
   h2: string;
-  intro: string;
+  intro?: string;
   features: Feature[];
+  rentalCta?: RentalCta;
+  moreRentalCta?: RentalCta;
 }
 
-const { h2, intro, features } = Astro.props;
+const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
 ---
 <section class="feature-block" aria-labelledby="feature-block-heading">
   <div class="kb-row-layout-wrap kb-row-layout-id2389_4b1a3e-2e alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
@@ -24,7 +31,21 @@ const { h2, intro, features } = Astro.props;
           <h2 id="feature-block-heading" class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading has-theme-palette-4-color has-text-color" data-kb-block="kb-adv-heading2389_1c90f7-e5">
             {h2}
           </h2>
-          <p>{intro}</p>
+          {intro && <p class="feature-block-intro" set:html={intro} />}
+          {rentalCta && (
+            <p>
+              <a href={rentalCta.href} class="feature-cta">
+                <strong>{rentalCta.text}</strong>
+              </a>
+            </p>
+          )}
+          {moreRentalCta && (
+            <p>
+              <a href={moreRentalCta.href} class="feature-cta-secondary">
+                {moreRentalCta.text} &#10132;
+              </a>
+            </p>
+          )}
         </div>
       </div>
       {features.map((feature) => (

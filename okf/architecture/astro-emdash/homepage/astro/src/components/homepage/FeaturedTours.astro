@@ -2,7 +2,12 @@
 interface Tour {
   id: string;
   heading: string;
+  subheading?: string;
   text: string;
+  note?: string;
+  duration?: string;
+  location?: string;
+  price?: string;
   href: string;
   cta: string;
   image: string;
@@ -38,8 +43,25 @@ const { h2, tours } = Astro.props;
                   />
                   <h3>{tour.heading}</h3>
                 </a>
+                {tour.subheading && <p class="tour-subheading">{tour.subheading}</p>}
                 <p>{tour.text}</p>
-                <a href={tour.href} class="aot-btn-secondary">{tour.cta}</a>
+                {tour.note && <p class="tour-note">{tour.note}</p>}
+                <div class="tour-meta">
+                  {tour.duration && (
+                    <span class="tour-duration">
+                      <span aria-hidden="true">&#9679;</span> {tour.duration}
+                    </span>
+                  )}
+                  {tour.location && (
+                    <span class="tour-location">
+                      <span aria-hidden="true">&#9654;</span> {tour.location}
+                    </span>
+                  )}
+                </div>
+                <div class="tour-footer">
+                  <a href={tour.href} class="tour-more-info">{tour.cta} &#10132;</a>
+                  {tour.price && <span class="tour-price">{tour.price}</span>}
+                </div>
               </article>
             ))}
           </div>
@@ -50,28 +72,87 @@ const { h2, tours } = Astro.props;
 </section>
 
 <style>
-  /* Component-specific overrides — structural layout handled in global CSS */
+  .popular-tours {
+    background: #fff;
+    padding: 2rem 0;
+  }
   .popular-tours h2 {
     font-size: 1.6rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
-    color: var(--aot-gray-900);
+    color: #333;
     text-align: center;
     margin: 0 0 2rem;
+  }
+  .tour-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   .tour-card h3 {
     font-size: 1.1rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
-    color: var(--aot-navy-light);
+    color: #1a3a5c;
     padding: 0.75rem 1rem 0.25rem;
     margin: 0;
   }
+  .tour-subheading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0066cc;
+    padding: 0.25rem 1rem;
+    margin: 0;
+    font-style: italic;
+  }
   .tour-card p {
-    font-size: 0.9rem;
-    color: var(--aot-gray-600);
-    padding: 0.25rem 1rem 0.75rem;
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.25rem 1rem 0.5rem;
     margin: 0;
     line-height: 1.5;
+  }
+  .tour-note {
+    font-size: 0.8rem !important;
+    color: #777 !important;
+    padding-top: 0.25rem !important;
+  }
+  .tour-meta {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: #666;
+    font-family: 'Open Sans', Arial, sans-serif;
+  }
+  .tour-duration,
+  .tour-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #eee;
+  }
+  .tour-more-info {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0066cc;
+    text-decoration: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+  }
+  .tour-more-info:hover {
+    text-decoration: underline;
+  }
+  .tour-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
   }
 </style>

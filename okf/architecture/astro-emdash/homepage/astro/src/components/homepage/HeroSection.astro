@@ -1,10 +1,24 @@
 ---
+interface CategoryLink {
+  heading: string;
+  href: string;
+  text?: string;
+}
+
+interface RentalLink {
+  text: string;
+  href: string;
+}
+
 interface Props {
   h1: string;
   h2: string;
   subtext: string;
   bookingHref: string;
   bookingLabel?: string;
+  categoryLinks?: CategoryLink[];
+  rentalLink?: RentalLink;
+  moreRentalLink?: RentalLink;
   tripadvisorLogo?: string;
   tripadvisorLogoAlt?: string;
   heroImageUrl?: string;
@@ -16,6 +30,9 @@ const {
   subtext,
   bookingHref,
   bookingLabel = "Book Online",
+  categoryLinks = [],
+  rentalLink,
+  moreRentalLink,
   tripadvisorLogo = "/wp-content/uploads/2025/03/TC_transparent_BF-Logo_L_2024_RGB.png",
   tripadvisorLogoAlt = "Tripadvisor Travelers' Choice Best of the Best award logo",
   heroImageUrl = "https://activeoahutours.com/wp-content/uploads/2024/01/Active-Oahu-Lifestyle-225-2X1-1000.jpg",
@@ -41,9 +58,10 @@ const {
         </div>
       </div>
 
-      <!-- Right: Booking CTA + TripAdvisor logo -->
+      <!-- Right: Booking CTA + Category Links + Rental Links -->
       <div class="wp-block-kadence-column kadence-column2389_80c4a3-08">
         <div class="kt-inside-inner-col">
+          <!-- Top: Subtext + Book Online -->
           <div class="kb-row-layout-wrap kb-row-layout-id2389_8bb391-3d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
             <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-left-golden kt-row-valign-top kt-inner-column-height-full">
 
@@ -83,6 +101,25 @@ const {
 
             </div>
           </div>
+
+          <!-- Bottom: Category Links -->
+          {categoryLinks.length > 0 && (
+            <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+              <div class="kt-row-column-wrap kt-has-3-columns kt-row-layout-left-half kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
+                {categoryLinks.map((cat) => (
+                  <div class="wp-block-kadence-column">
+                    <div class="kt-inside-inner-col category-link-col">
+                      <h3 class="kt-adv-heading2389_7a9ff1-8c wp-block-kadence-advancedheading has-white-color has-text-color">
+                        {cat.heading}
+                      </h3>
+                      <a href={cat.href} class="kb-section-link-overlay" aria-label={cat.heading}></a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
 
@@ -94,7 +131,6 @@ const {
   /* ── Hero section shell ──────────────────────────────────── */
   .aot-hero-section {
     position: relative;
-    /* Fallback bg color in case image fails to load */
     background-color: #003366;
     overflow: hidden;
   }
@@ -109,9 +145,7 @@ const {
     z-index: 0;
   }
 
-  /* Dark overlay on hero image for text readability.
-     Production uses kb-section-has-overlay which applies rgba(0,0,0,0.3).
-     We match that exactly. */
+  /* Dark overlay on hero image */
   .aot-hero-section .kb-section-has-overlay > .kt-inside-inner-col::before,
   .aot-hero-section > .kb-row-layout-wrap > .kt-row-column-wrap > .wp-block-kadence-column > .kt-inside-inner-col::before {
     content: "";
@@ -132,7 +166,7 @@ const {
     z-index: 1;
   }
 
-  /* Kadence row layout — ensure proper z-index */
+  /* Kadence row layout */
   .aot-hero-section .kb-row-layout-wrap {
     position: relative;
     z-index: 1;
@@ -173,6 +207,24 @@ const {
     color: #ffffff;
     margin: 0 0 1rem;
     line-height: 1.5;
+  }
+
+  /* ── Category links ────────────────────────────────────── */
+  .hero-banner .category-link-col {
+    padding: 0.75rem 1rem;
+  }
+  .hero-banner .category-link-col h3 {
+    font-size: 1rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+  .hero-banner .kb-section-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: pointer;
   }
 
   /* ── TripAdvisor logo ────────────────────────────────────── */

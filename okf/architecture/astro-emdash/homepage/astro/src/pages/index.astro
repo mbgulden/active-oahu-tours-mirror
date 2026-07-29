@@ -51,6 +51,9 @@ const { hero, sections } = homepageData;
       subtext={hero.subtext}
       bookingHref={hero.bookingHref}
       bookingLabel={hero.bookingLabel}
+      categoryLinks={hero.categoryLinks || []}
+      rentalLink={hero.rentalLink}
+      moreRentalLink={hero.moreRentalLink}
     />
 
     <!-- INFO STRIP (near top — contact info) -->
@@ -69,33 +72,10 @@ const { hero, sections } = homepageData;
     <!-- FEATURE BLOCK -->
     <FeatureBlock
       h2="Kayak and Explore Chinaman's Hat, Kahana Bay, Kawela Bay, Kāneʻohe Bay, Kailua Bay and More"
-      intro="We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our storefront in Kailua."
-      features={[
-        {
-          id: 'kayak-tours',
-          icon: '/wp-content/uploads/2019/06/Self-guided-Tours.png',
-          iconAlt: 'Guided Kayak Tours',
-          heading: 'Kayak Tours',
-          text: 'Enjoy Oʻahu\'s best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.',
-          href: '/activities/'
-        },
-        {
-          id: 'rentals',
-          icon: '/wp-content/uploads/2019/06/Rentals-2.png',
-          iconAlt: 'Beach Gear Rentals',
-          heading: 'Kayak Rentals',
-          text: 'Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.',
-          href: '/rentals/'
-        },
-        {
-          id: 'ebike',
-          icon: '/wp-content/uploads/2022/04/Rentals-3.png',
-          iconAlt: 'Need Kayaks Today?',
-          heading: 'Need Kayaks Today?',
-          text: 'We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734',
-          href: '/rentals/oahu-tandem-kayak-rentals/'
-        }
-      ]}
+      intro={sections.find(s => s.id === 'feature-block')?.intro}
+      features={sections.find(s => s.id === 'feature-block')?.features || []}
+      rentalCta={sections.find(s => s.id === 'feature-block')?.rentalCta}
+      moreRentalCta={sections.find(s => s.id === 'feature-block')?.moreInfoCta}
     />
 
     <!-- E-BIKE ADVENTURE HERO -->

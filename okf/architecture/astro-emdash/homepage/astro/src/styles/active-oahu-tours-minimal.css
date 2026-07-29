@@ -771,6 +771,57 @@ a:hover {
   .featured-tour-hero figure { flex: none !important; width: 100% !important; }
 }
 
+/* FeatureBlock CTA buttons */
+.feature-block .feature-cta,
+.feature-cta {
+  background: #1a3a5c !important;
+  color: #fff !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+}
+.feature-block .feature-cta:hover,
+.feature-cta:hover {
+  background: #0d2137 !important;
+  color: #fff !important;
+}
+.feature-block .feature-cta-secondary,
+.feature-cta-secondary {
+  color: #0066cc !important;
+  font-weight: 600 !important;
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  text-decoration: none !important;
+}
+.feature-block .feature-cta-secondary:hover,
+.feature-cta-secondary:hover {
+  text-decoration: underline !important;
+}
+.tours-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+  padding: 1rem 0 !important;
+}
+.tours-grid .tour-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.tours-grid img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 337/240 !important;
+  object-fit: cover !important;
+}
+@media (max-width: 900px) {
+  .tours-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+  .tours-grid { grid-template-columns: 1fr !important; }
+}
+
 /* InfoStrip — light gray bg (NOT navy) */
 .info-strip { background-color: #f5f5f5 !important; color: #333 !important; }
 .info-strip a { color: #0066cc !important; }

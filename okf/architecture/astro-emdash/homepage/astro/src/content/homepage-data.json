@@ -4,14 +4,39 @@
     "h2": "Kailua Kayak & E-Bike Adventures With Aloha",
     "subtext": "Kayak in Kailua to the Mokulua Islands, Kayak in Kualoa to Mokoliʻi (Chinaman's Hat), Kayak near Kāneʻohe Bay, or Explore the jungle river of Kahana near Laie.",
     "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
-    "bookingLabel": "Book Online"
+    "bookingLabel": "Book Online",
+    "categoryLinks": [
+      {
+        "heading": "Kayak Tours",
+        "href": "/activities/",
+        "text": "Kayak in Kailua to the Mokulua Islands, Kayak in Kualoa to Mokoliʻi (Chinaman's Hat)"
+      },
+      {
+        "heading": "Kayak Rentals",
+        "href": "/rentals/",
+        "text": "Rent kayaks and beach gear at our Kailua storefront or get delivery"
+      },
+      {
+        "heading": "Electric Bike Rentals & Tours",
+        "href": "/rentals/oahu-e-bike-rentals/",
+        "text": "Ride the best trails and beach paths on Oʻahu"
+      }
+    ],
+    "rentalLink": {
+      "text": "Rent Kayaks & Beach Gear",
+      "href": "/rentals/"
+    },
+    "moreRentalLink": {
+      "text": "More Rental Info",
+      "href": "/rentals/"
+    }
   },
   "sections": [
     {
       "id": "feature-block",
       "type": "feature-block",
       "h2": "Kayak and Explore Chinaman's Hat, Kahana Bay, Kawela Bay, Kāneʻohe Bay, Kailua Bay and More",
-      "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our storefront in Kailua",
+      "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our <a href='/rentals/'>storefront in Kailua</a>.",
       "features": [
         {
           "id": "kayak-tours",
@@ -37,7 +62,15 @@
           "text": "We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734",
           "href": "/rentals/oahu-tandem-kayak-rentals/"
         }
-      ]
+      ],
+      "rentalCta": {
+        "text": "Rent Kayaks & Beach Gear",
+        "href": "/rentals/"
+      },
+      "moreInfoCta": {
+        "text": "More Rental Info",
+        "href": "/rentals/"
+      }
     },
     {
       "id": "testimonial",
@@ -53,28 +86,43 @@
         {
           "id": "chinamans-hat",
           "heading": "Chinaman's Hat Self-Guided Kayak Tour",
-          "text": "Experience ocean kayaking to Mokoliʻi on our Chinaman's Hat Self-Guided Kayak Tour*. We provide everything you need to have a great time.",
+          "subheading": "Oʻahu's Best Kayaking Adventure",
+          "text": "Experience ocean kayaking to Mokoliʻi on our Chinaman's Hat Self-Guided Kayak Tour*. We provide everything you need to have a great and safe time out on the water. You'll get kayaks, seat backs, life vests, dry bags safety equipment, heavy duty pads, straps and private instruction before you set out on your own to experience Chinaman's Hat. Experience this one of a kind Oʻahu adventure with plenty of epic views. We suggest this tour for individuals who are experienced in kayaking or are comfortable kayaking in the ocean.",
+          "note": "*We conveniently provide the kayaks and beach gear at our Kailua storefront for pickup so you can easily have a great time out on Mokoliʻi after we provide you with on-site instruction, and helpful info.",
+          "duration": "4 Hours",
+          "location": "Kualoa",
+          "price": "$82",
           "href": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
           "cta": "Paddle to Mokoliʻi",
           "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
           "imageAlt": "Oahu Kayak Rentals"
         },
         {
-          "id": "mokulua",
+          "id": "mokulua-islands",
           "heading": "Mokulua Islands Guided Kayak Tour, Kailuaʻs Twin Islands",
-          "text": "Embark on an exhilarating guided kayak tour to the Twin Islands, led by our experienced guides!",
+          "subheading": "Once in a Lifetime Kayak to Mokulua Island in Kailua",
+          "text": "Embark on an exhilarating guided kayak tour to the Twin Islands, led by our experienced guides! As we paddle towards Moku Nui, a designated bird sanctuary and we will provide permits for this adventure. Be sure to reserve your spot in advance, as availability is limited. During this 5-hour journey, you'll encounter a vibrant array of wildlife, including sea turtles, Hawaiian monk seals, tropical fish, and sea birds. If weather conditions permit, we'll explore the island's hidden tide pools and venture to its back side. This tour is ideal for physically active kayakers aged 13 years and older.",
+          "note": "*We conveniently provide the kayaks and beach gear at our Kailua storefront for pickup so you can easily have a great time out in Kailua Bay after we provide you with on-site instruction, and helpful info.",
+          "duration": "5 hours",
+          "location": "Kailua",
+          "price": "$239",
           "href": "/activities/mokulua-islands-guided-kayak-tour/",
           "cta": "Paddle to the Twin Islands",
-          "image": "/wp-content/uploads/2023/03/lanikai-Kayak-rental-480x320.jpg",
-          "imageAlt": "Kayakers paddling toward the Mokulua Islands off Kailua Beach"
+          "image": "/wp-content/uploads/2018/11/kailua-lanikai-kayak-rental-mokes-oahu.jpg",
+          "imageAlt": "Mokulua Islands"
         },
         {
-          "id": "kahana",
+          "id": "kahana-river",
           "heading": "Kahana Rainforest River Kayak Self-Guided Tour",
-          "text": "This is the Best Kayaking Experience on Oʻahu. This self-guided* Oʻahu kayak tour takes you up a calm river into the second largest valley on Oʻahu.",
-          "href": "/activities/kahana-rainforest-river-kayak-self-guided-tour/",
+          "subheading": "Best Oahu Kayak Tour",
+          "text": "Paddle up the Kahana River — a jungle stream with spectacular mountain views and Hawaiian heritage sites. This is a unique experience where you can explore a remote jungle river at your own pace. We provide kayaks, safety gear, and a pre-trip orientation to ensure you have a safe and memorable adventure.",
+          "note": "",
+          "duration": "4 Hours",
+          "location": "Kahana",
+          "price": "$82",
+          "href": "/activities/kahana-rainforest-river-kayak/",
           "cta": "Explore Kahana River",
-          "image": "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
           "imageAlt": "Best Oahu Kayak Tour"
         }
       ]
