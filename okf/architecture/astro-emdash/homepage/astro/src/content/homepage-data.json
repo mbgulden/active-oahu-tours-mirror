@@ -18,21 +18,24 @@
           "icon": "/wp-content/uploads/2019/06/Self-guided-Tours.png",
           "iconAlt": "Guided Kayak Tours",
           "heading": "Kayak Tours",
-          "text": "Enjoy Oʻahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips."
+          "text": "Enjoy Oʻahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.",
+          "href": "/activities/"
         },
         {
           "id": "rentals",
           "icon": "/wp-content/uploads/2019/06/Rentals-2.png",
           "iconAlt": "Beach Gear Rentals",
           "heading": "Kayak Rentals",
-          "text": "Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address."
+          "text": "Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.",
+          "href": "/rentals/"
         },
         {
           "id": "ebike",
           "icon": "/wp-content/uploads/2022/04/Rentals-3.png",
           "iconAlt": "Need Kayaks Today?",
-          "heading": "Electric Bike Rentals & Tours",
-          "text": "Ride the best trails and beach paths on Oʻahu with our premium e-bike fleet."
+          "heading": "Need Kayaks Today?",
+          "text": "We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734",
+          "href": "/rentals/oahu-tandem-kayak-rentals/"
         }
       ]
     },
@@ -184,6 +187,25 @@
           "author": "TripAdvisor Reviewer"
         }
       ]
+    },
+    {
+      "id": "beach-equipment",
+      "type": "beach-equipment",
+      "heading": "Beach Equipment Rentals",
+      "text": "We help make your Oʻahu adventures a breeze with our kayak and beach gear rental delivery service and hand-picked self-guided tours.",
+      "details": "Paddle in an ocean kayak out to the offshore island of Mokoliʻi, up a mountain stream in Kahana Valley, or in the calm waters of Kailua Bay.",
+      "cta": "Check out our rental packages",
+      "ctaHref": "/rentals/",
+      "image": "/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
+      "imageAlt": "Hiking and Kayaking Tour, epic view"
+    },
+    {
+      "id": "need-kayaks-today",
+      "type": "need-kayaks",
+      "heading": "Need Kayaks Today?",
+      "phone": "(808)498-1894",
+      "phoneHref": "tel:+1-808-498-1894",
+      "address": "134B Hamakua Dr. Kailua HI 96734"
     }
   ]
 }

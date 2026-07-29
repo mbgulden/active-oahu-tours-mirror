@@ -13,6 +13,7 @@ import Testimonial from '../components/homepage/Testimonial.astro';
 import Awards from '../components/homepage/Awards.astro';
 import ClosingCTA from '../components/homepage/ClosingCTA.astro';
 import DealBanner from '../components/homepage/DealBanner.astro';
+import BeachEquipment from '../components/homepage/BeachEquipment.astro';
 import shellData from '../content/nav/aot-shell-data.json';
 import homepageData from '../content/homepage-data.json';
 
@@ -75,21 +76,24 @@ const { hero, sections } = homepageData;
           icon: '/wp-content/uploads/2019/06/Self-guided-Tours.png',
           iconAlt: 'Guided Kayak Tours',
           heading: 'Kayak Tours',
-          text: 'Enjoy Oʻahu\'s best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.'
+          text: 'Enjoy Oʻahu\'s best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.',
+          href: '/activities/'
         },
         {
           id: 'rentals',
           icon: '/wp-content/uploads/2019/06/Rentals-2.png',
           iconAlt: 'Beach Gear Rentals',
           heading: 'Kayak Rentals',
-          text: 'Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.'
+          text: 'Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.',
+          href: '/rentals/'
         },
         {
           id: 'ebike',
           icon: '/wp-content/uploads/2022/04/Rentals-3.png',
           iconAlt: 'Need Kayaks Today?',
-          heading: 'Electric Bike Rentals & Tours',
-          text: 'Ride the best trails and beach paths on Oʻahu with our premium e-bike fleet.'
+          heading: 'Need Kayaks Today?',
+          text: 'We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734',
+          href: '/rentals/oahu-tandem-kayak-rentals/'
         }
       ]}
     />
@@ -164,6 +168,22 @@ const { hero, sections } = homepageData;
           h2={aw.h2}
           awardText={aw.awardText}
           awardImages={aw.awardImages}
+        />
+      ) : null;
+    })()}
+
+    <!-- BEACH EQUIPMENT RENTALS -->
+    {(() => {
+      const be = sections.find(s => s.id === 'beach-equipment');
+      return be ? (
+        <BeachEquipment
+          heading={be.heading}
+          text={be.text}
+          details={be.details}
+          cta={be.cta}
+          ctaHref={be.ctaHref}
+          image={be.image}
+          imageAlt={be.imageAlt}
         />
       ) : null;
     })()}

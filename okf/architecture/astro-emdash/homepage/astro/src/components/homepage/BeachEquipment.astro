@@ -1,0 +1,107 @@
+---
+interface Props {
+  heading?: string;
+  text: string;
+  details?: string;
+  cta?: string;
+  ctaHref?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  heading = "Beach Equipment Rentals",
+  text,
+  details,
+  cta = "Check out our rental packages",
+  ctaHref = "/rentals/",
+  image = "https://activeoahutours.com/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
+  imageAlt = "Hiking and Kayaking Tour, epic view",
+} = Astro.props;
+---
+<section class="beach-equipment" aria-label={heading}>
+  <div class="be-container">
+    <div class="be-image-side">
+      <div class="be-bg-wrapper">
+        <img
+          src={image}
+          alt={imageAlt}
+          width="724"
+          height="483"
+          loading="lazy"
+          decoding="async"
+          class="be-bg-img"
+        />
+        <div class="be-text-overlay">
+          <h2>{heading}</h2>
+          <p set:html={text} />
+          {details && <p>{details}</p>}
+          <br />
+          <a href={ctaHref}>{cta} <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .beach-equipment {
+    background: #ffffff;
+    padding: 0;
+  }
+  .be-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .be-image-side {
+    width: 100%;
+  }
+  .be-bg-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .be-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .be-text-overlay {
+    padding: 1.5rem 2rem;
+  }
+  .be-text-overlay h2 {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #586e75;
+    margin: 0 0 1rem;
+  }
+  .be-text-overlay p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+  }
+  .be-text-overlay a {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .be-text-overlay a:hover {
+    text-decoration: underline;
+    color: #004999;
+  }
+  @media (max-width: 768px) {
+    .be-text-overlay {
+      padding: 1rem;
+    }
+    .be-text-overlay h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>

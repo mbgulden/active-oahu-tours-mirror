@@ -5,6 +5,7 @@ interface Feature {
   iconAlt: string;
   heading: string;
   text: string;
+  href?: string;
 }
 
 interface Props {
@@ -29,18 +30,20 @@ const { h2, intro, features } = Astro.props;
       {features.map((feature) => (
         <div class={`wp-block-kadence-column kadence-column2389_${feature.id[0]}`}>
           <div class="kt-inside-inner-col">
-            <figure class="wp-block-kadence-image kb-image2389_{feature.id} size-full">
-              <img
-                loading="lazy"
-                decoding="async"
-                width="200"
-                height="200"
-                src={feature.icon}
-                alt={feature.iconAlt}
-                class="kb-img"
-              />
-            </figure>
-            <h3 class="wp-block-kadence-advancedheading">{feature.heading}</h3>
+            <a href={feature.href || '/activities/'} data-instant>
+              <figure class="wp-block-kadence-image kb-image2389_{feature.id} size-full">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  width="200"
+                  height="115"
+                  src={feature.icon}
+                  alt={feature.iconAlt}
+                  class="kb-img hover-opacity"
+                />
+              </figure>
+              <h3 class="wp-block-kadence-advancedheading feature-heading">{feature.heading}</h3>
+            </a>
             <p>{feature.text}</p>
           </div>
         </div>
@@ -66,27 +69,33 @@ const { h2, intro, features } = Astro.props;
     margin-bottom: 1rem;
     text-align: center;
   }
-  .feature-block h3 {
-    font-size: 1.2rem;
+  .feature-block h3.feature-heading {
+    font-size: 1.1rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
     color: #0066cc;
-    margin: 1rem 0 0.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
   }
   .feature-block p {
     font-family: 'Open Sans', Arial, sans-serif;
     color: #555;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.5;
+    text-align: center;
+    margin: 0;
   }
   .feature-block figure {
     margin: 0 auto;
-    width: 80px;
-    height: 80px;
+    text-align: center;
   }
   .feature-block img {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 115px;
     object-fit: contain;
+  }
+  .feature-block a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>
