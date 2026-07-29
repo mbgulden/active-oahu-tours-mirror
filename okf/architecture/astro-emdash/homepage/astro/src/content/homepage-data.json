@@ -41,7 +41,7 @@
         {
           "id": "guided-kayak",
           "icon": "/wp-content/uploads/2019/06/Self-guided-Tours.png",
-          "iconAlt": "Guided Kayak Tours",
+          "iconAlt": "",
           "heading": "Guided Kayak Tours",
           "text": "Enjoy Oahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.",
           "href": "/activities/"
@@ -49,7 +49,7 @@
         {
           "id": "beach-gear",
           "icon": "/wp-content/uploads/2019/06/Rentals-2.png",
-          "iconAlt": "Beach Gear Rentals",
+          "iconAlt": "",
           "heading": "Beach Gear Rentals",
           "text": "Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.",
           "href": "/rentals/"
@@ -57,7 +57,7 @@
         {
           "id": "need-kayaks-today",
           "icon": "/wp-content/uploads/2022/04/Rentals-3.png",
-          "iconAlt": "Need Kayaks Today?",
+          "iconAlt": "",
           "heading": "Need Kayaks Today?",
           "text": "We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734",
           "href": "tel:+1-808-498-1894"

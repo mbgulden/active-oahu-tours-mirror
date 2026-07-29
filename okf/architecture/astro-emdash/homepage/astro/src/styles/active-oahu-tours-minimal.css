@@ -607,15 +607,8 @@ a:hover {
    Icon font from activeoahu theme.
    ============================================================ */
 
-@font-face {
-  font-family: "Glyphicons Halflings";
-  src: url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.eot");
-  src: url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"),
-       url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.woff2") format("woff2"),
-       url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.woff") format("woff"),
-       url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.ttf") format("truetype"),
-       url("https://activeoahutours.com/wp-content/themes/activeoahu/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
-}
+/* Glyphicon font-face REMOVED — all glyphicon elements replaced with
+   Unicode characters to eliminate 404 errors on production. */
 
 .glyphicon {
   position: relative;
@@ -793,6 +786,10 @@ a:hover {
   font-weight: 600 !important;
   font-family: 'Open Sans', Arial, sans-serif !important;
   text-decoration: none !important;
+  display: inline-block !important;
+  min-height: 24px !important;
+  padding: 8px 4px !important;
+  margin: -8px -4px !important;
 }
 .feature-block .feature-cta-secondary:hover,
 .feature-cta-secondary:hover {

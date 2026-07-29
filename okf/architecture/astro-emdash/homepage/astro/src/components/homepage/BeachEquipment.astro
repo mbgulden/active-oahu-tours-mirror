@@ -54,7 +54,7 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
           <p set:html={renderTextWithLinks(text, inlineLinks)} />
           {details && <p>{details}</p>}
           <br />
-          <a href={ctaHref}>{cta} <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a>
+          <a href={ctaHref}>{cta} &#10132;</a>
         </div>
       </div>
     </div>

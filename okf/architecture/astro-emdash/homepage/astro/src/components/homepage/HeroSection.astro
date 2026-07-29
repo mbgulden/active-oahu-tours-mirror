@@ -76,7 +76,7 @@ const {
                     onclick={`FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;`}
                   >
                     <strong>
-                      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                      <span aria-hidden="true">&#128197;</span>
                       {bookingLabel}
                     </strong>
                   </a>
@@ -87,12 +87,13 @@ const {
                 <div class="kt-inside-inner-col">
                   <figure class="wp-block-kadence-image kb-image2389_58c768-3b size-full">
                     <img
-                      loading="lazy"
+                      loading="eager"
                       decoding="async"
                       width="200"
                       height="220"
                       src={tripadvisorLogo}
                       alt={tripadvisorLogoAlt}
+                      fetchpriority="high"
                       class="kb-img wp-image-3595"
                     />
                   </figure>
