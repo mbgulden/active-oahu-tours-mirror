@@ -61,6 +61,11 @@ const { h2, tours } = Astro.props;
                 <div class="tour-footer">
                   <a href={tour.href} class="tour-more-info">{tour.cta} &#10132;</a>
                   {tour.price && <span class="tour-price">{tour.price}</span>}
+                  {tour.bookingHref && (
+                    <a href={tour.bookingHref} class="aot-btn-hero-book tour-book-btn" target="_blank" rel="noopener" onclick={`FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;`}>
+                      <strong>Book</strong>
+                    </a>
+                  )}
                 </div>
               </article>
             ))}

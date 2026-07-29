@@ -39,28 +39,28 @@
       "intro": "We make renting e-bikes, kayaks and exploring Oʻahu a breeze. Pick up kayaks and beach gear at our <a href='/rentals/'>storefront in Kailua</a>.",
       "features": [
         {
-          "id": "kayak-tours",
+          "id": "guided-kayak",
           "icon": "/wp-content/uploads/2019/06/Self-guided-Tours.png",
           "iconAlt": "Guided Kayak Tours",
-          "heading": "Kayak Tours",
-          "text": "Enjoy Oʻahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.",
+          "heading": "Guided Kayak Tours",
+          "text": "Enjoy Oahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.",
           "href": "/activities/"
         },
         {
-          "id": "rentals",
+          "id": "beach-gear",
           "icon": "/wp-content/uploads/2019/06/Rentals-2.png",
           "iconAlt": "Beach Gear Rentals",
-          "heading": "Kayak Rentals",
+          "heading": "Beach Gear Rentals",
           "text": "Rent Kayaks and other beach gear and pick them up at our shop or get them delivered to your address.",
           "href": "/rentals/"
         },
         {
-          "id": "ebike",
+          "id": "need-kayaks-today",
           "icon": "/wp-content/uploads/2022/04/Rentals-3.png",
           "iconAlt": "Need Kayaks Today?",
           "heading": "Need Kayaks Today?",
           "text": "We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734",
-          "href": "/rentals/oahu-tandem-kayak-rentals/"
+          "href": "tel:+1-808-498-1894"
         }
       ],
       "rentalCta": {
@@ -95,7 +95,8 @@
           "href": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/",
           "cta": "Paddle to Mokoliʻi",
           "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
-          "imageAlt": "Oahu Kayak Rentals"
+          "imageAlt": "Oahu Kayak Rentals",
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&full-day-kayak-rental&from-ssl=yes"
         },
         {
           "id": "mokulua-islands",
@@ -109,7 +110,8 @@
           "href": "/activities/mokulua-islands-guided-kayak-tour/",
           "cta": "Paddle to the Twin Islands",
           "image": "/wp-content/uploads/2018/11/kailua-lanikai-kayak-rental-mokes-oahu.jpg",
-          "imageAlt": "Mokulua Islands"
+          "imageAlt": "Mokulua Islands",
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&mokulua-islands-guided-kayak-tour&from-ssl=yes"
         },
         {
           "id": "kahana-river",
@@ -123,7 +125,8 @@
           "href": "/activities/kahana-rainforest-river-kayak/",
           "cta": "Explore Kahana River",
           "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
-          "imageAlt": "Best Oahu Kayak Tour"
+          "imageAlt": "Best Oahu Kayak Tour",
+          "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&kahana-river-kayak-rental&from-ssl=yes"
         }
       ]
     },
