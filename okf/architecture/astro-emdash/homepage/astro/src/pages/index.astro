@@ -1,5 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteShell from '../components/shell/SiteShell.astro';
 import Header from '../components/shell/Header.astro';
 import Footer from '../components/shell/Footer.astro';
@@ -24,20 +23,18 @@ const bookingConfig = shellData.booking;
 const { hero, sections } = homepageData;
 ---
 
-<BaseLayout
+<SiteShell
   title="Oahu Kayak Rentals & Tours — Active Oahu Tours"
   description="Outdoor adventures on Oahu — kayak rentals, guided tours, e-bike adventures, and beach gear delivered to your door."
   canonical="https://activeoahutours.com/"
+  locale="en"
+  currentPath="/"
+  pageType="homepage"
+  navTree={navTree}
+  footerGroups={footerGroups}
+  bookingConfig={bookingConfig}
+  businessIdentity={business}
 >
-  <SiteShell
-    locale="en"
-    currentPath="/"
-    pageType="homepage"
-    navTree={navTree}
-    footerGroups={footerGroups}
-    bookingConfig={bookingConfig}
-    businessIdentity={business}
-  >
     <!-- DEAL BANNER -->
     <Fragment slot="deal-banner">
       <DealBanner code="15OFFGROUPS" />
@@ -173,5 +170,4 @@ const { hero, sections } = homepageData;
       quote="Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure"
       attribution="TripAdvisor Reviewer"
     />
-  </SiteShell>
-</BaseLayout>
+</SiteShell>
