@@ -215,7 +215,13 @@
   line-height: 1.5;
 }
 
-/* ── Book Now / CTA buttons — clean AOT classes, no Kadence cascade ── */
+/* Kadence nav overrides — force white nav text on #006699 */
+.kt-row-layout-wrap .wp-block-kadence-navigation ul li a,
+.nav-item .nav-link,
+.aot-primary-nav .nav-link,
+.aot-primary-nav a {
+  color: #ffffff !important;
+}
 
 /* Header nav "Book Online" — standalone class, no Bootstrap/Kadence namespace */
 .aot-book-now {
