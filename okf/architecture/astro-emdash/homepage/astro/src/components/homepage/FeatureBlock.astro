@@ -49,10 +49,10 @@ const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
         </div>
       </div>
       {features.map((feature) => (
-        <div class={`wp-block-kadence-column kadence-column2389_${feature.id[0]}`}>
+        <div class:list={["wp-block-kadence-column", `kadence-column2389_${feature.id}`]}>
           <div class="kt-inside-inner-col">
             <a href={feature.href || '/activities/'} data-instant>
-              <figure class="wp-block-kadence-image kb-image2389_{feature.id} size-full">
+              <figure class:list={["wp-block-kadence-image", `kb-image2389_${feature.id}`, "size-full"]}>
                 <img
                   loading="lazy"
                   decoding="async"
