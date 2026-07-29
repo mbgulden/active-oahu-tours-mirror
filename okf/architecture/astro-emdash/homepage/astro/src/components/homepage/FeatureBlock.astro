@@ -44,7 +44,15 @@ const { h2, intro, features } = Astro.props;
               </figure>
               <h3 class="wp-block-kadence-advancedheading feature-heading">{feature.heading}</h3>
             </a>
-            <p>{feature.text}</p>
+            {feature.id === 'ebike' ? (
+              <p>
+                We take day-of and last minute tour or rental bookings.<br />
+                <a href="tel:+1-808-498-1894" style="color:#006699;font-weight:600">Call us at: (808)498-1894</a>
+                or visit our shop at 134B Hamakua Dr. Kailua HI 96734
+              </p>
+            ) : (
+              <p>{feature.text}</p>
+            )}
           </div>
         </div>
       ))}
