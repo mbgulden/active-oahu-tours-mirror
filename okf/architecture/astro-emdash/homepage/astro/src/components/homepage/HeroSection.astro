@@ -7,6 +7,7 @@ interface Props {
   bookingLabel?: string;
   tripadvisorLogo?: string;
   tripadvisorLogoAlt?: string;
+  heroImageUrl?: string;
 }
 
 const {
@@ -17,13 +18,18 @@ const {
   bookingLabel = "Book Online",
   tripadvisorLogo = "/wp-content/uploads/2025/03/TC_transparent_BF-Logo_L_2024_RGB.png",
   tripadvisorLogoAlt = "Tripadvisor Travelers' Choice Best of the Best award logo",
+  heroImageUrl = "https://activeoahutours.com/wp-content/uploads/2024/01/Active-Oahu-Lifestyle-225-2X1-1000.jpg",
 } = Astro.props;
 ---
-<section class="hero-banner" aria-label="Hero">
+
+<section class="hero-banner aot-hero-section" aria-label="Hero">
+  <!-- Background image with dark overlay -->
+  <div class="hero-bg" style={`background-image: url('${heroImageUrl}');`} aria-hidden="true"></div>
+
   <div class="kb-row-layout-wrap kb-row-layout-id2389_6ed5ef-6d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
     <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
 
-      <!-- Left: h1 + h2 + subtext + CTA -->
+      <!-- Left: h1 + h2 -->
       <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
         <div class="kt-inside-inner-col">
           <h1 class="kt-adv-heading2389_29248a-fe wp-block-kadence-advancedheading has-white-color has-text-color" data-kb-block="kb-adv-heading2389_29248a-fe">
@@ -40,13 +46,12 @@ const {
         <div class="kt-inside-inner-col">
           <div class="kb-row-layout-wrap kb-row-layout-id2389_8bb391-3d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
             <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-left-golden kt-row-valign-top kt-inner-column-height-full">
+
               <div class="wp-block-kadence-column kadence-column2389_3c78ec-a7">
                 <div class="kt-inside-inner-col">
-                  <!-- cta-subheading: overrides Kadence's palette9 text color (white on near-white) -->
                   <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading cta-subheading" data-kb-block="kb-adv-heading2389_d8fad2-58">
                     {subtext}
                   </h3>
-                  <!-- aot-btn-hero-book: our own class — no Kadence/Bootstrap cascade conflicts -->
                   <a
                     href={bookingHref}
                     class="pull-right aot-btn-hero-book"
@@ -59,6 +64,7 @@ const {
                   </a>
                 </div>
               </div>
+
               <div class="wp-block-kadence-column kadence-column2389_d227e3-5b">
                 <div class="kt-inside-inner-col">
                   <figure class="wp-block-kadence-image kb-image2389_58c768-3b size-full">
@@ -74,6 +80,7 @@ const {
                   </figure>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -84,9 +91,59 @@ const {
 </section>
 
 <style>
-  /* ── Hero banner shell ─────────────────────────────────────── */
+  /* ── Hero section shell ──────────────────────────────────── */
+  .aot-hero-section {
+    position: relative;
+    /* Fallback bg color in case image fails to load */
+    background-color: #003366;
+    overflow: hidden;
+  }
+
+  /* Background image */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  /* Dark overlay on hero image for text readability.
+     Production uses kb-section-has-overlay which applies rgba(0,0,0,0.3).
+     We match that exactly. */
+  .aot-hero-section .kb-section-has-overlay > .kt-inside-inner-col::before,
+  .aot-hero-section > .kb-row-layout-wrap > .kt-row-column-wrap > .wp-block-kadence-column > .kt-inside-inner-col::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Ensure all text sits above the overlay */
+  .aot-hero-section h1,
+  .aot-hero-section h2,
+  .aot-hero-section h3,
+  .aot-hero-section p,
+  .aot-hero-section a {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Kadence row layout — ensure proper z-index */
+  .aot-hero-section .kb-row-layout-wrap {
+    position: relative;
+    z-index: 1;
+  }
+  .aot-hero-section .kt-inside-inner-col {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Hero banner inner ────────────────────────────────────── */
   .hero-banner {
-    background-color: var(--aot-hero-bg);
     color: var(--aot-white);
     padding: 0;
   }
@@ -94,33 +151,31 @@ const {
     padding: 2rem;
   }
 
-  /* ── Headings — inherit white from parent ── */
+  /* ── Headings — white text ── */
   .hero-banner h1 {
     font-size: 2.2rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     margin: 0 0 0.5rem;
-    color: var(--aot-white);
+    color: #ffffff;
   }
   .hero-banner h2 {
     font-size: 1.4rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
     margin: 0;
-    color: var(--aot-white);
+    color: #ffffff;
   }
-  /* cta-subheading: explicit white text on hero dark bg */
   .hero-banner .cta-subheading {
     font-size: 1rem;
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 400;
-    color: var(--aot-white);
-    -webkit-text-stroke: 0.3px var(--aot-navy); /* sub-pixel rendering fallback */
+    color: #ffffff;
     margin: 0 0 1rem;
     line-height: 1.5;
   }
 
-  /* ── TripAdvisor logo ─────────────────────────────────────── */
+  /* ── TripAdvisor logo ────────────────────────────────────── */
   .hero-banner figure {
     margin: 0;
     text-align: center;
@@ -130,7 +185,7 @@ const {
     height: auto;
   }
 
-  /* ── Responsive ───────────────────────────────────────────── */
+  /* ── Responsive ─────────────────────────────────────────── */
   @media (max-width: 768px) {
     .hero-banner h1 { font-size: 1.6rem; }
     .hero-banner h2 { font-size: 1.1rem; }
