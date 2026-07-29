@@ -11,7 +11,8 @@
   "business": {
     "name": "Active Oahu Tours",
     "phone": "(808)498-1894",
-    "telephoneHref": "tel:+18084981894",
+    "telephoneHref": "tel:+180****1894",
+    "bookingUrl": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
     "email": "info@activeoahutours.com",
     "url": "https://activeoahutours.com/",
     "sameAs": [
