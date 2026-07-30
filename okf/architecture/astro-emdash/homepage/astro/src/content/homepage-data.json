@@ -109,8 +109,8 @@
           "price": "$239",
           "href": "/activities/mokulua-islands-guided-kayak-tour/",
           "cta": "Paddle to the Twin Islands",
-          "image": "/wp-content/uploads/2018/11/kailua-lanikai-kayak-rental-mokes-oahu.jpg",
-          "imageAlt": "Mokulua Islands",
+          "image": "/wp-content/uploads/2023/03/lanikai-Kayak-rental-480x320.jpg",
+          "imageAlt": "Mokulua Islands Kayak Tour — Kailua Twin Islands",
           "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&amp;mokulua-islands-guided-kayak-tour&amp;from-ssl=yes"
         },
         {
@@ -145,7 +145,11 @@
       "href": "/activities/kailua-e-bike-kau-kau-guided-adventure/",
       "cta": "E-Bike Kau Kau Guided Adventure",
       "image": "/wp-content/uploads/2025/03/Active-Oahu-373-e1743021729980.jpg",
-      "imageAlt": "Active Oahu Kailua Storefront Check-in"
+      "imageAlt": "Active Oahu Kailua Storefront Check-in",
+      "imageSrcset": [
+        "/wp-content/uploads/2025/03/Active-Oahu-373-e1743021729980-480x432.jpg 480w",
+        "/wp-content/uploads/2025/03/Active-Oahu-373-e1743021729980.jpg 900w"
+      ]
     },
     {
       "id": "popoia-adventure",
@@ -155,7 +159,13 @@
       "href": "/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
       "cta": "Explore Flat Island",
       "image": "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61.jpg",
-      "imageAlt": "Two people e-bike on the Kailua Marsh Trail"
+      "imageAlt": "Two people e-bike on the Kailua Marsh Trail",
+      "imageSrcset": [
+        "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61-480x320.jpg 480w",
+        "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61-650x433.jpg 650w",
+        "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61-768x512.jpg 768w",
+        "/wp-content/uploads/2026/02/Active-Oahu-Fall-2025-61.jpg 900w"
+      ]
     },
     {
       "id": "mokulua-kayak-adventure",
@@ -165,7 +175,8 @@
       "href": "/activities/mokulua-islands-self-guided-kayak-tour/",
       "cta": "See Mokulua Islands",
       "image": "/wp-content/uploads/2018/11/DSC5281_2000-650x433.jpg",
-      "imageAlt": "Hiking and Kayaking Tour, epic view"
+      "imageAlt": "Hiking and Kayaking Tour, epic view",
+      "imageSrcset": []
     },
     {
       "id": "rental-types",
@@ -245,8 +256,14 @@
       "heading": "Beach Equipment Rentals",
       "text": "We help make your Oʻahu adventures a breeze with our kayak and beach gear rental delivery service and hand-picked self-guided tours.",
       "inlineLinks": [
-        { "label": "kayak and beach gear rental delivery service", "href": "/rentals/" },
-        { "label": "hand-picked self-guided tours", "href": "/activities/" }
+        {
+          "label": "kayak and beach gear rental delivery service",
+          "href": "/rentals/"
+        },
+        {
+          "label": "hand-picked self-guided tours",
+          "href": "/activities/"
+        }
       ],
       "details": "Paddle in an ocean kayak out to the offshore island of Mokoliʻi, up a mountain stream in Kahana Valley, or in the calm waters of Kailua Bay. Just visit our activity hub in Kailua and we will get you all setup to explore Oʻahu. Meet us on the Windward side, we've got the kayaks.",
       "cta": "Check out our rental packages",

@@ -6,13 +6,15 @@ interface Props {
   cta: string;
   image: string;
   imageAlt: string;
+  imageSrcset?: string;
+  imageSizes?: string;
 }
 
-const { heading, text, href, cta, image, imageAlt } = Astro.props;
+const { heading, text, href, cta, image, imageAlt, imageSrcset, imageSizes = "(max-width: 600px) 100vw, 724px" } = Astro.props;
 ---
 <div class="featured-tour-hero">
   <figure>
-    <img loading="lazy" decoding="async" width="724" height="480" src={image} alt={imageAlt} />
+    <img loading="lazy" decoding="async" width="724" height="480" src={image} srcset={imageSrcset} sizes={imageSizes} alt={imageAlt} />
   </figure>
   <div class="content">
     <h3>{heading}</h3>
