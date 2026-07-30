@@ -1,5 +1,13 @@
 ---
 // 3-column footer area matching production: Follow Adventures | Newsletter | Awesome Photos gallery
+// Gallery uses 5 unique images. Production uses:
+//   - DSC5447_2000-115x115
+//   - Oahu-Kayaking-Tours_31-2-115x115  (also in RentalGrid)
+//   - Oahu-Kayaking-Tours_13-115x115    (also in RentalGrid)
+//   - Oahu-Kayak-Tours_11_thumb-1-115x115 (also in RentalGrid)
+//   - Oahu-Snorkeling_6-1-115x115      (also in RentalGrid)
+// Production has these dupes, but since we want zero dupes, we use the 5 *additional* gallery
+// thumbnails that are NOT in any other section.
 interface Props {
   phone?: string;
   email?: string;
@@ -25,10 +33,9 @@ const {
   ],
   formAction = "https://activeoahu.us9.list-manage.com/subscribe/post?u=5cb586c27776f84f261f708d6&id=894ddfa45f",
   formId = "mc-embedded-subscribe-form",
+  // 5 unique images that DON'T overlap with RentalGrid, Mokulua FeaturedTourHero, or FeaturedTours
   galleryImages = [
     { src: "/wp-content/uploads/2018/11/DSC5447_2000-115x115.jpg", alt: "Oahu Beach Equipment Rental Packages", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-2-115x115.jpg", alt: "Kayaking to Mokolii", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_13-115x115.jpg", alt: "Hiking Mokoli'i on Oahu", href: "/active-oahu-photo-gallery/" },
     { src: "/wp-content/uploads/2018/11/DSC5297_2000-115x115.jpg", alt: "Hiking and Kayaking Tour", href: "/active-oahu-photo-gallery/" },
     { src: "/wp-content/uploads/2018/11/DJI_0988_2000_1x2-115x115.jpg", alt: "Oahu Kayak Adventure", href: "/active-oahu-photo-gallery/" },
     { src: "/wp-content/uploads/2016/11/Standup-Paddleboard-Lessons_Thumbnail-1-115x115.jpg", alt: "Standup Paddleboard Lessons on Oahu", href: "/active-oahu-photo-gallery/" },
@@ -165,7 +172,7 @@ const {
   }
   .footer-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2px;
     margin-top: 0.75rem;
   }

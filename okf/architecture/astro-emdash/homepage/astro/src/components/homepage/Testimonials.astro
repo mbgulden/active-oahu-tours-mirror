@@ -8,8 +8,6 @@ interface Testimonial {
 interface Props {
   h2?: string;
   testimonials?: Testimonial[];
-  tripadvisorBadgeUrl?: string;
-  tripadvisorUrl?: string;
 }
 
 const {
@@ -31,8 +29,6 @@ const {
       attribution: "TripAdvisor Review",
     },
   ],
-  tripadvisorBadgeUrl = "https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg",
-  tripadvisorUrl = "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
 } = Astro.props;
 ---
 <section class="testimonials-section" aria-labelledby="testimonials-heading">
@@ -50,11 +46,6 @@ const {
                 <div class="accredited">– <em>{t.author}</em><br/></div>
               </div>
             ))}
-            <div class="review-item review-item-tripadvisor">
-              <a target="_blank" rel="noopener" href={tripadvisorUrl} aria-label="Active Oahu Tours on Tripadvisor">
-                <img src={tripadvisorBadgeUrl} alt="TripAdvisor" width="115" height="24" loading="lazy" />
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -107,16 +98,6 @@ const {
   .review-item .accredited em {
     color: #4a5560;
     font-weight: 600;
-  }
-  .review-item-tripadvisor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    padding: 0;
-  }
-  .review-item-tripadvisor img {
-    display: block;
   }
   @media (max-width: 768px) {
     .review-container {
