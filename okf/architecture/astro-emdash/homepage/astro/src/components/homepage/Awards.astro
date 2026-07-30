@@ -15,23 +15,28 @@ const { h2, awardText, awardImages } = Astro.props;
 ---
 <section class="awards-section" aria-labelledby="awards-heading">
   <div class="kb-row-layout-wrap alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
-    <div class="kt-row-column-wrap">
-      <div class="wp-block-kadence-column">
+    <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
+      <div class="wp-block-kadence-column awards-image-col">
         <div class="kt-inside-inner-col">
-          <h2 id="awards-heading">{h2}</h2>
-          <p class="awards-text">{awardText}</p>
           <div class="awards-logos">
             {awardImages.map((img) => (
               <img
                 loading="lazy"
                 decoding="async"
-                width={img.width || "200"}
+                width={img.width || "170"}
                 height="auto"
                 src={img.src}
                 alt={img.alt}
               />
             ))}
           </div>
+        </div>
+      </div>
+      <div class="wp-block-kadence-column awards-text-col">
+        <div class="kt-inside-inner-col">
+          <h2 id="awards-heading">{h2}</h2>
+          <h3 class="awards-subheading">Active Oahu, LLC Wins 2022 Tripadvisor Travelers' Choice Award for Tours and Activities</h3>
+          <p class="awards-text">{awardText}</p>
         </div>
       </div>
     </div>
@@ -41,32 +46,63 @@ const { h2, awardText, awardImages } = Astro.props;
 <style>
   .awards-section {
     background: #fff;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+  }
+  .awards-section .kt-row-column-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .awards-image-col {
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+  .awards-text-col {
+    flex: 0 0 67%;
+    max-width: 67%;
+  }
+  .awards-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .awards-logos img {
+    max-width: 170px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
   .awards-section h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
+    color: #003366;
+    margin: 0 0 0.5rem;
+    text-align: left;
+  }
+  .awards-subheading {
+    font-size: 1.1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 600;
     color: #333;
-    text-align: center;
-    margin-bottom: 1rem;
+    margin: 0 0 0.75rem;
+    text-align: left;
   }
   .awards-text {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 1rem;
     color: #555;
-    text-align: center;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
   }
-  .awards-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .awards-logos img {
-    max-height: 80px;
-    width: auto;
+  @media (max-width: 768px) {
+    .awards-image-col, .awards-text-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .awards-image-col { margin-bottom: 1.5rem; }
   }
 </style>

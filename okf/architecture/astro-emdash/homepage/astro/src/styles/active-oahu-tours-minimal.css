@@ -446,32 +446,59 @@
 /* ── Awards ── */
 .awards-section {
   background: var(--aot-white);
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 .awards-section h2 {
   font-family: 'Open Sans Condensed', Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  color: var(--aot-navy);
+  text-align: left;
+  margin: 0 0 0.5rem;
+}
+.awards-subheading {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
   color: var(--aot-gray-900);
-  text-align: center;
-  margin-bottom: 1rem;
+  text-align: left;
+  margin: 0 0 0.75rem;
 }
 .awards-text {
   font-size: 1rem;
   color: var(--aot-gray-600);
-  text-align: center;
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0;
+}
+.awards-image-col {
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+.awards-text-col {
+  flex: 0 0 67%;
+  max-width: 67%;
 }
 .awards-logos {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 .awards-logos img {
-  max-height: 80px;
-  width: auto;
+  max-width: 170px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .awards-image-col, .awards-text-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .awards-image-col { margin-bottom: 1.5rem; }
 }
 
 /* ── Closing CTA ── */
@@ -742,25 +769,76 @@ a:hover {
    Fix Kadence palette cascade to match production
    ====================== */
 
-/* FeaturedTourHero — shared layout across all instances (not scoped) */
+/* FeaturedTourHero — matches production's 50/50 layout with full-size images */
 .featured-tour-hero {
   display: flex !important;
-  gap: 1.5rem !important;
-  align-items: center !important;
-  padding: 1.5rem 0 !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  align-items: stretch !important;
+  padding: 2rem 0 !important;
   border-bottom: 1px solid #e0e0e0 !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
 }
 .featured-tour-hero:last-child { border-bottom: none !important; }
-.featured-tour-hero figure { flex: 0 0 300px !important; margin: 0 !important; }
-.featured-tour-hero img { width: 100% !important; height: 200px !important; object-fit: cover !important; border-radius: 6px !important; }
-.featured-tour-hero .content { flex: 1 !important; }
-.featured-tour-hero h3 { font-size: 1.2rem !important; font-family: 'Open Sans Condensed', Arial, sans-serif !important; font-weight: 700 !important; color: #0066cc !important; margin: 0 0 0.5rem !important; }
-.featured-tour-hero p { font-family: 'Open Sans', Arial, sans-serif !important; font-size: 0.95rem !important; color: #555 !important; line-height: 1.5 !important; margin: 0 0 1rem !important; }
-.featured-tour-hero .btn-secondary { display: inline-block !important; padding: 8px 16px !important; background: #0066cc !important; color: #fff !important; border-radius: 4px !important; text-decoration: none !important; font-family: 'Open Sans', Arial, sans-serif !important; font-size: 0.9rem !important; font-weight: 600 !important; }
-.featured-tour-hero .btn-secondary:hover { background: #004999 !important; color: #fff !important; }
-@media (max-width: 600px) {
-  .featured-tour-hero { flex-direction: column !important; }
+.featured-tour-hero figure {
+  flex: 1 1 50% !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  border-radius: 6px !important;
+}
+.featured-tour-hero img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 380px !important;
+  max-height: 480px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.featured-tour-hero .content {
+  flex: 1 1 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 1rem 1.5rem !important;
+}
+.featured-tour-hero h3 {
+  font-size: 1.6rem !important;
+  font-family: 'Open Sans Condensed', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  color: #0066cc !important;
+  margin: 0 0 0.75rem !important;
+  line-height: 1.2 !important;
+}
+.featured-tour-hero p {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-size: 1rem !important;
+  color: #555 !important;
+  line-height: 1.6 !important;
+  margin: 0 0 1.25rem !important;
+}
+.featured-tour-hero .btn-secondary {
+  display: inline-block !important;
+  padding: 12px 20px !important;
+  background: #0066cc !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  align-self: flex-start !important;
+}
+.featured-tour-hero .btn-secondary:hover {
+  background: #004999 !important;
+  color: #fff !important;
+}
+@media (max-width: 768px) {
+  .featured-tour-hero { flex-direction: column !important; padding: 1.5rem 1rem !important; }
   .featured-tour-hero figure { flex: none !important; width: 100% !important; }
+  .featured-tour-hero img { min-height: 220px !important; max-height: 280px !important; }
+  .featured-tour-hero .content { flex: none !important; padding: 1rem 0 !important; }
 }
 
 /* FeatureBlock CTA buttons */
