@@ -124,7 +124,7 @@
           "price": "$82",
           "href": "/activities/kahana-rainforest-river-kayak/",
           "cta": "Explore Kahana River",
-          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg",
           "imageAlt": "Best Oahu Kayak Tour",
           "bookingHref": "https://fareharbor.com/embeds/book/activeoahutours/?item=&amp;kahana-river-kayak-rental&amp;from-ssl=yes"
         }
@@ -164,7 +164,7 @@
       "text": "Get more info about our self-guided kayak tour out to Kailua's twin islands.",
       "href": "/activities/mokulua-islands-self-guided-kayak-tour/",
       "cta": "See Mokulua Islands",
-      "image": "/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
+      "image": "/wp-content/uploads/2018/11/DSC5281_2000-650x433.jpg",
       "imageAlt": "Hiking and Kayaking Tour, epic view"
     },
     {
@@ -248,11 +248,54 @@
         { "label": "kayak and beach gear rental delivery service", "href": "/rentals/" },
         { "label": "hand-picked self-guided tours", "href": "/activities/" }
       ],
-      "details": "Paddle in an ocean kayak out to the offshore island of Mokoliʻi, up a mountain stream in Kahana Valley, or in the calm waters of Kailua Bay.",
+      "details": "Paddle in an ocean kayak out to the offshore island of Mokoliʻi, up a mountain stream in Kahana Valley, or in the calm waters of Kailua Bay. Just visit our activity hub in Kailua and we will get you all setup to explore Oʻahu. Meet us on the Windward side, we've got the kayaks.",
       "cta": "Check out our rental packages",
       "ctaHref": "/rentals/",
       "image": "/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
-      "imageAlt": "Hiking and Kayaking Tour, epic view"
+      "imageAlt": "Hiking and Kayaking Tour, epic view",
+      "packages": [
+        {
+          "heading": "Rentals",
+          "feature": "Daily",
+          "subheading": "4 Hour or Full Day Rentals",
+          "image": "/wp-content/uploads/2018/11/DSC5268_2000-650x433.jpg",
+          "href": "/rentals/"
+        },
+        {
+          "heading": "Rentals",
+          "feature": "Multi-Day",
+          "subheading": "Convenient Multi-Day Rentals",
+          "text": "Discounted Rates",
+          "image": "/wp-content/uploads/2018/11/DSC5281_2000-650x433.jpg",
+          "href": "/rentals/"
+        }
+      ]
+    },
+    {
+      "id": "mokulua-feature-block",
+      "type": "mokulua-feature-block",
+      "heading": "Mokoliʻi Island",
+      "text": "Discover Mokoliʻi (Chinaman's Hat) — the iconic offshore island in Kualoa — and Kāneʻohe Bay with our kayak and beach gear rentals. Paddle in an ocean kayak out to the Mokoliʻi, then hike to the summit for panoramic views.",
+      "href": "/activities/",
+      "cta": "Browse tours",
+      "image": "/wp-content/uploads/2022/01/Mokolii-from-above-view-1.jpg",
+      "imageAlt": "Mokoliʻi Island from above, Kualoa",
+      "packages": [
+        {
+          "heading": "Self-Guided Kayak Tour",
+          "feature": "Rainforest River",
+          "subheading": "Kahana Jungle Adventure",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-480x240.jpg",
+          "href": "/activities/kahana-rainforest-river-oahu-kayak-tour/"
+        },
+        {
+          "heading": "Self-Guided Kayak Tour",
+          "feature": "Chinaman's Hat",
+          "subheading": "Ocean Kayak & Hike",
+          "image": "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-1-480x240.jpg",
+          "href": "/activities/chinamans-hat-self-guided-oahu-kayak-tour/"
+        }
+      ]
     },
     {
       "id": "need-kayaks-today",

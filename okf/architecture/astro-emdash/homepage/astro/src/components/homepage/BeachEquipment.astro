@@ -7,11 +7,16 @@ interface Props {
   heading?: string;
   text: string;
   details?: string;
+  sideCards?: { heading: string; subheading: string; text?: string; image: string; href: string }[];
   cta?: string;
   ctaHref?: string;
   image?: string;
   imageAlt?: string;
   inlineLinks?: InlineLink[];
+  // Optional "front-page-packages" cards (right side, like production)
+  // Each card: a heading (Rentals/Self-Guided Kayak Tour), a feature (Daily/Multi-Day/Rainforest River/Chinaman's Hat),
+  // a subheading, and an image used as the card background
+  packages?: { heading: string; feature: string; subheading?: string; text?: string; image: string; href: string }[];
 }
 
 const {
@@ -23,6 +28,7 @@ const {
   image = "https://activeoahutours.com/wp-content/uploads/2021/06/DSC5297_2000-e1642616607887.jpg",
   imageAlt = "Hiking and Kayaking Tour, epic view",
   inlineLinks = [],
+  packages = [],
 } = Astro.props;
 
 const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
@@ -38,25 +44,33 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
 ---
 <section class="beach-equipment" aria-label={heading}>
   <div class="be-container">
-    <div class="be-image-side">
-      <div class="be-bg-wrapper">
-        <img
-          src={image}
-          alt={imageAlt}
-          width="724"
-          height="483"
-          loading="lazy"
-          decoding="async"
-          class="be-bg-img"
-        />
-        <div class="be-text-overlay">
-          <h2>{heading}</h2>
-          <p set:html={renderTextWithLinks(text, inlineLinks)} />
-          {details && <p>{details}</p>}
-          <br />
-          <a href={ctaHref}>{cta} &#10132;</a>
+    <div class="be-row">
+      <section class="be-description">
+        <div class="be-front-page-with-bg" style={`background-image:url('${image}')`}>
+          <img src={image} alt={imageAlt} class="be-front-page-img-bg" width="724" height="483" loading="lazy" />
+          <div class="be-feature-description-p be-feature-description-p-right">
+            <h4 class="be-heading">{heading}</h4>
+            <p set:html={renderTextWithLinks(text, inlineLinks)} />
+            {details && <p>{details}</p>}
+            <br />
+            <a href={ctaHref}>{cta} <span aria-hidden="true">&#10132;</span></a>
+          </div>
         </div>
-      </div>
+      </section>
+      {packages.length > 0 && (
+        <div class="be-packages-col">
+          <div class="be-packages-row">
+            {packages.map((pkg) => (
+              <a href={pkg.href} class="be-front-page-package darken" style={`background-image: url('${pkg.image}')`}>
+                <h3 class="be-package-front-text">{pkg.heading}</h3>
+                <h3 class="be-feature package-margins">{pkg.feature}</h3>
+                {pkg.subheading && <h4 class="be-package-margins be-activity-front-text">{pkg.subheading}</h4>}
+                {pkg.text && <p class="be-date-front-text">{pkg.text}</p>}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -71,53 +85,143 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-  .be-image-side {
-    width: 100%;
+  .be-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
   }
-  .be-bg-wrapper {
+  .be-description {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-right: 0;
+  }
+  .be-packages-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .be-front-page-with-bg {
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 320px;
     overflow: hidden;
-    border-radius: 6px;
   }
-  .be-bg-img {
+  .be-front-page-img-bg {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
-  .be-text-overlay {
+  .be-feature-description-p-right {
+    position: relative;
     padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    margin: 2rem auto;
+    max-width: 80%;
   }
-  .be-text-overlay h2 {
+  .be-heading {
     font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #586e75;
     margin: 0 0 1rem;
   }
-  .be-text-overlay p {
+  .be-feature-description-p p {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 0.95rem;
     color: #555;
     line-height: 1.6;
     margin: 0 0 0.75rem;
   }
-  .be-text-overlay a {
+  .be-feature-description-p a {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: #0066cc;
     text-decoration: none;
   }
-  .be-text-overlay a:hover {
+  .be-feature-description-p a:hover {
     text-decoration: underline;
     color: #004999;
   }
+  .be-packages-row {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .be-front-page-package {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    min-height: 160px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: filter 0.2s ease;
+  }
+  .be-front-page-package.darken::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background 0.2s ease;
+  }
+  .be-front-page-package.darken:hover::before {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .be-front-page-package > * {
+    position: relative;
+    z-index: 1;
+  }
+  .be-package-front-text {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+  .be-feature.package-margins {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0.25rem 0;
+  }
+  .be-package-margins.be-activity-front-text {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0.25rem 0;
+  }
+  .be-date-front-text {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #fff;
+    margin: 0.25rem 0 0;
+  }
   @media (max-width: 768px) {
-    .be-text-overlay {
+    .be-description,
+    .be-packages-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .be-packages-col {
+      margin-top: 1rem;
+    }
+    .be-feature-description-p-right {
+      max-width: 95%;
       padding: 1rem;
     }
-    .be-text-overlay h2 {
+    .be-heading {
       font-size: 1.2rem;
     }
   }

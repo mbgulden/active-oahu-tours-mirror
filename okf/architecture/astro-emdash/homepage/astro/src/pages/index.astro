@@ -12,6 +12,7 @@ import Awards from '../components/homepage/Awards.astro';
 import ClosingCTA from '../components/homepage/ClosingCTA.astro';
 import DealBanner from '../components/homepage/DealBanner.astro';
 import BeachEquipment from '../components/homepage/BeachEquipment.astro';
+import MokuluaFeatureBlock from '../components/homepage/MokuluaFeatureBlock.astro';
 import shellData from '../content/nav/aot-shell-data.json';
 import homepageData from '../content/homepage-data.json';
 
@@ -21,6 +22,7 @@ const footerGroups = shellData.footerGroups;
 const bookingConfig = shellData.booking;
 
 const { hero, sections } = homepageData;
+const find = (id: string) => sections.find(s => s.id === id);
 ---
 
 <SiteShell
@@ -52,18 +54,24 @@ const { hero, sections } = homepageData;
       moreRentalLink={hero.moreRentalLink}
     />
 
-    <!-- FEATURE BLOCK -->
+    <!-- TESTIMONIAL (centered, pre-FeaturedTourHeroes — matches production) -->
+    <Testimonial
+      quote="Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure"
+      attribution="TripAdvisor Reviewer"
+    />
+
+    <!-- FEATURE BLOCK (Guided Kayak Tours / Beach Gear / Need Kayaks Today) -->
     <FeatureBlock
       h2="Kayak and Explore Chinaman's Hat, Kahana Bay, Kawela Bay, Kāneʻohe Bay, Kailua Bay and More"
-      intro={sections.find(s => s.id === 'feature-block')?.intro}
-      features={sections.find(s => s.id === 'feature-block')?.features || []}
-      rentalCta={sections.find(s => s.id === 'feature-block')?.rentalCta}
-      moreRentalCta={sections.find(s => s.id === 'feature-block')?.moreInfoCta}
+      intro={find('feature-block')?.intro}
+      features={find('feature-block')?.features || []}
+      rentalCta={find('feature-block')?.rentalCta}
+      moreRentalCta={find('feature-block')?.moreInfoCta}
     />
 
     <!-- E-BIKE ADVENTURE HERO -->
     {(() => {
-      const eb = sections.find(s => s.id === 'ebike-adventure');
+      const eb = find('ebike-adventure');
       return eb ? (
         <FeaturedTourHero
           heading={eb.heading}
@@ -78,7 +86,7 @@ const { hero, sections } = homepageData;
 
     <!-- POPOIA ADVENTURE HERO -->
     {(() => {
-      const pop = sections.find(s => s.id === 'popoia-adventure');
+      const pop = find('popoia-adventure');
       return pop ? (
         <FeaturedTourHero
           heading={pop.heading}
@@ -93,7 +101,7 @@ const { hero, sections } = homepageData;
 
     <!-- MOKULUA KAYAK ADVENTURE HERO -->
     {(() => {
-      const mok = sections.find(s => s.id === 'mokulua-kayak-adventure');
+      const mok = find('mokulua-kayak-adventure');
       return mok ? (
         <FeaturedTourHero
           heading={mok.heading}
@@ -106,20 +114,9 @@ const { hero, sections } = homepageData;
       ) : null;
     })()}
 
-    <!-- RENTAL TYPES GRID -->
+    <!-- POPULAR EXPERIENCES (3 tour cards) -->
     {(() => {
-      const rt = sections.find(s => s.id === 'rental-types');
-      return rt ? (
-        <RentalGrid
-          h2={rt.h2}
-          categories={rt.categories}
-        />
-      ) : null;
-    })()}
-
-    <!-- FEATURED TOURS -->
-    {(() => {
-      const ft = sections.find(s => s.id === 'featured-tours');
+      const ft = find('featured-tours');
       return ft ? (
         <FeaturedTours
           h2={ft.h2}
@@ -128,9 +125,9 @@ const { hero, sections } = homepageData;
       ) : null;
     })()}
 
-    <!-- BEACH EQUIPMENT RENTALS -->
+    <!-- BEACH EQUIPMENT RENTALS (production-style 2-col: bg image + 2 cards) -->
     {(() => {
-      const be = sections.find(s => s.id === 'beach-equipment');
+      const be = find('beach-equipment');
       return be ? (
         <BeachEquipment
           heading={be.heading}
@@ -141,6 +138,34 @@ const { hero, sections } = homepageData;
           ctaHref={be.ctaHref}
           image={be.image}
           imageAlt={be.imageAlt}
+          packages={be.packages || []}
+        />
+      ) : null;
+    })()}
+
+    <!-- MOKOLIʻI FEATURE BLOCK (production-style 2-col: 2 cards + bg image) -->
+    {(() => {
+      const mfb = find('mokulua-feature-block');
+      return mfb ? (
+        <MokuluaFeatureBlock
+          heading={mfb.heading}
+          text={mfb.text}
+          href={mfb.href}
+          cta={mfb.cta}
+          image={mfb.image}
+          imageAlt={mfb.imageAlt}
+          packages={mfb.packages || []}
+        />
+      ) : null;
+    })()}
+
+    <!-- RENTAL TYPES GRID (flat 4-item grid) -->
+    {(() => {
+      const rt = find('rental-types');
+      return rt ? (
+        <RentalGrid
+          h2={rt.h2}
+          categories={rt.categories}
         />
       ) : null;
     })()}
@@ -155,7 +180,7 @@ const { hero, sections } = homepageData;
 
     <!-- AWARDS -->
     {(() => {
-      const aw = sections.find(s => s.id === 'awards');
+      const aw = find('awards');
       return aw ? (
         <Awards
           h2={aw.h2}
@@ -164,10 +189,4 @@ const { hero, sections } = homepageData;
         />
       ) : null;
     })()}
-
-    <!-- TESTIMONIALS -->
-    <Testimonial
-      quote="Great tour! It was so fun to e-bike, kayak, and see wildlife in one adventure"
-      attribution="TripAdvisor Reviewer"
-    />
 </SiteShell>
