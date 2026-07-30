@@ -1,0 +1,122 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  attribution?: string;
+}
+
+interface Props {
+  h2?: string;
+  testimonials?: Testimonial[];
+  tripadvisorBadgeUrl?: string;
+  tripadvisorUrl?: string;
+}
+
+const {
+  h2 = "Testimonials",
+  testimonials = [
+    {
+      quote: "We booked kayaks for our family to go to Mokoliʻi. I was so impressed with the knowledge and responsiveness. Jared contacted me before our self guided tour and was there on time and available at pick-up. He was friendly and helpful as we navigated this most epic journey. I would 100% recommend this company to others.",
+      author: "Mindy S",
+      attribution: "TripAdvisor Review",
+    },
+    {
+      quote: "…There was great communication with the staff and they were very informative as well. We had a very enjoyable time and would definitely use Active Oahu Tours kayak rental company again!",
+      author: "Bri",
+      attribution: "TripAdvisor Review",
+    },
+    {
+      quote: "Excellent customer service from Logan. I was staying down in Waikiki and he texted me in the morning to confirm all the details before I came out!…Super fun morning and I recommend it to everyone interested in a great activity away from the crowds of Waikiki. I ubered out to the meeting location from Waikiki and was able to catch an Uber back easily.",
+      author: "C Bland",
+      attribution: "TripAdvisor Review",
+    },
+  ],
+  tripadvisorBadgeUrl = "https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg",
+  tripadvisorUrl = "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+} = Astro.props;
+---
+<section class="testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="kb-row-layout-wrap alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <h2 id="testimonials-heading">{h2}</h2>
+          <div class="review-container">
+            {testimonials.map((t) => (
+              <div class="review-item">
+                <blockquote>
+                  <p>“{t.quote}”</p>
+                </blockquote>
+                <div class="accredited">– <em>{t.author}</em><br/></div>
+              </div>
+            ))}
+            <div class="review-item review-item-tripadvisor">
+              <a target="_blank" rel="noopener" href={tripadvisorUrl} aria-label="Active Oahu Tours on Tripadvisor">
+                <img src={tripadvisorBadgeUrl} alt="TripAdvisor" width="115" height="24" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background: #fff;
+    padding: 2.5rem 1rem;
+  }
+  .testimonials-section h2 {
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+  .review-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  .review-item {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .review-item blockquote {
+    margin: 0 0 0.75rem;
+    padding: 0;
+  }
+  .review-item blockquote p {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+  }
+  .review-item .accredited {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  .review-item-tripadvisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
+  }
+  .review-item-tripadvisor img {
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .review-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

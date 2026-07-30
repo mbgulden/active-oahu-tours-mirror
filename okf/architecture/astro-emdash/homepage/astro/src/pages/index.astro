@@ -8,11 +8,13 @@ import FeaturedTours from '../components/homepage/FeaturedTours.astro';
 import FeaturedTourHero from '../components/homepage/FeaturedTourHero.astro';
 import RentalGrid from '../components/homepage/RentalGrid.astro';
 import Testimonial from '../components/homepage/Testimonial.astro';
+import Testimonials from '../components/homepage/Testimonials.astro';
 import Awards from '../components/homepage/Awards.astro';
 import ClosingCTA from '../components/homepage/ClosingCTA.astro';
 import DealBanner from '../components/homepage/DealBanner.astro';
 import BeachEquipment from '../components/homepage/BeachEquipment.astro';
 import MokuluaFeatureBlock from '../components/homepage/MokuluaFeatureBlock.astro';
+import FooterExtras from '../components/homepage/FooterExtras.astro';
 import shellData from '../content/nav/aot-shell-data.json';
 import homepageData from '../content/homepage-data.json';
 
@@ -189,4 +191,12 @@ const find = (id: string) => sections.find(s => s.id === id);
         />
       ) : null;
     })()}
+
+    <!-- TESTIMONIALS (production-style 4-quote grid above footer) -->
+    <Testimonials />
+
+    <!-- FOOTER EXTRAS (3-col: Follow Adventures | Newsletter | Awesome Photos) -->
+    <Fragment slot="footer-extras">
+      <FooterExtras />
+    </Fragment>
 </SiteShell>
