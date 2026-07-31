@@ -204,6 +204,15 @@
   color: var(--aot-white);
   margin: 0;
 }
+/* Hero h2 size override — beats Heading primitive's inline style.
+   Scoped inside .hero-banner so ONLY the hero H2 is affected
+   (no global side-effects on FeatureBlock, FeaturedTours, etc.). */
+.hero-banner h2[style*="font-size"] {
+  font-size: 60px !important;
+}
+.hero-banner h1[style*="font-size"] {
+  font-size: 20px !important;
+}
 .hero-banner h3,
 .hero-banner .cta-subheading {
   font-family: 'Open Sans', Arial, sans-serif;
