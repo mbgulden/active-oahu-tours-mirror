@@ -1,4 +1,6 @@
 ---
+import Section from "../primitives/Section.astro";
+
 interface Props {
   h2: string;
   text: string;
@@ -8,41 +10,43 @@ interface Props {
 
 const { h2, text, phone, phoneHref } = Astro.props;
 ---
-<section class="closing-cta" aria-labelledby="closing-cta-heading">
-  <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout closing-cta-bg">
-    <div class="kt-row-column-wrap">
-      <div class="wp-block-kadence-column">
-        <div class="kt-inside-inner-col">
-          <h2 id="closing-cta-heading">{h2}</h2>
-          <p>{text}</p>
-          <a href={phoneHref} class="aot-btn-phone">
-            <span aria-hidden="true">&#9742;</span>
-            {phone}
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+<Section
+  palette="none"
+  region="Booking CTA"
+  padding="lg"
+  container={true}
+  class="closing-cta"
+>
+  <h2 id="closing-cta-heading" class="closing-cta__heading">{h2}</h2>
+  <p class="closing-cta__text">{text}</p>
+  <a href={phoneHref} class="aot-btn-phone closing-cta__phone-btn">
+    <span aria-hidden="true">&#9742;</span>
+    {phone}
+  </a>
+</Section>
 
 <style>
-  /* ── Closing CTA shell ─────────────────────────────────────── */
   .closing-cta {
+    background-color: var(--aot-hero-bg);
     color: var(--aot-white);
-    padding: 2rem 0;
     text-align: center;
   }
-  .closing-cta h2 {
+  .closing-cta__heading {
+    font-family: var(--aot-font-heading);
     font-size: 1.6rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
     font-weight: 700;
     color: var(--aot-white);
-    margin: 0 0 1rem;
+    margin: 0 0 var(--aot-space-4);
   }
-  .closing-cta p {
+  .closing-cta__text {
     font-size: 1rem;
     color: var(--aot-text-light);
-    margin: 0 0 1.5rem;
+    margin: 0 0 var(--aot-space-5);
     line-height: 1.6;
+  }
+  .closing-cta__phone-btn {
+    color: var(--aot-white);
+    text-decoration: none;
   }
 </style>

@@ -1,4 +1,6 @@
 ---
+import Section from "../primitives/Section.astro";
+
 interface AwardImage {
   src: string;
   alt: string;
@@ -9,100 +11,114 @@ interface Props {
   h2: string;
   awardText: string;
   awardImages: AwardImage[];
+  subheading?: string;
 }
 
-const { h2, awardText, awardImages } = Astro.props;
+const {
+  h2,
+  awardText,
+  awardImages,
+  subheading = "Active Oahu, LLC Wins 2022 Tripadvisor Travelers' Choice Award for Tours and Activities",
+} = Astro.props;
 ---
-<section class="awards-section" aria-labelledby="awards-heading">
-  <div class="kb-row-layout-wrap alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
-    <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
-      <div class="wp-block-kadence-column awards-image-col">
-        <div class="kt-inside-inner-col">
-          <div class="awards-logos">
-            {awardImages.map((img) => (
-              <img
-                loading="lazy"
-                decoding="async"
-                width={img.width || "170"}
-                height="auto"
-                src={img.src}
-                alt={img.alt}
-              />
-            ))}
-          </div>
+
+<Section
+  palette="white"
+  region="Awards"
+  padding="lg"
+  container={false}
+  class="awards-section"
+>
+  <div class="awards-section__container">
+    <div class="awards-section__row">
+      <div class="awards-section__image-col">
+        <div class="awards-section__logos">
+          {awardImages.map((img) => (
+            <img
+              loading="lazy"
+              decoding="async"
+              width={img.width || "170"}
+              height="auto"
+              src={img.src}
+              alt={img.alt}
+            />
+          ))}
         </div>
       </div>
-      <div class="wp-block-kadence-column awards-text-col">
-        <div class="kt-inside-inner-col">
-          <h2 id="awards-heading">{h2}</h2>
-          <h3 class="awards-subheading">Active Oahu, LLC Wins 2022 Tripadvisor Travelers' Choice Award for Tours and Activities</h3>
-          <p class="awards-text">{awardText}</p>
-        </div>
+      <div class="awards-section__text-col">
+        <h2 id="awards-heading" class="awards-section__heading">{h2}</h2>
+        <h3 class="awards-section__subheading">{subheading}</h3>
+        <p class="awards-section__text">{awardText}</p>
       </div>
     </div>
   </div>
-</section>
+</Section>
 
 <style>
-  .awards-section {
-    background: #fff;
-    padding: 2rem 1rem;
-  }
-  .awards-section .kt-row-column-wrap {
+  .awards-section__container {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 var(--aot-container-padding);
   }
-  .awards-image-col {
+  .awards-section__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .awards-section__image-col {
     flex: 0 0 33%;
     max-width: 33%;
   }
-  .awards-text-col {
+  .awards-section__text-col {
     flex: 0 0 67%;
     max-width: 67%;
   }
-  .awards-logos {
+  .awards-section__logos {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: var(--aot-space-4);
   }
-  .awards-logos img {
+  .awards-section__logos img {
     max-width: 170px;
     width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
   }
-  .awards-section h2 {
+  .awards-section__heading {
     font-size: 1.8rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-family: var(--aot-font-heading);
     font-weight: 700;
-    color: #003366;
-    margin: 0 0 0.5rem;
+    color: var(--aot-navy);
+    margin: 0 0 var(--aot-space-2);
     text-align: left;
   }
-  .awards-subheading {
+  .awards-section__subheading {
     font-size: 1.1rem;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: var(--aot-font-body);
     font-weight: 600;
-    color: #333;
-    margin: 0 0 0.75rem;
+    color: var(--aot-gray-800);
+    margin: 0 0 var(--aot-space-3);
     text-align: left;
   }
-  .awards-text {
-    font-family: 'Open Sans', Arial, sans-serif;
+  .awards-section__text {
+    font-family: var(--aot-font-body);
     font-size: 1rem;
-    color: #555;
+    color: var(--aot-gray-700);
     line-height: 1.6;
     margin: 0;
     text-align: left;
   }
   @media (max-width: 768px) {
-    .awards-image-col, .awards-text-col {
+    .awards-section__image-col,
+    .awards-section__text-col {
       flex: 0 0 100%;
       max-width: 100%;
     }
-    .awards-image-col { margin-bottom: 1.5rem; }
+    .awards-section__image-col {
+      margin-bottom: var(--aot-space-5);
+    }
   }
 </style>

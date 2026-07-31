@@ -21,7 +21,7 @@ const { code } = Astro.props;
 
 <style is:global>
   .site-banner-announcement {
-    background: #ffffff;
+    background: var(--aot-white);
     padding: 12px;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 5px;
@@ -54,7 +54,7 @@ const { code } = Astro.props;
     font-size: 10px;
     margin: 0;
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #333;
+    color: var(--aot-gray-800);
     line-height: 1.4;
   }
   .site-banner-announcement p strong {
@@ -76,7 +76,7 @@ const { code } = Astro.props;
     opacity: 0.7;
   }
   .site-banner-announcement .closeTrigger:focus-visible {
-    outline: 2px solid #006699;
+    outline: 2px solid var(--aot-blue);
     outline-offset: 2px;
   }
   @media (max-width: 600px) {
