@@ -1,0 +1,241 @@
+---
+/**
+ * Card primitive — reusable card with image, title, description,
+ * optional badge/price, and CTA slot. Used by FeaturedTours,
+ * FeaturedTourHero, BeachEquipment packages, etc.
+ *
+ * Usage:
+ *   <Card
+ *     href="/tour/kayak/"
+ *     image="/wp-content/uploads/2021/06/kayak.jpg"
+ *     imageAlt="Kayakers in Kailua"
+ *     title="Kailua Kayak Tour"
+ *     subtitle="Oʻahu's Best"
+ *     description="Experience ocean kayaking..."
+ *     price="$82"
+ *     duration="4 Hours"
+ *     location="Kualoa"
+ *     ctaText="Paddle to Mokoliʻi ➔"
+ *     bookHref="https://fareharbor.com/..."
+ *   />
+ */
+import Heading from "./Heading.astro";
+import BookingButton from "./BookingButton.astro";
+
+interface Props {
+  href?: string;
+  image?: string;
+  imageSrcset?: string;
+  imageSizes?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  price?: string;
+  duration?: string;
+  location?: string;
+  ctaText?: string;
+  bookHref?: string;
+  badge?: string;
+  loading?: "eager" | "lazy";
+  variant?: "tour" | "package" | "feature";
+  class?: string;
+}
+
+const {
+  href,
+  image,
+  imageSrcset,
+  imageSizes,
+  imageAlt = "",
+  imageWidth,
+  imageHeight,
+  title,
+  subtitle,
+  description,
+  price,
+  duration,
+  location,
+  ctaText,
+  bookHref,
+  badge,
+  loading = "lazy",
+  variant = "tour",
+  class: extraClass = "",
+} = Astro.props;
+
+const classes = [
+  "aot-card",
+  `aot-card--${variant}`,
+  extraClass,
+].filter(Boolean).join(" ");
+
+// Component-scoped hash for CSS isolation
+const TitleTag = href ? "a" : "div";
+---
+
+<article class={classes}>
+  {image && (
+    <a class="aot-card__media-link" href={href} aria-label={title}>
+      <img
+        class="aot-card__image"
+        src={image}
+        srcset={imageSrcset}
+        sizes={imageSizes}
+        alt={imageAlt}
+        width={imageWidth}
+        height={imageHeight}
+        loading={loading}
+        decoding="async"
+      />
+      {badge && <span class="aot-card__badge">{badge}</span>}
+    </a>
+  )}
+  <div class="aot-card__body">
+    {subtitle && <p class="aot-card__subtitle">{subtitle}</p>}
+    <TitleTag class="aot-card__title" href={href}>
+      <Heading level={3} size="lg" color="body">{title}</Heading>
+    </TitleTag>
+    {description && <p class="aot-card__description">{description}</p>}
+    {(duration || location || price || ctaText) && (
+      <div class="aot-card__meta">
+        {duration && <span class="aot-card__duration">{duration}</span>}
+        {location && <span class="aot-card__location">{location}</span>}
+        {ctaText && href && <a class="aot-card__cta" href={href}>{ctaText}</a>}
+        {price && <span class="aot-card__price">{price}</span>}
+        {bookHref && <BookingButton variant="primary" size="md" location="card" href={bookHref} icon={false} />}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  /* ── Base card ────────────────────────────────────────── */
+  .aot-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--aot-white);
+    border-radius: var(--aot-border-radius);
+    overflow: hidden;
+    box-shadow: var(--aot-shadow-light);
+    transition: transform var(--aot-transition), box-shadow var(--aot-transition);
+  }
+  .aot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ── Image / media ────────────────────────────────────── */
+  .aot-card__media-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .aot-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--aot-transition);
+  }
+  .aot-card__media-link:hover .aot-card__image {
+    transform: scale(1.05);
+  }
+  .aot-card__badge {
+    position: absolute;
+    top: var(--aot-space-2);
+    left: var(--aot-space-2);
+    background: var(--aot-orange-deep);
+    color: var(--aot-white);
+    font-family: var(--aot-font-heading);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: var(--aot-border-radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Body ─────────────────────────────────────────────── */
+  .aot-card__body {
+    flex: 1;
+    padding: var(--aot-space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--aot-space-3);
+  }
+  .aot-card__subtitle {
+    font-family: var(--aot-font-heading);
+    font-weight: 700;
+    color: var(--aot-gray-700);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .aot-card__title {
+    color: var(--aot-navy);
+    text-decoration: none;
+    margin: 0;
+  }
+  .aot-card__title:hover {
+    color: var(--aot-blue);
+  }
+  .aot-card__description {
+    color: var(--aot-gray-700);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ── Meta ─────────────────────────────────────────────── */
+  .aot-card__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--aot-space-3);
+    margin-top: auto;
+    padding-top: var(--aot-space-3);
+    border-top: 1px solid var(--aot-gray-200);
+    font-size: 0.9rem;
+  }
+  .aot-card__duration,
+  .aot-card__location,
+  .aot-card__price {
+    color: var(--aot-gray-700);
+    font-weight: 600;
+  }
+  .aot-card__price {
+    margin-left: auto;
+    color: var(--aot-navy);
+    font-family: var(--aot-font-heading);
+    font-size: 1.1rem;
+  }
+  .aot-card__cta {
+    color: var(--aot-blue);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .aot-card__cta:hover {
+    color: var(--aot-blue-hover);
+    text-decoration: underline;
+  }
+
+  /* ── Variants ─────────────────────────────────────────── */
+  .aot-card--feature .aot-card__image {
+    height: 280px;
+  }
+  .aot-card--package .aot-card__image {
+    height: 240px;
+  }
+
+  /* ── Responsive ───────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .aot-card__image {
+      height: 180px;
+    }
+    .aot-card__body {
+      padding: var(--aot-space-4);
+    }
+  }
+</style>
