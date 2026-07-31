@@ -94,8 +94,11 @@
       let fullSrc = trigger.getAttribute('data-full');
       if (!fullSrc) {
         const thumbSrc = img.getAttribute('src') || img.src;
-        const derived = thumbSrc.replace(/-\d+x\d+(?=\.\w+$)/, '');
-        fullSrc = derived.replace('/wp-content/uploads/', '/wp-content/uploads/_lightbox/');
+        // Strip dimensions suffix (e.g. -115x115)
+        const noDims = thumbSrc.replace(/-\d+x\d+(?=\.\w+$)/, '');
+        // Use just the filename to avoid per-year/month duplicate dirs
+        const filename = noDims.split('/').pop();
+        fullSrc = '/wp-content/uploads/_lightbox/' + filename;
       }
       const title = trigger.getAttribute('data-title') || img.alt || '';
       lightboxImg.src = fullSrc;
