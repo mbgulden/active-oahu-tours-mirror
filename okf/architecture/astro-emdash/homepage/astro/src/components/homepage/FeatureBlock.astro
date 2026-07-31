@@ -1,4 +1,7 @@
 ---
+import Section from "../primitives/Section.astro";
+import Heading from "../primitives/Heading.astro";
+
 interface RentalCta {
   text: string;
   href: string;
@@ -23,108 +26,120 @@ interface Props {
 
 const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
 ---
-<section class="feature-block" aria-labelledby="feature-block-heading">
-  <div class="kb-row-layout-wrap kb-row-layout-id2389_4b1a3e-2e alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
-    <div class="kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
-      <div class="wp-block-kadence-column kadence-column2389_7e82bc-f0">
-        <div class="kt-inside-inner-col">
-          <h2 id="feature-block-heading" class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading has-theme-palette-4-color has-text-color" data-kb-block="kb-adv-heading2389_1c90f7-e5">
-            {h2}
-          </h2>
-          {intro && <p class="feature-block-intro" set:html={intro} />}
-          {rentalCta && (
-            <p>
-              <a href={rentalCta.href} class="feature-cta">
-                <strong>{rentalCta.text}</strong>
-              </a>
+
+<Section
+  palette="white"
+  region="Features"
+  padding="lg"
+  container={false}
+  class="feature-block"
+>
+  <div class="feature-block__grid">
+    <div class="feature-block__intro-col">
+      <div class="feature-block__inner">
+        <Heading id="feature-block-heading" level={2} size="lg" color="body" align="center">
+          {h2}
+        </Heading>
+        {intro && <p class="feature-block-intro" set:html={intro} />}
+        {rentalCta && (
+          <p class="feature-block__cta-row">
+            <a href={rentalCta.href} class="feature-cta">
+              <strong>{rentalCta.text}</strong>
+            </a>
+          </p>
+        )}
+        {moreRentalCta && (
+          <p class="feature-block__cta-row">
+            <a href={moreRentalCta.href} class="feature-cta-secondary">
+              {moreRentalCta.text} &#10132;
+            </a>
+          </p>
+        )}
+      </div>
+    </div>
+    {features.map((feature) => (
+      <div class="feature-block__card-col">
+        <div class="feature-block__inner">
+          <a class="feature-block__card-link" href={feature.href || '/activities/'} data-instant>
+            <figure class="feature-block__figure">
+              <img
+                loading="lazy"
+                decoding="async"
+                width="200"
+                height="115"
+                src={feature.icon}
+                alt={feature.iconAlt}
+                class="feature-block__icon"
+              />
+            </figure>
+            <Heading level={3} size="md" color="blue" align="center" class="feature-heading">
+              {feature.heading}
+            </Heading>
+          </a>
+          {feature.id === 'ebike' ? (
+            <p class="feature-block__desc">
+              We take day-of and last minute tour or rental bookings.<br />
+              <a href="tel:+1-808-498-1894" class="feature-block__phone">Call us at: (808)498-1894</a>
+              or visit our shop at 134B Hamakua Dr. Kailua HI 96734
             </p>
-          )}
-          {moreRentalCta && (
-            <p>
-              <a href={moreRentalCta.href} class="feature-cta-secondary">
-                {moreRentalCta.text} &#10132;
-              </a>
-            </p>
+          ) : (
+            <p class="feature-block__desc">{feature.text}</p>
           )}
         </div>
       </div>
-      {features.map((feature) => (
-        <div class:list={["wp-block-kadence-column", `kadence-column2389_${feature.id}`]}>
-          <div class="kt-inside-inner-col">
-            <a href={feature.href || '/activities/'} data-instant>
-              <figure class:list={["wp-block-kadence-image", `kb-image2389_${feature.id}`, "size-full"]}>
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  width="200"
-                  height="115"
-                  src={feature.icon}
-                  alt={feature.iconAlt}
-                  class="kb-img hover-opacity"
-                />
-              </figure>
-              <h3 class="wp-block-kadence-advancedheading feature-heading">{feature.heading}</h3>
-            </a>
-            {feature.id === 'ebike' ? (
-              <p>
-                We take day-of and last minute tour or rental bookings.<br />
-                <a href="tel:+1-808-498-1894" style="color:#006699;font-weight:600">Call us at: (808)498-1894</a>
-                or visit our shop at 134B Hamakua Dr. Kailua HI 96734
-              </p>
-            ) : (
-              <p>{feature.text}</p>
-            )}
-          </div>
-        </div>
-      ))}
-    </div>
+    ))}
   </div>
-</section>
+</Section>
 
 <style>
-  .feature-block {
-    background: #fff;
-    padding: 2rem 0;
+  .feature-block__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--aot-space-4);
+    align-items: stretch;
   }
-  .feature-block .kt-inside-inner-col {
-    padding: 1.5rem;
-    text-align: center;
+  .feature-block__intro-col,
+  .feature-block__card-col {
+    min-width: 0;
   }
-  .feature-block h2 {
-    font-size: 1.4rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1rem;
+  .feature-block__inner {
+    padding: var(--aot-space-5);
     text-align: center;
+    height: 100%;
   }
-  .feature-block h3.feature-heading {
-    font-size: 1.1rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
-    font-weight: 700;
-    color: #0066cc;
-    margin: 0.5rem 0;
-    text-align: center;
+  .feature-block-intro {
+    margin: 0 0 var(--aot-space-4);
   }
-  .feature-block p {
-    font-family: 'Open Sans', Arial, sans-serif;
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-align: center;
+  .feature-block__cta-row {
     margin: 0;
   }
-  .feature-block figure {
-    margin: 0 auto;
-    text-align: center;
+  .feature-block__figure {
+    margin: 0 auto var(--aot-space-3);
   }
-  .feature-block img {
+  .feature-block__icon {
     width: 200px;
     height: 115px;
     object-fit: contain;
   }
-  .feature-block a {
+  .feature-block__desc {
+    font-family: var(--aot-font-body);
+    color: var(--aot-gray-700);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .feature-block__phone {
+    color: var(--aot-blue);
+    font-weight: 600;
+  }
+  .feature-block__card-link {
+    display: block;
     text-decoration: none;
     color: inherit;
+  }
+  @media (max-width: 768px) {
+    .feature-block__grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
