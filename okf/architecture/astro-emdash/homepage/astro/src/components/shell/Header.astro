@@ -4,22 +4,7 @@ import BookNowButton from "./BookNowButton.astro";
 import PrimaryNav from "./PrimaryNav.astro";
 const business = shellData.business;
 const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "language");
-
-// Production-shaped sticky announcement banner
-const announcement = {
-  heading: "Deal: 15% Off Groups of 4 or More",
-  body: "Use the coupon code 15OFFGROUPS for 15% off select tours and rentals. Book online or call us today!",
-  coupon: "15OFFGROUPS",
-};
 ---
-<!-- Sticky announcement banner (matches production) -->
-<section class="site-banner-announcement" aria-label="Site announcement">
-  <div class="site-banner-announcement-inner">
-    <h4>{announcement.heading}</h4>
-    <p>{announcement.body.replace(announcement.coupon, '')} <strong>{announcement.coupon}</strong></p>
-  </div>
-</section>
-
 <header class="clearfix" role="banner">
   <section id="branding">
     <div class="aot-logo">
@@ -49,43 +34,46 @@ const announcement = {
 </div>
 
 <style>
-  /* Sticky announcement banner */
-  .site-banner-announcement {
-    background: #f5f5f5;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 10px 12px;
-    text-align: center;
-    font-family: 'Open Sans', Arial, sans-serif;
-    position: relative;
-    z-index: 999;
-  }
-  .site-banner-announcement-inner {
+  /* ── Branding row (logo + phone + book button) ───────────── */
+  #branding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 1100px;
     margin: 0 auto;
-  }
-  .site-banner-announcement h4 {
-    margin: 0 0 0.25rem;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #006699;
-    font-family: 'Open Sans Condensed', 'Lato', sans-serif;
-  }
-  .site-banner-announcement p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #333;
-    line-height: 1.4;
-  }
-  .site-banner-announcement strong {
-    color: #9B4500;
-    font-weight: 700;
-    font-family: 'Courier New', monospace;
+    padding: 1.25rem 0 0.75rem;
+    min-height: 88px;
   }
 
   /* Logo size cap (production: 186×52) */
   .aot-logo img {
     max-width: 186px;
     height: auto;
+    display: block;
+  }
+
+  /* Social-header (phone + book btn + lang) */
+  .social-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    text-align: right;
+  }
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .lang-switcher {
+    font-size: 0.85rem;
+  }
+  .lang-switcher a {
+    color: #006699;
+    text-decoration: none;
+  }
+  .lang-switcher a:hover {
+    text-decoration: underline;
   }
 
   /* Phone: burnt orange #9B4500, 18px (matches production) */
@@ -97,6 +85,7 @@ const announcement = {
     font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
     font-size: 18px;
     font-weight: 700;
+    line-height: 1.2;
   }
   .social-header-h3 a {
     color: #9B4500;
@@ -141,9 +130,16 @@ const announcement = {
 
   /* Mobile tweaks */
   @media (max-width: 767px) {
-    .social-header { margin-top: 0.5rem; }
+    #branding {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+    }
+    .social-header {
+      align-items: flex-start;
+      text-align: left;
+    }
     .social-header-h3 { font-size: 14px; }
-    .site-banner-announcement h4 { font-size: 0.85rem; }
-    .site-banner-announcement p { font-size: 0.75rem; }
   }
 </style>

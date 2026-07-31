@@ -132,11 +132,15 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
   /* ── Nav shell ───────────────────────────────────────────── */
   .aot-primary-nav {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-family: var(--font-body, 'Open Sans', Arial, sans-serif);
     background: #006699;
     border-radius: 4px;
     max-width: 1100px;
     margin: 8px auto 0;
+    padding: 0 0.25rem;
     /* CSS custom props for consistent theming */
     --nav-bg: #006699;
     --nav-text: #FFF8E8;
@@ -206,7 +210,7 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
   .nav-link {
     display: flex;
     align-items: center;
-    padding: 1rem 1.125rem;
+    padding: 0.8125rem 1.125rem;
     color: var(--nav-text);
     text-decoration: none;
     font-size: 0.9375rem;

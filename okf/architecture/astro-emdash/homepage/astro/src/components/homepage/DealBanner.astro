@@ -4,33 +4,98 @@ interface Props {
 }
 const { code } = Astro.props;
 ---
-<div id="deal-banner" style="background:#1a3a5c!important;color:#fff!important;position:relative;z-index:9999">
-  <div class="deal-banner-inner">
-    <p>
-      <strong>Deal:</strong> 15% Off Groups of 4 or More —
-      Use coupon code <strong>{code}</strong> by clicking "Add promo or discount code" at checkout.
-    </p>
+<!-- Production-style sticky announcement banner -->
+<div class="wrapper-white site-banner-announcement">
+  <section class="container">
+    <div class="banner-content">
+      <h4 style="color: #069;"><strong>Deal:</strong> 15% Off Groups of 4 or More</h4>
+      <p class="small">Come adventure with us! Use the coupon code <strong>{code}</strong> by clicking "Add promo or discount code" at checkout.</p>
+    </div>
+    <button class="closeTrigger" type="button" aria-label="Close announcement">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M13.0001 1L1.00012 13M13.0001 13L1.00012 1" stroke="#544D45" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
 </div>
 
-<style>
-  #deal-banner {
-    background: #e87121;
-    color: #fff;
+<style is:global>
+  .site-banner-announcement {
+    background: #ffffff;
+    padding: 12px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 99999;
+  }
+  .site-banner-announcement .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .site-banner-announcement .banner-content {
     text-align: center;
-    padding: 0.6rem 1rem;
+    flex: 1;
+  }
+  .site-banner-announcement h4 {
+    font-size: 13px;
+    margin: 0 0 0.25rem;
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 0.95rem;
+    font-weight: 400;
   }
-  #deal-banner p {
-    margin: 0;
-    line-height: 1.4;
-  }
-  #deal-banner a {
-    color: #fff;
-    text-decoration: underline;
-  }
-  #deal-banner strong {
+  .site-banner-announcement h4 strong {
     font-weight: 700;
   }
+  .site-banner-announcement p {
+    font-size: 10px;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #333;
+    line-height: 1.4;
+  }
+  .site-banner-announcement p strong {
+    font-weight: 700;
+  }
+  .site-banner-announcement .closeTrigger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 0;
+    color: #544D45;
+  }
+  .site-banner-announcement .closeTrigger:hover {
+    opacity: 0.7;
+  }
+  .site-banner-announcement .closeTrigger:focus-visible {
+    outline: 2px solid #006699;
+    outline-offset: 2px;
+  }
+  @media (max-width: 600px) {
+    .site-banner-announcement h4 { font-size: 12px; }
+    .site-banner-announcement p { font-size: 9px; }
+    .site-banner-announcement .closeTrigger { right: 0.25rem; }
+  }
 </style>
+
+<script>
+  // Close button handler
+  document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.querySelector('.site-banner-announcement .closeTrigger');
+    const banner = document.querySelector('.site-banner-announcement');
+    if (closeBtn && banner) {
+      closeBtn.addEventListener('click', () => {
+        banner.classList.add('fade-out');
+        setTimeout(() => { banner.style.display = 'none'; }, 250);
+      });
+    }
+  });
+</script>
