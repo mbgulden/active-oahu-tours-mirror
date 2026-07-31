@@ -1,6 +1,5 @@
 ---
 import Section from "../primitives/Section.astro";
-import Heading from "../primitives/Heading.astro";
 
 interface RentalCta {
   text: string;
@@ -37,9 +36,7 @@ const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
   <div class="feature-block__grid">
     <div class="feature-block__intro-col">
       <div class="feature-block__inner">
-        <Heading id="feature-block-heading" level={2} size="lg" color="body" align="center">
-          {h2}
-        </Heading>
+        <h2 id="feature-block-heading" class="feature-block__h2">{h2}</h2>
         {intro && <p class="feature-block-intro" set:html={intro} />}
         {rentalCta && (
           <p class="feature-block__cta-row">
@@ -72,9 +69,7 @@ const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
                 class="feature-block__icon"
               />
             </figure>
-            <Heading level={3} size="md" color="blue" align="center" class="feature-heading">
-              {feature.heading}
-            </Heading>
+            <h3 class="feature-block__h3">{feature.heading}</h3>
           </a>
           {feature.id === 'ebike' ? (
             <p class="feature-block__desc">
@@ -109,6 +104,22 @@ const { h2, intro, features, rentalCta, moreRentalCta } = Astro.props;
   }
   .feature-block-intro {
     margin: 0 0 var(--aot-space-4);
+  }
+  .feature-block__h2 {
+    font-family: var(--aot-font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--aot-gray-800);
+    margin: 0 0 var(--aot-space-4);
+    text-align: center;
+  }
+  .feature-block__h3 {
+    font-family: var(--aot-font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--aot-blue);
+    margin: 0.5rem 0;
+    text-align: center;
   }
   .feature-block__cta-row {
     margin: 0;
