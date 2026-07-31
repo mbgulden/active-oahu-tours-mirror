@@ -133,22 +133,21 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
   .aot-primary-nav {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
-    font-family: var(--font-body, 'Open Sans', Arial, sans-serif);
+    font-family: 'Open Sans Condensed', sans-serif;
     background: #006699;
-    border-radius: 4px;
-    max-width: 1100px;
-    margin: 8px auto 0;
-    padding: 0 0.25rem;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 42px;
     /* CSS custom props for consistent theming */
     --nav-bg: #006699;
-    --nav-text: #FFF8E8;
+    --nav-text: #fdf5e3;
     --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
-    --nav-dropdown-bg: #ffffff;
-    --nav-dropdown-text: #333333;
-    --nav-dropdown-link-hover-bg: #f5f5f5;
-    --nav-dropdown-border: #e0e0e0;
+    --nav-dropdown-bg: #004f75;
+    --nav-dropdown-text: #ffffff;
+    --nav-dropdown-link-hover-bg: #005580;
+    --nav-dropdown-border: transparent;
   }
 
   /* ── Mobile toggle ───────────────────────────────────────── */
@@ -210,7 +209,13 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
   .nav-link {
     display: flex;
     align-items: center;
-    padding: 0.8125rem 1.125rem;
+    padding: 10px 16px;
+    color: #fdf5e3;
+    line-height: 22px;
+    font-size: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 400;
+    text-transform: none;
     color: var(--nav-text);
     text-decoration: none;
     font-size: 0.9375rem;
@@ -220,9 +225,10 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
     /* Touch target minimum */
     min-height: 44px;
   }
-  .nav-link:hover {
-    background: var(--nav-link-hover-bg);
-    color: var(--nav-text);
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: #005580;
+    color: #ffffff;
     text-decoration: none;
   }
   .nav-link:focus-visible {
@@ -230,10 +236,9 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
     outline-offset: -2px;
   }
   .nav-link[aria-current="page"] {
-    background: rgba(255, 255, 255, 0.15);
+    background-color: #0085b0;
     color: #ffffff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
   }
 
   /* ── CTA cluster (desktop only) ─────────────────────────── */
@@ -354,8 +359,8 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
   }
   .nav-dropdown-link:hover,
   .nav-dropdown-link:focus-visible {
-    background: var(--nav-dropdown-link-hover-bg);
-    color: var(--nav-dropdown-text);
+    background-color: #005580;
+    color: #ffffff;
     text-decoration: none;
   }
   .nav-dropdown-link:focus-visible {

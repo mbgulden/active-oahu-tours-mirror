@@ -9,15 +9,12 @@ const booking = shellData.bookingConfig;
   data-analytics-event={booking.analyticsEvent}
   onclick={`FH.open({'shortname':'${booking.shortname}','fallback':'${booking.fallback}'}); return false;`}
 >
-  <span class="aot-book-now-icon" aria-hidden="true">📅</span>
-  <strong>{booking.ctaLabel}</strong>
+  <strong>Book Online</strong>
 </a>
 
 <style>
   .aot-book-now {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: inline-block;
     background-color: #A94400;
     color: #ffffff;
     font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
@@ -31,23 +28,20 @@ const booking = shellData.bookingConfig;
     text-decoration: none;
     line-height: 1.2;
     white-space: nowrap;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
     transition: background-color 0.15s ease;
   }
   .aot-book-now:hover {
     background-color: #8a3800;
     color: #ffffff;
   }
-  .aot-book-now-icon {
-    font-size: 14px;
-    line-height: 1;
-  }
   .aot-book-now strong {
     font-weight: 700;
   }
   @media (max-width: 767px) {
     .aot-book-now {
-      padding: 4px 8px;
       font-size: 12px;
+      padding: 4px 8px;
     }
   }
 </style>

@@ -9,13 +9,12 @@ const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "l
   <section id="branding">
     <div class="aot-logo">
       <a href="/" rel="home" aria-label="Active Oahu Tours, Oahu Hawaii Activities">
-        <img loading="eager" decoding="async" alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65" />
+        <img loading="lazy" decoding="async" alt="Active Oahu Tours, Oahu Hawaii Activities" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65" />
       </a>
     </div>
     <div class="social-header">
       <h3 class="social-header-h3">
-        <span class="sr-only">Call or Text </span>
-        <a href={business.telephoneHref}>{business.phone}</a>
+        <span class="feature">{business.phone}</span>
       </h3>
       <div class="social-links">
         <BookNowButton />
@@ -26,120 +25,111 @@ const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "l
   <PrimaryNav bookingHref={business.bookingUrl} bookingLabel="Book Now" phoneHref={business.telephoneHref} />
 </header>
 
-<!-- Breadcrumb strip (matches production) -->
-<div class="breadcrumb-container" aria-label="Breadcrumb">
-  <div class="breadcrumb-inner">
-    <p id="breadcrumbs"><span class="breadcrumb-current">Home</span></p>
-  </div>
-</div>
-
 <style>
-  /* ── Branding row (logo + phone + book button) ───────────── */
+  /* ── Branding row (matches production's nav-fix.css) ─────── */
   #branding {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 1.25rem 0 0.75rem;
-    min-height: 88px;
+    padding: 10px 24px;
   }
 
-  /* Logo size cap (production: 186×52) */
+  #branding .aot-logo {
+    float: none;
+    margin: 0;
+    max-width: none;
+    width: auto;
+  }
+
+  /* Logo (production: max-height: 52px) */
   .aot-logo img {
-    max-width: 186px;
-    height: auto;
+    max-height: 52px;
+    width: auto;
+    max-width: none;
     display: block;
   }
 
-  /* Social-header (phone + book btn + lang) */
+  /* Social-header (production: column, right-aligned) */
   .social-header {
+    float: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.4rem;
-    text-align: right;
+    gap: 4px;
+    margin-left: auto;
+    width: auto;
   }
+
+  /* "Call or Text" via ::before pseudo-element (production pattern) */
+  .social-header-h3 {
+    font-size: 18px;
+    font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
+    margin: 0;
+    text-align: right;
+    line-height: 1.2;
+  }
+  .social-header-h3::before {
+    content: "Call or Text";
+    font-size: 9px;
+    display: block;
+    text-align: right;
+    color: #888;
+    font-weight: 400;
+    font-family: 'Open Sans', Arial, sans-serif;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  /* Phone: orange #ff7f00 (production) */
+  .social-header .feature,
+  .social-header-h3 .feature {
+    color: #ff7f00;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .social-header-h3 .feature:hover {
+    text-decoration: underline;
+  }
+
+  /* Book button container */
   .social-links {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
+
+  /* Language switcher (production has it!) */
   .lang-switcher {
-    font-size: 0.85rem;
+    font-size: 13px;
+    margin: 0;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1.4;
   }
   .lang-switcher a {
     color: #006699;
     text-decoration: none;
+    padding: 0 6px;
+    display: inline;
   }
   .lang-switcher a:hover {
     text-decoration: underline;
   }
 
-  /* Phone: burnt orange #9B4500, 18px (matches production) */
-  .social-header-h3 {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin: 0;
-    font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .social-header-h3 a {
-    color: #9B4500;
-    text-decoration: none;
-  }
-  .social-header-h3 a:hover {
-    text-decoration: underline;
-  }
-
-  /* Screen-reader-only utility */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* Breadcrumb */
-  .breadcrumb-container {
-    background: #fafafa;
-    border-bottom: 1px solid #eee;
-    padding: 8px 12px;
-    font-family: 'Open Sans', Arial, sans-serif;
-  }
-  .breadcrumb-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .breadcrumb-container p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: #666;
-  }
-  .breadcrumb-current {
-    color: #333;
-  }
-
-  /* Mobile tweaks */
+  /* Mobile tweaks (production: phone + btn + lang in a single row) */
   @media (max-width: 767px) {
-    #branding {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.75rem 0;
-    }
     .social-header {
-      align-items: flex-start;
-      text-align: left;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 8px;
+      padding: 6px 10px;
     }
-    .social-header-h3 { font-size: 14px; }
+    .social-header-h3 { font-size: 14px; white-space: nowrap; }
+    .social-links { margin: 0; flex-shrink: 0; }
   }
 </style>
