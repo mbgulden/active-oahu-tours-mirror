@@ -215,31 +215,45 @@
   line-height: 1.5;
 }
 
-/* Kadence nav overrides — force white nav text on #006699 */
+/* Kadence nav overrides — cream nav text on #006699 (matches production) */
 .kt-row-layout-wrap .wp-block-kadence-navigation ul li a,
 .nav-item .nav-link,
 .aot-primary-nav .nav-link,
 .aot-primary-nav a,
 .wp-block-kadence-navigation .nav-link {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+  color: #FFF8E8 !important;
+  fill: #FFF8E8 !important;
 }
 
 /* Header nav "Book Online" — standalone class, no Bootstrap/Kadence namespace */
 .aot-book-now {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #1a3a5c !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 6px 14px;
+  background-color: #A94400 !important;
   color: #ffffff !important;
   border-radius: 4px;
   text-decoration: none !important;
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.78px !important;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
 }
 .aot-book-now:hover {
-  background-color: #003366 !important;
+  background-color: #8a3800 !important;
   color: #ffffff !important;
+}
+.aot-book-now-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+@media (max-width: 767px) {
+  .aot-book-now { padding: 4px 8px !important; font-size: 12px !important; }
 }
 
 /* Hero "Book Online" — standalone class, no btn-primary hook */
