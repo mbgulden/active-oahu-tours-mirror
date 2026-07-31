@@ -142,7 +142,7 @@ const {
     min-height: 380px;
   }
 
-  /* Dark overlay on hero image (production-style ::before) */
+  /* Dark overlay on hero image (production-style ::before, mostly transparent) */
   .kb-section-has-overlay > .hero-left-col::before {
     content: "";
     position: absolute;
@@ -150,7 +150,8 @@ const {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+    opacity: 0.3;
     z-index: -1;
     transition: all 0.3s ease-in-out;
   }
@@ -184,22 +185,24 @@ const {
     padding: 2rem;
   }
 
-  /* ── Headings — white text ── */
+  /* ── Headings — white text with text-shadow for contrast ── */
   .hero-banner h1 {
-    font-size: 1.4rem;
+    font-size: var(--aot-h1-size, 1.25rem);
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--aot-h1-mb, 1rem);
     color: #ffffff;
     line-height: 1.2;
+    text-shadow: 1px 1px 3px #000000;
   }
   .hero-banner h2 {
-    font-size: 3rem;
+    font-size: var(--aot-h2-size, 5rem);
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     margin: 0;
     color: #ffffff;
-    line-height: 1.1;
+    line-height: 1.2;
+    text-shadow: 1px 1px 21px #000000;
   }
   .hero-banner .cta-subheading {
     font-size: 1rem;
@@ -240,8 +243,8 @@ const {
 
   /* ── Responsive ─────────────────────────────────────────── */
   @media (max-width: 768px) {
-    .hero-banner h1 { font-size: 1.2rem; }
-    .hero-banner h2 { font-size: 2rem; }
+    .hero-banner h1 { font-size: var(--aot-h1-size-mobile, 1rem); }
+    .hero-banner h2 { font-size: var(--aot-h2-size-mobile, 2.5rem); text-shadow: 1px 1px 14px #000000; }
     .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
     .hero-left-col { min-height: 280px; }
   }
