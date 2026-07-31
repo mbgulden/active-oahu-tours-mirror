@@ -5,11 +5,11 @@
  * - Mobile: touch swipe (left/right) between images, tap to close
  * - Accessible: role="dialog", aria-modal, focus management, aria-label
  * - Groups images by data-lightbox attribute
+ * - Loads full-size image from /wp-content/uploads/_lightbox/ (falls back to thumbnail)
  */
 (function () {
   'use strict';
 
-  // Wait for DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
@@ -17,17 +17,14 @@
   }
 
   function init() {
-    // Find all lightbox triggers
     const triggers = document.querySelectorAll('[data-lightbox]');
     if (!triggers.length) return;
 
     let currentGroup = null;
     let currentIndex = 0;
     let touchStartX = 0;
-    let touchEndX = 0;
     let lastFocused = null;
 
-    // Inject lightbox DOM
     const overlay = document.createElement('div');
     overlay.id = 'aot-lightbox';
     overlay.className = 'aot-lightbox';
@@ -50,6 +47,15 @@
     document.body.appendChild(overlay);
 
     const lightboxImg = overlay.querySelector('.aot-lightbox-img');
+    lightboxImg.addEventListener('error', function handleImgError() {
+      const trigger = currentGroup && currentGroup[currentIndex];
+      if (trigger) {
+        const img = trigger.querySelector('img');
+        if (img && img.src && lightboxImg.src !== img.src) {
+          lightboxImg.src = img.src;
+        }
+      }
+    });
     const lightboxTitle = overlay.querySelector('.aot-lightbox-title');
     const lightboxCounter = overlay.querySelector('.aot-lightbox-counter');
     const closeBtn = overlay.querySelector('.aot-lightbox-close');
@@ -57,7 +63,7 @@
     const nextBtn = overlay.querySelector('.aot-lightbox-next');
 
     function getGroup(groupName) {
-      return Array.from(document.querySelectorAll(`[data-lightbox="${groupName}"]`));
+      return Array.from(document.querySelectorAll('[data-lightbox="' + groupName + '"]'));
     }
 
     function open(groupName, index) {
@@ -70,8 +76,7 @@
       overlay.removeAttribute('hidden');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-      // Focus close button for keyboard users
-      setTimeout(() => closeBtn.focus(), 50);
+      setTimeout(function () { closeBtn.focus(); }, 50);
     }
 
     function close() {
@@ -86,13 +91,17 @@
     function show() {
       const trigger = currentGroup[currentIndex];
       const img = trigger.querySelector('img');
-      const fullSrc = trigger.getAttribute('data-full') || img.src;
+      let fullSrc = trigger.getAttribute('data-full');
+      if (!fullSrc) {
+        const thumbSrc = img.getAttribute('src') || img.src;
+        const derived = thumbSrc.replace(/-\d+x\d+(?=\.\w+$)/, '');
+        fullSrc = derived.replace('/wp-content/uploads/', '/wp-content/uploads/_lightbox/');
+      }
       const title = trigger.getAttribute('data-title') || img.alt || '';
       lightboxImg.src = fullSrc;
       lightboxImg.alt = title;
       lightboxTitle.textContent = title;
-      lightboxCounter.textContent = `Image ${currentIndex + 1} of ${currentGroup.length}`;
-      // Hide nav buttons if only one image
+      lightboxCounter.textContent = 'Image ' + (currentIndex + 1) + ' of ' + currentGroup.length;
       const single = currentGroup.length <= 1;
       prevBtn.style.display = single ? 'none' : '';
       nextBtn.style.display = single ? 'none' : '';
@@ -110,44 +119,37 @@
       show();
     }
 
-    // Attach click handlers to all triggers
-    triggers.forEach((trigger, idx) => {
+    triggers.forEach(function (trigger) {
       const groupName = trigger.getAttribute('data-lightbox');
-      // Find this trigger's index within its group
       const group = getGroup(groupName);
       const groupIndex = group.indexOf(trigger);
-      trigger.addEventListener('click', (e) => {
+      trigger.addEventListener('click', function (e) {
         e.preventDefault();
         open(groupName, groupIndex);
       });
     });
 
-    // Close button
     closeBtn.addEventListener('click', close);
 
-    // Nav buttons
-    prevBtn.addEventListener('click', (e) => {
+    prevBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       prev();
     });
-    nextBtn.addEventListener('click', (e) => {
+    nextBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       next();
     });
 
-    // Click outside image to close
-    overlay.addEventListener('click', (e) => {
+    overlay.addEventListener('click', function (e) {
       if (e.target === overlay) close();
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function (e) {
       if (!overlay.classList.contains('open')) return;
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowRight') next();
       else if (e.key === 'ArrowLeft') prev();
       else if (e.key === 'Tab') {
-        // Simple focus trap: keep tab within the dialog
         const focusable = [closeBtn, prevBtn, nextBtn];
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -161,18 +163,17 @@
       }
     });
 
-    // Touch swipe support for mobile
     overlay.addEventListener(
       'touchstart',
-      (e) => {
+      function (e) {
         touchStartX = e.changedTouches[0].screenX;
       },
       { passive: true }
     );
     overlay.addEventListener(
       'touchend',
-      (e) => {
-        touchEndX = e.changedTouches[0].screenX;
+      function (e) {
+        const touchEndX = e.changedTouches[0].screenX;
         const dx = touchEndX - touchStartX;
         const threshold = 50;
         if (Math.abs(dx) > threshold) {
