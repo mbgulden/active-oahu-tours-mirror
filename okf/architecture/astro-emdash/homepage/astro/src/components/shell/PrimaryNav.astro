@@ -125,14 +125,6 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
       </svg>
       <span class="nav-cta-label">{phoneLabel}</span>
     </a>
-    {bookingHref && (
-      <a href={bookingHref} class="nav-cta nav-cta--book" data-book>
-        <svg class="nav-cta-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-          <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7v-5z"/>
-        </svg>
-        <span class="nav-cta-label">{bookingLabel}</span>
-      </a>
-    )}
   </div>
 </nav>
 
@@ -142,9 +134,12 @@ const phoneLabel = (Astro.props.phoneLabel as string | undefined) ?? "Call";
     position: relative;
     font-family: var(--font-body, 'Open Sans', Arial, sans-serif);
     background: #006699;
+    border-radius: 4px;
+    max-width: 1100px;
+    margin: 8px auto 0;
     /* CSS custom props for consistent theming */
     --nav-bg: #006699;
-    --nav-text: #ffffff;
+    --nav-text: #FFF8E8;
     --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
     --nav-dropdown-bg: #ffffff;
     --nav-dropdown-text: #333333;

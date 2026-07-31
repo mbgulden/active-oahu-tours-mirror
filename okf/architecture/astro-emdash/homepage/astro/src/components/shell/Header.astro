@@ -4,7 +4,22 @@ import BookNowButton from "./BookNowButton.astro";
 import PrimaryNav from "./PrimaryNav.astro";
 const business = shellData.business;
 const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "language");
+
+// Production-shaped sticky announcement banner
+const announcement = {
+  heading: "Deal: 15% Off Groups of 4 or More",
+  body: "Use the coupon code 15OFFGROUPS for 15% off select tours and rentals. Book online or call us today!",
+  coupon: "15OFFGROUPS",
+};
 ---
+<!-- Sticky announcement banner (matches production) -->
+<section class="site-banner-announcement" aria-label="Site announcement">
+  <div class="site-banner-announcement-inner">
+    <h4>{announcement.heading}</h4>
+    <p>{announcement.body.replace(announcement.coupon, '')} <strong>{announcement.coupon}</strong></p>
+  </div>
+</section>
+
 <header class="clearfix" role="banner">
   <section id="branding">
     <div class="aot-logo">
@@ -14,7 +29,7 @@ const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "l
     </div>
     <div class="social-header">
       <h3 class="social-header-h3">
-        <span class="social-header-label">Phone:</span>
+        <span class="sr-only">Call or Text </span>
         <a href={business.telephoneHref}>{business.phone}</a>
       </h3>
       <div class="social-links">
@@ -26,25 +41,109 @@ const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "l
   <PrimaryNav bookingHref={business.bookingUrl} bookingLabel="Book Now" phoneHref={business.telephoneHref} />
 </header>
 
+<!-- Breadcrumb strip (matches production) -->
+<div class="breadcrumb-container" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <p id="breadcrumbs"><span class="breadcrumb-current">Home</span></p>
+  </div>
+</div>
+
 <style>
+  /* Sticky announcement banner */
+  .site-banner-announcement {
+    background: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 12px;
+    text-align: center;
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    z-index: 999;
+  }
+  .site-banner-announcement-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .site-banner-announcement h4 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #006699;
+    font-family: 'Open Sans Condensed', 'Lato', sans-serif;
+  }
+  .site-banner-announcement p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.4;
+  }
+  .site-banner-announcement strong {
+    color: #9B4500;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Logo size cap (production: 186×52) */
+  .aot-logo img {
+    max-width: 186px;
+    height: auto;
+  }
+
+  /* Phone: burnt orange #9B4500, 18px (matches production) */
   .social-header-h3 {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     margin: 0;
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  .social-header-label {
-    color: #006699;
+    font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
+    font-size: 18px;
     font-weight: 700;
   }
   .social-header-h3 a {
-    color: #006699;
+    color: #9B4500;
     text-decoration: none;
   }
   .social-header-h3 a:hover {
     text-decoration: underline;
+  }
+
+  /* Screen-reader-only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb-container {
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    padding: 8px 12px;
+    font-family: 'Open Sans', Arial, sans-serif;
+  }
+  .breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .breadcrumb-container p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  .breadcrumb-current {
+    color: #333;
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 767px) {
+    .social-header { margin-top: 0.5rem; }
+    .social-header-h3 { font-size: 14px; }
+    .site-banner-announcement h4 { font-size: 0.85rem; }
+    .site-banner-announcement p { font-size: 0.75rem; }
   }
 </style>
