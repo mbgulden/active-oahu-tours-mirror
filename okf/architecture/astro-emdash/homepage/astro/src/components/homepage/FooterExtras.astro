@@ -45,7 +45,7 @@ const {
     { src: "/wp-content/uploads/2018/11/DSC5297_2000-115x115.jpg", alt: "Oahu malibu kayaks pro 2 tandem ocean Kayak Rentals", href: "/active-oahu-photo-gallery/" },
   ],
   headingFollow = "Follow our Oʻahu Adventures",
-  headingNewsletter = "Get Updates and Freebies",
+  headingNewsletter = "Get Email Updates",
   headingGallery = "Awesome Photos",
 } = Astro.props;
 ---
@@ -80,7 +80,7 @@ const {
       <p>We've got plenty of photos to show off our kayaking, snorkeling, hiking and SUP adventures. We also love the scenery and showing off our gear.</p>
       <div class="footer-gallery-grid">
         {galleryImages.map((img) => (
-          <a href={img.href || "/active-oahu-photo-gallery/"} aria-label="View Active Oahu photo gallery">
+          <a href={img.href || "/active-oahu-photo-gallery/"} data-lightbox="aot-gallery" data-title={img.alt} aria-label={`View larger image: ${img.alt}`}>
             <img src={img.src} alt={img.alt} width="115" height="115" loading="lazy" decoding="async" />
           </a>
         ))}
