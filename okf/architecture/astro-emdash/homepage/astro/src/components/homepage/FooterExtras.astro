@@ -33,13 +33,16 @@ const {
   ],
   formAction = "https://activeoahu.us9.list-manage.com/subscribe/post?u=5cb586c27776f84f261f708d6&id=894ddfa45f",
   formId = "mc-embedded-subscribe-form",
-  // 5 unique images that DON'T overlap with RentalGrid, Mokulua FeaturedTourHero, or FeaturedTours
+  // 8 images matching production's "Awesome Photos" footer gallery exactly
   galleryImages = [
     { src: "/wp-content/uploads/2018/11/DSC5447_2000-115x115.jpg", alt: "Oahu Beach Equipment Rental Packages", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2018/11/DSC5297_2000-115x115.jpg", alt: "Hiking and Kayaking Tour", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2018/11/DJI_0988_2000_1x2-115x115.jpg", alt: "Oahu Kayak Adventure", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2016/11/Standup-Paddleboard-Lessons_Thumbnail-1-115x115.jpg", alt: "Standup Paddleboard Lessons on Oahu", href: "/active-oahu-photo-gallery/" },
-    { src: "/wp-content/uploads/2023/03/lanikai-Kayak-rental-480x320.jpg", alt: "Lanikai Kayak Rental", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_31-2-115x115.jpg", alt: "Kayaking to Mokolii", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2016/11/Oahu-Kayaking-Tours_13-115x115.jpg", alt: "Hiking Mokoli'i on Oahu", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2016/11/Oahu-Kayak-Tours_11_thumb-1-115x115.jpg", alt: "Best Oahu Kayak Tour", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2016/11/Oahu-Snorkeling_6-1-115x115.jpg", alt: "Oahu Snorkel Tours", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2016/11/Standup-Paddleboard-Lessons_Thumbnail-1-115x115.jpg", alt: "Stand up paddle boarding in Oahu", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2018/11/DJI_0988_2000_1x2-115x115.jpg", alt: "Aerial Active Oahu photo gallery thumbnail", href: "/active-oahu-photo-gallery/" },
+    { src: "/wp-content/uploads/2018/11/DSC5297_2000-115x115.jpg", alt: "Oahu malibu kayaks pro 2 tandem ocean Kayak Rentals", href: "/active-oahu-photo-gallery/" },
   ],
   headingFollow = "Follow our Oʻahu Adventures",
   headingNewsletter = "Get Updates and Freebies",
@@ -82,6 +85,9 @@ const {
           </a>
         ))}
       </div>
+      <a href="/active-oahu-photo-gallery/" class="footer-gallery-link">
+        <strong>View the Gallery</strong> <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -172,14 +178,14 @@ const {
   }
   .footer-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2px;
     margin-top: 0.75rem;
   }
   .footer-gallery-grid a {
     display: block;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: transform 0.2s ease;
   }
   .footer-gallery-grid a:hover {
@@ -187,15 +193,26 @@ const {
   }
   .footer-gallery-grid img {
     width: 100%;
-    height: auto;
+    height: 115px;
+    object-fit: cover;
     display: block;
+  }
+  .footer-gallery-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #0066cc;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  .footer-gallery-link:hover {
+    text-decoration: underline;
   }
   @media (max-width: 768px) {
     .footer-extras-container {
       grid-template-columns: 1fr;
     }
     .footer-gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>
