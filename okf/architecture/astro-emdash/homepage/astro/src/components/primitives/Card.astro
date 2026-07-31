@@ -21,6 +21,7 @@
  */
 import Heading from "./Heading.astro";
 import BookingButton from "./BookingButton.astro";
+import PriceTag from "./PriceTag.astro";
 
 interface Props {
   href?: string;
@@ -41,6 +42,12 @@ interface Props {
   badge?: string;
   loading?: "eager" | "lazy";
   variant?: "tour" | "package" | "feature";
+  /**
+   * Title heading size — passed through to the Heading primitive.
+   * Defaults to "lg" (2rem) which is a sensible default for standalone cards.
+   * For dense grid layouts like FeaturedTours, set to "sm" or "md".
+   */
+  titleSize?: "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
   class?: string;
 }
 
@@ -63,6 +70,7 @@ const {
   badge,
   loading = "lazy",
   variant = "tour",
+  titleSize = "lg",
   class: extraClass = "",
 } = Astro.props;
 
@@ -96,7 +104,7 @@ const TitleTag = href ? "a" : "div";
   <div class="aot-card__body">
     {subtitle && <p class="aot-card__subtitle">{subtitle}</p>}
     <TitleTag class="aot-card__title" href={href}>
-      <Heading level={3} size="lg" color="body">{title}</Heading>
+      <Heading level={3} size={titleSize} color="body">{title}</Heading>
     </TitleTag>
     {description && <p class="aot-card__description">{description}</p>}
     {(duration || location || price || ctaText) && (
@@ -104,7 +112,7 @@ const TitleTag = href ? "a" : "div";
         {duration && <span class="aot-card__duration">{duration}</span>}
         {location && <span class="aot-card__location">{location}</span>}
         {ctaText && href && <a class="aot-card__cta" href={href}>{ctaText}</a>}
-        {price && <span class="aot-card__price">{price}</span>}
+        {price && <PriceTag price={price} size="md" align="right" class="aot-card__price" />}
         {bookHref && <BookingButton variant="primary" size="md" location="card" href={bookHref} icon={false} />}
       </div>
     )}

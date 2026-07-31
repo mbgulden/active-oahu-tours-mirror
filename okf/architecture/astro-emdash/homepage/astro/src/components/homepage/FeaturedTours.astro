@@ -58,6 +58,7 @@ const { h2, tours } = Astro.props;
           ctaText={`${tour.cta} ➔`}
           bookHref={tour.bookingHref}
           variant="tour"
+          titleSize="sm"
           class="tour-card"
         >
           {tour.note && <p class="tour-note">{tour.note}</p>}
