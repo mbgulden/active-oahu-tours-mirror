@@ -1,4 +1,6 @@
 ---
+import Section from "../primitives/Section.astro";
+
 interface InlineLink {
   label: string;
   href: string;
@@ -13,9 +15,6 @@ interface Props {
   image?: string;
   imageAlt?: string;
   inlineLinks?: InlineLink[];
-  // Optional "front-page-packages" cards (right side, like production)
-  // Each card: a heading (Rentals/Self-Guided Kayak Tour), a feature (Daily/Multi-Day/Rainforest River/Chinaman's Hat),
-  // a subheading, and an image used as the card background
   packages?: { heading: string; feature: string; subheading?: string; text?: string; image: string; href: string }[];
 }
 
@@ -42,30 +41,53 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
   return out;
 };
 ---
-<section class="beach-equipment" aria-label={heading}>
-  <div class="be-container">
-    <div class="be-row">
-      <section class="be-description">
-        <div class="be-front-page-with-bg" style={`background-image:url('${image}')`}>
-          <img src={image} alt={imageAlt} class="be-front-page-img-bg" width="724" height="483" loading="lazy" />
-          <div class="be-feature-description-p be-feature-description-p-right">
-            <h4 class="be-heading">{heading}</h4>
+
+<Section
+  palette="white"
+  region={heading}
+  padding="none"
+  container={false}
+  class="beach-equipment"
+>
+  <div class="beach-equipment__container">
+    <div class="beach-equipment__row">
+      <div class="beach-equipment__description">
+        <div
+          class="beach-equipment__bg"
+          style={`background-image:url('${image}')`}
+        >
+          <img
+            src={image}
+            alt={imageAlt}
+            class="beach-equipment__bg-img"
+            width="724"
+            height="483"
+            loading="lazy"
+          />
+          <div class="beach-equipment__card">
+            <h4 class="beach-equipment__heading">{heading}</h4>
             <p set:html={renderTextWithLinks(text, inlineLinks)} />
             {details && <p>{details}</p>}
             <br />
             <a href={ctaHref}>{cta} <span aria-hidden="true">&#10132;</span></a>
           </div>
         </div>
-      </section>
+      </div>
       {packages.length > 0 && (
-        <div class="be-packages-col">
-          <div class="be-packages-row">
+        <div class="beach-equipment__packages-col">
+          <div class="beach-equipment__packages-row">
             {packages.map((pkg) => (
-              <a href={pkg.href} class="be-front-page-package darken" style={`background-image: url('${pkg.image}')`}>
-                <h3 class="be-package-front-text">{pkg.heading}</h3>
-                <h3 class="be-feature package-margins">{pkg.feature}</h3>
-                {pkg.subheading && <h4 class="be-package-margins be-activity-front-text">{pkg.subheading}</h4>}
-                {pkg.text && <p class="be-date-front-text">{pkg.text}</p>}
+              <a
+                href={pkg.href}
+                class="beach-equipment__package"
+                style={`background-image: url('${pkg.image}')`}
+              >
+                <h3 class="beach-equipment__package-heading">{pkg.heading}</h3>
+                <h3 class="beach-equipment__package-feature">{pkg.feature}</h3>
+                {pkg.subheading && (
+                  <h4 class="beach-equipment__package-subheading">{pkg.subheading}</h4>
+                )}
+                {pkg.text && <p class="beach-equipment__package-text">{pkg.text}</p>}
               </a>
             ))}
           </div>
@@ -73,33 +95,29 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
       )}
     </div>
   </div>
-</section>
+</Section>
 
 <style>
-  .beach-equipment {
-    background: #ffffff;
-    padding: 0;
-  }
-  .be-container {
+  .beach-equipment__container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-  .be-row {
+  .beach-equipment__row {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
   }
-  .be-description {
+  .beach-equipment__description {
     flex: 0 0 75%;
     max-width: 75%;
     padding-right: 0;
   }
-  .be-packages-col {
+  .beach-equipment__packages-col {
     flex: 0 0 25%;
     max-width: 25%;
   }
-  .be-front-page-with-bg {
+  .beach-equipment__bg {
     position: relative;
     background-size: cover;
     background-position: center;
@@ -107,121 +125,119 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
     min-height: 320px;
     overflow: hidden;
   }
-  .be-front-page-img-bg {
+  .beach-equipment__bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  .be-feature-description-p-right {
+  .beach-equipment__card {
     position: relative;
     padding: 1.5rem 2rem;
     background: rgba(255, 255, 255, 0.85);
     margin: 2rem auto;
     max-width: 80%;
   }
-  .be-heading {
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+  .beach-equipment__heading {
+    font-family: var(--aot-font-heading);
     font-size: 1.5rem;
     font-weight: 700;
-    color: #586e75;
-    margin: 0 0 1rem;
+    color: var(--aot-gray-600);
+    margin: 0 0 var(--aot-space-4);
   }
-  .be-feature-description-p p {
-    font-family: 'Open Sans', Arial, sans-serif;
+  .beach-equipment__card p {
+    font-family: var(--aot-font-body);
     font-size: 0.95rem;
-    color: #555;
+    color: var(--aot-gray-700);
     line-height: 1.6;
     margin: 0 0 0.75rem;
   }
-  .be-feature-description-p a {
-    font-family: 'Open Sans', Arial, sans-serif;
+  .beach-equipment__card a {
+    font-family: var(--aot-font-body);
     font-size: 0.95rem;
     font-weight: 600;
-    color: #0066cc;
+    color: var(--aot-blue);
     text-decoration: none;
   }
-  .be-feature-description-p a:hover {
+  .beach-equipment__card a:hover {
     text-decoration: underline;
-    color: #004999;
+    color: var(--aot-blue-hover);
   }
-  .be-packages-row {
+  .beach-equipment__packages-row {
     display: flex;
     flex-direction: column;
     height: 100%;
   }
-  .be-front-page-package {
+  .beach-equipment__package {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: var(--aot-space-4);
     min-height: 160px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #fff;
+    color: var(--aot-white);
     text-decoration: none;
     position: relative;
     transition: filter 0.2s ease;
   }
-  .be-front-page-package.darken::before {
-    content: '';
+  .beach-equipment__package::before {
+    content: "";
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
     transition: background 0.2s ease;
   }
-  .be-front-page-package.darken:hover::before {
+  .beach-equipment__package:hover::before {
     background: rgba(0, 0, 0, 0.6);
   }
-  .be-front-page-package > * {
+  .beach-equipment__package > * {
     position: relative;
     z-index: 1;
   }
-  .be-package-front-text {
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+  .beach-equipment__package-heading,
+  .beach-equipment__package-feature,
+  .beach-equipment__package-subheading {
+    font-family: var(--aot-font-heading);
+    color: var(--aot-white);
+    margin: 0.25rem 0;
+  }
+  .beach-equipment__package-heading {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #fff;
-    margin: 0;
   }
-  .be-feature.package-margins {
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+  .beach-equipment__package-feature {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff;
-    margin: 0.25rem 0;
   }
-  .be-package-margins.be-activity-front-text {
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+  .beach-equipment__package-subheading {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #fff;
-    margin: 0.25rem 0;
   }
-  .be-date-front-text {
-    font-family: 'Open Sans', Arial, sans-serif;
+  .beach-equipment__package-text {
+    font-family: var(--aot-font-body);
     font-size: 0.85rem;
-    color: #fff;
+    color: var(--aot-white);
     margin: 0.25rem 0 0;
   }
   @media (max-width: 768px) {
-    .be-description,
-    .be-packages-col {
+    .beach-equipment__description,
+    .beach-equipment__packages-col {
       flex: 0 0 100%;
       max-width: 100%;
     }
-    .be-packages-col {
-      margin-top: 1rem;
+    .beach-equipment__packages-col {
+      margin-top: var(--aot-space-4);
     }
-    .be-feature-description-p-right {
+    .beach-equipment__card {
       max-width: 95%;
-      padding: 1rem;
+      padding: var(--aot-space-4);
     }
-    .be-heading {
+    .beach-equipment__heading {
       font-size: 1.2rem;
     }
   }
