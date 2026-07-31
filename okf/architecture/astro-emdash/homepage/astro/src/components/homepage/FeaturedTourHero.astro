@@ -1,4 +1,12 @@
 ---
+/**
+ * FeaturedTourHero — a 50/50 split row showing one tour with a
+ * hero image on the left and copy + CTA on the right. Used 3× on
+ * the homepage in sequence.
+ *
+ * Refactored in Round 17 to use design tokens + BEM-style scoped
+ * CSS (no inline hex colors).
+ */
 interface Props {
   heading: string;
   text: string;
@@ -10,74 +18,98 @@ interface Props {
   imageSizes?: string;
 }
 
-const { heading, text, href, cta, image, imageAlt, imageSrcset, imageSizes = "(max-width: 600px) 100vw, 724px" } = Astro.props;
+const {
+  heading,
+  text,
+  href,
+  cta,
+  image,
+  imageAlt,
+  imageSrcset,
+  imageSizes = "(max-width: 600px) 100vw, 724px",
+} = Astro.props;
 ---
+
 <div class="featured-tour-hero">
-  <figure>
-    <img loading="lazy" decoding="async" width="724" height="480" src={image} srcset={imageSrcset} sizes={imageSizes} alt={imageAlt} />
+  <figure class="featured-tour-hero__figure">
+    <img
+      loading="lazy"
+      decoding="async"
+      width="724"
+      height="480"
+      src={image}
+      srcset={imageSrcset}
+      sizes={imageSizes}
+      alt={imageAlt}
+      class="featured-tour-hero__image"
+    />
   </figure>
-  <div class="content">
-    <h3>{heading}</h3>
-    <p>{text}</p>
-    <a href={href} class="btn-secondary">{cta}</a>
+  <div class="featured-tour-hero__content">
+    <h3 class="featured-tour-hero__heading">{heading}</h3>
+    <p class="featured-tour-hero__text">{text}</p>
+    <a href={href} class="featured-tour-hero__cta">{cta}</a>
   </div>
 </div>
 
 <style>
   .featured-tour-hero {
     display: flex;
-    gap: 1.5rem;
+    gap: var(--aot-space-5);
     align-items: center;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    padding: var(--aot-space-5) 0;
+    border-bottom: 1px solid var(--aot-gray-200);
   }
   .featured-tour-hero:last-child {
     border-bottom: none;
   }
-  .featured-tour-hero figure {
+  .featured-tour-hero__figure {
     flex: 0 0 300px;
     margin: 0;
   }
-  .featured-tour-hero img {
+  .featured-tour-hero__image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: var(--aot-border-radius);
   }
-  .featured-tour-hero .content {
+  .featured-tour-hero__content {
     flex: 1;
   }
-  .featured-tour-hero h3 {
+  .featured-tour-hero__heading {
     font-size: 1.2rem;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-family: var(--aot-font-heading);
     font-weight: 700;
-    color: #0066cc;
-    margin: 0 0 0.5rem;
+    color: var(--aot-blue);
+    margin: 0 0 var(--aot-space-2);
   }
-  .featured-tour-hero p {
-    font-family: 'Open Sans', Arial, sans-serif;
+  .featured-tour-hero__text {
+    font-family: var(--aot-font-body);
     font-size: 0.95rem;
-    color: #555;
+    color: var(--aot-gray-700);
     line-height: 1.5;
-    margin: 0 0 1rem;
+    margin: 0 0 var(--aot-space-4);
   }
-  .featured-tour-hero .btn-secondary {
+  .featured-tour-hero__cta {
     display: inline-block;
-    padding: 8px 16px;
-    background: #0066cc;
-    color: #fff;
-    border-radius: 4px;
+    padding: var(--aot-space-2) var(--aot-space-4);
+    background: var(--aot-blue);
+    color: var(--aot-white);
+    border-radius: var(--aot-border-radius);
     text-decoration: none;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: var(--aot-font-body);
     font-size: 0.9rem;
     font-weight: 600;
   }
-  .featured-tour-hero .btn-secondary:hover {
-    background: #004999;
-    color: #fff;
+  .featured-tour-hero__cta:hover {
+    background: var(--aot-blue-hover);
   }
   @media (max-width: 600px) {
-    .featured-tour-hero { flex-direction: column; }
-    .featured-tour-hero figure { flex: none; width: 100%; }
+    .featured-tour-hero {
+      flex-direction: column;
+    }
+    .featured-tour-hero__figure {
+      flex: none;
+      width: 100%;
+    }
   }
 </style>
