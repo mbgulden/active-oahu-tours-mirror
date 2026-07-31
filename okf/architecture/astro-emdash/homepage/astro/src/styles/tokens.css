@@ -5,18 +5,6 @@
  * (from production CSS) or local component overrides.
  * ───────────────────────────────────────────────────────────── */
 
-/* Production-parity: html font-size: 62.5% (1rem = 10px)
- * This matches production's activeoahu/style.css which sets
- * `html { font-size: 62.5% }` for easier rem math. Without this,
- * 5rem = 80px (too big); with this, 5rem = 50px which clamps to
- * 60px via production's clamp() on the H2 size.
- */
-html {
-  font-size: 62.5%;
-  -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 :root {
   /* ── Brand palette (production-derived) ─────────────── */
   --aot-navy: #003366;              /* production palette9 (Kadence) */

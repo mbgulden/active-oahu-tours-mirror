@@ -59,12 +59,12 @@ const colorMap = {
 
 // Production-derived font sizes (mirrors --global-kb-font-size-*)
 const sizeMap: Record<string, string> = {
-  sm: "1rem",     // sm (10px in production's 62.5% root)
-  md: "1.25rem",  // md (12.5px in 62.5% root)
-  lg: "2rem",     // lg (20px in 62.5% root)
-  xl: "3rem",     // xl (30px in 62.5% root)
-  xxl: "4rem",    // xxl (40px in 62.5% root)
-  xxxl: "6rem",   // xxxl (60px in 62.5% root — matches production's clamp max)
+  sm: "1rem",     // sm (16px)
+  md: "1.25rem",  // md (20px) — hero H1 production
+  lg: "2rem",     // lg (32px)
+  xl: "3rem",     // xl (48px)
+  xxl: "4rem",    // xxl (64px)
+  xxxl: "5rem",   // xxxl (80px) — hero H2 production
 };
 
 // Production text-shadow per heading (only used when withTextShadow)

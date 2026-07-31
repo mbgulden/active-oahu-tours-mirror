@@ -203,22 +203,22 @@ const {
   }
 
   /* ── Headings — white text with text-shadow for contrast ──
-   * Production uses Kadence clamp() variables for responsive sizing.
-   * With our 62.5% html root (1rem = 10px), these resolve to:
-   *   H1: clamp(1.25rem=12.5px, ...) → ~20px (production md)
-   *   H2: clamp(2.75rem=27.5px, 0.489rem + 7.065vw, 6rem=60px) → ~60px (production xxxl)
+   * SCOPED to hero only. Uses fixed pixel values so it doesn't
+   * affect any other heading on the page.
+   * Production renders as ~60px H2 / ~20px H1 due to its html{62.5%} root;
+   * here we hit the same visual end-state with px (no global side-effects).
    */
   .hero-banner h1 {
-    font-size: clamp(1.25rem, 0.995rem + 1.265vw, 1.5rem);
+    font-size: 20px;
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
-    margin: 0 0 var(--aot-h1-mb, 1rem);
+    margin: 0 0 1rem;
     color: #ffffff;
     line-height: 1.2;
     text-shadow: 1px 1px 3px #000000;
   }
   .hero-banner h2 {
-    font-size: clamp(2.75rem, 0.489rem + 7.065vw, 6rem);
+    font-size: 60px;
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     margin: 0;
@@ -265,8 +265,8 @@ const {
 
   /* ── Responsive ─────────────────────────────────────────── */
   @media (max-width: 768px) {
-    .hero-banner h1 { font-size: clamp(1.25rem, 0.995rem + 1.265vw, 1.5rem); }
-    .hero-banner h2 { font-size: clamp(2rem, 0.5rem + 4vw, 3rem); text-shadow: 1px 1px 14px #000000; }
+    .hero-banner h1 { font-size: 16px; }
+    .hero-banner h2 { font-size: 32px; text-shadow: 1px 1px 14px #000000; }
     .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
     .hero-left-col { min-height: 280px; }
   }
