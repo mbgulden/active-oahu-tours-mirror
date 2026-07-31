@@ -1,47 +1,25 @@
 ---
+/**
+ * BookNowButton — header CTA button.
+ *
+ * Migrated to use the modular BookingButton primitive.
+ * Kept as a thin wrapper to preserve existing import paths and
+ * navigation data shape (bookingConfig.shortname, bookingConfig.href).
+ */
+import BookingButton from "../primitives/BookingButton.astro";
 import shellData from "../../content/nav/aot-shell-data.json";
+
 const booking = shellData.bookingConfig;
 ---
-<a
-  class="aot-book-now"
-  href={booking.href}
-  data-booking-shortname={booking.shortname}
-  data-analytics-event={booking.analyticsEvent}
-  onclick={`FH.open({'shortname':'${booking.shortname}','fallback':'${booking.fallback}'}); return false;`}
->
-  <strong>Book Online</strong>
-</a>
 
-<style>
-  .aot-book-now {
-    display: inline-block;
-    background-color: #A94400;
-    color: #ffffff;
-    font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.78px;
-    padding: 6px 14px;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    line-height: 1.2;
-    white-space: nowrap;
-    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
-    transition: background-color 0.15s ease;
-  }
-  .aot-book-now:hover {
-    background-color: #8a3800;
-    color: #ffffff;
-  }
-  .aot-book-now strong {
-    font-weight: 700;
-  }
-  @media (max-width: 767px) {
-    .aot-book-now {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  }
-</style>
+<BookingButton
+  variant="primary"
+  size="md"
+  location="header"
+  href={booking.href}
+  useShortname={false}
+  icon={true}
+  uppercase={true}
+>
+  Book Online
+</BookingButton>

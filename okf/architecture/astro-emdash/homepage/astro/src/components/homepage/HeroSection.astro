@@ -1,4 +1,7 @@
 ---
+import Heading from "../primitives/Heading.astro";
+import BookingButton from "../primitives/BookingButton.astro";
+
 interface CategoryLink {
   heading: string;
   href: string;
@@ -46,12 +49,26 @@ const {
       <!-- Left: h1 + h2 with bg image + overlay -->
       <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
         <div class="kt-inside-inner-col hero-left-col" style={`background-image: url('${heroImageUrl}');`}>
-          <h1 class="kt-adv-heading2389_29248a-fe wp-block-kadence-advancedheading has-white-color has-text-color" data-kb-block="kb-adv-heading2389_29248a-fe">
+          <Heading
+            level={1}
+            id="kt-adv-heading2389_29248a-fe"
+            color="white"
+            size="md"
+            class="kt-adv-heading2389_29248a-fe wp-block-kadence-advancedheading"
+            withTextShadow
+          >
             {h1}
-          </h1>
-          <h2 class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading has-white-color has-text-color" data-kb-block="kb-adv-heading2389_1c90f7-e5">
+          </Heading>
+          <Heading
+            level={2}
+            id="kt-adv-heading2389_1c90f7-e5"
+            color="white"
+            size="xxxl"
+            class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading"
+            withTextShadow
+          >
             {h2}
-          </h2>
+          </Heading>
         </div>
       </div>
 
@@ -67,16 +84,16 @@ const {
                   <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading cta-subheading" data-kb-block="kb-adv-heading2389_d8fad2-58">
                     {subtext}
                   </h3>
-                  <a
+                  <BookingButton
+                    variant="primary"
+                    size="md"
+                    location="hero"
                     href={bookingHref}
-                    class="pull-right aot-btn-hero-book"
-                    onclick={`FH.open({'shortname':'activeoahutours','fallback':'simple'}); return false;`}
+                    icon={true}
+                    uppercase={false}
                   >
-                    <strong>
-                      <span aria-hidden="true">&#128197;</span>
-                      {bookingLabel}
-                    </strong>
-                  </a>
+                    {bookingLabel}
+                  </BookingButton>
                 </div>
               </div>
 
