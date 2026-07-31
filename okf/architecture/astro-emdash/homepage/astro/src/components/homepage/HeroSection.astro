@@ -35,20 +35,17 @@ const {
   moreRentalLink,
   tripadvisorLogo = "https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg",
   tripadvisorLogoAlt = "Tripadvisor",
-  heroImageUrl = "https://activeoahutours.com/wp-content/uploads/2024/01/Active-Oahu-Lifestyle-225-2X1-1000.jpg",
+  heroImageUrl = "/wp-content/uploads/2024/01/Active-Oahu-Lifestyle-225-2X1-1000.jpg",
 } = Astro.props;
 ---
 
 <section class="hero-banner aot-hero-section" aria-label="Hero">
-  <!-- Background image with dark overlay -->
-  <div class="hero-bg" style={`background-image: url('${heroImageUrl}');`} aria-hidden="true"></div>
-
   <div class="kb-row-layout-wrap kb-row-layout-id2389_6ed5ef-6d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
     <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
 
-      <!-- Left: h1 + h2 -->
+      <!-- Left: h1 + h2 with bg image + overlay -->
       <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
-        <div class="kt-inside-inner-col">
+        <div class="kt-inside-inner-col hero-left-col" style={`background-image: url('${heroImageUrl}');`}>
           <h1 class="kt-adv-heading2389_29248a-fe wp-block-kadence-advancedheading has-white-color has-text-color" data-kb-block="kb-adv-heading2389_29248a-fe">
             {h1}
           </h1>
@@ -136,25 +133,26 @@ const {
     overflow: hidden;
   }
 
-  /* Background image */
-  .hero-bg {
-    position: absolute;
-    inset: 0;
+  /* Hero left column with background image */
+  .hero-left-col {
+    background-color: #003366;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 0;
+    min-height: 380px;
   }
 
-  /* Dark overlay on hero image */
-  .aot-hero-section .kb-section-has-overlay > .kt-inside-inner-col::before,
-  .aot-hero-section > .kb-row-layout-wrap > .kt-row-column-wrap > .wp-block-kadence-column > .kt-inside-inner-col::before {
+  /* Dark overlay on hero image (production-style ::before) */
+  .kb-section-has-overlay > .hero-left-col::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
-    pointer-events: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
   }
 
   /* Ensure all text sits above the overlay */
@@ -188,18 +186,20 @@ const {
 
   /* ── Headings — white text ── */
   .hero-banner h1 {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     margin: 0 0 0.5rem;
     color: #ffffff;
+    line-height: 1.2;
   }
   .hero-banner h2 {
-    font-size: 1.4rem;
+    font-size: 3rem;
     font-family: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     margin: 0;
     color: #ffffff;
+    line-height: 1.1;
   }
   .hero-banner .cta-subheading {
     font-size: 1rem;
@@ -240,8 +240,9 @@ const {
 
   /* ── Responsive ─────────────────────────────────────────── */
   @media (max-width: 768px) {
-    .hero-banner h1 { font-size: 1.6rem; }
-    .hero-banner h2 { font-size: 1.1rem; }
+    .hero-banner h1 { font-size: 1.2rem; }
+    .hero-banner h2 { font-size: 2rem; }
     .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
+    .hero-left-col { min-height: 280px; }
   }
 </style>
