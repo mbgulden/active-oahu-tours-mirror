@@ -54,7 +54,7 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
       <div class="beach-equipment__description">
         <div
           class="beach-equipment__bg"
-          style={`background-image:url('${image}')`}
+          style={`--bg-image:url('${image}')`}
         >
           <img
             src={image}
@@ -80,7 +80,7 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
               <a
                 href={pkg.href}
                 class="beach-equipment__package"
-                style={`background-image: url('${pkg.image}')`}
+                style={`--bg-image:url('${pkg.image}')`}
               >
                 <h3 class="beach-equipment__package-heading">{pkg.heading}</h3>
                 <h3 class="beach-equipment__package-feature">{pkg.feature}</h3>
@@ -119,6 +119,7 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
   }
   .beach-equipment__bg {
     position: relative;
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,6 +178,7 @@ const renderTextWithLinks = (raw: string, links: InlineLink[]): string => {
     text-align: center;
     padding: var(--aot-space-4);
     min-height: 160px;
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

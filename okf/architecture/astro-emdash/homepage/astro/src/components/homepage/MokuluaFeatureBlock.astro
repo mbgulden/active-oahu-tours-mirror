@@ -37,7 +37,7 @@ const {
             <a
               href={pkg.href}
               class="mokulua-feature-block__package"
-              style={`background-image: url('${pkg.image}')`}
+              style={`--bg-image:url('${pkg.image}')`}
             >
               <h3 class="mokulua-feature-block__package-heading">{pkg.heading}</h3>
               <h3 class="mokulua-feature-block__package-feature">{pkg.feature}</h3>
@@ -52,7 +52,7 @@ const {
       <div class="mokulua-feature-block__description">
         <div
           class="mokulua-feature-block__bg"
-          style={`background-image:url('${image}')`}
+          style={`--bg-image:url('${image}')`}
         >
           <img
             src={image}
@@ -97,6 +97,7 @@ const {
   }
   .mokulua-feature-block__bg {
     position: relative;
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -155,6 +156,7 @@ const {
     text-align: center;
     padding: var(--aot-space-4);
     min-height: 160px;
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

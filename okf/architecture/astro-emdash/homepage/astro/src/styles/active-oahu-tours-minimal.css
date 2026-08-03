@@ -414,7 +414,7 @@
   line-height: 1.5;
 }
 .feature-block a {
-  color: var(--aot-navy-light) !important;
+  color: var(--aot-navy-light);
   font-weight: 600;
   text-decoration: none;
 }
@@ -781,104 +781,114 @@ a:hover {
  * removed as part of the Round 17 modular migration.
  */
 
-/* FeatureBlock CTA buttons */
-.feature-block .feature-cta,
-.feature-cta {
-  background: #1a3a5c !important;
-  color: #fff !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 4px !important;
-  text-decoration: none !important;
-  font-family: 'Open Sans', Arial, sans-serif !important;
-  font-weight: 600 !important;
-  display: inline-block !important;
+/* FeatureBlock CTA buttons — `.feature-block .feature-cta, .feature-cta`
+   doubled specificity (0,0,3,0 + 0,0,1,0 = 0,0,4,0) wins without !important. */
+.feature-block .feature-cta.feature-cta,
+.feature-cta.feature-cta {
+  background: var(--aot-navy);
+  color: var(--aot-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--aot-border-radius);
+  text-decoration: none;
+  font-family: var(--aot-font-body);
+  font-weight: 600;
+  display: inline-block;
 }
 .feature-block .feature-cta:hover,
 .feature-cta:hover {
-  background: #0d2137 !important;
-  color: #fff !important;
+  background: var(--aot-navy-hover);
+  color: var(--aot-white);
 }
-.feature-block .feature-cta-secondary,
-.feature-cta-secondary {
-  color: #0066cc !important;
-  font-weight: 600 !important;
-  font-family: 'Open Sans', Arial, sans-serif !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  min-height: 24px !important;
-  padding: 8px 4px !important;
-  margin: -8px -4px !important;
+.feature-block .feature-cta-secondary.feature-cta-secondary,
+.feature-cta-secondary.feature-cta-secondary {
+  color: var(--aot-blue);
+  font-weight: 600;
+  font-family: var(--aot-font-body);
+  text-decoration: none;
+  display: inline-block;
+  min-height: 24px;
+  padding: 8px 4px;
+  margin: -8px -4px;
 }
 .feature-block .feature-cta-secondary:hover,
 .feature-cta-secondary:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
-/* FeaturedTours — "View All" link */
-.view-all-link {
-  text-align: center !important;
-  margin-bottom: 1rem !important;
+/* FeaturedTours — "View All" link — doubled class wins without !important. */
+.view-all-link.view-all-link {
+  text-align: center;
+  margin-bottom: 1rem;
 }
-.view-all-tours-link {
-  color: #006699 !important;
-  font-weight: 600 !important;
-  font-size: 0.95rem !important;
-  text-decoration: none !important;
+.view-all-tours-link.view-all-tours-link {
+  color: var(--aot-blue);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
 }
 .view-all-tours-link:hover {
-  text-decoration: underline !important;
-  color: #1a3a5c !important;
+  text-decoration: underline;
+  color: var(--aot-hero-bg);
 }
 
-.tours-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 1.5rem !important;
-  padding: 1rem 0 !important;
+/* Specificity-raised selectors to win over .aot-section--palette-X
+   ([data-astro-cid-*] gives them 0,0,2,0). Adding `section.tours-grid`
+   gets us to 0,0,2,1 — wins without !important. */
+section.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
-.tours-grid .tour-card {
-  display: flex !important;
-  flex-direction: column !important;
+.tours-grid > article.tour-card {
+  display: flex;
+  flex-direction: column;
 }
-.tours-grid img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 337/240 !important;
-  object-fit: cover !important;
+.tours-grid > article > * img,
+.tours-grid > article img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 337/240;
+  object-fit: cover;
 }
 @media (max-width: 900px) {
-  .tours-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  section.tours-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .tours-grid { grid-template-columns: 1fr !important; }
+  section.tours-grid { grid-template-columns: 1fr; }
 }
 
-/* InfoStrip — light gray bg (NOT navy) */
-.info-strip { background-color: #f5f5f5 !important; color: #333 !important; }
-.info-strip a { color: #0066cc !important; }
+/* InfoStrip + DealBanner (legacy) — REMOVED in R21.
+   .info-strip: not rendered anywhere in dist HTML (replaced by FeatureBlock).
+   #deal-banner: not rendered (DealBanner uses .site-banner-announcement class). */
 
-/* ClosingCTA — white background, NOT navy */
-.closing-cta-bg,
-.kb-row-layout-wrap.closing-cta-bg {
-  background-color: #ffffff !important;
+/* ClosingCTA — white background, NOT navy. Doubled class + element selector
+   gives specificity 0,0,2,1, beating the Section primitive's
+   [data-astro-cid-*] palette rules without needing !important. */
+section.closing-cta-bg,
+section.kb-row-layout-wrap.closing-cta-bg {
+  background-color: var(--aot-white);
 }
 /* Note: .closing-cta h2/p rules were removed in R20.
    ClosingCTA is now self-styled (plain <section> + scoped <style>)
    with --aot-hero-bg, --aot-white, --aot-text-light tokens. */
 
-/* FeatureBlock — white bg */
-.feature-block { background-color: #ffffff !important; }
+/* FeatureBlock — white bg (overrides Section palette="none" bg) */
+section.feature-block {
+  background-color: var(--aot-white);
+}
 
-/* Awards — white bg */
-.awards-section { background-color: #ffffff !important; }
+/* Awards — white bg (overrides Section palette="white" — same color, but
+   the doubled specificity prevents regression if palette changes) */
+section.awards-section {
+  background-color: var(--aot-white);
+}
 
-/* Testimonial — light gray */
-.testimonial-section { background-color: #f5f5f5 !important; }
+/* Testimonial — light gray (overrides Section palette="gray" with same color) */
+section.testimonial-section {
+  background-color: var(--aot-gray-100);
+}
 
-/* Deal Banner — orange, top of page */
-#deal-banner { background: #e87121 !important; color: #fff !important; text-align: center !important; padding: 0.6rem 1rem !important; font-family: 'Open Sans', Arial, sans-serif !important; font-size: 0.95rem !important; position: relative; z-index: 9999; }
-#deal-banner p { margin: 0 !important; line-height: 1.4 !important; }
-#deal-banner a { color: #fff !important; text-decoration: underline !important; }
-#deal-banner strong { font-weight: 700 !important; }
+/* DealBanner — REMOVED in R21 (was dead code — #deal-banner not rendered). */
 
 /* ============================================================
    Gallery Lightbox Modal

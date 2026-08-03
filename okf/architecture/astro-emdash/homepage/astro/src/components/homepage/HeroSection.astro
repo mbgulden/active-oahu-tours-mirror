@@ -48,7 +48,7 @@ const {
 
       <!-- Left: h1 + h2 with bg image + overlay -->
       <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
-        <div class="kt-inside-inner-col hero-left-col" style={`background-image: url('${heroImageUrl}');`}>
+        <div class="kt-inside-inner-col hero-left-col" style={`--hero-bg-image: url('${heroImageUrl}');`}>
           <Heading
             level={1}
             id="kt-adv-heading2389_29248a-fe"
@@ -150,9 +150,12 @@ const {
     overflow: hidden;
   }
 
-  /* Hero left column with background image */
+  /* Hero left column with background image.
+     bg image URL is passed via inline --hero-bg-image custom property,
+     but the actual background-image declaration lives here. */
   .hero-left-col {
-    background-color: #003366;
+    background-color: var(--aot-navy);
+    background-image: var(--hero-bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

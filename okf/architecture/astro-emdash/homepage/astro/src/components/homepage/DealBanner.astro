@@ -8,7 +8,7 @@ const { code } = Astro.props;
 <div class="wrapper-white site-banner-announcement">
   <section class="container">
     <div class="banner-content">
-      <h4 style="color: #069;"><strong>Deal:</strong> 15% Off Groups of 4 or More</h4>
+      <h4 class="site-banner-announcement__heading"><strong>Deal:</strong> 15% Off Groups of 4 or More</h4>
       <p class="small">Come adventure with us! Use the coupon code <strong>{code}</strong> by clicking "Add promo or discount code" at checkout.</p>
     </div>
     <button class="closeTrigger" type="button" aria-label="Close announcement">
@@ -46,6 +46,9 @@ const { code } = Astro.props;
     margin: 0 0 0.25rem;
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 400;
+  }
+  .site-banner-announcement__heading {
+    color: #069;
   }
   .site-banner-announcement h4 strong {
     font-weight: 700;
