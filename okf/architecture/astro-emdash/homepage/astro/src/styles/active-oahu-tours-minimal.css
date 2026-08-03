@@ -510,19 +510,9 @@
   padding: 2rem 0;
   text-align: center;
 }
-.closing-cta h2 {
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: var(--aot-white);
-  margin-bottom: 1rem;
-}
-.closing-cta p {
-  font-size: 1rem;
-  color: var(--aot-text-light);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
+/* Note: .closing-cta h2/p rules were removed in R20.
+   ClosingCTA is now self-styled (plain <section> + scoped <style>)
+   with --aot-hero-bg, --aot-white, --aot-text-light tokens. */
 .aot-btn-phone {
   display: inline-block;
   padding: 14px 28px;
@@ -871,8 +861,9 @@ a:hover {
 .kb-row-layout-wrap.closing-cta-bg {
   background-color: #ffffff !important;
 }
-.closing-cta h2 { color: #003366 !important; }
-.closing-cta p { color: #555 !important; }
+/* Note: .closing-cta h2/p rules were removed in R20.
+   ClosingCTA is now self-styled (plain <section> + scoped <style>)
+   with --aot-hero-bg, --aot-white, --aot-text-light tokens. */
 
 /* FeatureBlock — white bg */
 .feature-block { background-color: #ffffff !important; }
