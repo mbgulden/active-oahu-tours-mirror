@@ -10,3 +10,5 @@ Disallow: /help/internal/
 Disallow: /fhbr-console/
 
 Disallow: /api/v1/
+
+Sitemap: https://activeoahutours.com/sitemap.xml

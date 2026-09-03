@@ -3,15 +3,15 @@
 - Merge base: `5ed2e164fd3ae09e91fd7ea20475e7164d5af630`
 
 ## Counts
-- prod_files: **2453**
+- prod_files: **2467**
 - candidate_files: **2494**
 - candidate_only_files: **111**
-- prod_only_files: **70**
+- prod_only_files: **84**
 - modified_shared_files: **321**
 - candidate_only_pages: **0**
 - prod_only_pages: **1**
 - modified_shared_page_or_text_files: **307**
-- critical_changed_files: **6**
+- critical_changed_files: **7**
 
 ## Candidate-only categories
 - site: 96
@@ -22,13 +22,15 @@
 
 ## Production-only categories
 - wp-content: 50
-- scripts: 8
-- docs: 2
-- root: 2
-- okf: 2
+- scripts: 9
+- okf: 7
+- prismatic-web-plugin: 4
+- root: 3
+- docs: 3
+- .github: 2
 - reports: 2
 - site: 2
-- .github: 1
+- content: 1
 - other-pages: 1
 
 ## Modified shared-file categories
@@ -45,6 +47,7 @@
 
 ## Critical changed files
 - `.github/workflows/aot-branch-drift.yml`
+- `.github/workflows/prismatic-web-governance.yml`
 - `PRISMATIC_ENGINE.yaml`
 - `_redirects`
 - `site/_redirects`

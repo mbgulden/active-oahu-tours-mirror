@@ -93,73 +93,11 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
-});
-
-</script></script>
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
+</script>
 
 <script type="application/ld+json">
 {
@@ -182,6 +120,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 </script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&display=swap"/>
+<style id="aot-heading-font-guard">
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+</style>
 </head>
 <body>
 <main>
@@ -354,9 +302,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
 <link rel="dns-prefetch" href="https://fareharbor.com" />
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>
+
 <p><strong>Related:</strong> Check the <a href="../../guides/chinamans-hat-tide-guide/">Chinaman's Hat Tide Guide</a> for optimal paddling conditions and our <a href="/oahu-launch-guide/">Oahu Kayak Launch Guide</a> for legal access points.</p>
 
 </main>
+
+
+
+
+
+
+<script src="/assets/js/aot-lazy-fareharbor.js" defer></script>
+<script src="/assets/js/aot-lazy-marketing.js" defer></script>
 </body>
 </html>

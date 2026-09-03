@@ -17,7 +17,7 @@
   --color-white: #FFFFFF;
   
   /* Brand Typography */
-  --font-headings: "Aleo", serif;
+  --font-headings: "Open Sans Condensed", sans-serif;
   --font-display: "Open Sans Condensed", sans-serif;
   --font-body: "Lato", sans-serif;
   
@@ -339,4 +339,86 @@
     color: var(--color-white) !important;
     background-color: rgba(255,255,255,0.1) !important;
   }
+}
+
+/* GRO-3666: booking-page accessibility contrast and link affordance fixes */
+.social-header .feature,
+.social-header-h3 .feature,
+#branding .feature,
+.feature {
+  color: #9b4500 !important;
+}
+
+.social-header .btn-primary,
+a.btn-primary,
+.btn-primary,
+.listing-book-button .btn.btn-primary {
+  background-color: #a94400 !important;
+  border-color: #a94400 !important;
+  color: #ffffff !important;
+}
+
+.social-header .btn-primary:hover,
+.social-header .btn-primary:focus,
+a.btn-primary:hover,
+a.btn-primary:focus,
+.btn-primary:hover,
+.btn-primary:focus,
+.listing-book-button .btn.btn-primary:hover,
+.listing-book-button .btn.btn-primary:focus {
+  background-color: #873600 !important;
+  border-color: #873600 !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 767px) {
+  .menu-toggle {
+    background-color: #006699 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+}
+
+main p a,
+.site-content p a,
+.entry-content p a,
+section.col p a {
+  color: #005a78 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 0.08em !important;
+  text-underline-offset: 0.15em !important;
+}
+
+main p a:hover,
+main p a:focus,
+.site-content p a:hover,
+.site-content p a:focus,
+.entry-content p a:hover,
+.entry-content p a:focus,
+section.col p a:hover,
+section.col p a:focus {
+  color: #003f55 !important;
+  text-decoration-thickness: 0.12em !important;
+}
+
+/* GRO-3666: remaining booking-page accessibility polish */
+p#breadcrumbs a,
+.breadcrumb a {
+  color: #005a78 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em !important;
+}
+
+small,
+.review-container .accredited em,
+.accredited em {
+  color: #555555 !important;
+}
+
+/* GRO heading font guard: Michael's historical heading face is Open Sans Condensed Bold. */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
 }

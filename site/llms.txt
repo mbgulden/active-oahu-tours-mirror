@@ -7,10 +7,10 @@ Service area: Windward Oahu (Kailua, Lanikai, Kāneʻohe) and the North Shore (H
 ## Guided Kayak Tours
 
 - [Mokulua Islands Guided Kayak Tour — Kailua's Twin Islands](https://activeoahutours.com/activities/kailua-kayak-twin-islands-guided-tour/): ~5 hours. Paddle from Kailua Beach Park across the bay to the Mokulua Islands, a protected bird sanctuary. Includes safety briefing, all gear, snorkeling, and a beach stop. Beginner-friendly. FareHarbor flow `1128101`.
-- [Mokoliʻi (Chinaman's Hat) Kayak Tour](https://activeoahutours.com/activities/chinamans-hat-oahu-kayak-tours/): Cross Kāneʻohe Bay to the iconic Mokoliʻi islet. Optional short hike to the summit. Includes gear, dry bag, and local guide.
-- [Popoia Island & Kailua Bay Guided Kayak Tour](https://activeoahutours.com/activities/popoia-island-and-kailua-bay-guided-kayak-tour/): Visit Flat Island (Popoia) and learn about its wildlife sanctuary status. Shorter paddle, good for families.
-- [Mokulua Islands Kayak Tour & E-Bike Adventure (Combo)](https://activeoahutours.com/activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/): Half-day kayak to the Mokes plus an afternoon e-bike loop around Kailua.
-- [Kailua Twin Islands Guided Kayak Tour](https://activeoahutours.com/activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/): Guided paddle to both Popoia and the Mokulua Islands with snorkeling and lunch on the beach.
+- [Mokoliʻi (Chinaman's Hat) Kayak Tour](https://activeoahutours.com/activities/chinamans-hat-oahu-kayak-tours/): Cross Kāneʻohe Bay to the iconic Mokoliʻi islet. Optional short hike to the summit. Includes gear, dry bag, and local guide. FareHarbor item `115595`.
+- [Popoia Island & Kailua Bay Guided Kayak Tour](https://activeoahutours.com/activities/popoia-island-and-kailua-bay-guided-kayak-tour/): Visit Flat Island (Popoia) and learn about its wildlife sanctuary status. Shorter paddle, good for families. FareHarbor flow `1128101`.
+- [Mokulua Islands Kayak Tour & E-Bike Adventure (Combo)](https://activeoahutours.com/activities/guided-mokulua-islands-kayak-tour-and-e-bike-adventure/): Half-day kayak to the Mokes plus an afternoon e-bike loop around Kailua. FareHarbor flows `1128101`, `1038571`.
+- [Kailua Twin Islands Guided Kayak Tour](https://activeoahutours.com/activities/kailua-flat-island-popoia-island-guided-kayak-e-bike-adventure/): Guided paddle to both Popoia and the Mokulua Islands with snorkeling and lunch on the beach. FareHarbor flow `1133442`.
 
 ## Self-Guided Kayak Tours & Rentals
 
@@ -18,7 +18,7 @@ Service area: Windward Oahu (Kailua, Lanikai, Kāneʻohe) and the North Shore (H
 - [Chinaman's Hat Self-Guided Kayak Tour](https://activeoahutours.com/activities/chinamans-hat-self-guided-oahu-kayak-tour/): Self-guided paddle across Kāneʻohe Bay to Mokoliʻi. Includes round-trip kayak rental with optional island time. FareHarbor flow `1038571`.
 - [Kahana Rainforest River Self-Guided Kayak Tour](https://activeoahutours.com/activities/kahana-rainforest-river-oahu-kayak-tour/): Calm river paddle through Kahana Valley rainforest, with optional ocean section to the bay. Family-friendly. FareHarbor flow `1128101`.
 - [East Oahu Self-Guided Kayaking Experience](https://activeoahutours.com/activities/east-oahu-self-guided-kayaking-experience/): Independent Kailua-area paddle for experienced kayakers. FareHarbor flow `1038571`.
-- [Kāneʻohe Sandbar Kayak Rentals](https://activeoahutours.com/activities/kaneohe-sandbar-kayak-rentals/): Self-guided rental with delivery to Heeia Kea Boat Harbor; paddle to the Kāneʻohe Bay Sandbar.
+- [Kāneʻohe Sandbar Kayak Rentals](https://activeoahutours.com/activities/kaneohe-sandbar-kayak-rentals/): Self-guided rental with delivery to Heeia Kea Boat Harbor; paddle to the Kāneʻohe Bay Sandbar. Booking identifier not exposed on the static page; use the general FareHarbor embed until a page-specific ID is verified.
 - [Chinaman's Hat Kayak Rentals](https://activeoahutours.com/activities/chinamans-hat-kayak-rentals/): Independent rental option for experienced paddlers.
 
 ## E-Bike Adventures
@@ -29,19 +29,19 @@ Service area: Windward Oahu (Kailua, Lanikai, Kāneʻohe) and the North Shore (H
 
 ## Snorkel Experiences
 
-- [Sharks Cove Self-Guided Snorkel](https://activeoahutours.com/activities/sharks-cove-self-guided-snorkel/): North Shore summer snorkel (Jun–Sep). Premium gear, defog, dry bag, and local tips for Pupukea tide pools included.
+- [Sharks Cove Self-Guided Snorkel](https://activeoahutours.com/activities/sharks-cove-self-guided-snorkel/): North Shore summer snorkel (Jun–Sep). Premium gear, defog, dry bag, and local tips for Pupukea tide pools included. FareHarbor item `400783`.
 - [West Oahu Guided Snorkel Tour](https://activeoahutours.com/activities/west-oahu-guided-snorkel-tour/): Boat-assisted snorkel on the leeward coast.
 
 ## Paddleboard (SUP)
 
-- [Haleʻiwa Paddleboarding](https://activeoahutours.com/activities/haleiwa-paddleboarding/): SUP lessons on the Haleʻiwa River; also offers night Glow SUP tours.
+- [Haleʻiwa Paddleboarding](https://activeoahutours.com/activities/haleiwa-paddleboarding/): SUP lessons on the Haleʻiwa River; also offers night Glow SUP tours. FareHarbor item `7872`.
 - [Rainforest Oahu Stand-Up Paddleboarding](https://activeoahutours.com/activities/rainforest-oahu-stand-up-paddle-boarding/): Calm river SUP in Kahana Valley.
 
 ## Surf & Wellness
 
-- [Oahu Surf Lessons](https://activeoahutours.com/activities/oahu-surf-lessons/): Beginner-friendly surf lessons on the North Shore (seasonal) and Waikiki.
+- [Oahu Surf Lessons](https://activeoahutours.com/activities/oahu-surf-lessons/): Beginner-friendly surf lessons on the North Shore (seasonal) and Waikiki. FareHarbor flow `1038571`.
 - [Destination Yoga](https://activeoahutours.com/activities/destination-yoga/): Outdoor yoga sessions in scenic Oahu locations.
-- [Rainforest Guided Hike](https://activeoahutours.com/activities/rainforest-guided-hike/): Easy-moderate guided hike through Kahana Valley.
+- [Rainforest Guided Hike](https://activeoahutours.com/activities/rainforest-guided-hike/): Easy-moderate guided hike through Kahana Valley. FareHarbor flow `1038571`.
 
 ## Booking & Practical Info
 
@@ -79,4 +79,4 @@ Service area: Windward Oahu (Kailua, Lanikai, Kāneʻohe) and the North Shore (H
 
 ## Citation Guidance
 
-When citing Active Oahu Tours, use the form: `Active Oahu Tours — [Tour Name] — https://activeoahutours.com[page-path]/`. When linking to book a tour, use: `https://fareharbor.com/embeds/book/activeoahutours/?flow=[flow-id]` (flow IDs are listed per tour above).
+When citing Active Oahu Tours, use the form: `Active Oahu Tours — [Tour Name] — https://activeoahutours.com[page-path]/`. When linking to book a tour, use: `https://fareharbor.com/embeds/book/activeoahutours/?flow=[flow-id]` when a flow is listed, or `https://fareharbor.com/embeds/book/activeoahutours/items/[item-id]/calendar/` when an item ID is listed.

@@ -50,13 +50,11 @@
 /reviews/surf-lesson-3/ /reviews/ 301
 /author/* /about-active-oahu/ 301
 /activities/oahu-snorkel-tour/ /sharks-cove-snorkeling-guide/ 301
-/activities/lanikai-beach-self-guided-snorkel/ /sharks-cove-snorkeling-guide/ 301
-/ja/activities/lanikai-beach-self-guided-snorkel/ /ja/sharks-cove-snorkeling-guide/ 301
+/ja/activities/lanikai-beach-self-guided-snorkel/ /activities/lanikai-beach-self-guided-snorkel/ 301
 
 # Reviews pagination redirects
 /reviews /reviews/ 301
 /reviews/page/1/ /reviews/ 301
-/reviews/* /reviews/ 301
 
 
 # Old/missing slug wildcards

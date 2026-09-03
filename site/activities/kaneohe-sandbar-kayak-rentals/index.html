@@ -24,7 +24,7 @@
 <link rel='stylesheet' id='kadence-blocks-advancedbtn-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css' type='text/css' media='all' />
 <link rel='stylesheet' id='kadence-blocks-advancedgallery-css' href='/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedgallery.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-style-css' href='/wp-content/themes/activeoahu/css/style.css?v=7' type='text/css' media='all' />
-<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=10' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-fix-css' href='/wp-content/themes/activeoahu/css/nav-fix.css?v=16' type='text/css' media='all' />
   <link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-32x32.png" sizes="32x32" />
   <link rel="icon" href="/wp-content/uploads/2016/11/cropped-largeLogo2-01-01-01-192x192.png" sizes="192x192" />
   <script type="application/ld+json">
@@ -127,73 +127,11 @@ jQuery(document).ready(function($) {
 </script>
 <style>.sub-menu{display:none}</style>
 <script>
-// Nav dropdown + mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Mobile menu toggle (WordPress _s theme pattern) ---
-  var navContainer = document.getElementById('site-navigation');
-  var toggleBtn = document.querySelector('.menu-toggle');
-  if (navContainer && toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      navContainer.classList.toggle('toggled');
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      toggleBtn.setAttribute('aria-expanded', expanded);
-    });
-  }
-
-// --- Sub-menu show/hide (desktop only; mobile handled by CSS @media) ---
-  var isDesktop = window.innerWidth > 767;
-  var subs = document.querySelectorAll('.sub-menu');
-  if (isDesktop) {
-    for (var i = 0; i < subs.length; i++) { subs[i].style.display = 'none'; }
-  }
-  
-  function closeSiblings(li, keep) {
-    var parent = li.parentNode;
-    for (var i = 0; i < parent.children.length; i++) {
-      var sib = parent.children[i];
-      if (sib !== li) {
-        var sibSub = sib.querySelector('.sub-menu');
-        if (sibSub && sibSub !== keep) { sibSub.style.display = 'none'; }
-      }
-    }
-  }
-  
-  var links = document.querySelectorAll('.menu-item-has-children > a');
-  for (var i = 0; i < links.length; i++) {
-    (function(link) {
-      link.addEventListener('click', function(e) {
-        if (!isDesktop) return; // Let CSS handle mobile
-        var li = link.parentNode;
-        var sub = null;
-        for (var j = 0; j < li.children.length; j++) {
-          if (li.children[j].classList.contains('sub-menu')) { sub = li.children[j]; break; }
-        }
-        if (sub) {
-          e.preventDefault();
-          closeSiblings(li, sub);
-          sub.style.display = (sub.style.display === 'none') ? 'block' : 'none';
-        }
-      });
-    })(links[i]);
-  }
-  
-  document.addEventListener('click', function(e) {
-    if (!isDesktop) return; // Let CSS handle mobile
-    var el = e.target;
-    var inMenu = false;
-    while (el) {
-      if (el.classList && el.classList.contains('menu-item-has-children')) { inMenu = true; break; }
-      el = el.parentNode;
-    }
-    if (!inMenu) {
-      var all = document.querySelectorAll('.sub-menu');
-      for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-    }
-  });
-});
-
-</script></script>
+// Desktop submenus are controlled by CSS :hover/:focus-within so parent
+// menu links remain real links. Mobile menu toggling is handled by the
+// theme navigation.js block below; keep this head script passive so the
+// hamburger is not double-toggled closed by competing click handlers.
+</script>
 </head>
 <body>
   <div id="page" class="hfeed site">
@@ -204,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <section id="branding">
             <div class="aot-logo">
               <span class="site-title">
-                <a href="../../index.html" rel="home"><img loading="lazy" alt="Active Oahu Tours" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65"></a>
+                <a href="/" rel="home"><img loading="lazy" alt="Active Oahu Tours" src="/wp-content/uploads/2019/06/Active-Oahu-Logo.jpg" width="232" height="65"></a>
               </span>
             </div>
             <div class="social-header">
@@ -258,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		<li id="menu-item-3080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3080"><a href="/kailua-oahu-storefront/index.html">Our Kailua Storefront</a></li>
 		<li id="menu-item-2421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2421"><a href="/about-active-oahu-tours/awards/index.html">Awards</a></li>
 		<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="/guides/index.html">Guides</a></li>
-		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="/reviews/index.html">Reviews</a></li>
+		<li id="menu-item-470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-470"><a href="/reviews/">Reviews</a></li>
 	</ul>
 </li>
 	<li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="/active-oahu-photo-gallery/index.html">Gallery</a></li>
@@ -271,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="container">
               <div class="breadcrumb" data-instant>
                 <p id="breadcrumbs">
-                  <a href="../../index.html">Home</a> / <a href="../../activities.html">Activities</a> / <span class="breadcrumb_last">Kaneohe Sandbar Kayak Rentals</span>
+                  <a href="/">Home</a> / <a href="/activities.html">Activities</a> / <span class="breadcrumb_last">Kaneohe Sandbar Kayak Rentals</span>
                 </p>
               </div>
             </div>
@@ -409,6 +347,14 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- FareHarbor plugin activated --><link rel="preconnect" href="https://fareharbor.com" crossorigin />
 <link rel="dns-prefetch" href="https://fareharbor.com" />
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>
+
+
+
+
+
+
+
+<script src="/assets/js/aot-lazy-fareharbor.js" defer></script>
+<script src="/assets/js/aot-lazy-marketing.js" defer></script>
 </body>
 </html>

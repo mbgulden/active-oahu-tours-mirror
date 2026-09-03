@@ -1,10 +1,14 @@
-# Active Oahu Tours OKF
+# Active Oahu Tours OKF — MOVED (2026-08-19)
 
-Internal Active Oahu Tours / Active Oahu LLC business and operations records now live in the private repository:
+All AOT OKF knowledge has been **centralized** into the private hub
+`mbgulden/growthwebdev-knowledge` at `okf/hubs/active-oahu/` (Phase 1 of the
+OKF hub consolidation, decided by Michael 2026-08-19).
 
-- `mbgulden/active-oahu-business` — business operations, OKF, compliance, incidents, vendor notes, analytics, and internal reports
-- `mbgulden/aot-seo-knowledge` — private SEO / GEO / AI-search knowledge bundle
+- Canonical index: `okf/hubs/active-oahu/index.md`
+- Decision record: `okf/hubs/active-oahu/decisions/2026-08-19-aot-hub-centralization.md`
+- This repo's public-safe doctrine (architecture, governance, reports,
+  kai-reports, audits, verification) now lives at `okf/hubs/active-oahu/`
+  under the matching subdirs, each doc tagged `migrated_from_repo:
+  mbgulden/active-oahu-tours-mirror`.
 
-This public repository should stay focused on the deployable website mirror and public-safe support files. Cloudflare Pages serves the `site/` directory.
-
-Do not add private business notes, vendor/account details, internal incident reports, customer-sensitive data, or agent scratch reports here.
+This directory is retired to a pointer. Do not add new OKF docs here.
