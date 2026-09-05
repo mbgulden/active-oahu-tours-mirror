@@ -182,13 +182,18 @@ def check_branches(cfg: dict[str, Any]) -> Check:
         if prod_behind:
             details.append("Staging-only commits (`git cherry -v production staging`; `-` means patch-equivalent upstream):")
             details.extend(f"- `{line}`" for line in cherry_sample)
+        # Tree equality is the deployable-site source of truth for static sites.
+        # A raw ahead/behind count alone must NOT fail the check when the trees
+        # are identical — that would fail on history-only divergence (e.g. a
+        # squash-merge that landed on production but not staging, or patch-
+        # equivalent commits), which is exactly what the reconciliation guidance
+        # below calls "acceptable". Only count a real (tree-level) divergence.
         if same_tree:
             details.append("Reconciliation status: production and staging have identical trees. History-only ahead/behind is acceptable; do not merge staging into production to chase history shape.")
-        if staging_behind > policy.get("max_staging_behind_production_commits", 0):
+        elif staging_behind > policy.get("max_staging_behind_production_commits", 0):
             status = "fail"
         # Do not fail merely because staging has patch-equivalent commits or a
         # history-only merge commit when the production/staging trees are equal.
-        # Tree equality is the deployable-site source of truth for static sites.
         if not same_tree and unique > policy.get("max_production_behind_staging_commits", 0):
             status = "fail"
         if prod_behind and unique == 0 and not same_tree:
