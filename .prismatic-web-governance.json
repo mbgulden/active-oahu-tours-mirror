@@ -17,7 +17,7 @@
     "stale_branch_days": 14,
     "allowed_long_lived_branches": ["main", "master", "staging", "deploy-fresh"],
     "required_production_markers": [
-      "nav-fix.css?v=10",
+      "nav-fix.css?v=16",
       "Active Oahu is a Kailua-based outfitter"
     ],
     "forbidden_production_markers": [
