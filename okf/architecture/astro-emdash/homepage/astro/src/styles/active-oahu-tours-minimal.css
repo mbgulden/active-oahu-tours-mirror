@@ -1,0 +1,1024 @@
+/* ============================================================
+   Active Oahu Tours — Design System CSS
+   Single source of truth for all visual styling.
+   Replaces ALL external Kadence/theme CSS.
+
+   NOTE: CSS VARIABLES (--aot-*) are now defined in tokens.css,
+   which is imported BEFORE this file in BaseLayout.astro.
+   Do NOT redeclare them here — that would override tokens.
+   ============================================================ */
+
+/* ============================================================
+   STEP 1 — KADENCE PALETTE OVERRIDES
+   Explicit rules for every Kadence palette class used in HTML.
+   These must beat Kadence's own !important cascade.
+   Specificity: tag + classes where possible (0,2,0,0) or higher.
+   ============================================================ */
+
+/* Kadence palette9: #1a3a5c — used for hero/closing sections */
+.has-theme-palette9-background-color {
+  background-color: var(--aot-hero-bg) !important;
+}
+/* Kadence palette8: #f7fafc — overridden to our off-white */
+.has-theme-palette8-background-color {
+  background-color: var(--aot-off-white) !important;
+}
+/* Kadence palette1: #0066cc — our primary blue */
+.has-theme-palette1-background-color {
+  background-color: var(--aot-navy-light) !important;
+}
+/* Kadence white palette */
+.has-white-background-color {
+  background-color: var(--aot-white) !important;
+}
+/* Kadence text color utilities — must use !important to beat Kadence's own rules */
+.has-theme-palette9-color,
+.has-theme-palette9-color.has-text-color,
+.kt-adv-heading.has-theme-palette9-color {
+  color: var(--aot-hero-bg) !important;
+}
+.has-theme-palette8-color,
+.has-theme-palette8-color.has-text-color {
+  color: var(--aot-gray-900) !important;
+}
+.has-theme-palette4-color,
+.has-theme-palette4-color.has-text-color {
+  color: var(--aot-white) !important;
+}
+.has-theme-palette1-color,
+.has-theme-palette1-color.has-text-color {
+  color: var(--aot-navy-light) !important;
+}
+.has-white-color,
+.has-white-color.has-text-color {
+  color: var(--aot-white) !important;
+}
+
+/* ============================================================
+   STEP 2 — KADENCE LAYOUT STRUCTURE
+   ============================================================ */
+
+/* Row wrapper */
+.kb-row-layout-wrap {
+  position: relative;
+}
+
+/* Column grid container — single column default */
+.kt-row-column-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--aot-gutter);
+  grid-auto-rows: minmax(min-content, max-content);
+  z-index: 1;
+  position: relative;
+  padding-left: var(--aot-padding);
+  padding-right: var(--aot-padding);
+}
+
+/* Multi-column grids */
+.kt-row-column-wrap.kt-has-2-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.kt-row-column-wrap.kt-has-3-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Equal-height inner columns */
+.kt-inner-column-height-full > .kt-row-column-wrap {
+  align-items: stretch;
+}
+.kt-inner-column-height-full > .kt-row-column-wrap > .wp-block-kadence-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Mobile: stack all columns */
+@media (max-width: 767px) {
+  .kt-row-column-wrap.kt-has-2-columns,
+  .kt-row-column-wrap.kt-has-3-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Column */
+.wp-block-kadence-column {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Inner column content */
+.kt-inside-inner-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   STEP 4 — AOT DESIGN TOKENS
+   ============================================================ */
+
+/* ── Buttons / CTAs ── */
+.aot-btn,
+.aot-btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Primary CTA — orange with navy text (5.25:1 AA) */
+.aot-btn-primary {
+  background-color: var(--aot-orange) !important;
+  color: var(--aot-navy) !important;
+}
+.aot-btn-primary:hover {
+  background-color: var(--aot-orange-dark) !important;
+  color: var(--aot-navy) !important;
+}
+
+/* ── Section backgrounds ── */
+.aot-hero-bg       { background-color: var(--aot-hero-bg) !important; }
+.aot-closing-bg    { background-color: var(--aot-closing-bg) !important; }
+.aot-off-white-bg  { background-color: var(--aot-off-white) !important; }
+.aot-light-gray-bg { background-color: var(--aot-light-gray) !important; }
+.aot-white-bg      { background-color: var(--aot-white) !important; }
+
+/* ── Text colors ── */
+.aot-text-white    { color: var(--aot-white) !important; }
+.aot-text-navy     { color: var(--aot-navy) !important; }
+.aot-text-gray-900 { color: var(--aot-gray-900) !important; }
+.aot-text-gray-400 { color: var(--aot-gray-400) !important; }
+.aot-text-light    { color: var(--aot-text-light) !important; }
+
+/* ============================================================
+   STEP 5 — SECTION-SPECIFIC COMPONENT STYLES
+   ============================================================ */
+
+/* ── Hero Banner ── */
+.hero-banner {
+  background-color: var(--aot-hero-bg);
+  color: var(--aot-white);
+  padding: 0;
+}
+.hero-banner .kt-inside-inner-col {
+  padding: 2rem;
+}
+.hero-banner h1 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--aot-white);
+  margin: 0 0 0.5rem;
+}
+.hero-banner h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--aot-white);
+  margin: 0;
+}
+/* Hero h2 size override — beats Heading primitive's inline style.
+   Scoped inside .hero-banner so ONLY the hero H2 is affected
+   (no global side-effects on FeatureBlock, FeaturedTours, etc.). */
+.hero-banner h2[style*="font-size"] {
+  font-size: 60px !important;
+}
+.hero-banner h1[style*="font-size"] {
+  font-size: 20px !important;
+}
+.hero-banner h3,
+.hero-banner .cta-subheading {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--aot-white);
+  -webkit-text-stroke: 0.3px var(--aot-navy); /* sub-pixel rendering fallback */
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+/* Kadence nav overrides — cream nav text on #006699 (matches production) */
+.kt-row-layout-wrap .wp-block-kadence-navigation ul li a,
+.nav-item .nav-link,
+.aot-primary-nav .nav-link,
+.aot-primary-nav a,
+.wp-block-kadence-navigation .nav-link {
+  color: #FFF8E8 !important;
+  fill: #FFF8E8 !important;
+}
+
+/* Header nav "Book Online" — standalone class, no Bootstrap/Kadence namespace */
+.aot-book-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 6px 14px;
+  background-color: #A94400 !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans Condensed', Arial Narrow, Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.78px !important;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.aot-book-now:hover {
+  background-color: #8a3800 !important;
+  color: #ffffff !important;
+}
+.aot-book-now-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+@media (max-width: 767px) {
+  .aot-book-now { padding: 4px 8px !important; font-size: 12px !important; }
+}
+
+/* Hero "Book Online" — standalone class, no btn-primary hook */
+.aot-btn-hero-book {
+  display: inline-block;
+  background-color: #1a3a5c !important;
+  color: #ffffff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.aot-btn-hero-book:hover {
+  background-color: #003366 !important;
+  color: #ffffff !important;
+}
+
+/* Last-resort: any remaining .btn-primary gets our brand colors */
+.btn-primary {
+  background-color: var(--aot-navy-light) !important;
+  color: var(--aot-white) !important;
+}
+.btn-primary .glyphicon {
+  color: var(--aot-white) !important;
+}
+
+/* ── Info Strip ── */
+.info-strip {
+  background-color: var(--aot-off-white);
+  padding: 1.5rem 0;
+}
+.info-strip p {
+  font-size: 0.95rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+.info-strip a {
+  color: var(--aot-navy) !important;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.info-strip a:hover {
+  color: var(--aot-navy-light) !important;
+}
+
+/* ── Featured Tours ── */
+.featured-tours {
+  padding: 2rem 0;
+}
+.featured-tours h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+.featured-tours h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.25rem;
+}
+.featured-tours h4 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0 0 0.5rem;
+}
+.featured-tours p {
+  font-size: 0.9rem;
+  color: var(--aot-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+.featured-tours a {
+  color: var(--aot-navy-light) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.featured-tours a:hover {
+  text-decoration: underline;
+}
+
+/* ── Rental Grid ── */
+.rental-grid-section {
+  padding: 2rem 0;
+}
+.rental-grid-section h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (max-width: 600px) {
+  .rental-grid { grid-template-columns: 1fr; }
+}
+.rental-card {
+  background: var(--aot-white);
+  border: 1px solid var(--aot-gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rental-card h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-navy);
+  margin: 0 0 0.25rem;
+}
+.rental-card h4 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0 0 0.5rem;
+}
+.rental-card p {
+  font-size: 0.85rem;
+  color: var(--aot-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+.rental-card img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ── Deal Banner ── */
+.deal-banner {
+  background: var(--aot-orange);
+  padding: 0.75rem 0;
+  text-align: center;
+}
+.deal-banner p {
+  margin: 0;
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--aot-white);
+}
+
+/* ── Feature Block ── */
+.feature-block h3 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--aot-gray-900);
+  margin: 0 0 0.5rem;
+}
+.feature-block p {
+  font-size: 0.9rem;
+  color: var(--aot-gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+.feature-block a {
+  color: var(--aot-navy-light);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── Testimonial ── */
+.testimonial-section {
+  background: var(--aot-light-gray);
+  padding: 2rem 0;
+  border-top: 1px solid var(--aot-gray-100);
+  border-bottom: 1px solid var(--aot-gray-100);
+}
+.testimonial-section blockquote {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: 800px;
+  text-align: center;
+}
+.testimonial-section p {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--aot-gray-900);
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+}
+.testimonial-section cite {
+  font-size: 0.9rem;
+  color: var(--aot-gray-400);
+  font-style: normal;
+}
+
+/* ── Awards ── */
+.awards-section {
+  background: var(--aot-white);
+  padding: 2rem 1rem;
+}
+.awards-section h2 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--aot-navy);
+  text-align: left;
+  margin: 0 0 0.5rem;
+}
+.awards-subheading {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--aot-gray-900);
+  text-align: left;
+  margin: 0 0 0.75rem;
+}
+.awards-text {
+  font-size: 1rem;
+  color: var(--aot-gray-600);
+  line-height: 1.6;
+  text-align: left;
+  margin: 0;
+}
+.awards-image-col {
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+.awards-text-col {
+  flex: 0 0 67%;
+  max-width: 67%;
+}
+.awards-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.awards-logos img {
+  max-width: 170px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .awards-image-col, .awards-text-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .awards-image-col { margin-bottom: 1.5rem; }
+}
+
+/* ── Closing CTA ── */
+.closing-cta {
+  color: var(--aot-white);
+  padding: 2rem 0;
+  text-align: center;
+}
+/* Note: .closing-cta h2/p rules were removed in R20.
+   ClosingCTA is now self-styled (plain <section> + scoped <style>)
+   with --aot-hero-bg, --aot-white, --aot-text-light tokens. */
+.aot-btn-phone {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #1a3a5c !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.aot-btn-phone:hover {
+  background: #003366 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   STEP 6 — KADENCE COMPONENT STYLES
+   Extracted from Kadence Blocks dist CSS — structural only.
+   ============================================================ */
+
+/* Palette background utilities */
+.has-theme-palette9-background-color { background-color: var(--aot-navy) !important; }
+.has-theme-palette8-background-color { background-color: var(--aot-light-gray) !important; }
+.has-theme-palette1-background-color { background-color: var(--aot-navy-light) !important; }
+
+/* Overlay support */
+.kb-section-has-overlay { position: relative; }
+.kb-section-has-overlay > .kt-inside-inner-col { z-index: 1; }
+.kb-section-has-overlay > .kt-inside-inner-col::before {
+  content: "";
+  opacity: 0.3;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Link overlay (full-card clickable areas) */
+.kb-section-has-link { position: relative; }
+.kb-section-link-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+/* Kadence image */
+.wp-block-kadence-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Text alignment */
+.aligncenter { margin-left: auto; margin-right: auto; }
+.textcenter { text-align: center; }
+
+/* ============================================================
+   STEP 7 — ACCESSIBILITY
+   ============================================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--aot-skip-bg);
+  color: var(--aot-white);
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--aot-navy-light);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   STEP 8 — TYPOGRAPHY & FONTS
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--aot-gray-900);
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--aot-navy-light);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   STEP 9 — GLYPHICONS
+   Icon font from activeoahu theme.
+   ============================================================ */
+
+/* Glyphicon font-face REMOVED — all glyphicon elements replaced with
+   Unicode characters to eliminate 404 errors on production. */
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: inherit;
+}
+
+.glyphicon-earphone::before   { content: "\e182"; }
+.glyphicon-calendar::before    { content: "\e109"; }
+.glyphicon-arrow-right::before { content: "\e250"; }
+.glyphicon-asterisk::before    { content: "\2a";   }
+
+/* ============================================================
+   STEP 10 — MOBILE RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero-banner h1 { font-size: 1.6rem; }
+  .hero-banner h2 { font-size: 1.1rem; }
+  .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.aot-site-footer {
+  color: #333;
+  background: #f8f9fa;
+  padding: 2.5rem 1rem 1.5rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.footer-contact {
+  max-width: 1140px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+.footer-business-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #003366;
+  margin: 0 0 0.25rem;
+}
+.footer-address {
+  font-style: normal;
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+.footer-address a {
+  color: #0066cc;
+  text-decoration: none;
+}
+.footer-address a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav {
+  max-width: 1140px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.footer-nav-group {
+  min-width: 140px;
+}
+.footer-nav-heading {
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #003366;
+  margin: 0 0 0.5rem;
+}
+.footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-nav-list li {
+  margin-bottom: 0.375rem;
+}
+.footer-nav-link {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+}
+.footer-nav-link:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.footer-legal {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+.footer-legal-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-legal-links a {
+  color: #666;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-legal-links a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-nav { grid-template-columns: 1fr; }
+  .footer-legal { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ======================
+   HOMEPAGE SECTION OVERRIDES
+   Fix Kadence palette cascade to match production
+   ====================== */
+
+/* FeaturedTourHero — matches production's 50/50 layout with full-size images */
+/* ── Note: .featured-tour-hero is now styled via the
+ * FeaturedTourHero.astro component (BEM scoping + tokens).
+ * The orphan global block that used to live here has been
+ * removed as part of the Round 17 modular migration.
+ */
+
+/* FeatureBlock CTA buttons — `.feature-block .feature-cta, .feature-cta`
+   doubled specificity (0,0,3,0 + 0,0,1,0 = 0,0,4,0) wins without !important. */
+.feature-block .feature-cta.feature-cta,
+.feature-cta.feature-cta {
+  background: var(--aot-navy);
+  color: var(--aot-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--aot-border-radius);
+  text-decoration: none;
+  font-family: var(--aot-font-body);
+  font-weight: 600;
+  display: inline-block;
+}
+.feature-block .feature-cta:hover,
+.feature-cta:hover {
+  background: var(--aot-navy-hover);
+  color: var(--aot-white);
+}
+.feature-block .feature-cta-secondary.feature-cta-secondary,
+.feature-cta-secondary.feature-cta-secondary {
+  color: var(--aot-blue);
+  font-weight: 600;
+  font-family: var(--aot-font-body);
+  text-decoration: none;
+  display: inline-block;
+  min-height: 24px;
+  padding: 8px 4px;
+  margin: -8px -4px;
+}
+.feature-block .feature-cta-secondary:hover,
+.feature-cta-secondary:hover {
+  text-decoration: underline;
+}
+/* FeaturedTours — "View All" link — doubled class wins without !important. */
+.view-all-link.view-all-link {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.view-all-tours-link.view-all-tours-link {
+  color: var(--aot-blue);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.view-all-tours-link:hover {
+  text-decoration: underline;
+  color: var(--aot-hero-bg);
+}
+
+/* Specificity-raised selectors to win over .aot-section--palette-X
+   ([data-astro-cid-*] gives them 0,0,2,0). Adding `section.tours-grid`
+   gets us to 0,0,2,1 — wins without !important. */
+section.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+.tours-grid > article.tour-card {
+  display: flex;
+  flex-direction: column;
+}
+.tours-grid > article > * img,
+.tours-grid > article img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 337/240;
+  object-fit: cover;
+}
+@media (max-width: 900px) {
+  section.tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  section.tours-grid { grid-template-columns: 1fr; }
+}
+
+/* InfoStrip + DealBanner (legacy) — REMOVED in R21.
+   .info-strip: not rendered anywhere in dist HTML (replaced by FeatureBlock).
+   #deal-banner: not rendered (DealBanner uses .site-banner-announcement class). */
+
+/* ClosingCTA — white background, NOT navy. Doubled class + element selector
+   gives specificity 0,0,2,1, beating the Section primitive's
+   [data-astro-cid-*] palette rules without needing !important. */
+section.closing-cta-bg,
+section.kb-row-layout-wrap.closing-cta-bg {
+  background-color: var(--aot-white);
+}
+/* Note: .closing-cta h2/p rules were removed in R20.
+   ClosingCTA is now self-styled (plain <section> + scoped <style>)
+   with --aot-hero-bg, --aot-white, --aot-text-light tokens. */
+
+/* FeatureBlock — white bg (overrides Section palette="none" bg) */
+section.feature-block {
+  background-color: var(--aot-white);
+}
+
+/* Awards — white bg (overrides Section palette="white" — same color, but
+   the doubled specificity prevents regression if palette changes) */
+section.awards-section {
+  background-color: var(--aot-white);
+}
+
+/* Testimonial — light gray (overrides Section palette="gray" with same color) */
+section.testimonial-section {
+  background-color: var(--aot-gray-100);
+}
+
+/* DealBanner — REMOVED in R21 (was dead code — #deal-banner not rendered). */
+
+/* ============================================================
+   Gallery Lightbox Modal
+   ============================================================ */
+.aot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(0, 0, 0, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.aot-lightbox.open {
+  display: flex;
+  opacity: 1;
+}
+.aot-lightbox[hidden] {
+  display: none !important;
+}
+.aot-lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.aot-lightbox-img {
+  max-width: 95vw;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.aot-lightbox-caption {
+  color: #fff;
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-align: center;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.aot-lightbox-title {
+  font-weight: 600;
+}
+.aot-lightbox-counter {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.aot-lightbox-close,
+.aot-lightbox-prev,
+.aot-lightbox-next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+.aot-lightbox-close:hover,
+.aot-lightbox-prev:hover,
+.aot-lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+.aot-lightbox-close:focus-visible,
+.aot-lightbox-prev:focus-visible,
+.aot-lightbox-next:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.aot-lightbox-close {
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+}
+.aot-lightbox-prev {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 1.25rem;
+}
+.aot-lightbox-prev:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+.aot-lightbox-next {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 1.25rem;
+}
+.aot-lightbox-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 640px) {
+  .aot-lightbox-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  .aot-lightbox-prev,
+  .aot-lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .aot-lightbox-prev { left: 0.5rem; }
+  .aot-lightbox-next { right: 0.5rem; }
+  .aot-lightbox-caption { font-size: 0.85rem; padding: 0 1rem; }
+}

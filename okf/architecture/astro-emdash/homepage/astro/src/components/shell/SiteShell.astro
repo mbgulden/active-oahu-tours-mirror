@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  class?: string;
+  // Shell-specific
+  locale: string;
+  currentPath: string;
+  pageType: string;
+  navTree: unknown;
+  footerGroups: unknown;
+  bookingConfig: unknown;
+  businessIdentity: unknown;
+}
+
+const props = Astro.props;
+const layoutProps = {
+  title: props.title,
+  description: props.description,
+  canonical: props.canonical,
+  ogImage: props.ogImage,
+  ogType: props.ogType,
+  class: props.class,
+};
+---
+<BaseLayout {...layoutProps}>
+  <slot name="deal-banner" />
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <slot name="footer-extras" />
+  <Footer />
+</BaseLayout>

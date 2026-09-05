@@ -1,0 +1,167 @@
+---
+import shellData from '../content/nav/aot-shell-data.json';
+import siteNavigationSchema from '../generated/schema/site-navigation.json';
+import localBusinessSchema from '../generated/schema/local-business.json';
+import '../styles/tokens.css';
+import '../styles/active-oahu-tours-minimal.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description = shellData.business.description ?? 'Outdoor adventures on Oahu — kayak rentals, guided tours, e-bike adventures, and beach gear delivered to your door.',
+  canonical = 'https://activeoahutours.com/',
+  ogImage = 'https://activeoahutours.com/wp-content/uploads/2023/06/cropped-AOT-FB.jpg',
+  ogType = 'website',
+  class: className,
+} = Astro.props;
+
+const business = shellData.business;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={business.name} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts: Open Sans Condensed for headings, Open Sans for body
+         Async CSS pattern: load stylesheet non-blocking, swap to all when ready -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      />
+    </noscript>
+
+    <!-- JSON-LD: SiteNavigationElement -->
+    <script type="application/ld+json" set:html={JSON.stringify(siteNavigationSchema)} />
+    <!-- JSON-LD: LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <!-- FareHarbor Script (defer so it doesn't block render) -->
+    <script is:inline defer src="https://fareharbor.com/embeds/sdk/latest.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <!-- FareHarbor Init Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-book]').forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            if (href && window.FH) {
+              window.FH.open({
+                shortname: 'activeoahutours',
+                fallback: 'simple',
+                url: href,
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <!-- Gallery Lightbox Script -->
+    <script src="/js/gallery-lightbox.js" defer></script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --font-heading: 'Open Sans Condensed', 'Arial Narrow', Arial, sans-serif;
+    --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --color-primary: #0066cc;
+    --color-primary-dark: #004999;
+    --color-orange: #e87121;
+    --color-text: #333333;
+    --color-bg: #ffffff;
+    --color-border: #e0e0e0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  a { color: var(--color-primary); }
+  a:hover { color: var(--color-primary-dark); }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 100;
+    text-decoration: none;
+    font-family: var(--font-body);
+  }
+  .skip-link:focus { top: 0; }
+
+  img { max-width: 100%; height: auto; }
+
+  .btn-primary,
+  input[type="submit"],
+  .wp-block-button__link {
+    background: var(--color-orange);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #d45f15; color: #fff; }
+</style>

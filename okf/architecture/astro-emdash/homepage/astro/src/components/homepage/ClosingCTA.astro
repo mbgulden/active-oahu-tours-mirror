@@ -1,0 +1,54 @@
+---
+interface Props {
+  h2: string;
+  text: string;
+  phone: string;
+  phoneHref: string;
+}
+
+const { h2, text, phone, phoneHref } = Astro.props;
+---
+<!-- Plain <section> rather than <Section> primitive — ClosingCTA
+     needs the dark hero-bg color, which fights Section's palette
+     system. Keeping it as a standalone section is cleaner than
+     fighting specificity. -->
+<section class="closing-cta" aria-labelledby="closing-cta-heading">
+  <div class="closing-cta__container">
+    <h2 id="closing-cta-heading" class="closing-cta__heading">{h2}</h2>
+    <p class="closing-cta__text">{text}</p>
+    <a href={phoneHref} class="aot-btn-phone closing-cta__phone-btn">
+      <span aria-hidden="true">&#9742;</span>
+      {phone}
+    </a>
+  </div>
+</section>
+
+<style>
+  .closing-cta {
+    background-color: var(--aot-hero-bg);
+    color: var(--aot-white);
+    padding: var(--aot-space-7) var(--aot-container-padding);
+    text-align: center;
+  }
+  .closing-cta__container {
+    max-width: var(--aot-container-max);
+    margin: 0 auto;
+  }
+  .closing-cta__heading {
+    font-family: var(--aot-font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--aot-white);
+    margin: 0 0 var(--aot-space-4);
+  }
+  .closing-cta__text {
+    font-size: 1rem;
+    color: var(--aot-text-light);
+    margin: 0 0 var(--aot-space-5);
+    line-height: 1.6;
+  }
+  .closing-cta__phone-btn {
+    color: var(--aot-white);
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,119 @@
+---
+/**
+ * Heading primitive — a reusable heading with Kadence Advanced Heading
+ * compatibility, production-derived text-shadow defaults, and consistent
+ * sizing/typography tokens.
+ *
+ * Usage:
+ *   <Heading level={1} id="hero-h1" color="white" withTextShadow>
+ *     Oʻahu Kayak Rentals & Tours
+ *   </Heading>
+ *
+ *   <Heading level={2} id="hero-h2" color="white" withTextShadow size="xxxl">
+ *     Kailua Kayak & E-Bike Adventures
+ *   </Heading>
+ *
+ * Props:
+ *   - level: 1 | 2 | 3 | 4 | 5 | 6 (heading tag)
+ *   - id: optional CSS class for scoping (e.g., "hero-h1")
+ *   - color: white | navy | blue | orange | body (default = body)
+ *   - size: sm | md | lg | xl | xxl | xxxl (production clamps)
+ *   - weight: 400 | 600 | 700 (default 700)
+ *   - withTextShadow: boolean, adds production text-shadow for hero use
+ *   - textAlign: left | center | right
+ *   - marginBottom: override default
+ *   - class: extra classes
+ */
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  id?: string;
+  color?: "white" | "navy" | "blue" | "orange" | "body";
+  size?: "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+  weight?: 400 | 600 | 700;
+  withTextShadow?: boolean;
+  textAlign?: "left" | "center" | "right";
+  marginBottom?: string;
+  class?: string;
+}
+
+const {
+  level = 2,
+  id,
+  color = "body",
+  size,
+  weight = 700,
+  withTextShadow = false,
+  textAlign,
+  marginBottom,
+  class: extraClass = "",
+} = Astro.props;
+
+// Production color mapping (Kadence has-* classes)
+const colorMap = {
+  white: "has-white-color has-text-color",
+  navy: "has-theme-palette9-color has-text-color",
+  blue: "has-theme-palette2-color has-text-color",
+  orange: "has-theme-palette8-color has-text-color",
+  body: "",
+};
+
+// Production-derived font sizes (mirrors --global-kb-font-size-*)
+const sizeMap: Record<string, string> = {
+  sm: "1rem",     // sm (16px)
+  md: "1.25rem",  // md (20px) — hero H1 production
+  lg: "2rem",     // lg (32px)
+  xl: "3rem",     // xl (48px)
+  xxl: "4rem",    // xxl (64px)
+  xxxl: "5rem",   // xxxl (80px) — hero H2 production
+};
+
+// Production text-shadow per heading (only used when withTextShadow)
+const shadowMap: Record<number, string> = {
+  1: "1px 1px 3px #000000",
+  2: "1px 1px 21px #000000",
+  3: "1px 1px 5px rgba(0,0,0,0.9)",
+  4: "1px 1px 3px rgba(0,0,0,0.7)",
+  5: "1px 1px 3px rgba(0,0,0,0.7)",
+  6: "1px 1px 3px rgba(0,0,0,0.7)",
+};
+
+const classes = [
+  "aot-heading",
+  `aot-heading--h${level}`,
+  `aot-heading--color-${color}`,
+  colorMap[color],
+  size ? `aot-heading--size-${size}` : "",
+  withTextShadow ? "aot-heading--shadowed" : "",
+  extraClass,
+].filter(Boolean).join(" ");
+
+const styleParts: string[] = [];
+if (size) styleParts.push(`font-size: ${sizeMap[size!]}`);
+if (weight) styleParts.push(`font-weight: ${weight}`);
+if (textAlign) styleParts.push(`text-align: ${textAlign}`);
+if (marginBottom) styleParts.push(`margin-bottom: ${marginBottom}`);
+if (withTextShadow) styleParts.push(`text-shadow: ${shadowMap[level]}`);
+const inlineStyle = styleParts.length > 0 ? styleParts.join("; ") : undefined;
+---
+
+{level === 1 && <h1 class={classes} id={id} style={inlineStyle}><slot /></h1>}
+{level === 2 && <h2 class={classes} id={id} style={inlineStyle}><slot /></h2>}
+{level === 3 && <h3 class={classes} id={id} style={inlineStyle}><slot /></h3>}
+{level === 4 && <h4 class={classes} id={id} style={inlineStyle}><slot /></h4>}
+{level === 5 && <h5 class={classes} id={id} style={inlineStyle}><slot /></h5>}
+{level === 6 && <h6 class={classes} id={id} style={inlineStyle}><slot /></h6>}
+
+<style>
+  .aot-heading {
+    font-family: var(--aot-font-heading);
+    margin-top: 0;
+    margin-bottom: var(--aot-space-4);
+    color: inherit;
+    line-height: 1.2;
+  }
+  .aot-heading--color-white { color: var(--aot-white); }
+  .aot-heading--color-navy { color: var(--aot-navy); }
+  .aot-heading--color-blue { color: var(--aot-blue); }
+  .aot-heading--color-orange { color: var(--aot-orange); }
+  .aot-heading--color-body { color: var(--aot-gray-800); }
+</style>

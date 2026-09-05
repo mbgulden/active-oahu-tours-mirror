@@ -1,0 +1,103 @@
+---
+import Section from "../primitives/Section.astro";
+import Card from "../primitives/Card.astro";
+import PriceTag from "../primitives/PriceTag.astro";
+import BookingButton from "../primitives/BookingButton.astro";
+
+interface Tour {
+  id: string;
+  heading: string;
+  subheading?: string;
+  text: string;
+  note?: string;
+  duration?: string;
+  location?: string;
+  price?: string;
+  href: string;
+  cta: string;
+  image: string;
+  imageAlt: string;
+  bookingHref?: string;
+  bookingShortname?: string;
+}
+
+interface Props {
+  h2: string;
+  tours: Tour[];
+}
+
+const { h2, tours } = Astro.props;
+---
+
+<Section
+  palette="white"
+  region="Our Most Popular Experiences"
+  padding="lg"
+  container={false}
+  class="popular-tours"
+>
+  <div class="popular-tours__container">
+    <h2 id="popular-tours-heading" class="popular-tours__h2">{h2}</h2>
+    <div class="popular-tours__view-all">
+      <a href="/activities/" class="popular-tours__view-all-link">View All Tours &amp; Activities &#8594;</a>
+    </div>
+    <div class="tours-grid">
+      {tours.map((tour) => (
+        <Card
+          href={tour.href}
+          image={tour.image}
+          imageAlt={tour.imageAlt}
+          imageWidth={337}
+          imageHeight={240}
+          title={tour.heading}
+          subtitle={tour.subheading}
+          description={tour.text}
+          duration={tour.duration}
+          location={tour.location}
+          price={tour.price}
+          ctaText={`${tour.cta} ➔`}
+          bookHref={tour.bookingHref}
+          variant="tour"
+          titleSize="sm"
+          class="tour-card"
+        >
+          {tour.note && <p class="tour-note">{tour.note}</p>}
+        </Card>
+      ))}
+    </div>
+  </div>
+</Section>
+
+<style>
+  .popular-tours__container {
+    max-width: var(--aot-container-max);
+    margin: 0 auto;
+    padding: 0 var(--aot-container-padding);
+  }
+  .popular-tours__h2 {
+    font-family: var(--aot-font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--aot-gray-800);
+    text-align: center;
+    margin: 0 0 var(--aot-space-6);
+  }
+  .popular-tours__view-all {
+    text-align: center;
+    margin-bottom: var(--aot-space-5);
+  }
+  .popular-tours__view-all-link {
+    color: var(--aot-blue);
+    text-decoration: none;
+    font-family: var(--aot-font-body);
+    font-weight: 600;
+  }
+  .popular-tours__view-all-link:hover {
+    text-decoration: underline;
+  }
+  .tour-note {
+    font-size: 0.8rem;
+    color: var(--aot-gray-700);
+    padding-top: 0.25rem;
+  }
+</style>

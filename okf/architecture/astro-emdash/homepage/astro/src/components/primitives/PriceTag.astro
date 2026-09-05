@@ -1,0 +1,63 @@
+---
+/**
+ * PriceTag primitive — a small price tag with optional strike-through
+ * original price. Used by FeaturedTours cards.
+ *
+ * Usage:
+ *   <PriceTag price="$82" originalPrice="$95" />
+ *   <PriceTag price="From $50" size="lg" />
+ */
+interface Props {
+  price: string;
+  originalPrice?: string;
+  size?: "sm" | "md" | "lg";
+  align?: "left" | "right" | "center";
+  class?: string;
+}
+
+const {
+  price,
+  originalPrice,
+  size = "md",
+  align = "right",
+  class: extraClass = "",
+} = Astro.props;
+
+const classes = [
+  "aot-price",
+  `aot-price--${size}`,
+  `aot-price--align-${align}`,
+  extraClass,
+].filter(Boolean).join(" ");
+---
+
+<span class={classes}>
+  {originalPrice && <span class="aot-price__original">${originalPrice}</span>}
+  <span class="aot-price__current">{price}</span>
+</span>
+
+<style>
+  .aot-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--aot-space-2);
+    font-family: var(--aot-font-heading);
+    font-weight: 700;
+    color: var(--aot-navy);
+  }
+  .aot-price__original {
+    color: var(--aot-gray-500);
+    text-decoration: line-through;
+    font-size: 0.85em;
+    font-weight: 400;
+  }
+  .aot-price__current {
+    color: var(--aot-navy);
+  }
+  .aot-price--sm { font-size: 0.9rem; }
+  .aot-price--md { font-size: 1.1rem; }
+  .aot-price--lg { font-size: 1.5rem; }
+  .aot-price--align-left { justify-content: flex-start; }
+  .aot-price--align-right { justify-content: flex-end; }
+  .aot-price--align-center { justify-content: center; }
+</style>

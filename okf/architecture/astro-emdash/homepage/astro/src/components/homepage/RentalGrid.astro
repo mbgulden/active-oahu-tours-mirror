@@ -1,0 +1,80 @@
+---
+interface Category {
+  heading: string;
+  subheading: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  h2: string;
+  categories: Category[];
+}
+
+const { h2, categories } = Astro.props;
+---
+<section class="rental-types" aria-labelledby="rental-types-heading">
+  <div class="kb-row-layout-wrap alignfull has-white-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap">
+      <div class="wp-block-kadence-column">
+        <div class="kt-inside-inner-col">
+          <h2 id="rental-types-heading">{h2}</h2>
+          <div class="rental-grid">
+            {categories.map((cat) => (
+              <div class="rental-item">
+                <figure>
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="115"
+                    height="115"
+                    src={cat.image}
+                    alt={cat.imageAlt}
+                  />
+                </figure>
+                <div class="rental-text">
+                  <h3>{cat.heading}</h3>
+                  <h4>{cat.subheading}</h4>
+                  <p>{cat.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Component-specific — structural layout handled in global CSS */
+  .rental-types h2 {
+    font-size: 1.6rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--aot-gray-900);
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+  .rental-text h3 {
+    font-size: 1.1rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--aot-navy);
+    margin: 0 0 0.25rem;
+  }
+  .rental-text h4 {
+    font-size: 0.9rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--aot-gray-600);
+    margin: 0 0 0.5rem;
+  }
+  .rental-text p {
+    font-size: 0.85rem;
+    color: var(--aot-gray-400);
+    margin: 0;
+    line-height: 1.4;
+  }
+</style>

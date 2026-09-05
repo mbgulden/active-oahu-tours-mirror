@@ -1,0 +1,172 @@
+---
+/**
+ * BookingButton primitive — a unified "Book Online" / "Book" button.
+ * Used in header, hero, and tour cards.
+ *
+ * Usage:
+ *   <BookingButton variant="primary" size="md" location="header" />
+ *   <BookingButton variant="primary" size="sm" location="hero">📅 Book Online</BookingButton>
+ *
+ * Props:
+ *   - variant: primary | secondary | outline (default primary)
+ *   - size: sm | md | lg (default md)
+ *   - location: header | hero | card (default card)
+ *   - href: override default booking URL
+ *   - icon: boolean, show calendar icon (default true for primary)
+ *   - uppercase: boolean, default true
+ *   - block: boolean, full-width
+ *   - useShortname: boolean, trigger FH.open() onclick (default true)
+ */
+interface Props {
+  variant?: "primary" | "secondary" | "outline";
+  size?: "sm" | "md" | "lg";
+  location?: "header" | "hero" | "card";
+  href?: string;
+  icon?: boolean;
+  uppercase?: boolean;
+  block?: boolean;
+  useShortname?: boolean;
+  class?: string;
+  id?: string;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  location = "card",
+  href,
+  icon,
+  uppercase = true,
+  block = false,
+  useShortname = true,
+  class: extraClass = "",
+  id,
+} = Astro.props;
+
+const BOOKING_SHORTNAME = "activeoahutours";
+const DEFAULT_HREF = `https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes`;
+
+const finalHref = href ?? DEFAULT_HREF;
+const showIcon = icon ?? (variant === "primary");
+const isShortname = useShortname && !href;
+
+const classes = [
+  "aot-btn",
+  "aot-btn--book",
+  `aot-btn--${variant}`,
+  `aot-btn--${size}`,
+  `aot-btn--${location}`,
+  block ? "aot-btn--block" : "",
+  extraClass,
+].filter(Boolean).join(" ");
+
+// Default label per location
+const labelByLocation = {
+  header: "BOOK ONLINE",
+  hero: "Book Online",
+  card: "Book",
+};
+const defaultLabel = labelByLocation[location];
+---
+
+<a
+  class={classes}
+  id={id}
+  href={finalHref}
+  data-booking-shortname={isShortname ? BOOKING_SHORTNAME : undefined}
+  onclick={isShortname ? `FH.open({'shortname':'${BOOKING_SHORTNAME}','fallback':'simple'}); return false;` : undefined}
+  data-book
+>
+  <strong>
+    {showIcon && <span aria-hidden="true">📅</span>}
+    <slot>{defaultLabel}</slot>
+  </strong>
+</a>
+
+<style>
+  /* ── Base button ─────────────────────────────────────── */
+  .aot-btn--book {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--aot-space-2);
+    font-family: var(--aot-font-heading);
+    font-weight: 700;
+    letter-spacing: 0.78px;
+    border: none;
+    border-radius: var(--aot-border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color var(--aot-transition-fast);
+    white-space: nowrap;
+    box-shadow: var(--aot-shadow-book-btn);
+  }
+  .aot-btn--book strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* ── Variants ────────────────────────────────────────── */
+  .aot-btn--primary {
+    background-color: var(--aot-orange-deep);
+    color: var(--aot-white);
+  }
+  .aot-btn--primary:hover,
+  .aot-btn--primary:focus-visible {
+    background-color: #8a3700;
+    color: var(--aot-white);
+  }
+  .aot-btn--secondary {
+    background-color: var(--aot-navy);
+    color: var(--aot-white);
+  }
+  .aot-btn--outline {
+    background-color: transparent;
+    color: var(--aot-navy);
+    border: 2px solid var(--aot-navy);
+    box-shadow: none;
+  }
+
+  /* ── Sizes ───────────────────────────────────────────── */
+  .aot-btn--sm {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .aot-btn--md {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+  .aot-btn--lg {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  .aot-btn--block {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Location overrides ──────────────────────────────── */
+  .aot-btn--header {
+    text-transform: uppercase;
+  }
+  .aot-btn--hero {
+    text-transform: none;
+    color: var(--aot-white);
+    background-color: var(--aot-navy);
+    border-radius: var(--aot-border-radius);
+    padding: 8px 16px;
+    font-weight: 700;
+  }
+  .aot-btn--hero:hover {
+    background-color: var(--aot-navy-hover);
+  }
+  .aot-btn--card {
+    text-transform: uppercase;
+  }
+
+  /* ── Uppercase toggle ────────────────────────────────── */
+  .aot-btn--book:not([class*="uppercase"]) strong {
+    text-transform: inherit;
+  }
+</style>

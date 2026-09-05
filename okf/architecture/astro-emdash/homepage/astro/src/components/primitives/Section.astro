@@ -1,0 +1,162 @@
+---
+/**
+ * Section primitive — consistent section wrapper for all homepage
+ * sections. Provides palette backgrounds, max-width container,
+ * responsive padding, and accessible region landmarks.
+ *
+ * Usage:
+ *   <Section palette="navy" region="Hero" aria-label="Hero">
+ *     <div class="hero-grid">...</div>
+ *   </Section>
+ *
+ * Props:
+ *   - palette: navy | blue | white | gray | none (default white)
+ *   - region: optional aria-label for the section region
+ *   - id: section id (e.g., "hero")
+ *   - container: whether to wrap content in max-width container (default true)
+ *   - padding: sm | md | lg | none (default md)
+ *   - bgImage: optional background-image URL
+ *   - bgOverlay: rgba color for dark overlay (default none)
+ *   - class: extra classes
+ *   - as: tag name (default section, can be: section, div, article, aside, main)
+ */
+interface Props {
+  palette?: "navy" | "blue" | "white" | "gray" | "none";
+  region?: string;
+  id?: string;
+  container?: boolean;
+  padding?: "sm" | "md" | "lg" | "none";
+  bgImage?: string;
+  bgOverlay?: string;
+  class?: string;
+  as?: "section" | "div" | "article" | "aside" | "main";
+}
+
+const {
+  palette = "white",
+  region,
+  id,
+  container = true,
+  padding = "md",
+  bgImage,
+  bgOverlay,
+  class: extraClass = "",
+  as = "section",
+} = Astro.props;
+
+const paletteClass = `aot-section--palette-${palette}`;
+const paddingClass = `aot-section--pad-${padding}`;
+const hasBgImage = !!bgImage;
+
+const sectionStyle = hasBgImage
+  ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;`
+  : undefined;
+
+const classes = [
+  "aot-section",
+  paletteClass,
+  paddingClass,
+  hasBgImage ? "aot-section--has-bg" : "",
+  extraClass,
+].filter(Boolean).join(" ");
+---
+
+{as === "section" && (
+  <section id={id} aria-label={region} class={classes} style={sectionStyle}>
+    {bgOverlay && <div class="aot-section__bg-overlay" style={`background-color: ${bgOverlay};`} aria-hidden="true"></div>}
+    {container ? (
+      <div class="aot-section__container"><slot /></div>
+    ) : (
+      <slot />
+    )}
+  </section>
+)}
+{as === "div" && (
+  <div id={id} aria-label={region} class={classes} style={sectionStyle}>
+    {bgOverlay && <div class="aot-section__bg-overlay" style={`background-color: ${bgOverlay};`} aria-hidden="true"></div>}
+    {container ? (
+      <div class="aot-section__container"><slot /></div>
+    ) : (
+      <slot />
+    )}
+  </div>
+)}
+{as === "article" && (
+  <article id={id} aria-label={region} class={classes} style={sectionStyle}>
+    {bgOverlay && <div class="aot-section__bg-overlay" style={`background-color: ${bgOverlay};`} aria-hidden="true"></div>}
+    {container ? (
+      <div class="aot-section__container"><slot /></div>
+    ) : (
+      <slot />
+    )}
+  </article>
+)}
+{as === "aside" && (
+  <aside id={id} aria-label={region} class={classes} style={sectionStyle}>
+    {bgOverlay && <div class="aot-section__bg-overlay" style={`background-color: ${bgOverlay};`} aria-hidden="true"></div>}
+    {container ? (
+      <div class="aot-section__container"><slot /></div>
+    ) : (
+      <slot />
+    )}
+  </aside>
+)}
+{as === "main" && (
+  <main id={id} aria-label={region} class={classes} style={sectionStyle}>
+    {bgOverlay && <div class="aot-section__bg-overlay" style={`background-color: ${bgOverlay};`} aria-hidden="true"></div>}
+    {container ? (
+      <div class="aot-section__container"><slot /></div>
+    ) : (
+      <slot />
+    )}
+  </main>
+)}
+
+<style>
+  /* ── Base section ─────────────────────────────────────── */
+  .aot-section {
+    position: relative;
+    width: 100%;
+  }
+  .aot-section--has-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ── Container ────────────────────────────────────────── */
+  .aot-section__container {
+    max-width: var(--aot-container-max);
+    margin: 0 auto;
+    padding-left: var(--aot-container-padding);
+    padding-right: var(--aot-container-padding);
+    position: relative;
+    z-index: var(--aot-z-content);
+  }
+
+  /* ── Background overlay ───────────────────────────────── */
+  .aot-section__bg-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--aot-z-base);
+  }
+
+  /* ── Palettes ─────────────────────────────────────────── */
+  .aot-section--palette-white { background-color: var(--aot-white); color: var(--aot-gray-800); }
+  .aot-section--palette-navy { background-color: var(--aot-navy); color: var(--aot-white); }
+  .aot-section--palette-blue { background-color: var(--aot-blue); color: var(--aot-white); }
+  .aot-section--palette-gray { background-color: var(--aot-gray-100); color: var(--aot-gray-800); }
+  .aot-section--palette-none { background-color: transparent; }
+
+  /* ── Padding ──────────────────────────────────────────── */
+  .aot-section--pad-sm { padding-top: var(--aot-space-4); padding-bottom: var(--aot-space-4); }
+  .aot-section--pad-md { padding-top: var(--aot-space-6); padding-bottom: var(--aot-space-6); }
+  .aot-section--pad-lg { padding-top: var(--aot-space-7); padding-bottom: var(--aot-space-7); }
+  .aot-section--pad-none { padding: 0; }
+
+  @media (max-width: 768px) {
+    .aot-section--pad-md { padding-top: var(--aot-space-5); padding-bottom: var(--aot-space-5); }
+    .aot-section--pad-lg { padding-top: var(--aot-space-6); padding-bottom: var(--aot-space-6); }
+  }
+</style>

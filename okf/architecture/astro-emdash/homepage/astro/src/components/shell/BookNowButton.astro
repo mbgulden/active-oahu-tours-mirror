@@ -1,0 +1,25 @@
+---
+/**
+ * BookNowButton — header CTA button.
+ *
+ * Migrated to use the modular BookingButton primitive.
+ * Kept as a thin wrapper to preserve existing import paths and
+ * navigation data shape (bookingConfig.shortname, bookingConfig.href).
+ */
+import BookingButton from "../primitives/BookingButton.astro";
+import shellData from "../../content/nav/aot-shell-data.json";
+
+const booking = shellData.bookingConfig;
+---
+
+<BookingButton
+  variant="primary"
+  size="md"
+  location="header"
+  href={booking.href}
+  useShortname={false}
+  icon={true}
+  uppercase={true}
+>
+  Book Online
+</BookingButton>

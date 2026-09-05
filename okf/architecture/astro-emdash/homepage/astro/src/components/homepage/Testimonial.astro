@@ -1,0 +1,45 @@
+---
+import Section from "../primitives/Section.astro";
+
+interface Props {
+  quote: string;
+  attribution?: string;
+}
+
+const { quote, attribution } = Astro.props;
+---
+
+<Section
+  palette="gray"
+  region="Customer testimonial"
+  padding="md"
+  class="testimonial-section"
+>
+  <blockquote class="testimonial-blockquote">
+    <p class="testimonial-quote">"{quote}"</p>
+    {attribution && <cite class="testimonial-cite">— {attribution}</cite>}
+  </blockquote>
+</Section>
+
+<style>
+  .testimonial-blockquote {
+    margin: 0 auto;
+    padding: 0 var(--aot-space-6);
+    max-width: 800px;
+    text-align: center;
+  }
+  .testimonial-quote {
+    font-family: var(--aot-font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--aot-gray-800);
+    line-height: 1.4;
+    margin: 0 0 0.75rem;
+  }
+  .testimonial-cite {
+    font-family: var(--aot-font-body);
+    font-size: 0.9rem;
+    color: var(--aot-gray-600);
+    font-style: normal;
+  }
+</style>

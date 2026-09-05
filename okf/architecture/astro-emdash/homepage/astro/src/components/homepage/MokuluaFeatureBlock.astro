@@ -1,0 +1,222 @@
+---
+import Section from "../primitives/Section.astro";
+
+interface Props {
+  heading?: string;
+  text?: string;
+  href?: string;
+  cta?: string;
+  image: string;
+  imageAlt?: string;
+  packages?: { heading: string; feature: string; subheading?: string; text?: string; image: string; href: string }[];
+}
+
+const {
+  heading = "Mokoliʻi Island",
+  text = "Paddle in an ocean kayak out to the Mokoliʻi (Chinaman's Hat) — Kualoa's iconic offshore island — with a kayak and beach gear rental delivery service.",
+  href = "/activities/",
+  cta = "Browse tours",
+  image = "https://activeoahutours.com/wp-content/uploads/2022/01/Mokolii-from-above-view-1.jpg",
+  imageAlt = "Mokoliʻi Island from above",
+  packages = [],
+} = Astro.props;
+---
+
+<Section
+  palette="white"
+  region={heading}
+  padding="none"
+  container={false}
+  class="mokulua-feature-block"
+>
+  <div class="mokulua-feature-block__container">
+    <div class="mokulua-feature-block__row">
+      <div class="mokulua-feature-block__packages-col">
+        <div class="mokulua-feature-block__packages-row">
+          {packages.map((pkg) => (
+            <a
+              href={pkg.href}
+              class="mokulua-feature-block__package"
+              style={`--bg-image:url('${pkg.image}')`}
+            >
+              <h3 class="mokulua-feature-block__package-heading">{pkg.heading}</h3>
+              <h3 class="mokulua-feature-block__package-feature">{pkg.feature}</h3>
+              {pkg.subheading && (
+                <h4 class="mokulua-feature-block__package-subheading">{pkg.subheading}</h4>
+              )}
+              {pkg.text && <p class="mokulua-feature-block__package-text">{pkg.text}</p>}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="mokulua-feature-block__description">
+        <div
+          class="mokulua-feature-block__bg"
+          style={`--bg-image:url('${image}')`}
+        >
+          <img
+            src={image}
+            alt={imageAlt}
+            class="mokulua-feature-block__bg-img"
+            width="724"
+            height="483"
+            loading="lazy"
+          />
+          <div class="mokulua-feature-block__card">
+            <h4 class="mokulua-feature-block__heading">{heading}</h4>
+            <p>{text}</p>
+            <br />
+            <a href={href}>{cta} <span aria-hidden="true">&#10132;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .mokulua-feature-block__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .mokulua-feature-block__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .mokulua-feature-block__description {
+    flex: 0 0 75%;
+    max-width: 75%;
+    order: 2;
+  }
+  .mokulua-feature-block__packages-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    order: 1;
+  }
+  .mokulua-feature-block__bg {
+    position: relative;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 320px;
+    overflow: hidden;
+  }
+  .mokulua-feature-block__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .mokulua-feature-block__card {
+    position: relative;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    margin: 2rem auto;
+    max-width: 80%;
+  }
+  .mokulua-feature-block__heading {
+    font-family: var(--aot-font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--aot-gray-600);
+    margin: 0 0 var(--aot-space-4);
+  }
+  .mokulua-feature-block__card p {
+    font-family: var(--aot-font-body);
+    font-size: 0.95rem;
+    color: var(--aot-gray-700);
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+  }
+  .mokulua-feature-block__card a {
+    font-family: var(--aot-font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--aot-blue);
+    text-decoration: none;
+  }
+  .mokulua-feature-block__card a:hover {
+    text-decoration: underline;
+    color: var(--aot-blue-hover);
+  }
+  .mokulua-feature-block__packages-row {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .mokulua-feature-block__package {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--aot-space-4);
+    min-height: 160px;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--aot-white);
+    text-decoration: none;
+    position: relative;
+    transition: filter 0.2s ease;
+  }
+  .mokulua-feature-block__package::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background 0.2s ease;
+  }
+  .mokulua-feature-block__package:hover::before {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .mokulua-feature-block__package > * {
+    position: relative;
+    z-index: 1;
+  }
+  .mokulua-feature-block__package-heading,
+  .mokulua-feature-block__package-feature,
+  .mokulua-feature-block__package-subheading {
+    font-family: var(--aot-font-heading);
+    color: var(--aot-white);
+    margin: 0.25rem 0;
+  }
+  .mokulua-feature-block__package-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .mokulua-feature-block__package-feature {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .mokulua-feature-block__package-subheading {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .mokulua-feature-block__package-text {
+    font-family: var(--aot-font-body);
+    font-size: 0.85rem;
+    color: var(--aot-white);
+    margin: 0.25rem 0 0;
+  }
+  @media (max-width: 768px) {
+    .mokulua-feature-block__description,
+    .mokulua-feature-block__packages-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+      order: 0;
+    }
+    .mokulua-feature-block__card {
+      max-width: 95%;
+      padding: var(--aot-space-4);
+    }
+    .mokulua-feature-block__heading {
+      font-size: 1.2rem;
+    }
+  }
+</style>

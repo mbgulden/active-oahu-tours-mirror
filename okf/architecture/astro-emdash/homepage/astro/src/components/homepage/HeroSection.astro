@@ -1,0 +1,254 @@
+---
+import Heading from "../primitives/Heading.astro";
+import BookingButton from "../primitives/BookingButton.astro";
+
+interface CategoryLink {
+  heading: string;
+  href: string;
+  text?: string;
+}
+
+interface RentalLink {
+  text: string;
+  href: string;
+}
+
+interface Props {
+  h1: string;
+  h2: string;
+  subtext: string;
+  bookingHref: string;
+  bookingLabel?: string;
+  categoryLinks?: CategoryLink[];
+  rentalLink?: RentalLink;
+  moreRentalLink?: RentalLink;
+  tripadvisorLogo?: string;
+  tripadvisorLogoAlt?: string;
+  heroImageUrl?: string;
+}
+
+const {
+  h1,
+  h2,
+  subtext,
+  bookingHref,
+  bookingLabel = "Book Online",
+  categoryLinks = [],
+  rentalLink,
+  moreRentalLink,
+  tripadvisorLogo = "https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg",
+  tripadvisorLogoAlt = "Tripadvisor",
+  heroImageUrl = "/wp-content/uploads/2024/01/Active-Oahu-Lifestyle-225-2X1-1000.jpg",
+} = Astro.props;
+---
+
+<section class="hero-banner aot-hero-section" aria-label="Hero">
+  <div class="kb-row-layout-wrap kb-row-layout-id2389_6ed5ef-6d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+    <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
+
+      <!-- Left: h1 + h2 with bg image + overlay -->
+      <div class="wp-block-kadence-column kadence-column2389_30e251-8a kb-section-has-overlay">
+        <div class="kt-inside-inner-col hero-left-col" style={`--hero-bg-image: url('${heroImageUrl}');`}>
+          <Heading
+            level={1}
+            id="kt-adv-heading2389_29248a-fe"
+            color="white"
+            size="md"
+            class="kt-adv-heading2389_29248a-fe wp-block-kadence-advancedheading"
+            withTextShadow
+          >
+            {h1}
+          </Heading>
+          <Heading
+            level={2}
+            id="kt-adv-heading2389_1c90f7-e5"
+            color="white"
+            size="xxxl"
+            class="kt-adv-heading2389_1c90f7-e5 wp-block-kadence-advancedheading"
+            withTextShadow
+          >
+            {h2}
+          </Heading>
+        </div>
+      </div>
+
+      <!-- Right: Booking CTA + Category Links + Rental Links -->
+      <div class="wp-block-kadence-column kadence-column2389_80c4a3-08">
+        <div class="kt-inside-inner-col">
+          <!-- Top: Subtext + Book Online -->
+          <div class="kb-row-layout-wrap kb-row-layout-id2389_8bb391-3d alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+            <div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-left-golden kt-row-valign-top kt-inner-column-height-full">
+
+              <div class="wp-block-kadence-column kadence-column2389_3c78ec-a7">
+                <div class="kt-inside-inner-col">
+                  <h3 class="kt-adv-heading2389_d8fad2-58 wp-block-kadence-advancedheading cta-subheading" data-kb-block="kb-adv-heading2389_d8fad2-58">
+                    {subtext}
+                  </h3>
+                  <BookingButton
+                    variant="primary"
+                    size="md"
+                    location="hero"
+                    href={bookingHref}
+                    icon={true}
+                    uppercase={false}
+                  >
+                    {bookingLabel}
+                  </BookingButton>
+                </div>
+              </div>
+
+              <div class="wp-block-kadence-column kadence-column2389_d227e3-5b">
+                <div class="kt-inside-inner-col">
+                  <figure class="wp-block-kadence-image kb-image2389_58c768-3b size-full">
+                    <img
+                      loading="eager"
+                      decoding="async"
+                      width="200"
+                      height="220"
+                      src={tripadvisorLogo}
+                      alt={tripadvisorLogoAlt}
+                      fetchpriority="high"
+                      class="kb-img wp-image-3595"
+                    />
+                  </figure>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom: Category Links -->
+          {categoryLinks.length > 0 && (
+            <div class="kb-row-layout-wrap alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout">
+              <div class="kt-row-column-wrap kt-has-3-columns kt-row-layout-left-half kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
+                {categoryLinks.map((cat) => (
+                  <div class="wp-block-kadence-column">
+                    <div class="kt-inside-inner-col category-link-col">
+                      <h3 class="kt-adv-heading2389_7a9ff1-8c wp-block-kadence-advancedheading has-white-color has-text-color">
+                        {cat.heading}
+                      </h3>
+                      <a href={cat.href} class="kb-section-link-overlay" aria-label={cat.heading}></a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Hero section shell ──────────────────────────────────── */
+  .aot-hero-section {
+    position: relative;
+    background-color: #003366;
+    overflow: hidden;
+  }
+
+  /* Hero left column with background image.
+     bg image URL is passed via inline --hero-bg-image custom property,
+     but the actual background-image declaration lives here. */
+  .hero-left-col {
+    background-color: var(--aot-navy);
+    background-image: var(--hero-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 380px;
+  }
+
+  /* Dark overlay on hero image (production-style ::before, mostly transparent) */
+  .kb-section-has-overlay > .hero-left-col::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    opacity: 0.3;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Ensure all text sits above the overlay */
+  .aot-hero-section h1,
+  .aot-hero-section h2,
+  .aot-hero-section h3,
+  .aot-hero-section p,
+  .aot-hero-section a {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Kadence row layout */
+  .aot-hero-section .kb-row-layout-wrap {
+    position: relative;
+    z-index: 1;
+  }
+  .aot-hero-section .kt-inside-inner-col {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Hero banner inner ────────────────────────────────────── */
+  .hero-banner {
+    color: var(--aot-white);
+    padding: 0;
+  }
+  .hero-banner .kt-inside-inner-col {
+    padding: 2rem;
+  }
+
+  /* ── Headings handled by global rule ─────────────────────── */
+
+  .hero-banner .cta-subheading {
+    font-size: 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.5;
+  }
+
+  /* ── Category links ────────────────────────────────────── */
+  .hero-banner .category-link-col {
+    padding: 0.75rem 1rem;
+  }
+  .hero-banner .category-link-col h3 {
+    font-size: 1rem;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+  .hero-banner .kb-section-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  /* ── TripAdvisor logo ────────────────────────────────────── */
+  .hero-banner figure {
+    margin: 0;
+    text-align: center;
+  }
+  .hero-banner img {
+    max-width: 180px;
+    height: auto;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero-banner h1 { font-size: 16px; }
+    .hero-banner h2 { font-size: 32px; text-shadow: 1px 1px 14px #000000; }
+    .hero-banner .kt-inside-inner-col { padding: 1.5rem 1rem; }
+    .hero-left-col { min-height: 280px; }
+  }
+</style>

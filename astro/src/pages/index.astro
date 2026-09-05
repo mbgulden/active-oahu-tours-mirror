@@ -1,0 +1,336 @@
+---
+import SiteShell from '../components/shell/SiteShell.astro';
+import shellData from '../content/nav/aot-shell-data.json';
+
+const business = shellData.business;
+const bookingLink = shellData.utilityLinks.find(l => l.intent === 'booking')?.href ?? 'https://fareharbor.com/embeds/book/activeoahutours/';
+
+const activities = [
+  {
+    href: '/activities/',
+    img: '/wp-content/uploads/2019/06/Self-guided-Tours.png',
+    imgAlt: 'Guided Kayak Tours',
+    title: 'Guided Kayak Tours',
+    desc: "Enjoy Oʻahu's best kayaking routes with an experienced guide, or on your own terms with our pre-planned trips.",
+  },
+  {
+    href: '/rentals/',
+    img: '/wp-content/uploads/2019/06/Rentals-2.png',
+    imgAlt: 'Beach Gear Rentals',
+    title: 'Beach Gear Rentals',
+    desc: 'Rent kayaks and other beach gear and pick them up at our shop or get them delivered to your address.',
+  },
+  {
+    href: '/rentals/oahu-tandem-kayak-rentals/',
+    img: '/wp-content/uploads/2022/04/Rentals-3.png',
+    imgAlt: 'Need Kayaks Today?',
+    title: 'Need Kayaks Today?',
+    desc: 'We take day-of and last minute tour or rental bookings. Call us at: (808)498-1894 or visit our shop at 134B Hamakua Dr. Kailua HI 96734.',
+  },
+];
+
+const navItems = shellData.primaryNav;
+---
+<SiteShell
+  title="Oahu Kayak Rentals, E-Bike & Gear Rentals — Active Oahu Tours"
+  description="Outdoor adventures on Oahu — kayak rentals, guided tours, e-bike adventures, and beach gear delivered to your door. Kailua, Lanikai, Kualoa, Kaneohe."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Oʻahu Kayak Rentals & Tours</h1>
+        <h2>Kailua Kayak & <span class="nowrap">E-Bike</span> Adventures With Aloha</h2>
+        <p>Enjoy the Best Kayaking & E-Bike Experiences in Oʻahu, Hawaiʻi</p>
+        <p>Kayak in Kailua to the Mokulua Islands, Kayak in Kualoa to Mokoliʻi (Chinaman's Hat), Kayak near Kāneʻohe Bay, or Explore the jungle river of Kahana.</p>
+        <a href={bookingLink} class="btn-primary hero-cta" data-booking>
+          Book Online
+        </a>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <img src="/wp-content/uploads/2023/06/AOT-Featured-Images-2.jpg" alt="Kayaking adventure in Kailua, Oahu" width="600" height="400" />
+        </div>
+        <div class="hero-card-overlay">
+          <a href="/activities/chinamans-hat-self-guided-oahu-kayak-tour/">
+            <strong>Mokoliʻi (Chinaman's Hat)</strong>
+            <span>Kayak Tour</span>
+          </a>
+        </div>
+        <div class="hero-card-overlay">
+          <a href="/activities/mokulua-islands-kailua-kayak-tour/">
+            <strong>Mokulua Islands</strong>
+            <span>Kayak Tour</span>
+          </a>
+        </div>
+        <div class="hero-card-overlay">
+          <a href="/activities/kawela-bay-self-guided-kayak-tour/">
+            <strong>Kawela Bay</strong>
+            <span>Kayak Tour</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        {activities.map((item) => (
+          <div class="feature-item">
+            <a href={item.href}>
+              <div class="feature-img">
+                <img src={item.img} alt={item.imgAlt} width="200" height="115" loading="lazy" />
+              </div>
+            </a>
+            <a href={item.href}>
+              <h3 class="feature-title">{item.title}</h3>
+            </a>
+            <p class="feature-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section class="info-strip">
+    <div class="container">
+      <p class="info-strip-text">
+        Skip the stress and hassle. We deliver kayaks, snorkel gear, standup paddleboards, surfboards, and more to your address or beach.
+      </p>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="booking-cta-section">
+    <div class="container">
+      <div class="booking-cta-box">
+        <h2>Ready for Your Oʻahu Adventure?</h2>
+        <p>Reserve your kayak, e-bike, or beach gear today. Same-day bookings available.</p>
+        <a href={bookingLink} class="btn-primary" data-booking>
+          Book Online Now
+        </a>
+        <p class="booking-phone">Or call <a href="tel:+18084981894">(808)498-1894</a></p>
+      </div>
+    </div>
+  </section>
+</SiteShell>
+
+<script>
+// FareHarbor booking lightbox — matches existing site behavior
+document.querySelectorAll('[data-booking]').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    if (typeof FH !== 'undefined') {
+      e.preventDefault();
+      FH.open({ shortname: 'activeoahutours', fallback: 'simple' });
+      return false;
+    }
+    // Allow default navigation if FH not loaded
+  });
+});
+</script>
+
+<style>
+  /* ─── HERO ─── */
+  .hero {
+    background: #1a3557;
+    color: #fff;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.8rem;
+    margin: 0 0 0.5rem;
+    color: #fff;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    color: #e0e0e0;
+  }
+
+  .hero-text p {
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .nowrap { white-space: nowrap; }
+
+  .hero-cards {
+    position: relative;
+  }
+
+  .hero-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .hero-card-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-card-overlay a {
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-card-overlay a:hover {
+    background: rgba(0,102,204,0.8);
+  }
+
+  /* ─── FEATURES ─── */
+  .features-section {
+    background: #fff;
+    padding: 3rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-item { text-align: center; }
+
+  .feature-img img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .feature-img img:hover { opacity: 0.85; }
+
+  .feature-title {
+    font-size: 1.1rem;
+    margin: 0.75rem 0 0.5rem;
+    color: #0066cc;
+  }
+
+  .feature-desc {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ─── INFO STRIP ─── */
+  .info-strip {
+    background: #f0f4f8;
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .info-strip-text {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  /* ─── BOOKING CTA ─── */
+  .booking-cta-section {
+    background: #0066cc;
+    color: #fff;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .booking-cta-box h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .booking-cta-box p {
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    opacity: 0.9;
+  }
+
+  .booking-cta-box .btn-primary {
+    background: #e87121;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 14px 32px;
+  }
+
+  .booking-cta-box .btn-primary:hover {
+    background: #d45f15;
+  }
+
+  .booking-phone {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .booking-phone a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-card-overlay {
+      position: static;
+      margin-top: 0.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+</style>

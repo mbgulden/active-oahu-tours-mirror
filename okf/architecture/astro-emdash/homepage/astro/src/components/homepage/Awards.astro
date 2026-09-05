@@ -1,0 +1,124 @@
+---
+import Section from "../primitives/Section.astro";
+
+interface AwardImage {
+  src: string;
+  alt: string;
+  width?: string;
+}
+
+interface Props {
+  h2: string;
+  awardText: string;
+  awardImages: AwardImage[];
+  subheading?: string;
+}
+
+const {
+  h2,
+  awardText,
+  awardImages,
+  subheading = "Active Oahu, LLC Wins 2022 Tripadvisor Travelers' Choice Award for Tours and Activities",
+} = Astro.props;
+---
+
+<Section
+  palette="white"
+  region="Awards"
+  padding="lg"
+  container={false}
+  class="awards-section"
+>
+  <div class="awards-section__container">
+    <div class="awards-section__row">
+      <div class="awards-section__image-col">
+        <div class="awards-section__logos">
+          {awardImages.map((img) => (
+            <img
+              loading="lazy"
+              decoding="async"
+              width={img.width || "170"}
+              height="auto"
+              src={img.src}
+              alt={img.alt}
+            />
+          ))}
+        </div>
+      </div>
+      <div class="awards-section__text-col">
+        <h2 id="awards-heading" class="awards-section__heading">{h2}</h2>
+        <h3 class="awards-section__subheading">{subheading}</h3>
+        <p class="awards-section__text">{awardText}</p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style is:global>
+  .awards-section__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--aot-container-padding);
+  }
+  .awards-section__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .awards-section__image-col {
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+  .awards-section__text-col {
+    flex: 0 0 67%;
+    max-width: 67%;
+  }
+  .awards-section__logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--aot-space-4);
+  }
+  .awards-section__logos img {
+    max-width: 170px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .awards-section__heading {
+    font-size: 1.8rem;
+    font-family: var(--aot-font-heading);
+    font-weight: 700;
+    color: var(--aot-navy);
+    margin: 0 0 var(--aot-space-2);
+    text-align: left;
+  }
+  .awards-section__subheading {
+    font-size: 1.1rem;
+    font-family: var(--aot-font-body);
+    font-weight: 600;
+    color: var(--aot-gray-800);
+    margin: 0 0 var(--aot-space-3);
+    text-align: left;
+  }
+  .awards-section__text {
+    font-family: var(--aot-font-body);
+    font-size: 1rem;
+    color: var(--aot-gray-700);
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    .awards-section__image-col,
+    .awards-section__text-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .awards-section__image-col {
+      margin-bottom: var(--aot-space-5);
+    }
+  }
+</style>
